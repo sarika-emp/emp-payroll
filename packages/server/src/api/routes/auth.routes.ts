@@ -2,6 +2,7 @@ import { Router } from "express";
 import { AuthService } from "../../services/auth.service";
 import { validate, loginSchema, registerSchema } from "../validators";
 import { wrap } from "../helpers";
+import { authenticate, authorize } from "../middleware/auth.middleware";
 
 const router = Router();
 const auth = new AuthService();
@@ -37,5 +38,17 @@ router.post("/forgot-password", (_req, res) => {
 router.post("/reset-password", (_req, res) => {
   res.json({ success: true, data: { message: "Password reset successful" } });
 });
+
+// Password change (self-service)
+router.post("/change-password", authenticate, wrap(async (req, res) => {
+  await auth.changePassword(req.user!.userId, req.body.currentPassword, req.body.newPassword);
+  res.json({ success: true, data: { message: "Password changed successfully" } });
+}));
+
+// Admin reset password
+router.post("/reset-employee-password", authenticate, authorize("hr_admin"), wrap(async (req, res) => {
+  await auth.adminResetPassword(req.body.employeeId, req.body.newPassword);
+  res.json({ success: true, data: { message: "Password reset successfully" } });
+}));
 
 export { router as authRoutes };

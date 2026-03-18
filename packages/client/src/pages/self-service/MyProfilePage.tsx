@@ -1,13 +1,21 @@
+import { useState } from "react";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/Card";
 import { Avatar } from "@/components/ui/Avatar";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Modal } from "@/components/ui/Modal";
 import { formatDate } from "@/lib/utils";
 import { useMyProfile } from "@/api/hooks";
-import { User, Building2, CreditCard, Shield, Loader2 } from "lucide-react";
+import { apiPost } from "@/api/client";
+import { User, Building2, CreditCard, Shield, Loader2, Key } from "lucide-react";
+import toast from "react-hot-toast";
 
 export function MyProfilePage() {
   const { data: res, isLoading } = useMyProfile();
+  const [pwOpen, setPwOpen] = useState(false);
+  const [pwLoading, setPwLoading] = useState(false);
 
   if (isLoading) {
     return <div className="flex h-64 items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-brand-600" /></div>;
@@ -116,6 +124,51 @@ export function MyProfilePage() {
           </dl>
         </CardContent>
       </Card>
+
+      {/* Security */}
+      <Card>
+        <CardHeader><CardTitle className="flex items-center gap-2"><Key className="h-5 w-5" /> Security</CardTitle></CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-gray-900">Password</p>
+              <p className="text-xs text-gray-500">Change your account password</p>
+            </div>
+            <Button variant="outline" size="sm" onClick={() => setPwOpen(true)}>
+              Change Password
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Modal open={pwOpen} onClose={() => setPwOpen(false)} title="Change Password" className="max-w-sm">
+        <form onSubmit={async (e) => {
+          e.preventDefault();
+          const fd = new FormData(e.currentTarget);
+          const newPw = fd.get("newPassword") as string;
+          const confirmPw = fd.get("confirmPassword") as string;
+          if (newPw !== confirmPw) { toast.error("Passwords don't match"); return; }
+          setPwLoading(true);
+          try {
+            await apiPost("/auth/change-password", {
+              currentPassword: fd.get("currentPassword"),
+              newPassword: newPw,
+            });
+            toast.success("Password changed");
+            setPwOpen(false);
+          } catch (err: any) {
+            toast.error(err.response?.data?.error?.message || "Failed to change password");
+          } finally { setPwLoading(false); }
+        }} className="space-y-4">
+          <Input id="currentPassword" name="currentPassword" label="Current Password" type="password" required />
+          <Input id="newPassword" name="newPassword" label="New Password" type="password" required />
+          <Input id="confirmPassword" name="confirmPassword" label="Confirm New Password" type="password" required />
+          <div className="flex justify-end gap-3">
+            <Button variant="outline" type="button" onClick={() => setPwOpen(false)}>Cancel</Button>
+            <Button type="submit" loading={pwLoading}>Change Password</Button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 }

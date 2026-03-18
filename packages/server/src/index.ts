@@ -22,6 +22,8 @@ import { attendanceRoutes } from "./api/routes/attendance.routes";
 import { orgRoutes } from "./api/routes/org.routes";
 import { selfServiceRoutes } from "./api/routes/self-service.routes";
 import { errorHandler } from "./api/middleware/error.middleware";
+import { apiDocsHandler, swaggerUIHandler } from "./api/docs";
+import { authLimiter, apiLimiter } from "./api/middleware/rate-limit.middleware";
 
 const app = express();
 
@@ -59,8 +61,9 @@ app.get("/health", (_req, res) => {
 // API Routes (v1)
 // ---------------------------------------------------------------------------
 const v1 = express.Router();
+v1.use(apiLimiter);
 
-v1.use("/auth", authRoutes);
+v1.use("/auth", authLimiter, authRoutes);
 v1.use("/organizations", orgRoutes);
 v1.use("/employees", employeeRoutes);
 v1.use("/salary-structures", salaryRoutes);
@@ -69,6 +72,8 @@ v1.use("/payslips", payslipRoutes);
 v1.use("/tax", taxRoutes);
 v1.use("/attendance", attendanceRoutes);
 v1.use("/self-service", selfServiceRoutes);
+v1.get("/docs/openapi.json", apiDocsHandler);
+v1.get("/docs", swaggerUIHandler);
 
 app.use("/api/v1", v1);
 

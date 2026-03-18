@@ -13,52 +13,47 @@ jobs:
       matrix:
         node-version: [20, 22]
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: test_password
-          MYSQL_DATABASE: emp_payroll_test
-        ports:
-          - 3306:3306
-        options: >-
-          --health-cmd "mysqladmin ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-      redis:
-        image: redis:7-alpine
-        ports:
-          - 6379:6379
-
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
+          cache: pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: npm run lint --if-present
+      - name: Type check (shared)
+        run: pnpm --filter @emp-payroll/shared exec tsc --noEmit
 
-      - name: Run server tests
-        run: npm run test:server
-        env:
-          DB_PROVIDER: mysql
-          DB_HOST: localhost
-          DB_PORT: 3306
-          DB_USER: root
-          DB_PASSWORD: test_password
-          DB_NAME: emp_payroll_test
-          REDIS_HOST: localhost
-          REDIS_PORT: 6379
-          JWT_SECRET: test-secret-key
+      - name: Type check (server)
+        run: pnpm --filter @emp-payroll/server exec tsc --noEmit
 
-      - name: Build
-        run: npm run build
+      - name: Type check (client)
+        run: pnpm --filter @emp-payroll/client exec tsc --noEmit
+
+      - name: Run server unit tests
+        run: pnpm --filter @emp-payroll/server test
+
+      - name: Build client
+        run: pnpm --filter @emp-payroll/client build
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: lint-and-test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker images
+        run: |
+          docker compose -f docker-compose.prod.yml build --no-cache
+          echo "Docker images built successfully"

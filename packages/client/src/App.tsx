@@ -1,41 +1,41 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { getUser } from "@/api/auth";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { ThemeProvider } from "@/lib/theme";
+import { Loader2 } from "lucide-react";
 
-// Layouts
+// Layouts (eagerly loaded — always needed)
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { AuthLayout } from "@/components/layout/AuthLayout";
 import { SelfServiceLayout } from "@/components/layout/SelfServiceLayout";
 
-// Auth pages
-import { LoginPage } from "@/pages/auth/LoginPage";
-
-// Admin / HR pages
-import { DashboardPage } from "@/pages/dashboard/DashboardPage";
-import { EmployeeListPage } from "@/pages/employees/EmployeeListPage";
-import { EmployeeDetailPage } from "@/pages/employees/EmployeeDetailPage";
-import { EmployeeCreatePage } from "@/pages/employees/EmployeeCreatePage";
-import { SalaryStructuresPage } from "@/pages/payroll/SalaryStructuresPage";
-import { PayrollRunsPage } from "@/pages/payroll/PayrollRunsPage";
-import { PayrollRunDetailPage } from "@/pages/payroll/PayrollRunDetailPage";
-import { PayslipListPage } from "@/pages/payslips/PayslipListPage";
-import { TaxOverviewPage } from "@/pages/tax/TaxOverviewPage";
-import { AttendancePage } from "@/pages/attendance/AttendancePage";
-import { SettingsPage } from "@/pages/settings/SettingsPage";
-import { PayrollAnalyticsPage } from "@/pages/payroll/PayrollAnalyticsPage";
-import { NotFoundPage } from "@/pages/NotFoundPage";
-import { AuditLogPage } from "@/pages/audit/AuditLogPage";
-
-// Employee self-service pages
-import { SelfServiceDashboard } from "@/pages/self-service/SelfServiceDashboard";
-import { MyPayslipsPage } from "@/pages/self-service/MyPayslipsPage";
-import { MySalaryPage } from "@/pages/self-service/MySalaryPage";
-import { MyTaxPage } from "@/pages/self-service/MyTaxPage";
-import { MyDeclarationsPage } from "@/pages/self-service/MyDeclarationsPage";
-import { MyProfilePage } from "@/pages/self-service/MyProfilePage";
+// Lazy-loaded pages
+const LoginPage = lazy(() => import("@/pages/auth/LoginPage").then((m) => ({ default: m.LoginPage })));
+const DashboardPage = lazy(() => import("@/pages/dashboard/DashboardPage").then((m) => ({ default: m.DashboardPage })));
+const EmployeeListPage = lazy(() => import("@/pages/employees/EmployeeListPage").then((m) => ({ default: m.EmployeeListPage })));
+const EmployeeDetailPage = lazy(() => import("@/pages/employees/EmployeeDetailPage").then((m) => ({ default: m.EmployeeDetailPage })));
+const EmployeeCreatePage = lazy(() => import("@/pages/employees/EmployeeCreatePage").then((m) => ({ default: m.EmployeeCreatePage })));
+const SalaryStructuresPage = lazy(() => import("@/pages/payroll/SalaryStructuresPage").then((m) => ({ default: m.SalaryStructuresPage })));
+const PayrollRunsPage = lazy(() => import("@/pages/payroll/PayrollRunsPage").then((m) => ({ default: m.PayrollRunsPage })));
+const PayrollRunDetailPage = lazy(() => import("@/pages/payroll/PayrollRunDetailPage").then((m) => ({ default: m.PayrollRunDetailPage })));
+const PayrollAnalyticsPage = lazy(() => import("@/pages/payroll/PayrollAnalyticsPage").then((m) => ({ default: m.PayrollAnalyticsPage })));
+const PayslipListPage = lazy(() => import("@/pages/payslips/PayslipListPage").then((m) => ({ default: m.PayslipListPage })));
+const TaxOverviewPage = lazy(() => import("@/pages/tax/TaxOverviewPage").then((m) => ({ default: m.TaxOverviewPage })));
+const AttendancePage = lazy(() => import("@/pages/attendance/AttendancePage").then((m) => ({ default: m.AttendancePage })));
+const SettingsPage = lazy(() => import("@/pages/settings/SettingsPage").then((m) => ({ default: m.SettingsPage })));
+const AuditLogPage = lazy(() => import("@/pages/audit/AuditLogPage").then((m) => ({ default: m.AuditLogPage })));
+const NotFoundPage = lazy(() => import("@/pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })));
+const ReportsPage = lazy(() => import("@/pages/reports/ReportsPage").then((m) => ({ default: m.ReportsPage })));
+const OnboardingPage = lazy(() => import("@/pages/onboarding/OnboardingPage").then((m) => ({ default: m.OnboardingPage })));
+const SelfServiceDashboard = lazy(() => import("@/pages/self-service/SelfServiceDashboard").then((m) => ({ default: m.SelfServiceDashboard })));
+const MyPayslipsPage = lazy(() => import("@/pages/self-service/MyPayslipsPage").then((m) => ({ default: m.MyPayslipsPage })));
+const MySalaryPage = lazy(() => import("@/pages/self-service/MySalaryPage").then((m) => ({ default: m.MySalaryPage })));
+const MyTaxPage = lazy(() => import("@/pages/self-service/MyTaxPage").then((m) => ({ default: m.MyTaxPage })));
+const MyDeclarationsPage = lazy(() => import("@/pages/self-service/MyDeclarationsPage").then((m) => ({ default: m.MyDeclarationsPage })));
+const MyProfilePage = lazy(() => import("@/pages/self-service/MyProfilePage").then((m) => ({ default: m.MyProfilePage })));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -43,7 +43,14 @@ const queryClient = new QueryClient({
   },
 });
 
-/** Redirects based on role: admins → /dashboard, employees → /my */
+function PageLoader() {
+  return (
+    <div className="flex h-64 items-center justify-center">
+      <Loader2 className="h-8 w-8 animate-spin text-brand-600" />
+    </div>
+  );
+}
+
 function RoleRedirect() {
   const user = getUser();
   if (!user) return <Navigate to="/login" replace />;
@@ -60,45 +67,31 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <CommandPalette />
+        <Suspense fallback={<PageLoader />}>
         <Routes>
-          {/* ----- Auth ----- */}
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
           </Route>
 
-          {/* ----- Root redirect ----- */}
           <Route path="/" element={<RoleRedirect />} />
 
-          {/* ----- Admin / HR Dashboard ----- */}
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
-
-            {/* Employees */}
             <Route path="/employees" element={<EmployeeListPage />} />
             <Route path="/employees/new" element={<EmployeeCreatePage />} />
             <Route path="/employees/:id" element={<EmployeeDetailPage />} />
-
-            {/* Payroll */}
             <Route path="/payroll/structures" element={<SalaryStructuresPage />} />
             <Route path="/payroll/runs" element={<PayrollRunsPage />} />
             <Route path="/payroll/runs/:id" element={<PayrollRunDetailPage />} />
             <Route path="/payroll/analytics" element={<PayrollAnalyticsPage />} />
-
-            {/* Payslips */}
             <Route path="/payslips" element={<PayslipListPage />} />
-
-            {/* Tax */}
             <Route path="/tax" element={<TaxOverviewPage />} />
-
-            {/* Attendance */}
             <Route path="/attendance" element={<AttendancePage />} />
-
-            {/* Settings & Audit */}
+            <Route path="/reports" element={<ReportsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/audit" element={<AuditLogPage />} />
           </Route>
 
-          {/* ----- Employee Self-Service Portal ----- */}
           <Route element={<SelfServiceLayout />}>
             <Route path="/my" element={<SelfServiceDashboard />} />
             <Route path="/my/payslips" element={<MyPayslipsPage />} />
@@ -107,9 +100,11 @@ export default function App() {
             <Route path="/my/declarations" element={<MyDeclarationsPage />} />
             <Route path="/my/profile" element={<MyProfilePage />} />
           </Route>
-          {/* 404 Catch-all */}
+
+          <Route path="/onboarding" element={<OnboardingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </QueryClientProvider>
     </ThemeProvider>

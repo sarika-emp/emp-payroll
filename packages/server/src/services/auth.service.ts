@@ -108,6 +108,31 @@ export class AuthService {
     }
   }
 
+  async changePassword(userId: string, currentPassword: string, newPassword: string): Promise<void> {
+    const employee = await this.db.findById<any>("employees", userId);
+    if (!employee) throw new AppError(404, "NOT_FOUND", "User not found");
+
+    if (employee.password_hash) {
+      const valid = await bcrypt.compare(currentPassword, employee.password_hash);
+      if (!valid) throw new AppError(401, "INVALID_PASSWORD", "Current password is incorrect");
+    }
+
+    if (newPassword.length < 8) {
+      throw new AppError(400, "WEAK_PASSWORD", "Password must be at least 8 characters");
+    }
+
+    const hash = await bcrypt.hash(newPassword, 12);
+    await this.db.update("employees", userId, { password_hash: hash });
+  }
+
+  async adminResetPassword(employeeId: string, newPassword: string): Promise<void> {
+    const employee = await this.db.findById<any>("employees", employeeId);
+    if (!employee) throw new AppError(404, "NOT_FOUND", "Employee not found");
+
+    const hash = await bcrypt.hash(newPassword || "Welcome@123", 12);
+    await this.db.update("employees", employeeId, { password_hash: hash });
+  }
+
   private generateTokens(payload: AuthPayload): TokenPair {
     const accessToken = jwt.sign(
       { ...payload, type: "access" },

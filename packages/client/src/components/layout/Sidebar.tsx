@@ -25,6 +25,7 @@ const navItems = [
   { to: "/payslips", label: "Payslips", icon: FileText },
   { to: "/tax", label: "Tax", icon: Calculator },
   { to: "/attendance", label: "Attendance", icon: CalendarDays },
+  { to: "/reports", label: "Reports", icon: FileText },
   { to: "/audit", label: "Audit Log", icon: ScrollText },
   { to: "/settings", label: "Settings", icon: Settings },
 ];
