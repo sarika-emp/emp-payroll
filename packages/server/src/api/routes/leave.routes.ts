@@ -28,9 +28,9 @@ router.get("/my-balance", wrap(async (req, res) => {
   res.json({ success: true, data });
 }));
 
-// Cancel my leave
+// Cancel leave (employee — immediate, no admin approval needed)
 router.post("/:id/cancel", wrap(async (req, res) => {
-  const data = await svc.cancelLeave(param(req, "id"), req.user!.userId);
+  const data = await svc.cancelLeave(param(req, "id"), req.user!.userId, req.body.reason || "");
   res.json({ success: true, data });
 }));
 
@@ -51,6 +51,16 @@ router.post("/:id/approve", authorize("hr_admin", "hr_manager"), wrap(async (req
 // Reject leave
 router.post("/:id/reject", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
   const data = await svc.rejectLeave(param(req, "id"), req.user!.userId, req.body.remarks);
+  res.json({ success: true, data });
+}));
+
+
+// Leave summary for attendance sync
+router.get("/attendance-sync", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
+  const month = Number(req.query.month);
+  const year = Number(req.query.year);
+  if (!month || !year) throw new Error("month and year required");
+  const data = await svc.getLeaveSummaryForMonth(req.user!.orgId, month, year);
   res.json({ success: true, data });
 }));
 

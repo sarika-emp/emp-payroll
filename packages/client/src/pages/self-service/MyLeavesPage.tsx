@@ -28,6 +28,8 @@ const STATUS_COLORS: Record<string, "green" | "yellow" | "red" | "gray"> = {
 
 export function MyLeavesPage() {
   const [showApply, setShowApply] = useState(false);
+  const [showCancel, setShowCancel] = useState<string | null>(null);
+  const [cancelReason, setCancelReason] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [filter, setFilter] = useState("all");
   const qc = useQueryClient();
@@ -72,15 +74,20 @@ export function MyLeavesPage() {
     }
   }
 
-  async function handleCancel(id: string) {
-    if (!confirm("Cancel this leave request?")) return;
+  async function handleCancel() {
+    if (!showCancel) return;
+    setSubmitting(true);
     try {
-      await apiPost(`/leaves/${id}/cancel`);
-      toast.success("Leave cancelled");
+      await apiPost(`/leaves/${showCancel}/cancel`, { reason: cancelReason });
+      toast.success("Leave cancelled successfully. Balance restored.");
+      setShowCancel(null);
+      setCancelReason("");
       qc.invalidateQueries({ queryKey: ["my-leave-requests"] });
       qc.invalidateQueries({ queryKey: ["my-leave-balance"] });
     } catch (err: any) {
       toast.error(err.response?.data?.error?.message || "Failed to cancel");
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -164,9 +171,11 @@ export function MyLeavesPage() {
                 )},
                 { key: "actions", header: "", render: (r: any) => (
                   (r.status === "pending" || r.status === "approved") ? (
-                    <Button variant="ghost" size="sm" onClick={() => handleCancel(r.id)}>
+                    <Button variant="ghost" size="sm" onClick={() => { setShowCancel(r.id); setCancelReason(""); }} title="Cancel leave">
                       <X className="h-4 w-4 text-red-500" />
                     </Button>
+                  ) : r.cancellation_reason ? (
+                    <span className="text-xs text-gray-400 italic">Cancelled: {r.cancellation_reason}</span>
                   ) : null
                 )},
               ]}
@@ -220,6 +229,36 @@ export function MyLeavesPage() {
             </Button>
           </div>
         </form>
+      </Modal>
+
+      {/* Cancel Leave Modal */}
+      <Modal open={!!showCancel} onClose={() => setShowCancel(null)} title="Cancel Leave">
+        <div className="space-y-4">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Are you sure you want to cancel this leave? If the leave was already approved, your balance will be restored and attendance will be updated.
+          </p>
+          <div>
+            <label htmlFor="cancelReason" className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Reason for cancellation
+            </label>
+            <textarea
+              id="cancelReason"
+              value={cancelReason}
+              onChange={(e) => setCancelReason(e.target.value)}
+              required
+              rows={3}
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+              placeholder="Why are you cancelling this leave?"
+            />
+          </div>
+          <div className="flex justify-end gap-2">
+            <Button variant="outline" onClick={() => setShowCancel(null)}>Go Back</Button>
+            <Button variant="danger" onClick={handleCancel} disabled={submitting || !cancelReason.trim()}>
+              {submitting ? <Loader2 className="mr-1 h-4 w-4 animate-spin" /> : null}
+              Confirm Cancellation
+            </Button>
+          </div>
+        </div>
       </Modal>
     </div>
   );
