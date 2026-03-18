@@ -129,6 +129,18 @@ export function PayrollRunDetailPage() {
             <Button variant="ghost" onClick={() => navigate("/payroll/runs")}>
               <ArrowLeft className="h-4 w-4" /> Back
             </Button>
+            {(run.status === "draft" || run.status === "computed") && (
+              <Button variant="outline" className="text-red-500 hover:text-red-700" onClick={async () => {
+                if (!confirm("Cancel this payroll run? This cannot be undone.")) return;
+                try {
+                  await apiPost(`/payroll/${id}/cancel`);
+                  toast.success("Payroll run cancelled");
+                  navigate("/payroll/runs");
+                } catch (err: any) { toast.error(err.response?.data?.error?.message || "Failed to cancel"); }
+              }}>
+                Cancel Run
+              </Button>
+            )}
             {run.status === "draft" && (
               <Button onClick={handleCompute} loading={computeMutation.isPending}>
                 <Play className="h-4 w-4" /> Compute Payroll

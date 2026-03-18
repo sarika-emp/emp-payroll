@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { formatCurrency, formatMonth } from "@/lib/utils";
 import { useSelfDashboard } from "@/api/hooks";
 import { getUser } from "@/api/auth";
-import { Wallet, IndianRupee, FileText, Calendar, ArrowRight, Loader2 } from "lucide-react";
+import { Wallet, IndianRupee, FileText, Calendar, ArrowRight, Loader2, Receipt, User } from "lucide-react";
 
 export function SelfServiceDashboard() {
   const navigate = useNavigate();
@@ -79,6 +79,8 @@ export function SelfServiceDashboard() {
           { label: "View Salary Breakdown", to: "/my/salary", icon: Wallet },
           { label: "Tax Computation", to: "/my/tax", icon: IndianRupee },
           { label: "Submit Declarations", to: "/my/declarations", icon: FileText },
+          { label: "Reimbursements", to: "/my/reimbursements", icon: Receipt },
+          { label: "My Profile", to: "/my/profile", icon: User },
         ].map((link) => (
           <button
             key={link.to}
