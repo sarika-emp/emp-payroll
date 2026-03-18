@@ -102,10 +102,18 @@ export class LeaveService {
     });
 
     if (!balance) throw new AppError(404, "NOT_FOUND", "Leave balance not found");
-    return this.db.update("leave_balances", balance.id, {
-      accrued: Number(balance.accrued) + adjustment,
+
+    // If positive adjustment (restoring days on cancellation), decrease used count
+    const updates: any = {
       closing_balance: Number(balance.closing_balance) + adjustment,
-    });
+    };
+    if (adjustment > 0) {
+      updates.used = Math.max(0, Number(balance.used) - adjustment);
+    } else {
+      updates.accrued = Number(balance.accrued) + adjustment;
+    }
+
+    return this.db.update("leave_balances", balance.id, updates);
   }
 
   // -------------------------------------------------------------------------
