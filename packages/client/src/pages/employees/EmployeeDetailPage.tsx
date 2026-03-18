@@ -184,6 +184,40 @@ export function EmployeeDetailPage() {
           </CardContent>
         </Card>
 
+        {/* YTD Summary */}
+        {payslips.length > 0 && (() => {
+          const now = new Date();
+          const fyStart = now.getMonth() >= 3 ? now.getFullYear() : now.getFullYear() - 1;
+          const fyPayslips = payslips.filter((p: any) =>
+            (p.year > fyStart) || (p.year === fyStart && p.month >= 4)
+          );
+          const ytdGross = fyPayslips.reduce((s: number, p: any) => s + Number(p.gross_earnings || 0), 0);
+          const ytdDed = fyPayslips.reduce((s: number, p: any) => s + Number(p.total_deductions || 0), 0);
+          const ytdNet = fyPayslips.reduce((s: number, p: any) => s + Number(p.net_pay || 0), 0);
+          return (
+            <Card>
+              <CardHeader><CardTitle>YTD Summary (FY {fyStart}-{fyStart + 1})</CardTitle></CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <p className="text-xs text-gray-500">Gross Earnings</p>
+                    <p className="text-lg font-bold text-gray-900">{formatCurrency(ytdGross)}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500">Total Deductions</p>
+                    <p className="text-lg font-bold text-red-600">{formatCurrency(ytdDed)}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500">Net Pay</p>
+                    <p className="text-lg font-bold text-brand-700">{formatCurrency(ytdNet)}</p>
+                  </div>
+                </div>
+                <p className="mt-2 text-xs text-gray-400 text-center">{fyPayslips.length} payslips processed</p>
+              </CardContent>
+            </Card>
+          );
+        })()}
+
         <Card>
           <CardHeader><CardTitle>Recent Payslips</CardTitle></CardHeader>
           <CardContent>

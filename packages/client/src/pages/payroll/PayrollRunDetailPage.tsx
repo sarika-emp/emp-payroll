@@ -8,6 +8,7 @@ import { DataTable } from "@/components/ui/DataTable";
 import { formatCurrency, formatMonth } from "@/lib/utils";
 import { usePayrollRun, useRunPayslips, useComputePayroll, useApprovePayroll, usePayPayroll } from "@/api/hooks";
 import { ArrowLeft, Users, Wallet, TrendingDown, Building2, CheckCircle, Play, Loader2, CreditCard, Download, Mail, AlertTriangle } from "lucide-react";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import { api, apiPost } from "@/api/client";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -182,6 +183,57 @@ export function PayrollRunDetailPage() {
         <StatCard title="Deductions" value={Number(run.total_deductions) ? formatCurrency(run.total_deductions) : "—"} icon={TrendingDown} />
         <StatCard title="Net Pay" value={Number(run.total_net) ? formatCurrency(run.total_net) : "—"} icon={Building2} />
       </div>
+
+      {/* Cost Breakdown */}
+      {Number(run.total_gross) > 0 && (() => {
+        const data = [
+          { name: "Net Pay", value: Number(run.total_net), fill: "#6366F1" },
+          { name: "Deductions", value: Number(run.total_deductions), fill: "#F59E0B" },
+          { name: "Employer Cost", value: Number(run.total_employer_contributions || 0), fill: "#10B981" },
+        ].filter((d) => d.value > 0);
+        return (
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <Card>
+              <CardHeader><CardTitle>Cost Breakdown</CardTitle></CardHeader>
+              <CardContent>
+                <div className="h-48">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }: any) => `${name} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
+                        {data.map((entry, i) => <Cell key={i} fill={entry.fill} />)}
+                      </Pie>
+                      <Tooltip formatter={(v: number) => formatCurrency(v)} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader><CardTitle>Department Breakdown</CardTitle></CardHeader>
+              <CardContent>
+                {(() => {
+                  const deptMap: Record<string, number> = {};
+                  for (const p of payslips) {
+                    const dept = (p as any).department || "Other";
+                    deptMap[dept] = (deptMap[dept] || 0) + Number((p as any).net_pay || 0);
+                  }
+                  const deptData = Object.entries(deptMap).map(([dept, amount]) => ({ dept, amount })).sort((a, b) => b.amount - a.amount);
+                  return (
+                    <div className="space-y-2">
+                      {deptData.map(({ dept, amount }) => (
+                        <div key={dept} className="flex items-center justify-between">
+                          <span className="text-sm text-gray-700">{dept}</span>
+                          <span className="text-sm font-semibold text-gray-900">{formatCurrency(amount)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
+              </CardContent>
+            </Card>
+          </div>
+        );
+      })()}
 
       {/* Variance Alerts */}
       {payslips.length > 0 && (() => {
