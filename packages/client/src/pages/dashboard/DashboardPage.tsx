@@ -90,6 +90,30 @@ export function DashboardPage() {
         }
       />
 
+      {/* Quick actions */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+        {[
+          { label: "Run Payroll", icon: Play, path: "/payroll/runs", color: "bg-brand-50 text-brand-700" },
+          { label: "Add Employee", icon: UserPlus, path: "/employees/new", color: "bg-green-50 text-green-700" },
+          { label: "View Reports", icon: TrendingUp, path: "/reports", color: "bg-amber-50 text-amber-700" },
+          { label: "Payslips", icon: CreditCard, path: "/payslips", color: "bg-purple-50 text-purple-700" },
+          { label: "Attendance", icon: Clock, path: "/attendance", color: "bg-blue-50 text-blue-700" },
+          { label: "Settings", icon: AlertCircle, path: "/settings", color: "bg-gray-50 text-gray-700" },
+        ].map((action) => {
+          const Icon = action.icon;
+          return (
+            <button
+              key={action.path}
+              onClick={() => navigate(action.path)}
+              className={`flex items-center gap-2.5 rounded-xl border border-gray-100 px-4 py-3 text-left transition-all hover:shadow-md dark:border-gray-700 ${action.color}`}
+            >
+              <Icon className="h-4 w-4" />
+              <span className="text-sm font-medium">{action.label}</span>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Stat cards */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard

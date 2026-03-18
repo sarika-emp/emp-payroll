@@ -56,6 +56,21 @@ const columns = [
     header: "Status",
     render: (row: any) => <Badge variant={row.status}>{row.status}</Badge>,
   },
+  {
+    key: "actions",
+    header: "",
+    render: (row: any) => (
+      <a
+        href={`${import.meta.env.VITE_API_URL || "/api/v1"}/payslips/${row.id}/pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-brand-600 hover:text-brand-700 text-xs font-medium"
+        onClick={(e) => e.stopPropagation()}
+      >
+        View Payslip
+      </a>
+    ),
+  },
 ];
 
 export function PayrollRunDetailPage() {
