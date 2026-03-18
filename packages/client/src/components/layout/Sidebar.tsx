@@ -14,6 +14,8 @@ import {
   DollarSign,
   BarChart3,
   ScrollText,
+  Receipt,
+  Calendar,
 } from "lucide-react";
 
 const navItems = [
@@ -25,6 +27,8 @@ const navItems = [
   { to: "/payslips", label: "Payslips", icon: FileText },
   { to: "/tax", label: "Tax", icon: Calculator },
   { to: "/attendance", label: "Attendance", icon: CalendarDays },
+  { to: "/reimbursements", label: "Reimbursements", icon: Receipt },
+  { to: "/holidays", label: "Holidays", icon: Calendar },
   { to: "/reports", label: "Reports", icon: FileText },
   { to: "/audit", label: "Audit Log", icon: ScrollText },
   { to: "/settings", label: "Settings", icon: Settings },

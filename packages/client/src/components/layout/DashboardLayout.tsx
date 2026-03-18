@@ -3,6 +3,7 @@ import { Outlet, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { Sidebar } from "./Sidebar";
 import { Search, Loader2, Menu } from "lucide-react";
 import { NotificationBell } from "@/components/ui/NotificationBell";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Avatar } from "@/components/ui/Avatar";
 import { isLoggedIn, getUser } from "@/api/auth";
@@ -66,6 +67,7 @@ export function DashboardLayout() {
 
         {/* Page content */}
         <main className="flex-1 overflow-y-auto p-4 lg:p-8">
+          <Breadcrumbs />
           <Outlet />
         </main>
       </div>

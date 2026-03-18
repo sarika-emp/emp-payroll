@@ -6,6 +6,7 @@ import { SalaryService } from "../../services/salary.service";
 import { PayslipService } from "../../services/payslip.service";
 import { TaxDeclarationService } from "../../services/tax-declaration.service";
 import { PayslipPDFService } from "../../services/payslip-pdf.service";
+import { ReimbursementService } from "../../services/reimbursement.service";
 
 const router = Router();
 const empSvc = new EmployeeService();
@@ -104,13 +105,16 @@ router.get("/tax/form16", wrap(async (_req, res) => {
 }));
 
 // --- Reimbursements ---
+const reimbSvc = new ReimbursementService();
+
 router.get("/reimbursements", wrap(async (req, res) => {
-  // Placeholder — reimbursement service not yet built
-  res.json({ success: true, data: { data: [], total: 0 } });
+  const data = await reimbSvc.getByEmployee(req.user!.userId);
+  res.json({ success: true, data });
 }));
 
-router.post("/reimbursements", wrap(async (_req, res) => {
-  res.json({ success: true, data: { message: "Reimbursement submission pending" } });
+router.post("/reimbursements", wrap(async (req, res) => {
+  const data = await reimbSvc.submit(req.user!.userId, req.body);
+  res.status(201).json({ success: true, data });
 }));
 
 // --- Profile / Bank ---

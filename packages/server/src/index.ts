@@ -21,6 +21,7 @@ import { taxRoutes } from "./api/routes/tax.routes";
 import { attendanceRoutes } from "./api/routes/attendance.routes";
 import { orgRoutes } from "./api/routes/org.routes";
 import { selfServiceRoutes } from "./api/routes/self-service.routes";
+import { reimbursementRoutes } from "./api/routes/reimbursement.routes";
 import { errorHandler } from "./api/middleware/error.middleware";
 import { apiDocsHandler, swaggerUIHandler } from "./api/docs";
 import { authLimiter, apiLimiter } from "./api/middleware/rate-limit.middleware";
@@ -72,6 +73,7 @@ v1.use("/payslips", payslipRoutes);
 v1.use("/tax", taxRoutes);
 v1.use("/attendance", attendanceRoutes);
 v1.use("/self-service", selfServiceRoutes);
+v1.use("/reimbursements", reimbursementRoutes);
 v1.get("/docs/openapi.json", apiDocsHandler);
 v1.get("/docs", swaggerUIHandler);
 

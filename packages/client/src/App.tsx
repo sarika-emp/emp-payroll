@@ -30,12 +30,15 @@ const AuditLogPage = lazy(() => import("@/pages/audit/AuditLogPage").then((m) =>
 const NotFoundPage = lazy(() => import("@/pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })));
 const ReportsPage = lazy(() => import("@/pages/reports/ReportsPage").then((m) => ({ default: m.ReportsPage })));
 const OnboardingPage = lazy(() => import("@/pages/onboarding/OnboardingPage").then((m) => ({ default: m.OnboardingPage })));
+const ReimbursementsPage = lazy(() => import("@/pages/reimbursements/ReimbursementsPage").then((m) => ({ default: m.ReimbursementsPage })));
+const HolidaysPage = lazy(() => import("@/pages/holidays/HolidaysPage").then((m) => ({ default: m.HolidaysPage })));
 const SelfServiceDashboard = lazy(() => import("@/pages/self-service/SelfServiceDashboard").then((m) => ({ default: m.SelfServiceDashboard })));
 const MyPayslipsPage = lazy(() => import("@/pages/self-service/MyPayslipsPage").then((m) => ({ default: m.MyPayslipsPage })));
 const MySalaryPage = lazy(() => import("@/pages/self-service/MySalaryPage").then((m) => ({ default: m.MySalaryPage })));
 const MyTaxPage = lazy(() => import("@/pages/self-service/MyTaxPage").then((m) => ({ default: m.MyTaxPage })));
 const MyDeclarationsPage = lazy(() => import("@/pages/self-service/MyDeclarationsPage").then((m) => ({ default: m.MyDeclarationsPage })));
 const MyProfilePage = lazy(() => import("@/pages/self-service/MyProfilePage").then((m) => ({ default: m.MyProfilePage })));
+const MyReimbursementsPage = lazy(() => import("@/pages/self-service/MyReimbursementsPage").then((m) => ({ default: m.MyReimbursementsPage })));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -87,6 +90,8 @@ export default function App() {
             <Route path="/payslips" element={<PayslipListPage />} />
             <Route path="/tax" element={<TaxOverviewPage />} />
             <Route path="/attendance" element={<AttendancePage />} />
+            <Route path="/reimbursements" element={<ReimbursementsPage />} />
+            <Route path="/holidays" element={<HolidaysPage />} />
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/audit" element={<AuditLogPage />} />
@@ -98,6 +103,7 @@ export default function App() {
             <Route path="/my/salary" element={<MySalaryPage />} />
             <Route path="/my/tax" element={<MyTaxPage />} />
             <Route path="/my/declarations" element={<MyDeclarationsPage />} />
+            <Route path="/my/reimbursements" element={<MyReimbursementsPage />} />
             <Route path="/my/profile" element={<MyProfilePage />} />
           </Route>
 
