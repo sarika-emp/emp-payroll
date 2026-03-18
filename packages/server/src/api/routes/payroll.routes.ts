@@ -4,13 +4,14 @@ import { BankFileService } from "../../services/bank-file.service";
 import { ReportsService } from "../../services/reports.service";
 import { EmailService } from "../../services/email.service";
 import { authenticate, authorize } from "../middleware/auth.middleware";
+import { enforcePayrollLock } from "../middleware/payroll-lock.middleware";
 import { validate, createPayrollRunSchema } from "../validators";
 import { wrap, param } from "../helpers";
 
 const router = Router();
 const svc = new PayrollService();
 
-router.use(authenticate, authorize("hr_admin", "hr_manager"));
+router.use(authenticate, authorize("hr_admin", "hr_manager"), enforcePayrollLock);
 
 router.get("/", wrap(async (req, res) => {
   const data = await svc.listRuns(req.user!.orgId);
@@ -104,6 +105,16 @@ router.get("/:id/reports/bank-file", wrap(async (req, res) => {
   res.setHeader("Content-Type", "text/csv");
   res.setHeader("Content-Disposition", `attachment; filename=${file.filename}`);
   res.send(file.content);
+}));
+
+// Quarterly TDS challan (Form 26Q)
+router.get("/reports/tds-challan", wrap(async (req, res) => {
+  const rptSvc = new ReportsService();
+  const data = await rptSvc.generateTDSChallan(req.user!.orgId, {
+    quarter: Number(req.query.quarter || 4) as 1 | 2 | 3 | 4,
+    financialYear: (req.query.fy || "2025-2026") as string,
+  });
+  res.json({ success: true, data });
 }));
 
 export { router as payrollRoutes };

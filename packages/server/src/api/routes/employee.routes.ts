@@ -42,6 +42,25 @@ router.post("/import", authorize("hr_admin"), wrap(async (_req, res) => {
   res.json({ success: true, data: { message: "Bulk import — use CSV upload endpoint" } });
 }));
 
+// Bulk operations
+router.post("/bulk/status", authorize("hr_admin"), wrap(async (req, res) => {
+  const { employeeIds, isActive } = req.body;
+  if (!Array.isArray(employeeIds) || employeeIds.length === 0) {
+    return res.status(400).json({ success: false, error: { code: "INVALID_INPUT", message: "employeeIds must be a non-empty array" } });
+  }
+  const data = await svc.bulkUpdateStatus(req.user!.orgId, employeeIds, isActive);
+  res.json({ success: true, data });
+}));
+
+router.post("/bulk/department", authorize("hr_admin"), wrap(async (req, res) => {
+  const { employeeIds, department } = req.body;
+  if (!Array.isArray(employeeIds) || !department) {
+    return res.status(400).json({ success: false, error: { code: "INVALID_INPUT", message: "employeeIds and department required" } });
+  }
+  const data = await svc.bulkAssignDepartment(req.user!.orgId, employeeIds, department);
+  res.json({ success: true, data });
+}));
+
 router.get("/:id", wrap(async (req, res) => {
   const data = await svc.getById(param(req, "id"), req.user!.orgId);
   res.json({ success: true, data });

@@ -13,6 +13,30 @@ export class EmployeeService {
     });
   }
 
+  async bulkUpdateStatus(orgId: string, employeeIds: string[], isActive: boolean) {
+    let updated = 0;
+    for (const empId of employeeIds) {
+      const emp = await this.db.findOne<any>("employees", { id: empId, org_id: orgId });
+      if (emp) {
+        await this.db.update("employees", empId, { is_active: isActive ? 1 : 0 });
+        updated++;
+      }
+    }
+    return { updated, total: employeeIds.length };
+  }
+
+  async bulkAssignDepartment(orgId: string, employeeIds: string[], department: string) {
+    let updated = 0;
+    for (const empId of employeeIds) {
+      const emp = await this.db.findOne<any>("employees", { id: empId, org_id: orgId });
+      if (emp) {
+        await this.db.update("employees", empId, { department });
+        updated++;
+      }
+    }
+    return { updated, department };
+  }
+
   async search(orgId: string, query: string, limit = 20) {
     const q = `%${query}%`;
     const result = await this.db.raw<any>(

@@ -165,6 +165,117 @@ export class ReportsService {
     if (typeof val === "string") try { return JSON.parse(val); } catch { return {}; }
     return val;
   }
+
+  /**
+   * Generate TDS Challan data (Form 26Q-equivalent).
+   * Returns structured data for quarterly TDS filing.
+   */
+  async generateTDSChallan(orgId: string, params: {
+    quarter: 1 | 2 | 3 | 4;
+    financialYear: string; // "2025-2026"
+  }) {
+    const org = await this.db.findById<any>("organizations", orgId);
+    if (!org) throw new AppError(404, "NOT_FOUND", "Organization not found");
+
+    const [fyStart] = params.financialYear.split("-").map(Number);
+    const quarterMonths: Record<number, number[]> = {
+      1: [4, 5, 6],   // Apr-Jun
+      2: [7, 8, 9],   // Jul-Sep
+      3: [10, 11, 12], // Oct-Dec
+      4: [1, 2, 3],   // Jan-Mar
+    };
+    const months = quarterMonths[params.quarter];
+    const year = params.quarter === 4 ? fyStart + 1 : fyStart;
+
+    // Get all payroll runs for this quarter
+    const runs = await this.db.findMany<any>("payroll_runs", {
+      filters: { org_id: orgId, status: "paid" },
+      limit: 100,
+    });
+
+    const quarterRuns = runs.data.filter((r: any) =>
+      months.includes(r.month) &&
+      (params.quarter === 4 ? r.year === fyStart + 1 : r.year === fyStart)
+    );
+
+    // Collect deductee-wise TDS data
+    const deductees: Record<string, {
+      employeeId: string;
+      name: string;
+      pan: string;
+      totalPaid: number;
+      totalTDS: number;
+      months: { month: number; paid: number; tds: number }[];
+    }> = {};
+
+    for (const run of quarterRuns) {
+      const payslips = await this.db.findMany<any>("payslips", {
+        filters: { payroll_run_id: run.id },
+        limit: 10000,
+      });
+
+      for (const ps of payslips.data) {
+        const emp = await this.db.findById<any>("employees", ps.employee_id);
+        if (!emp) continue;
+
+        const taxInfo = this.parseJSON(emp.tax_info);
+        const deductions = this.parseJSON(ps.deductions);
+        const tds = deductions.find?.((d: any) => d.code === "TDS" || d.code === "INCOME_TAX")?.amount || 0;
+
+        if (!deductees[emp.id]) {
+          deductees[emp.id] = {
+            employeeId: emp.id,
+            name: `${emp.first_name} ${emp.last_name}`,
+            pan: taxInfo.pan || "N/A",
+            totalPaid: 0,
+            totalTDS: 0,
+            months: [],
+          };
+        }
+
+        deductees[emp.id].totalPaid += Number(ps.gross_earnings);
+        deductees[emp.id].totalTDS += tds;
+        deductees[emp.id].months.push({
+          month: ps.month,
+          paid: Number(ps.gross_earnings),
+          tds,
+        });
+      }
+    }
+
+    const deducteeList = Object.values(deductees);
+    const totalTDS = deducteeList.reduce((s, d) => s + d.totalTDS, 0);
+    const totalPaid = deducteeList.reduce((s, d) => s + d.totalPaid, 0);
+
+    const quarterLabel = `Q${params.quarter} (${months.map(m => ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][m]).join("-")})`;
+
+    return {
+      form: "26Q",
+      quarter: params.quarter,
+      quarterLabel,
+      financialYear: params.financialYear,
+      assessmentYear: `${fyStart + 1}-${fyStart + 2}`,
+      deductor: {
+        name: org.name,
+        tan: org.tan,
+        pan: org.pan,
+        address: this.parseJSON(org.registered_address),
+      },
+      summary: {
+        totalDeductees: deducteeList.length,
+        totalAmountPaid: totalPaid,
+        totalTDSDeducted: totalTDS,
+        totalTDSDeposited: totalTDS, // Assume deposited = deducted
+      },
+      deductees: deducteeList,
+      challanDetails: {
+        bsrCode: "", // To be filled by user
+        challanSerial: "",
+        depositDate: "",
+        amount: totalTDS,
+      },
+    };
+  }
 }
 
 function ps_period(ps: any): string {

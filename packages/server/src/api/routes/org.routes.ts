@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { OrgService } from "../../services/org.service";
 import { AuditService } from "../../services/audit.service";
+import { EmailTemplateService } from "../../services/email-template.service";
+import { NotificationService } from "../../services/notification.service";
 import { authenticate, authorize } from "../middleware/auth.middleware";
 import { validate, createOrgSchema } from "../validators";
 import { wrap, param } from "../helpers";
@@ -64,6 +66,36 @@ router.get("/:id/activity", authorize("hr_admin", "hr_manager"), wrap(async (req
   const auditSvc = new AuditService();
   const data = await auditSvc.getRecent(param(req, "id"), Number(req.query.limit) || 20);
   res.json({ success: true, data });
+}));
+
+// Notifications
+router.post("/:id/notify/declaration-reminder", authorize("hr_admin"), wrap(async (req, res) => {
+  const notifSvc = new NotificationService();
+  const data = await notifSvc.sendDeclarationReminders(param(req, "id"), {
+    financialYear: req.body.financialYear,
+    deadlineDate: req.body.deadlineDate,
+  });
+  res.json({ success: true, data });
+}));
+
+// Email templates
+router.get("/:id/email-templates", authorize("hr_admin"), wrap(async (_req, res) => {
+  const tmplSvc = new EmailTemplateService();
+  const templates = tmplSvc.listTemplates();
+  res.json({ success: true, data: templates });
+}));
+
+router.get("/:id/email-templates/:name/preview", authorize("hr_admin"), wrap(async (req, res) => {
+  const tmplSvc = new EmailTemplateService();
+  const preview = await tmplSvc.preview(req.params.name as string, param(req, "id"));
+  res.json({ success: true, data: preview });
+}));
+
+router.get("/:id/email-templates/:name/preview-html", authorize("hr_admin"), wrap(async (req, res) => {
+  const tmplSvc = new EmailTemplateService();
+  const preview = await tmplSvc.preview(req.params.name as string, param(req, "id"));
+  res.setHeader("Content-Type", "text/html");
+  res.send(preview.body);
 }));
 
 export { router as orgRoutes };
