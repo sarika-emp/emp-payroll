@@ -129,6 +129,48 @@ describe("API Integration Tests", () => {
       expect(data.success).toBe(true);
       expect(Array.isArray(data.data.data)).toBe(true);
     });
+
+    it("GET /payroll/:id returns a specific run", async () => {
+      if (!token) return;
+      const list = await fetch(`${BASE}/payroll`, { headers: authHeaders() });
+      const listData = await list.json();
+      if (listData.data.data.length === 0) return;
+      const runId = listData.data.data[0].id;
+
+      const res = await fetch(`${BASE}/payroll/${runId}`, { headers: authHeaders() });
+      const data = await res.json();
+      expect(data.success).toBe(true);
+      expect(data.data.id).toBe(runId);
+    });
+
+    it("GET /payroll/:id/payslips returns enriched payslips", async () => {
+      if (!token) return;
+      const list = await fetch(`${BASE}/payroll`, { headers: authHeaders() });
+      const listData = await list.json();
+      if (listData.data.data.length === 0) return;
+      const runId = listData.data.data[0].id;
+
+      const res = await fetch(`${BASE}/payroll/${runId}/payslips`, { headers: authHeaders() });
+      const data = await res.json();
+      expect(data.success).toBe(true);
+      if (data.data.data.length > 0) {
+        expect(data.data.data[0].first_name).toBeDefined();
+        expect(data.data.data[0].employee_code).toBeDefined();
+      }
+    });
+
+    it("POST /payroll creates a new run", async () => {
+      if (!token) return;
+      const res = await fetch(`${BASE}/payroll`, {
+        method: "POST",
+        headers: authHeaders(),
+        body: JSON.stringify({ month: 1, year: 2026, payDate: "2026-01-28" }),
+      });
+      const data = await res.json();
+      expect(data.success).toBe(true);
+      expect(data.data.id).toBeDefined();
+      expect(data.data.status).toBe("draft");
+    });
   });
 
   describe("Payslips", () => {
