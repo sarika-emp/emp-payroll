@@ -71,4 +71,13 @@ router.get("/employee/:empId/history", wrap(async (req, res) => {
   res.json({ success: true, data });
 }));
 
+router.post("/employee/:empId/arrears", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
+  const data = await svc.computeArrears(param(req, "empId"), req.user!.orgId, {
+    oldMonthlyCTC: req.body.oldMonthlyCTC,
+    newMonthlyCTC: req.body.newMonthlyCTC,
+    effectiveFrom: req.body.effectiveFrom,
+  });
+  res.json({ success: true, data });
+}));
+
 export { router as salaryRoutes };

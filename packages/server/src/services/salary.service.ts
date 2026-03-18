@@ -135,4 +135,45 @@ export class SalaryService {
   async salaryRevision(employeeId: string, data: any) {
     return this.assignToEmployee({ ...data, employeeId });
   }
+
+  /**
+   * Compute arrears when salary is revised with a past effective date.
+   * Returns the difference per month between old and new gross for each month
+   * between effectiveFrom and the current month.
+   */
+  async computeArrears(employeeId: string, orgId: string, params: {
+    oldMonthlyCTC: number;
+    newMonthlyCTC: number;
+    effectiveFrom: string; // YYYY-MM-DD
+  }) {
+    const { oldMonthlyCTC, newMonthlyCTC, effectiveFrom } = params;
+    const monthlyDiff = Math.round(newMonthlyCTC - oldMonthlyCTC);
+    if (monthlyDiff <= 0) return { arrears: [], totalArrears: 0, monthlyDiff: 0 };
+
+    const fromDate = new Date(effectiveFrom);
+    const now = new Date();
+    const arrears: { month: number; year: number; amount: number }[] = [];
+
+    let year = fromDate.getFullYear();
+    let month = fromDate.getMonth() + 1;
+
+    while (year < now.getFullYear() || (year === now.getFullYear() && month <= now.getMonth() + 1)) {
+      // Check if payslip exists for this month (already paid at old rate)
+      const existingPayslip = await this.db.raw<any>(
+        `SELECT id FROM payslips WHERE employee_id = ? AND month = ? AND year = ? AND status IN ('paid', 'computed', 'approved') LIMIT 1`,
+        [employeeId, month, year]
+      );
+      const rows = Array.isArray(existingPayslip) ? (Array.isArray(existingPayslip[0]) ? existingPayslip[0] : existingPayslip) : existingPayslip.rows || [];
+
+      if (rows.length > 0) {
+        arrears.push({ month, year, amount: monthlyDiff });
+      }
+
+      month++;
+      if (month > 12) { month = 1; year++; }
+    }
+
+    const totalArrears = arrears.reduce((s, a) => s + a.amount, 0);
+    return { arrears, totalArrears, monthlyDiff };
+  }
 }
