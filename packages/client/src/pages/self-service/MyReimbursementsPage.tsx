@@ -91,7 +91,30 @@ export function MyReimbursementsPage() {
             { key: "description", header: "Description" },
             { key: "amount", header: "Amount", render: (r: any) => formatCurrency(r.amount) },
             { key: "expense_date", header: "Date", render: (r: any) => new Date(r.expense_date).toLocaleDateString("en-IN") },
-            { key: "status", header: "Status", render: (r: any) => <Badge variant={r.status}>{r.status}</Badge> },
+            {
+              key: "status",
+              header: "Status",
+              render: (r: any) => {
+                const steps = ["pending", "approved", "paid"];
+                const idx = steps.indexOf(r.status);
+                return (
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      {steps.map((step, i) => (
+                        <div
+                          key={step}
+                          className={`h-1.5 w-5 rounded-full ${
+                            r.status === "rejected" ? "bg-red-400" :
+                            i <= idx ? "bg-green-500" : "bg-gray-200"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <Badge variant={r.status}>{r.status}</Badge>
+                  </div>
+                );
+              },
+            },
           ]}
           data={claims}
         />

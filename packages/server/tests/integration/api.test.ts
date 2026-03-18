@@ -266,6 +266,55 @@ describe("API Integration Tests", () => {
     });
   });
 
+  describe("Attendance", () => {
+    it("POST /attendance/import marks attendance", async () => {
+      if (!token) return;
+      const empList = await fetch(`${BASE}/employees`, { headers: authHeaders() });
+      const empData = await empList.json();
+      const empId = empData.data.data[0].id;
+
+      const res = await fetch(`${BASE}/attendance/import`, {
+        method: "POST",
+        headers: authHeaders(),
+        body: JSON.stringify({
+          month: 3, year: 2026,
+          records: [{ employeeId: empId, totalDays: 22, presentDays: 21, absentDays: 1, lopDays: 0, overtimeHours: 0 }],
+        }),
+      });
+      const data = await res.json();
+      expect(data.success).toBe(true);
+      expect(data.data.imported).toBe(1);
+    });
+
+    it("GET /attendance/summary/:empId returns summary", async () => {
+      if (!token) return;
+      const empList = await fetch(`${BASE}/employees`, { headers: authHeaders() });
+      const empData = await empList.json();
+      const empId = empData.data.data[0].id;
+
+      const res = await fetch(`${BASE}/attendance/summary/${empId}?month=3&year=2026`, { headers: authHeaders() });
+      const data = await res.json();
+      expect(data.success).toBe(true);
+      expect(data.data.present_days).toBeDefined();
+    });
+  });
+
+  describe("Self-Service Salary", () => {
+    it("GET /self-service/salary returns salary info", async () => {
+      if (!token) return;
+      const res = await fetch(`${BASE}/self-service/salary`, { headers: authHeaders() });
+      const data = await res.json();
+      expect(data.success).toBe(true);
+    });
+
+    it("GET /self-service/payslips returns my payslips", async () => {
+      if (!token) return;
+      const res = await fetch(`${BASE}/self-service/payslips`, { headers: authHeaders() });
+      const data = await res.json();
+      expect(data.success).toBe(true);
+    });
+  });
+
   describe("API Docs", () => {
     it("GET /docs/openapi.json returns spec", async () => {
       const res = await fetch(`${BASE}/docs/openapi.json`);
