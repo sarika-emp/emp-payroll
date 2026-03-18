@@ -10,7 +10,7 @@ router.use(authenticate);
 
 // ---- Employee Self-Service ----
 
-// Apply for leave
+// Apply for leave (auto-routes to reporting manager)
 router.post("/apply", wrap(async (req, res) => {
   const data = await svc.applyLeave(req.user!.userId, req.user!.orgId, req.body);
   res.status(201).json({ success: true, data });
@@ -28,32 +28,39 @@ router.get("/my-balance", wrap(async (req, res) => {
   res.json({ success: true, data });
 }));
 
-// Cancel leave (employee — immediate, no admin approval needed)
+// Cancel leave (employee — immediate)
 router.post("/:id/cancel", wrap(async (req, res) => {
   const data = await svc.cancelLeave(param(req, "id"), req.user!.userId, req.body.reason || "");
   res.json({ success: true, data });
 }));
 
-// ---- Admin / HR Manager ----
+// ---- Manager: Team leaves (direct reports per org chart) ----
 
-// Org-wide leave requests
+// Get leaves assigned to me (my direct reports)
+router.get("/team", wrap(async (req, res) => {
+  const data = await svc.getTeamRequests(req.user!.userId, req.query.status as string);
+  res.json({ success: true, data });
+}));
+
+// Approve leave (must be assigned manager or HR admin)
+router.post("/:id/approve", wrap(async (req, res) => {
+  const data = await svc.approveLeave(param(req, "id"), req.user!.userId, req.user!.role, req.body.remarks);
+  res.json({ success: true, data });
+}));
+
+// Reject leave (must be assigned manager or HR admin)
+router.post("/:id/reject", wrap(async (req, res) => {
+  const data = await svc.rejectLeave(param(req, "id"), req.user!.userId, req.user!.role, req.body.remarks);
+  res.json({ success: true, data });
+}));
+
+// ---- HR Admin: Org-wide view ----
+
+// All org leave requests (HR admin/manager only)
 router.get("/requests", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
   const data = await svc.getOrgRequests(req.user!.orgId, req.query.status as string);
   res.json({ success: true, data });
 }));
-
-// Approve leave
-router.post("/:id/approve", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
-  const data = await svc.approveLeave(param(req, "id"), req.user!.userId, req.body.remarks);
-  res.json({ success: true, data });
-}));
-
-// Reject leave
-router.post("/:id/reject", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
-  const data = await svc.rejectLeave(param(req, "id"), req.user!.userId, req.body.remarks);
-  res.json({ success: true, data });
-}));
-
 
 // Leave summary for attendance sync
 router.get("/attendance-sync", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {

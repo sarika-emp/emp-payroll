@@ -152,6 +152,10 @@ export class LeaveService {
     });
     if (overlap) throw new AppError(400, "OVERLAP", "You already have a pending/approved leave for overlapping dates");
 
+    // Route to reporting manager per org chart
+    const employee = await this.db.findOne<any>("employees", { id: employeeId });
+    const assignedTo = employee?.reporting_manager_id || null;
+
     return this.db.create("leave_requests", {
       employee_id: employeeId,
       org_id: orgId,
@@ -163,19 +167,50 @@ export class LeaveService {
       half_day_period: data.isHalfDay ? (data.halfDayPeriod || "first_half") : null,
       reason: data.reason,
       status: "pending",
+      assigned_to: assignedTo,
     });
   }
 
   async getMyRequests(employeeId: string, status?: string) {
     const filters: any = { employee_id: employeeId };
     if (status) filters.status = status;
-    return this.db.findMany<any>("leave_requests", {
+    const result = await this.db.findMany<any>("leave_requests", {
       filters,
       sort: { field: "created_at", order: "desc" },
       limit: 100,
     });
+
+    // Enrich with approver name
+    const enriched = [];
+    for (const req of result.data) {
+      const mgr = req.assigned_to ? await this.db.findOne<any>("employees", { id: req.assigned_to }) : null;
+      enriched.push({
+        ...req,
+        assignedToName: mgr ? `${mgr.first_name} ${mgr.last_name}` : "HR Admin",
+      });
+    }
+
+    return { data: enriched, total: result.total };
   }
 
+  /**
+   * Get leaves assigned to a specific manager (their direct reports).
+   */
+  async getTeamRequests(managerId: string, status?: string) {
+    const filters: any = { assigned_to: managerId };
+    if (status) filters.status = status;
+    const requests = await this.db.findMany<any>("leave_requests", {
+      filters,
+      sort: { field: "created_at", order: "desc" },
+      limit: 200,
+    });
+
+    return { data: await this.enrichRequests(requests.data), total: requests.total };
+  }
+
+  /**
+   * Get all org-wide leave requests (HR admin view).
+   */
   async getOrgRequests(orgId: string, status?: string) {
     const filters: any = { org_id: orgId };
     if (status) filters.status = status;
@@ -185,24 +220,19 @@ export class LeaveService {
       limit: 200,
     });
 
-    const enriched = [];
-    for (const req of requests.data) {
-      const emp = await this.db.findOne<any>("employees", { id: req.employee_id });
-      enriched.push({
-        ...req,
-        employeeName: emp ? `${emp.first_name} ${emp.last_name}` : "Unknown",
-        employeeCode: emp?.employee_code,
-        department: emp?.department,
-      });
-    }
-
-    return { data: enriched, total: requests.total };
+    return { data: await this.enrichRequests(requests.data), total: requests.total };
   }
 
-  async approveLeave(requestId: string, approverId: string, remarks?: string) {
+  /**
+   * Approve leave — only the assigned manager or HR admin can approve.
+   */
+  async approveLeave(requestId: string, approverId: string, approverRole: string, remarks?: string) {
     const request = await this.db.findOne<any>("leave_requests", { id: requestId });
     if (!request) throw new AppError(404, "NOT_FOUND", "Leave request not found");
     if (request.status !== "pending") throw new AppError(400, "INVALID_STATUS", `Cannot approve a ${request.status} request`);
+
+    // Authorization: must be the assigned manager or HR admin
+    this.checkApproverAuth(request, approverId, approverRole);
 
     // Deduct from balance
     await this.recordLeave(request.employee_id, request.leave_type, Number(request.days));
@@ -218,10 +248,15 @@ export class LeaveService {
     });
   }
 
-  async rejectLeave(requestId: string, approverId: string, remarks?: string) {
+  /**
+   * Reject leave — only the assigned manager or HR admin can reject.
+   */
+  async rejectLeave(requestId: string, approverId: string, approverRole: string, remarks?: string) {
     const request = await this.db.findOne<any>("leave_requests", { id: requestId });
     if (!request) throw new AppError(404, "NOT_FOUND", "Leave request not found");
     if (request.status !== "pending") throw new AppError(400, "INVALID_STATUS", `Cannot reject a ${request.status} request`);
+
+    this.checkApproverAuth(request, approverId, approverRole);
 
     return this.db.update("leave_requests", requestId, {
       status: "rejected",
@@ -229,6 +264,34 @@ export class LeaveService {
       approver_remarks: remarks || null,
       approved_at: new Date(),
     });
+  }
+
+  /**
+   * Check if the approver is authorized: must be assigned_to OR hr_admin.
+   */
+  private checkApproverAuth(request: any, approverId: string, approverRole: string) {
+    const isAssigned = request.assigned_to === approverId;
+    const isHrAdmin = approverRole === "hr_admin";
+    if (!isAssigned && !isHrAdmin) {
+      throw new AppError(403, "NOT_AUTHORIZED",
+        "Only the reporting manager or HR admin can approve/reject this leave");
+    }
+  }
+
+  private async enrichRequests(requests: any[]) {
+    const enriched = [];
+    for (const req of requests) {
+      const emp = await this.db.findOne<any>("employees", { id: req.employee_id });
+      const mgr = req.assigned_to ? await this.db.findOne<any>("employees", { id: req.assigned_to }) : null;
+      enriched.push({
+        ...req,
+        employeeName: emp ? `${emp.first_name} ${emp.last_name}` : "Unknown",
+        employeeCode: emp?.employee_code,
+        department: emp?.department,
+        assignedToName: mgr ? `${mgr.first_name} ${mgr.last_name}` : "HR Admin",
+      });
+    }
+    return enriched;
   }
 
   // -------------------------------------------------------------------------

@@ -142,6 +142,9 @@ export function LeaveManagementPage() {
                 { key: "reason", header: "Reason", render: (r: any) => (
                   <span className="max-w-[200px] truncate block text-sm">{r.reason}</span>
                 )},
+                { key: "assigned_to", header: "Approver", render: (r: any) => (
+                  <span className="text-sm text-gray-500">{r.assignedToName || "HR Admin"}</span>
+                )},
                 { key: "status", header: "Status", render: (r: any) => (
                   <Badge variant={STATUS_COLORS[r.status] || "gray"}>{r.status}</Badge>
                 )},
