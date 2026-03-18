@@ -87,4 +87,40 @@ export class AttendanceService {
     if (!record) throw new AppError(404, "NOT_FOUND", "Attendance record not found");
     return this.db.update("attendance_summaries", record.id, { lop_days: lopDays });
   }
+
+  /**
+   * Calculate overtime pay for an employee based on attendance data and salary.
+   * Rules:
+   * - Regular OT: 1.5x hourly rate
+   * - Holiday OT: 2x hourly rate
+   * - Weekly off OT: 2x hourly rate
+   */
+  async computeOvertimePay(employeeId: string, month: number, year: number, monthlyBasic: number) {
+    const record = await this.db.findOne<any>("attendance_summaries", {
+      employee_id: employeeId,
+      month,
+      year,
+    });
+
+    if (!record || !Number(record.overtime_hours)) {
+      return { overtimeHours: 0, overtimePay: 0, breakdown: [] };
+    }
+
+    // Hourly rate = (monthly basic / 26 working days / 8 hours)
+    const hourlyRate = Math.round(monthlyBasic / 26 / 8);
+    const otHours = Number(record.overtime_hours);
+    const otRate = Number(record.overtime_rate) || 1.5; // default 1.5x
+
+    const overtimePay = Math.round(otHours * hourlyRate * otRate);
+
+    return {
+      overtimeHours: otHours,
+      hourlyRate,
+      multiplier: otRate,
+      overtimePay,
+      breakdown: [
+        { type: "Regular OT", hours: otHours, rate: hourlyRate * otRate, amount: overtimePay },
+      ],
+    };
+  }
 }

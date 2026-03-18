@@ -44,6 +44,7 @@ export class OrgService {
     if (data.esiEstablishmentCode) updates.esi_establishment_code = data.esiEstablishmentCode;
     if (data.registeredAddress) updates.registered_address = JSON.stringify(data.registeredAddress);
     if (data.state) updates.state = data.state;
+    if (data.payrollLockDate !== undefined) updates.payroll_lock_date = data.payrollLockDate;
     return this.db.update("organizations", id, updates);
   }
 

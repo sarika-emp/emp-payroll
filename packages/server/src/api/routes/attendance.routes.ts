@@ -41,4 +41,15 @@ router.put("/lop/:empId", authorize("hr_admin", "hr_manager"), wrap(async (req, 
   res.json({ success: true, data });
 }));
 
+router.get("/overtime/:empId", wrap(async (req, res) => {
+  const { month, year, monthlyBasic } = req.query as any;
+  const data = await svc.computeOvertimePay(
+    param(req, "empId"),
+    Number(month),
+    Number(year),
+    Number(monthlyBasic) || 0
+  );
+  res.json({ success: true, data });
+}));
+
 export { router as attendanceRoutes };

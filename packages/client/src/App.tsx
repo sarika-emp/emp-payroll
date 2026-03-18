@@ -68,6 +68,21 @@ function RoleRedirect() {
   return <Navigate to="/my" replace />;
 }
 
+function AdminGuard({ children }: { children: React.ReactNode }) {
+  const user = getUser();
+  if (!user) return <Navigate to="/login" replace />;
+  if (user.role !== "hr_admin" && user.role !== "hr_manager") {
+    return <Navigate to="/my" replace />;
+  }
+  return <>{children}</>;
+}
+
+function AuthGuard({ children }: { children: React.ReactNode }) {
+  const user = getUser();
+  if (!user) return <Navigate to="/login" replace />;
+  return <>{children}</>;
+}
+
 export default function App() {
   return (
     <ErrorBoundary>
@@ -84,7 +99,7 @@ export default function App() {
 
           <Route path="/" element={<RoleRedirect />} />
 
-          <Route element={<DashboardLayout />}>
+          <Route element={<AdminGuard><DashboardLayout /></AdminGuard>}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/employees" element={<EmployeeListPage />} />
             <Route path="/employees/new" element={<EmployeeCreatePage />} />
@@ -107,7 +122,7 @@ export default function App() {
             <Route path="/system" element={<SystemHealthPage />} />
           </Route>
 
-          <Route element={<SelfServiceLayout />}>
+          <Route element={<AuthGuard><SelfServiceLayout /></AuthGuard>}>
             <Route path="/my" element={<SelfServiceDashboard />} />
             <Route path="/my/payslips" element={<MyPayslipsPage />} />
             <Route path="/my/salary" element={<MySalaryPage />} />
