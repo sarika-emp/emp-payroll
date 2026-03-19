@@ -1,14 +1,19 @@
 // Auth helpers — store/retrieve tokens and user info
+// User identity comes from EmpCloud master database.
 
 export interface AuthUser {
-  id: string;
-  orgId: string;
+  id: number; // EmpCloud user ID
+  empcloudUserId: number; // EmpCloud user ID
+  empcloudOrgId: number; // EmpCloud organization ID
+  payrollProfileId: string | null; // Payroll DB profile UUID
   role: string;
   email: string;
   firstName: string;
   lastName: string;
-  department: string;
+  empCode: string;
   designation: string;
+  department: string;
+  orgName: string;
 }
 
 export function saveAuth(data: { user: any; tokens: any }) {
@@ -17,15 +22,19 @@ export function saveAuth(data: { user: any; tokens: any }) {
   localStorage.setItem(
     "user",
     JSON.stringify({
-      id: data.user.id,
-      orgId: data.user.org_id,
+      id: data.user.id || data.user.empcloudUserId,
+      empcloudUserId: data.user.empcloudUserId || data.user.id,
+      empcloudOrgId: data.user.empcloudOrgId || data.user.orgId,
+      payrollProfileId: data.user.payrollProfileId || null,
       role: data.user.role,
       email: data.user.email,
-      firstName: data.user.first_name,
-      lastName: data.user.last_name,
-      department: data.user.department,
-      designation: data.user.designation,
-    })
+      firstName: data.user.firstName || data.user.first_name,
+      lastName: data.user.lastName || data.user.last_name,
+      empCode: data.user.empCode || data.user.emp_code || "",
+      designation: data.user.designation || "",
+      department: data.user.department || "",
+      orgName: data.user.orgName || "",
+    }),
   );
 }
 

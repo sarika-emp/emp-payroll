@@ -4,10 +4,17 @@ import { config } from "../../config";
 import { AppError } from "./error.middleware";
 
 export interface AuthPayload {
-  userId: string;
-  orgId: string;
+  // EmpCloud IDs (source of truth — bigint stored as number)
+  empcloudUserId: number;
+  empcloudOrgId: number;
+  // Payroll profile ID (UUID in payroll DB, null if profile not yet created)
+  payrollProfileId: string | null;
+  // User info from EmpCloud
   role: "super_admin" | "hr_admin" | "hr_manager" | "employee";
   email: string;
+  firstName: string;
+  lastName: string;
+  orgName: string;
 }
 
 declare global {
@@ -46,7 +53,9 @@ export function authorize(...roles: AuthPayload["role"][]) {
       return next(new AppError(401, "UNAUTHORIZED", "Not authenticated"));
     }
     if (roles.length > 0 && !roles.includes(req.user.role)) {
-      return next(new AppError(403, "FORBIDDEN", "You do not have permission to perform this action"));
+      return next(
+        new AppError(403, "FORBIDDEN", "You do not have permission to perform this action"),
+      );
     }
     next();
   };

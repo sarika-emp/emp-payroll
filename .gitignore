@@ -3,11 +3,16 @@ dist/
 .env
 .env.local
 .env.*.local
+packages/server/.env
+packages/client/.env
 *.log
 logs/
 .DS_Store
 coverage/
 .turbo/
+
+# Claude Code local settings
+.claude/settings.local.json
 
 # Windows
 Thumbs.db

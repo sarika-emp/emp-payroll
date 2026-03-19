@@ -12,6 +12,10 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    allowedHosts: [
+      "localhost",
+      "juniper-squirrelly-alterably.ngrok-free.dev",
+    ],
     proxy: {
       "/api": {
         target: "http://localhost:4000",

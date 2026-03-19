@@ -5,7 +5,7 @@ export class AttendanceService {
   private db = getDB();
 
   async getSummary(employeeId: string, month?: number, year?: number) {
-    const filters: any = { employee_id: employeeId };
+    const filters: any = { empcloud_user_id: Number(employeeId) };
     if (month) filters.month = month;
     if (year) filters.year = year;
 
@@ -22,13 +22,17 @@ export class AttendanceService {
   }
 
   async bulkSummary(orgId: string, month: number, year: number) {
-    const employees = await this.db.findMany<any>("employees", {
-      filters: { org_id: orgId, is_active: true },
+    // Get empcloud user IDs for this org from payroll profiles
+    const profiles = await this.db.findMany<any>("employee_payroll_profiles", {
+      filters: { empcloud_org_id: Number(orgId), is_active: true },
       limit: 1000,
     });
-    const empIds = employees.data.map((e: any) => e.id);
+    const empcloudUserIds = profiles.data.map((p: any) => p.empcloud_user_id);
+    if (empcloudUserIds.length === 0)
+      return { data: [], total: 0, page: 1, limit: 1000, totalPages: 0 };
+
     return this.db.findMany<any>("attendance_summaries", {
-      filters: { employee_id: empIds, month, year },
+      filters: { empcloud_user_id: empcloudUserIds, month, year },
       limit: 1000,
     });
   }
@@ -36,14 +40,16 @@ export class AttendanceService {
   async importRecords(orgId: string, month: number, year: number, records: any[]) {
     const results = [];
     for (const record of records) {
+      const empcloudUserId = Number(record.employeeId);
       const existing = await this.db.findOne<any>("attendance_summaries", {
-        employee_id: record.employeeId,
+        empcloud_user_id: empcloudUserId,
         month,
         year,
       });
 
       const data = {
-        employee_id: record.employeeId,
+        employee_id: "00000000-0000-0000-0000-000000000000",
+        empcloud_user_id: empcloudUserId,
         month,
         year,
         total_days: record.totalDays,
@@ -71,7 +77,7 @@ export class AttendanceService {
 
   async getLopDays(employeeId: string, month: number, year: number) {
     const record = await this.db.findOne<any>("attendance_summaries", {
-      employee_id: employeeId,
+      empcloud_user_id: Number(employeeId),
       month,
       year,
     });
@@ -80,7 +86,7 @@ export class AttendanceService {
 
   async overrideLop(employeeId: string, month: number, year: number, lopDays: number) {
     const record = await this.db.findOne<any>("attendance_summaries", {
-      employee_id: employeeId,
+      empcloud_user_id: Number(employeeId),
       month,
       year,
     });
@@ -88,16 +94,9 @@ export class AttendanceService {
     return this.db.update("attendance_summaries", record.id, { lop_days: lopDays });
   }
 
-  /**
-   * Calculate overtime pay for an employee based on attendance data and salary.
-   * Rules:
-   * - Regular OT: 1.5x hourly rate
-   * - Holiday OT: 2x hourly rate
-   * - Weekly off OT: 2x hourly rate
-   */
   async computeOvertimePay(employeeId: string, month: number, year: number, monthlyBasic: number) {
     const record = await this.db.findOne<any>("attendance_summaries", {
-      employee_id: employeeId,
+      empcloud_user_id: Number(employeeId),
       month,
       year,
     });
@@ -106,10 +105,9 @@ export class AttendanceService {
       return { overtimeHours: 0, overtimePay: 0, breakdown: [] };
     }
 
-    // Hourly rate = (monthly basic / 26 working days / 8 hours)
     const hourlyRate = Math.round(monthlyBasic / 26 / 8);
     const otHours = Number(record.overtime_hours);
-    const otRate = Number(record.overtime_rate) || 1.5; // default 1.5x
+    const otRate = Number(record.overtime_rate) || 1.5;
 
     const overtimePay = Math.round(otHours * hourlyRate * otRate);
 

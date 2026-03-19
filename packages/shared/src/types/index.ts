@@ -59,6 +59,7 @@ export enum ApprovalStatus {
 export enum UserRole {
   SUPER_ADMIN = "super_admin",
   HR_ADMIN = "hr_admin",
+  HR_MANAGER = "hr_manager",
   PAYROLL_ADMIN = "payroll_admin",
   MANAGER = "manager",
   EMPLOYEE = "employee",
@@ -418,14 +419,19 @@ export interface PaginationMeta {
 // ---------------------------------------------------------------------------
 
 export interface AuthUser {
-  id: string;
-  employeeId: string;
+  id: number; // EmpCloud user ID
+  empcloudUserId: number; // EmpCloud user ID (same as id)
+  empcloudOrgId: number; // EmpCloud organization ID
+  payrollProfileId: string | null; // Payroll DB profile UUID (null if not yet created)
   email: string;
   role: UserRole;
-  orgId: string;
+  orgId: number; // EmpCloud org ID
   orgName: string;
   firstName: string;
   lastName: string;
+  empCode?: string;
+  designation?: string;
+  department?: string;
 }
 
 export interface LoginRequest {

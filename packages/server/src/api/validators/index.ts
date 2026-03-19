@@ -63,22 +63,28 @@ export const createEmployeeSchema = z.object({
     department: z.string().min(1).max(100),
     designation: z.string().min(1).max(100),
     reportingManagerId: z.string().uuid().optional(),
-    bankDetails: z.object({
-      accountNumber: z.string(),
-      ifscCode: z.string(),
-      bankName: z.string(),
-      branchName: z.string().optional(),
-    }).optional(),
-    taxInfo: z.object({
-      pan: z.string().min(1).max(10),
-      regime: z.enum(["old", "new"]).default("new"),
-      uan: z.string().optional(),
-    }).optional(),
-    pfDetails: z.object({
-      pfNumber: z.string().optional(),
-      isOptedOut: z.boolean().default(false),
-      contributionRate: z.number().default(12),
-    }).optional(),
+    bankDetails: z
+      .object({
+        accountNumber: z.string(),
+        ifscCode: z.string(),
+        bankName: z.string(),
+        branchName: z.string().optional(),
+      })
+      .optional(),
+    taxInfo: z
+      .object({
+        pan: z.string().min(1).max(10),
+        regime: z.enum(["old", "new"]).default("new"),
+        uan: z.string().optional(),
+      })
+      .optional(),
+    pfDetails: z
+      .object({
+        pfNumber: z.string().optional(),
+        isOptedOut: z.boolean().default(false),
+        contributionRate: z.number().default(12),
+      })
+      .optional(),
   }),
 });
 
@@ -103,32 +109,38 @@ export const createSalaryStructureSchema = z.object({
     name: z.string().min(1).max(100),
     description: z.string().optional(),
     isDefault: z.boolean().default(false),
-    components: z.array(z.object({
-      name: z.string().min(1),
-      code: z.string().min(1).max(20),
-      type: z.enum(["earning", "deduction", "reimbursement", "benefit"]),
-      calculationType: z.enum(["fixed", "percentage", "formula"]),
-      value: z.number().default(0),
-      percentageOf: z.string().optional(),
-      formula: z.string().optional(),
-      isTaxable: z.boolean().default(true),
-      isStatutory: z.boolean().default(false),
-      isProratable: z.boolean().default(true),
-      sortOrder: z.number().default(0),
-    })).min(1),
+    components: z
+      .array(
+        z.object({
+          name: z.string().min(1),
+          code: z.string().min(1).max(20),
+          type: z.enum(["earning", "deduction", "reimbursement", "benefit"]),
+          calculationType: z.enum(["fixed", "percentage", "formula"]),
+          value: z.number().default(0),
+          percentageOf: z.string().optional(),
+          formula: z.string().optional(),
+          isTaxable: z.boolean().default(true),
+          isStatutory: z.boolean().default(false),
+          isProratable: z.boolean().default(true),
+          sortOrder: z.number().default(0),
+        }),
+      )
+      .min(1),
   }),
 });
 
 export const assignSalarySchema = z.object({
   body: z.object({
-    employeeId: z.string().uuid(),
-    structureId: z.string().uuid(),
+    employeeId: z.union([z.string(), z.number()]).transform(String),
+    structureId: z.string(),
     ctc: z.number().positive(),
-    components: z.array(z.object({
-      code: z.string(),
-      monthlyAmount: z.number(),
-      annualAmount: z.number(),
-    })),
+    components: z.array(
+      z.object({
+        code: z.string(),
+        monthlyAmount: z.number(),
+        annualAmount: z.number(),
+      }),
+    ),
     effectiveFrom: z.string(),
   }),
 });
@@ -151,11 +163,13 @@ export const createPayrollRunSchema = z.object({
 export const submitDeclarationSchema = z.object({
   body: z.object({
     financialYear: z.string(),
-    declarations: z.array(z.object({
-      section: z.string(),
-      description: z.string(),
-      declaredAmount: z.number().positive(),
-    })),
+    declarations: z.array(
+      z.object({
+        section: z.string(),
+        description: z.string(),
+        declaredAmount: z.number().positive(),
+      }),
+    ),
   }),
 });
 
@@ -166,19 +180,21 @@ export const importAttendanceSchema = z.object({
   body: z.object({
     month: z.number().min(1).max(12),
     year: z.number().min(2020).max(2100),
-    records: z.array(z.object({
-      employeeId: z.string().uuid(),
-      totalDays: z.number(),
-      presentDays: z.number(),
-      absentDays: z.number().default(0),
-      halfDays: z.number().default(0),
-      paidLeave: z.number().default(0),
-      unpaidLeave: z.number().default(0),
-      holidays: z.number().default(0),
-      weekoffs: z.number().default(0),
-      lopDays: z.number().default(0),
-      overtimeHours: z.number().default(0),
-    })),
+    records: z.array(
+      z.object({
+        employeeId: z.union([z.string(), z.number()]).transform(String),
+        totalDays: z.number(),
+        presentDays: z.number(),
+        absentDays: z.number().default(0),
+        halfDays: z.number().default(0),
+        paidLeave: z.number().default(0),
+        unpaidLeave: z.number().default(0),
+        holidays: z.number().default(0),
+        weekoffs: z.number().default(0),
+        lopDays: z.number().default(0),
+        overtimeHours: z.number().default(0),
+      }),
+    ),
   }),
 });
 

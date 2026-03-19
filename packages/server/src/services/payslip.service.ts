@@ -7,7 +7,7 @@ export class PayslipService {
   async list(orgId: string, options?: any) {
     // Join through payroll_runs to filter by org
     const runs = await this.db.findMany<any>("payroll_runs", {
-      filters: { org_id: orgId },
+      filters: { empcloud_org_id: Number(orgId) },
       limit: 1000,
     });
     const runIds = runs.data.map((r: any) => r.id);
@@ -27,7 +27,7 @@ export class PayslipService {
 
   async getByEmployee(employeeId: string) {
     return this.db.findMany<any>("payslips", {
-      filters: { employee_id: employeeId },
+      filters: { empcloud_user_id: Number(employeeId) },
       sort: { field: "year", order: "desc" },
       limit: 100,
     });

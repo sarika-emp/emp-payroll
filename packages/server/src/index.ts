@@ -9,6 +9,7 @@ import morgan from "morgan";
 import compression from "compression";
 import { config } from "./config";
 import { initDB, closeDB } from "./db/adapters";
+import { initEmpCloudDB, migrateEmpCloudDB, closeEmpCloudDB } from "./db/empcloud";
 import { logger } from "./utils/logger";
 
 // Route imports
@@ -39,23 +40,28 @@ const app = express();
 // Middleware
 // ---------------------------------------------------------------------------
 app.use(helmet());
-app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    // Allow all origins if configured with "*"
-    if (config.cors.origin === "*") return callback(null, true);
-    // In development, allow all localhost origins
-    if (config.env === "development" && (origin.startsWith("http://localhost") || origin.startsWith("http://127.0.0.1"))) {
-      return callback(null, true);
-    }
-    // In production, check against configured origins (comma-separated)
-    const allowed = config.cors.origin.split(",").map(s => s.trim());
-    if (allowed.includes(origin)) return callback(null, true);
-    callback(new Error("Not allowed by CORS"));
-  },
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, etc.)
+      if (!origin) return callback(null, true);
+      // Allow all origins if configured with "*"
+      if (config.cors.origin === "*") return callback(null, true);
+      // In development, allow all localhost origins
+      if (
+        config.env === "development" &&
+        (origin.startsWith("http://localhost") || origin.startsWith("http://127.0.0.1"))
+      ) {
+        return callback(null, true);
+      }
+      // In production, check against configured origins (comma-separated)
+      const allowed = config.cors.origin.split(",").map((s) => s.trim());
+      if (allowed.includes(origin)) return callback(null, true);
+      callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  }),
+);
 app.use(compression());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
@@ -109,14 +115,20 @@ async function start() {
     const { validateConfig } = await import("./config/validate");
     validateConfig();
 
-    // Initialize database
-    const db = await initDB();
-    logger.info(`Database connected (provider: ${config.db.provider})`);
+    // Initialize EmpCloud master database (users, orgs, auth)
+    await initEmpCloudDB();
+    if (config.env === "development") {
+      await migrateEmpCloudDB();
+    }
 
-    // Run migrations in development
+    // Initialize payroll module database
+    const db = await initDB();
+    logger.info(`Payroll database connected (provider: ${config.db.provider})`);
+
+    // Run payroll migrations in development
     if (config.env === "development") {
       await db.migrate();
-      logger.info("Database migrations applied");
+      logger.info("Payroll database migrations applied");
     }
 
     // Start server
@@ -136,6 +148,7 @@ async function start() {
 const shutdown = async () => {
   logger.info("Shutting down...");
   await closeDB();
+  await closeEmpCloudDB();
   process.exit(0);
 };
 

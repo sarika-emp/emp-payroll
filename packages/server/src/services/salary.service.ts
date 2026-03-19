@@ -6,19 +6,23 @@ export class SalaryService {
 
   async listStructures(orgId: string) {
     return this.db.findMany<any>("salary_structures", {
-      filters: { org_id: orgId, is_active: true },
+      filters: { empcloud_org_id: Number(orgId), is_active: true },
     });
   }
 
   async getStructure(id: string, orgId: string) {
-    const structure = await this.db.findOne<any>("salary_structures", { id, org_id: orgId });
+    const structure = await this.db.findOne<any>("salary_structures", {
+      id,
+      empcloud_org_id: Number(orgId),
+    });
     if (!structure) throw new AppError(404, "NOT_FOUND", "Salary structure not found");
     return structure;
   }
 
   async createStructure(orgId: string, data: any) {
     const structure = await this.db.create<any>("salary_structures", {
-      org_id: orgId,
+      org_id: "00000000-0000-0000-0000-000000000000",
+      empcloud_org_id: Number(orgId),
       name: data.name,
       description: data.description || null,
       is_default: data.isDefault || false,
@@ -101,18 +105,23 @@ export class SalaryService {
 
   async assignToEmployee(data: any) {
     // Deactivate current salary
-    await this.db.updateMany("employee_salaries", {
-      employee_id: data.employeeId,
-      is_active: true,
-    }, { is_active: false });
+    await this.db.updateMany(
+      "employee_salaries",
+      {
+        empcloud_user_id: Number(data.employeeId),
+        is_active: true,
+      },
+      { is_active: false },
+    );
 
     const grossSalary = data.components.reduce(
-      (sum: number, c: any) => sum + (c.monthlyAmount * 12),
-      0
+      (sum: number, c: any) => sum + c.monthlyAmount * 12,
+      0,
     );
 
     return this.db.create("employee_salaries", {
-      employee_id: data.employeeId,
+      employee_id: "00000000-0000-0000-0000-000000000000",
+      empcloud_user_id: Number(data.employeeId),
       structure_id: data.structureId,
       ctc: data.ctc,
       gross_salary: grossSalary,
@@ -125,7 +134,7 @@ export class SalaryService {
 
   async getEmployeeSalary(employeeId: string) {
     const salary = await this.db.findOne<any>("employee_salaries", {
-      employee_id: employeeId,
+      empcloud_user_id: Number(employeeId),
       is_active: true,
     });
     if (!salary) throw new AppError(404, "NOT_FOUND", "No active salary found for employee");
@@ -136,16 +145,15 @@ export class SalaryService {
     return this.assignToEmployee({ ...data, employeeId });
   }
 
-  /**
-   * Compute arrears when salary is revised with a past effective date.
-   * Returns the difference per month between old and new gross for each month
-   * between effectiveFrom and the current month.
-   */
-  async computeArrears(employeeId: string, orgId: string, params: {
-    oldMonthlyCTC: number;
-    newMonthlyCTC: number;
-    effectiveFrom: string; // YYYY-MM-DD
-  }) {
+  async computeArrears(
+    employeeId: string,
+    orgId: string,
+    params: {
+      oldMonthlyCTC: number;
+      newMonthlyCTC: number;
+      effectiveFrom: string;
+    },
+  ) {
     const { oldMonthlyCTC, newMonthlyCTC, effectiveFrom } = params;
     const monthlyDiff = Math.round(newMonthlyCTC - oldMonthlyCTC);
     if (monthlyDiff <= 0) return { arrears: [], totalArrears: 0, monthlyDiff: 0 };
@@ -157,20 +165,29 @@ export class SalaryService {
     let year = fromDate.getFullYear();
     let month = fromDate.getMonth() + 1;
 
-    while (year < now.getFullYear() || (year === now.getFullYear() && month <= now.getMonth() + 1)) {
-      // Check if payslip exists for this month (already paid at old rate)
+    while (
+      year < now.getFullYear() ||
+      (year === now.getFullYear() && month <= now.getMonth() + 1)
+    ) {
       const existingPayslip = await this.db.raw<any>(
-        `SELECT id FROM payslips WHERE employee_id = ? AND month = ? AND year = ? AND status IN ('paid', 'computed', 'approved') LIMIT 1`,
-        [employeeId, month, year]
+        `SELECT id FROM payslips WHERE empcloud_user_id = ? AND month = ? AND year = ? AND status IN ('paid', 'computed', 'approved') LIMIT 1`,
+        [Number(employeeId), month, year],
       );
-      const rows = Array.isArray(existingPayslip) ? (Array.isArray(existingPayslip[0]) ? existingPayslip[0] : existingPayslip) : existingPayslip.rows || [];
+      const rows = Array.isArray(existingPayslip)
+        ? Array.isArray(existingPayslip[0])
+          ? existingPayslip[0]
+          : existingPayslip
+        : existingPayslip.rows || [];
 
       if (rows.length > 0) {
         arrears.push({ month, year, amount: monthlyDiff });
       }
 
       month++;
-      if (month > 12) { month = 1; year++; }
+      if (month > 12) {
+        month = 1;
+        year++;
+      }
     }
 
     const totalArrears = arrears.reduce((s, a) => s + a.amount, 0);

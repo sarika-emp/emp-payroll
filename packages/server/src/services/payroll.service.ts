@@ -1,8 +1,13 @@
 import { getDB } from "../db/adapters";
 import { AppError } from "../api/middleware/error.middleware";
-import { computePF, computeESI, computeProfessionalTax } from "./compliance/india-statutory.service";
+import {
+  computePF,
+  computeESI,
+  computeProfessionalTax,
+} from "./compliance/india-statutory.service";
 import { computeIncomeTax } from "./tax/india-tax.service";
 import { TaxRegime } from "@emp-payroll/shared";
+import { findUsersByOrgId, findOrgById, getEmpCloudDB } from "../db/empcloud";
 import dayjs from "dayjs";
 
 export class PayrollService {
@@ -10,30 +15,53 @@ export class PayrollService {
 
   async listRuns(orgId: string) {
     return this.db.findMany<any>("payroll_runs", {
-      filters: { org_id: orgId },
+      filters: { empcloud_org_id: Number(orgId) },
       sort: { field: "created_at", order: "desc" },
     });
   }
 
   async getRun(id: string, orgId: string) {
-    const run = await this.db.findOne<any>("payroll_runs", { id, org_id: orgId });
+    const run = await this.db.findOne<any>("payroll_runs", { id, empcloud_org_id: Number(orgId) });
     if (!run) throw new AppError(404, "NOT_FOUND", "Payroll run not found");
     return run;
   }
 
-  async createRun(orgId: string, userId: string, data: { month: number; year: number; payDate: string; notes?: string }) {
+  async createRun(
+    orgId: string,
+    userId: string,
+    data: { month: number; year: number; payDate: string; notes?: string },
+  ) {
     const existing = await this.db.findOne<any>("payroll_runs", {
-      org_id: orgId,
+      empcloud_org_id: Number(orgId),
       month: data.month,
       year: data.year,
     });
-    if (existing) throw new AppError(409, "DUPLICATE_RUN", `Payroll for ${data.month}/${data.year} already exists`);
+    if (existing)
+      throw new AppError(
+        409,
+        "DUPLICATE_RUN",
+        `Payroll for ${data.month}/${data.year} already exists`,
+      );
 
-    const monthNames = ["", "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"];
+    const monthNames = [
+      "",
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
     return this.db.create("payroll_runs", {
-      org_id: orgId,
+      org_id: "00000000-0000-0000-0000-000000000000",
+      empcloud_org_id: Number(orgId),
       name: `${monthNames[data.month]} ${data.year} Payroll`,
       month: data.month,
       year: data.year,
@@ -50,14 +78,13 @@ export class PayrollService {
       throw new AppError(400, "INVALID_STATUS", "Only draft payroll runs can be computed");
     }
 
-    // Get org for state info
-    const org = await this.db.findById<any>("organizations", orgId);
-
-    // Get all active employees with salaries
-    const employees = await this.db.findMany<any>("employees", {
-      filters: { org_id: orgId, is_active: true },
-      limit: 1000,
+    // Get org payroll settings for state info
+    const orgSettings = await this.db.findOne<any>("organization_payroll_settings", {
+      empcloud_org_id: Number(orgId),
     });
+
+    // Get active employees from EmpCloud
+    const ecEmployees = await findUsersByOrgId(Number(orgId), { limit: 1000 });
 
     let totalGross = 0;
     let totalDeductions = 0;
@@ -65,28 +92,32 @@ export class PayrollService {
     let totalEmployerContributions = 0;
     let employeeCount = 0;
 
-    for (const emp of employees.data) {
+    for (const ecEmp of ecEmployees) {
+      // Get payroll profile for this employee
+      const profile = await this.db.findOne<any>("employee_payroll_profiles", {
+        empcloud_user_id: ecEmp.id,
+      });
+
       const salary = await this.db.findOne<any>("employee_salaries", {
-        employee_id: emp.id,
+        empcloud_user_id: ecEmp.id,
         is_active: true,
       });
       if (!salary) continue;
 
       // Get attendance
       const attendance = await this.db.findOne<any>("attendance_summaries", {
-        employee_id: emp.id,
+        empcloud_user_id: ecEmp.id,
         month: run.month,
         year: run.year,
       });
 
       const totalDays = attendance?.total_days || 30;
-      const paidDays = attendance ? (totalDays - (attendance.lop_days || 0)) : totalDays;
+      const paidDays = attendance ? totalDays - (attendance.lop_days || 0) : totalDays;
       const lopDays = attendance?.lop_days || 0;
 
       // Parse salary components
-      const components = typeof salary.components === "string"
-        ? JSON.parse(salary.components)
-        : salary.components;
+      const components =
+        typeof salary.components === "string" ? JSON.parse(salary.components) : salary.components;
 
       // Calculate earnings (pro-rated for LOP)
       const proRatio = paidDays / totalDays;
@@ -110,10 +141,14 @@ export class PayrollService {
       let totalDed = 0;
 
       // PF
-      const pfDetails = typeof emp.pf_details === "string" ? JSON.parse(emp.pf_details) : emp.pf_details;
+      const pfDetails = profile?.pf_details
+        ? typeof profile.pf_details === "string"
+          ? JSON.parse(profile.pf_details)
+          : profile.pf_details
+        : {};
       if (!pfDetails?.isOptedOut) {
         const pf = computePF({
-          employeeId: emp.id,
+          employeeId: String(ecEmp.id),
           month: run.month,
           year: run.year,
           basicSalary: basicMonthly,
@@ -125,7 +160,7 @@ export class PayrollService {
 
       // ESI
       const esi = computeESI({
-        employeeId: emp.id,
+        employeeId: String(ecEmp.id),
         month: run.month,
         year: run.year,
         grossSalary: grossEarnings,
@@ -138,10 +173,10 @@ export class PayrollService {
 
       // Professional Tax
       const pt = computeProfessionalTax({
-        employeeId: emp.id,
+        employeeId: String(ecEmp.id),
         month: run.month,
         year: run.year,
-        state: org?.state || "KA",
+        state: orgSettings?.state || "KA",
         grossSalary: grossEarnings,
       });
       if (pt.taxAmount > 0) {
@@ -150,16 +185,22 @@ export class PayrollService {
       }
 
       // TDS (income tax)
-      const taxInfo = typeof emp.tax_info === "string" ? JSON.parse(emp.tax_info) : emp.tax_info;
+      const taxInfo = profile?.tax_info
+        ? typeof profile.tax_info === "string"
+          ? JSON.parse(profile.tax_info)
+          : profile.tax_info
+        : {};
       const fyStartMonth = 4;
       const currentMonth = run.month;
-      const monthsRemaining = currentMonth >= fyStartMonth
-        ? 12 - (currentMonth - fyStartMonth)
-        : fyStartMonth - currentMonth;
+      const monthsRemaining =
+        currentMonth >= fyStartMonth
+          ? 12 - (currentMonth - fyStartMonth)
+          : fyStartMonth - currentMonth;
 
       const taxResult = computeIncomeTax({
-        employeeId: emp.id,
-        financialYear: run.month >= 4 ? `${run.year}-${run.year + 1}` : `${run.year - 1}-${run.year}`,
+        employeeId: String(ecEmp.id),
+        financialYear:
+          run.month >= 4 ? `${run.year}-${run.year + 1}` : `${run.year - 1}-${run.year}`,
         regime: taxInfo?.regime === "old" ? TaxRegime.OLD : TaxRegime.NEW,
         annualGross: Number(salary.gross_salary),
         basicAnnual: basicMonthly * 12,
@@ -182,7 +223,8 @@ export class PayrollService {
       // Create payslip
       await this.db.create("payslips", {
         payroll_run_id: runId,
-        employee_id: emp.id,
+        employee_id: "00000000-0000-0000-0000-000000000000",
+        empcloud_user_id: ecEmp.id,
         month: run.month,
         year: run.year,
         paid_days: paidDays,
@@ -251,12 +293,15 @@ export class PayrollService {
   async revertToDraft(runId: string, orgId: string) {
     const run = await this.getRun(runId, orgId);
     if (run.status === "paid") {
-      throw new AppError(400, "INVALID_STATUS", "Paid payroll runs cannot be reverted. Cancel and create a new run.");
+      throw new AppError(
+        400,
+        "INVALID_STATUS",
+        "Paid payroll runs cannot be reverted. Cancel and create a new run.",
+      );
     }
     if (run.status === "draft") {
       throw new AppError(400, "ALREADY_DRAFT", "Payroll run is already in draft status");
     }
-    // Delete existing payslips so they can be recomputed
     await this.db.deleteMany("payslips", { payroll_run_id: runId });
     return this.db.update("payroll_runs", runId, {
       status: "draft",
@@ -281,24 +326,43 @@ export class PayrollService {
   }
 
   async getRunPayslips(runId: string) {
-    const result = await this.db.raw<any>(
-      `SELECT p.*, e.first_name, e.last_name, e.employee_code, e.department, e.designation
-       FROM payslips p
-       LEFT JOIN employees e ON p.employee_id = e.id
-       WHERE p.payroll_run_id = ?
-       ORDER BY e.first_name, e.last_name`,
-      [runId]
-    );
-    // mysql2 raw returns [rows, fields], pg returns { rows }
-    const rows = Array.isArray(result) ? (Array.isArray(result[0]) ? result[0] : result) : result.rows || [];
-    // Parse JSON fields
-    const data = rows.map((r: any) => ({
-      ...r,
-      earnings: typeof r.earnings === "string" ? JSON.parse(r.earnings) : r.earnings,
-      deductions: typeof r.deductions === "string" ? JSON.parse(r.deductions) : r.deductions,
-      employer_contributions: typeof r.employer_contributions === "string" ? JSON.parse(r.employer_contributions) : r.employer_contributions,
-      reimbursements: typeof r.reimbursements === "string" ? JSON.parse(r.reimbursements) : r.reimbursements,
-    }));
+    // Get payslips from payroll DB
+    const payslips = await this.db.findMany<any>("payslips", {
+      filters: { payroll_run_id: runId },
+      limit: 1000,
+    });
+
+    // Enrich with employee info from EmpCloud
+    const ecDb = getEmpCloudDB();
+    const data = [];
+    for (const p of payslips.data) {
+      const empcloudUserId = p.empcloud_user_id;
+      let empInfo: any = {};
+      if (empcloudUserId) {
+        empInfo =
+          (await ecDb("users")
+            .where({ id: empcloudUserId })
+            .select("first_name", "last_name", "emp_code", "designation", "department_id")
+            .first()) || {};
+      }
+
+      data.push({
+        ...p,
+        first_name: empInfo.first_name || null,
+        last_name: empInfo.last_name || null,
+        employee_code: empInfo.emp_code || null,
+        designation: empInfo.designation || null,
+        earnings: typeof p.earnings === "string" ? JSON.parse(p.earnings) : p.earnings,
+        deductions: typeof p.deductions === "string" ? JSON.parse(p.deductions) : p.deductions,
+        employer_contributions:
+          typeof p.employer_contributions === "string"
+            ? JSON.parse(p.employer_contributions)
+            : p.employer_contributions,
+        reimbursements:
+          typeof p.reimbursements === "string" ? JSON.parse(p.reimbursements) : p.reimbursements,
+      });
+    }
+
     return { data, total: data.length, page: 1, limit: 1000, totalPages: 1 };
   }
 }

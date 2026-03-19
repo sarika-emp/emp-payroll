@@ -6,7 +6,7 @@ export const config = {
   port: parseInt(process.env.PORT || "4000"),
   host: process.env.HOST || "0.0.0.0",
 
-  // Database
+  // Payroll module database (payroll-specific tables only)
   db: {
     provider: process.env.DB_PROVIDER || "mysql",
     host: process.env.DB_HOST || "localhost",
@@ -14,6 +14,15 @@ export const config = {
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
     name: process.env.DB_NAME || "emp_payroll",
+  },
+
+  // EmpCloud master database (users, organizations, auth — shared across modules)
+  empcloudDb: {
+    host: process.env.EMPCLOUD_DB_HOST || process.env.DB_HOST || "localhost",
+    port: parseInt(process.env.EMPCLOUD_DB_PORT || process.env.DB_PORT || "3306"),
+    user: process.env.EMPCLOUD_DB_USER || process.env.DB_USER || "root",
+    password: process.env.EMPCLOUD_DB_PASSWORD || process.env.DB_PASSWORD || "",
+    name: process.env.EMPCLOUD_DB_NAME || "empcloud",
   },
 
   // MongoDB (when DB_PROVIDER=mongodb)

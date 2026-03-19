@@ -43,38 +43,57 @@ router.post(
   upload.single("file"),
   wrap(async (req, res) => {
     if (!req.file) {
-      return res.status(400).json({ success: false, error: { code: "NO_FILE", message: "No file uploaded" } });
+      return res
+        .status(400)
+        .json({ success: false, error: { code: "NO_FILE", message: "No file uploaded" } });
     }
     const data = await svc.saveDocument({
-      orgId: req.user!.orgId,
+      orgId: String(req.user!.empcloudOrgId),
       employeeId: param(req, "empId"),
-      uploadedBy: req.user!.userId,
+      uploadedBy: String(req.user!.empcloudUserId),
       name: req.body.name || req.file.originalname,
       type: req.body.type || "other",
       file: req.file as any,
       expiryDate: req.body.expiryDate,
     });
     res.status(201).json({ success: true, data });
-  })
+  }),
 );
 
 // List employee documents
-router.get("/employees/:empId/documents", wrap(async (req, res) => {
-  const data = await svc.getDocuments(param(req, "empId"), req.user!.orgId);
-  res.json({ success: true, data });
-}));
+router.get(
+  "/employees/:empId/documents",
+  wrap(async (req, res) => {
+    const data = await svc.getDocuments(param(req, "empId"), String(req.user!.empcloudOrgId));
+    res.json({ success: true, data });
+  }),
+);
 
 // Delete document
-router.delete("/employees/:empId/documents/:docId", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
-  const data = await svc.deleteDocument(req.params.docId as string, req.user!.orgId);
-  res.json({ success: true, data });
-}));
+router.delete(
+  "/employees/:empId/documents/:docId",
+  authorize("hr_admin", "hr_manager"),
+  wrap(async (req, res) => {
+    const data = await svc.deleteDocument(
+      req.params.docId as string,
+      String(req.user!.empcloudOrgId),
+    );
+    res.json({ success: true, data });
+  }),
+);
 
 // Verify document
-router.post("/employees/:empId/documents/:docId/verify", authorize("hr_admin", "hr_manager"), wrap(async (req, res) => {
-  const data = await svc.verifyDocument(req.params.docId as string, req.user!.orgId);
-  res.json({ success: true, data });
-}));
+router.post(
+  "/employees/:empId/documents/:docId/verify",
+  authorize("hr_admin", "hr_manager"),
+  wrap(async (req, res) => {
+    const data = await svc.verifyDocument(
+      req.params.docId as string,
+      String(req.user!.empcloudOrgId),
+    );
+    res.json({ success: true, data });
+  }),
+);
 
 // Upload declaration proof (self-service)
 router.post(
@@ -82,16 +101,18 @@ router.post(
   upload.single("file"),
   wrap(async (req, res) => {
     if (!req.file) {
-      return res.status(400).json({ success: false, error: { code: "NO_FILE", message: "No file uploaded" } });
+      return res
+        .status(400)
+        .json({ success: false, error: { code: "NO_FILE", message: "No file uploaded" } });
     }
     const data = await svc.saveDeclarationProof({
-      orgId: req.user!.orgId,
-      employeeId: req.user!.userId,
+      orgId: String(req.user!.empcloudOrgId),
+      employeeId: String(req.user!.empcloudUserId),
       declarationId: param(req, "declId"),
       file: req.file as any,
     });
     res.json({ success: true, data });
-  })
+  }),
 );
 
 export { router as uploadRoutes };
