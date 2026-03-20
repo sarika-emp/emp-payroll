@@ -34,10 +34,25 @@ import {
   PieChart,
   Pie,
   Cell,
+  Legend,
 } from "recharts";
 
 const COLORS = ["#6366F1", "#818CF8", "#A5B4FC", "#C7D2FE", "#E0E7FF"];
-const MONTHS = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS = [
+  "",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 export function DashboardPage() {
   const navigate = useNavigate();
@@ -47,7 +62,7 @@ export function DashboardPage() {
   if (empLoading || runsLoading) {
     return (
       <div className="flex h-64 items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-brand-600" />
+        <Loader2 className="text-brand-600 h-8 w-8 animate-spin" />
       </div>
     );
   }
@@ -63,7 +78,10 @@ export function DashboardPage() {
   for (const emp of employees) {
     deptMap[emp.department] = (deptMap[emp.department] || 0) + 1;
   }
-  const departmentHeadcount = Object.entries(deptMap).map(([department, count]) => ({ department, count }));
+  const departmentHeadcount = Object.entries(deptMap).map(([department, count]) => ({
+    department,
+    count,
+  }));
 
   // Monthly payroll trend from paid runs
   const trendData = paidRuns
@@ -93,12 +111,42 @@ export function DashboardPage() {
       {/* Quick actions */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
         {[
-          { label: "Run Payroll", icon: Play, path: "/payroll/runs", color: "bg-brand-50 text-brand-700" },
-          { label: "Add Employee", icon: UserPlus, path: "/employees/new", color: "bg-green-50 text-green-700" },
-          { label: "View Reports", icon: TrendingUp, path: "/reports", color: "bg-amber-50 text-amber-700" },
-          { label: "Payslips", icon: CreditCard, path: "/payslips", color: "bg-purple-50 text-purple-700" },
-          { label: "Attendance", icon: Clock, path: "/attendance", color: "bg-blue-50 text-blue-700" },
-          { label: "Settings", icon: AlertCircle, path: "/settings", color: "bg-gray-50 text-gray-700" },
+          {
+            label: "Run Payroll",
+            icon: Play,
+            path: "/payroll/runs",
+            color: "bg-brand-50 text-brand-700",
+          },
+          {
+            label: "Add Employee",
+            icon: UserPlus,
+            path: "/employees/new",
+            color: "bg-green-50 text-green-700",
+          },
+          {
+            label: "View Reports",
+            icon: TrendingUp,
+            path: "/reports",
+            color: "bg-amber-50 text-amber-700",
+          },
+          {
+            label: "Payslips",
+            icon: CreditCard,
+            path: "/payslips",
+            color: "bg-purple-50 text-purple-700",
+          },
+          {
+            label: "Attendance",
+            icon: Clock,
+            path: "/attendance",
+            color: "bg-blue-50 text-blue-700",
+          },
+          {
+            label: "Settings",
+            icon: AlertCircle,
+            path: "/settings",
+            color: "bg-gray-50 text-gray-700",
+          },
         ].map((action) => {
           const Icon = action.icon;
           return (
@@ -183,7 +231,7 @@ export function DashboardPage() {
             <CardTitle>Headcount by Department</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="h-52">
+            <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -191,16 +239,25 @@ export function DashboardPage() {
                     dataKey="count"
                     nameKey="department"
                     cx="50%"
-                    cy="50%"
-                    outerRadius={80}
-                    label={({ department, count }: { department: string; count: number }) => `${department} (${count})`}
-                    labelLine={false}
+                    cy="45%"
+                    outerRadius={60}
+                    innerRadius={30}
                   >
                     {departmentHeadcount.map((_, i) => (
                       <Cell key={i} fill={COLORS[i % COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip />
+                  <Tooltip
+                    formatter={(value: number, name: string) => [`${value} employees`, name]}
+                  />
+                  <Legend
+                    layout="horizontal"
+                    verticalAlign="bottom"
+                    align="center"
+                    formatter={(value: string) => (
+                      <span className="text-xs text-gray-600">{value}</span>
+                    )}
+                  />
                 </PieChart>
               </ResponsiveContainer>
             </div>
@@ -214,37 +271,41 @@ export function DashboardPage() {
 
         {/* Compliance */}
         <Card>
-        <CardHeader>
-          <CardTitle>Compliance Status {lastRun ? `— ${MONTHS[lastRun.month]} ${lastRun.year}` : ""}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {([
-              { label: "Provident Fund", filed: true },
-              { label: "ESI", filed: true },
-              { label: "Professional Tax", filed: true },
-              { label: "TDS (Form 24Q)", filed: false },
-            ] as const).map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center gap-3 rounded-lg border border-gray-100 p-4"
-              >
-                {item.filed ? (
-                  <CheckCircle2 className="h-5 w-5 text-green-500" />
-                ) : (
-                  <XCircle className="h-5 w-5 text-red-400" />
-                )}
-                <div>
-                  <p className="text-sm font-medium text-gray-900">{item.label}</p>
-                  <Badge variant={item.filed ? "approved" : "pending"}>
-                    {item.filed ? "Filed" : "Pending"}
-                  </Badge>
+          <CardHeader>
+            <CardTitle>
+              Compliance Status {lastRun ? `— ${MONTHS[lastRun.month]} ${lastRun.year}` : ""}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {(
+                [
+                  { label: "Provident Fund", filed: true },
+                  { label: "ESI", filed: true },
+                  { label: "Professional Tax", filed: true },
+                  { label: "TDS (Form 24Q)", filed: false },
+                ] as const
+              ).map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-center gap-3 rounded-lg border border-gray-100 p-4"
+                >
+                  {item.filed ? (
+                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                  ) : (
+                    <XCircle className="h-5 w-5 text-red-400" />
+                  )}
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{item.label}</p>
+                    <Badge variant={item.filed ? "approved" : "pending"}>
+                      {item.filed ? "Filed" : "Pending"}
+                    </Badge>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
@@ -270,24 +331,32 @@ function RecentActivity() {
   const activities = res?.data?.data || [];
 
   // If no audit logs yet, show a placeholder timeline
-  const items = activities.length > 0
-    ? activities.map((a: any) => ({
-        icon: ACTIVITY_ICONS[a.action] || Clock,
-        text: a.action.replace(".", " → "),
-        time: new Date(a.created_at).toLocaleString("en-IN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }),
-      }))
-    : [
-        { icon: CreditCard, text: "Payroll paid for last month", time: "Recently" },
-        { icon: CheckCircle2, text: "Payroll approved", time: "Recently" },
-        { icon: Play, text: "Payroll computed for 10 employees", time: "Recently" },
-        { icon: UserPlus, text: "10 employees onboarded", time: "Recently" },
-        { icon: Clock, text: "System initialized", time: "Recently" },
-      ];
+  const items =
+    activities.length > 0
+      ? activities.map((a: any) => ({
+          icon: ACTIVITY_ICONS[a.action] || Clock,
+          text: a.action.replace(".", " → "),
+          time: new Date(a.created_at).toLocaleString("en-IN", {
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        }))
+      : [
+          { icon: CreditCard, text: "Payroll paid for last month", time: "Recently" },
+          { icon: CheckCircle2, text: "Payroll approved", time: "Recently" },
+          { icon: Play, text: "Payroll computed for 10 employees", time: "Recently" },
+          { icon: UserPlus, text: "10 employees onboarded", time: "Recently" },
+          { icon: Clock, text: "System initialized", time: "Recently" },
+        ];
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2"><Clock className="h-5 w-5" /> Recent Activity</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <Clock className="h-5 w-5" /> Recent Activity
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -299,7 +368,7 @@ function RecentActivity() {
                   <Icon className="h-3.5 w-3.5 text-gray-500" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-sm text-gray-700 capitalize">{item.text}</p>
+                  <p className="text-sm capitalize text-gray-700">{item.text}</p>
                   <p className="text-xs text-gray-400">{item.time}</p>
                 </div>
               </div>

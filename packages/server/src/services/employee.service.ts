@@ -27,6 +27,32 @@ async function mergeUserWithProfile(ecUser: EmpCloudUser, payrollDb: any): Promi
     empcloud_user_id: ecUser.id,
   });
 
+  const bankDetails = profile
+    ? typeof profile.bank_details === "string"
+      ? JSON.parse(profile.bank_details || "{}")
+      : profile.bank_details
+    : {};
+  const taxInfo = profile
+    ? typeof profile.tax_info === "string"
+      ? JSON.parse(profile.tax_info || "{}")
+      : profile.tax_info
+    : {};
+  const pfDetails = profile
+    ? typeof profile.pf_details === "string"
+      ? JSON.parse(profile.pf_details || "{}")
+      : profile.pf_details
+    : {};
+  const esiDetails = profile
+    ? typeof profile.esi_details === "string"
+      ? JSON.parse(profile.esi_details || "{}")
+      : profile.esi_details
+    : {};
+  const address = profile
+    ? typeof profile.address === "string"
+      ? JSON.parse(profile.address || "null")
+      : profile.address
+    : null;
+
   return {
     // EmpCloud identity (id = empcloudUserId for backward compat)
     id: ecUser.id,
@@ -39,47 +65,40 @@ async function mergeUserWithProfile(ecUser: EmpCloudUser, payrollDb: any): Promi
     email: ecUser.email,
     emp_code: ecUser.emp_code,
     empCode: ecUser.emp_code,
+    employee_code: profile?.employee_code || ecUser.emp_code,
     contactNumber: ecUser.contact_number,
+    contact_number: ecUser.contact_number,
+    phone: ecUser.contact_number,
     dateOfBirth: ecUser.date_of_birth,
+    date_of_birth: ecUser.date_of_birth,
     gender: ecUser.gender,
     dateOfJoining: ecUser.date_of_joining,
+    date_of_joining: ecUser.date_of_joining,
     dateOfExit: ecUser.date_of_exit,
     designation: ecUser.designation,
     department: departmentName,
     departmentId: ecUser.department_id,
+    department_id: ecUser.department_id,
     locationId: ecUser.location_id,
     reportingManagerId: ecUser.reporting_manager_id,
+    reporting_manager_id: ecUser.reporting_manager_id,
     employmentType: ecUser.employment_type,
+    employment_type: ecUser.employment_type,
     role: ecUser.role,
     status: ecUser.status,
     // Payroll profile (may be null if not yet created)
     payrollProfileId: profile?.id || null,
-    address: profile
-      ? typeof profile.address === "string"
-        ? JSON.parse(profile.address || "null")
-        : profile.address
-      : null,
-    bankDetails: profile
-      ? typeof profile.bank_details === "string"
-        ? JSON.parse(profile.bank_details || "{}")
-        : profile.bank_details
-      : {},
-    taxInfo: profile
-      ? typeof profile.tax_info === "string"
-        ? JSON.parse(profile.tax_info || "{}")
-        : profile.tax_info
-      : {},
-    pfDetails: profile
-      ? typeof profile.pf_details === "string"
-        ? JSON.parse(profile.pf_details || "{}")
-        : profile.pf_details
-      : {},
-    esiDetails: profile
-      ? typeof profile.esi_details === "string"
-        ? JSON.parse(profile.esi_details || "{}")
-        : profile.esi_details
-      : {},
+    address,
+    bankDetails,
+    bank_details: bankDetails,
+    taxInfo,
+    tax_info: taxInfo,
+    pfDetails,
+    pf_details: pfDetails,
+    esiDetails,
+    esi_details: esiDetails,
     isActive: ecUser.status === 1,
+    is_active: ecUser.status === 1,
     createdAt: ecUser.created_at,
     updatedAt: ecUser.updated_at,
   };

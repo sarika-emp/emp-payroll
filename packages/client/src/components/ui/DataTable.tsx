@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -34,9 +34,14 @@ export function DataTable<T extends Record<string, any>>({
 }: DataTableProps<T>) {
   const [localPage, setLocalPage] = useState(1);
 
+  // Reset to page 1 when data changes (e.g., after search/filter)
+  useEffect(() => {
+    setLocalPage(1);
+  }, [data.length]);
+
   // Client-side pagination when no server pagination
   const isServerPaginated = serverTotal !== undefined && onPageChange !== undefined;
-  const currentPage = isServerPaginated ? (serverPage || 1) : localPage;
+  const currentPage = isServerPaginated ? serverPage || 1 : localPage;
   const totalItems = isServerPaginated ? serverTotal : data.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
   const showPagination = totalItems > pageSize;
@@ -60,7 +65,10 @@ export function DataTable<T extends Record<string, any>>({
         <thead>
           <tr className="border-b border-gray-200 bg-gray-50">
             {columns.map((col) => (
-              <th key={col.key} className={cn("px-6 py-3 font-medium text-gray-500", col.className)}>
+              <th
+                key={col.key}
+                className={cn("px-6 py-3 font-medium text-gray-500", col.className)}
+              >
                 {col.header}
               </th>
             ))}
@@ -78,10 +86,7 @@ export function DataTable<T extends Record<string, any>>({
               <tr
                 key={i}
                 onClick={() => onRowClick?.(row)}
-                className={cn(
-                  "transition-colors hover:bg-gray-50",
-                  onRowClick && "cursor-pointer",
-                )}
+                className={cn("transition-colors hover:bg-gray-50", onRowClick && "cursor-pointer")}
               >
                 {columns.map((col) => (
                   <td key={col.key} className={cn("px-6 py-4 text-gray-700", col.className)}>
@@ -97,7 +102,8 @@ export function DataTable<T extends Record<string, any>>({
       {showPagination && (
         <div className="flex items-center justify-between border-t border-gray-200 bg-gray-50 px-6 py-3">
           <p className="text-sm text-gray-500">
-            Showing {(currentPage - 1) * pageSize + 1}–{Math.min(currentPage * pageSize, totalItems)} of {totalItems}
+            Showing {(currentPage - 1) * pageSize + 1}–
+            {Math.min(currentPage * pageSize, totalItems)} of {totalItems}
           </p>
           <div className="flex items-center gap-1">
             <button
@@ -126,7 +132,7 @@ export function DataTable<T extends Record<string, any>>({
                     "h-8 w-8 rounded-lg text-sm font-medium",
                     page === currentPage
                       ? "bg-brand-600 text-white"
-                      : "text-gray-600 hover:bg-gray-200"
+                      : "text-gray-600 hover:bg-gray-200",
                   )}
                 >
                   {page}

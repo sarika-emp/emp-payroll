@@ -64,12 +64,14 @@ function OrgNodeCard({ node, depth = 0 }: { node: OrgNode; depth?: number }) {
         {depth > 0 && (
           <div className="absolute -top-6 left-1/2 h-6 w-px -translate-x-1/2 bg-gray-300" />
         )}
-        <Card className="w-48 hover:shadow-md transition-shadow">
+        <Card className="w-48 transition-shadow hover:shadow-md">
           <CardContent className="py-3 text-center">
             <Avatar name={node.name} size="sm" className="mx-auto" />
             <p className="mt-2 text-sm font-semibold text-gray-900">{node.name}</p>
             <p className="text-xs text-gray-500">{node.designation}</p>
-            <Badge variant="draft" className="mt-1">{node.department}</Badge>
+            <Badge variant="draft" className="mt-1">
+              {node.department}
+            </Badge>
           </CardContent>
         </Card>
       </div>
@@ -77,7 +79,7 @@ function OrgNodeCard({ node, depth = 0 }: { node: OrgNode; depth?: number }) {
       {node.children.length > 0 && (
         <div className="relative mt-6">
           {/* Vertical line down */}
-          <div className="absolute left-1/2 -top-6 h-6 w-px -translate-x-1/2 bg-gray-300" />
+          <div className="absolute -top-6 left-1/2 h-6 w-px -translate-x-1/2 bg-gray-300" />
 
           {/* Horizontal line connecting children */}
           {node.children.length > 1 && (
@@ -90,7 +92,7 @@ function OrgNodeCard({ node, depth = 0 }: { node: OrgNode; depth?: number }) {
             />
           )}
 
-          <div className="flex gap-8">
+          <div className="flex flex-wrap justify-center gap-6">
             {node.children.map((child) => (
               <OrgNodeCard key={child.id} node={child} depth={depth + 1} />
             ))}
@@ -106,7 +108,11 @@ export function OrgChartPage() {
   const employees = res?.data?.data || [];
 
   if (isLoading) {
-    return <div className="flex h-64 items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-brand-600" /></div>;
+    return (
+      <div className="flex h-64 items-center justify-center">
+        <Loader2 className="text-brand-600 h-8 w-8 animate-spin" />
+      </div>
+    );
   }
 
   const tree = buildTree(employees);
@@ -127,8 +133,11 @@ export function OrgChartPage() {
 
       {/* Org tree */}
       <Card>
-        <CardContent className="overflow-x-auto py-8">
-          <div className="flex justify-center min-w-[600px]">
+        <CardContent className="overflow-x-auto overflow-y-auto py-8" style={{ maxHeight: "70vh" }}>
+          <div
+            className="flex justify-center"
+            style={{ minWidth: `${Math.max(600, employees.length * 60)}px` }}
+          >
             {tree.map((root) => (
               <OrgNodeCard key={root.id} node={root} />
             ))}
@@ -138,27 +147,31 @@ export function OrgChartPage() {
 
       {/* Department grid */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {Object.entries(deptMap).sort((a, b) => b[1].length - a[1].length).map(([dept, emps]) => (
-          <Card key={dept}>
-            <CardContent className="py-4">
-              <div className="mb-3 flex items-center justify-between">
-                <h3 className="text-sm font-semibold text-gray-900">{dept}</h3>
-                <Badge variant="draft">{emps.length}</Badge>
-              </div>
-              <div className="space-y-2">
-                {emps.map((emp: any) => (
-                  <div key={emp.id} className="flex items-center gap-2">
-                    <Avatar name={`${emp.first_name} ${emp.last_name}`} size="sm" />
-                    <div>
-                      <p className="text-xs font-medium text-gray-900">{emp.first_name} {emp.last_name}</p>
-                      <p className="text-xs text-gray-400">{emp.designation}</p>
+        {Object.entries(deptMap)
+          .sort((a, b) => b[1].length - a[1].length)
+          .map(([dept, emps]) => (
+            <Card key={dept}>
+              <CardContent className="py-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold text-gray-900">{dept}</h3>
+                  <Badge variant="draft">{emps.length}</Badge>
+                </div>
+                <div className="space-y-2">
+                  {emps.map((emp: any) => (
+                    <div key={emp.id} className="flex items-center gap-2">
+                      <Avatar name={`${emp.first_name} ${emp.last_name}`} size="sm" />
+                      <div>
+                        <p className="text-xs font-medium text-gray-900">
+                          {emp.first_name} {emp.last_name}
+                        </p>
+                        <p className="text-xs text-gray-400">{emp.designation}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
       </div>
     </div>
   );

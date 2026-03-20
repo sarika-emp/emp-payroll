@@ -74,7 +74,28 @@ router.post(
       [];
 
     for (let i = 0; i < employees.length; i++) {
-      const emp = employees[i];
+      const raw = employees[i];
+      // Normalize keys: support both camelCase and "Spaced Header" formats from CSV exports
+      const emp: any = {};
+      for (const [key, value] of Object.entries(raw)) {
+        emp[key] = value;
+      }
+      // Map common spaced/snake_case CSV headers to camelCase
+      if (!emp.firstName) emp.firstName = emp["First Name"] || emp.first_name || "";
+      if (!emp.lastName) emp.lastName = emp["Last Name"] || emp.last_name || "";
+      if (!emp.email) emp.email = emp["Email"] || "";
+      if (!emp.phone) emp.phone = emp["Phone"] || emp.contact_number || "";
+      if (!emp.dateOfBirth)
+        emp.dateOfBirth = emp["Date of Birth"] || emp.date_of_birth || "1990-01-01";
+      if (!emp.gender) emp.gender = (emp["Gender"] || "other").toLowerCase();
+      if (!emp.dateOfJoining)
+        emp.dateOfJoining =
+          emp["Date of Joining"] || emp.date_of_joining || new Date().toISOString().slice(0, 10);
+      if (!emp.employeeCode) emp.employeeCode = emp["Employee Code"] || emp.employee_code || "";
+      if (!emp.designation) emp.designation = emp["Designation"] || "Employee";
+      if (!emp.department) emp.department = emp["Department"] || "General";
+      if (!emp.employmentType)
+        emp.employmentType = emp["Employment Type"] || emp.employment_type || "full_time";
       try {
         if (!emp.email || !emp.firstName || !emp.lastName) {
           results.push({

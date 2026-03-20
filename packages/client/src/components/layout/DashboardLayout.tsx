@@ -17,11 +17,18 @@ export function DashboardLayout() {
 
   // Close mobile sidebar on navigation
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => { setMobileOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   const user = getUser();
   const displayName = user ? `${user.firstName} ${user.lastName}` : "User";
-  const roleLabel = user?.role === "hr_admin" ? "HR Admin" : user?.role === "hr_manager" ? "HR Manager" : "Employee";
+  const roleLabel =
+    user?.role === "hr_admin"
+      ? "HR Admin"
+      : user?.role === "hr_manager"
+        ? "HR Manager"
+        : "Employee";
 
   return (
     <div className="flex h-screen bg-gray-50">
@@ -95,23 +102,38 @@ function GlobalSearch() {
   function handleChange(value: string) {
     setQuery(value);
     if (debounceRef.current) clearTimeout(debounceRef.current);
-    if (value.length < 2) { setResults([]); setOpen(false); return; }
+    if (value.length < 2) {
+      setResults([]);
+      setOpen(false);
+      return;
+    }
 
     debounceRef.current = setTimeout(async () => {
       setLoading(true);
       try {
-        const res = await apiGet<any>("/employees", { limit: 10 });
-        const employees = res.data?.data || [];
-        const q = value.toLowerCase();
-        const filtered = employees.filter((e: any) =>
-          `${e.first_name} ${e.last_name}`.toLowerCase().includes(q) ||
-          e.email.toLowerCase().includes(q) ||
-          e.employee_code.toLowerCase().includes(q) ||
-          e.department.toLowerCase().includes(q)
-        );
-        setResults(filtered.slice(0, 5));
+        const res = await apiGet<any>("/employees/search", { q: value, limit: 10 });
+        const employees = res.data || [];
+        setResults(employees.slice(0, 5));
         setOpen(true);
-      } catch { /* ignore */ }
+      } catch {
+        // Fallback: fetch all and filter locally
+        try {
+          const res = await apiGet<any>("/employees", { limit: 100 });
+          const employees = res.data?.data || [];
+          const q = value.toLowerCase();
+          const filtered = employees.filter(
+            (e: any) =>
+              `${e.first_name || ""} ${e.last_name || ""}`.toLowerCase().includes(q) ||
+              (e.email || "").toLowerCase().includes(q) ||
+              (e.employee_code || e.emp_code || "").toLowerCase().includes(q) ||
+              (e.department || "").toLowerCase().includes(q),
+          );
+          setResults(filtered.slice(0, 5));
+          setOpen(true);
+        } catch {
+          /* ignore */
+        }
+      }
       setLoading(false);
     }, 300);
   }
@@ -125,22 +147,32 @@ function GlobalSearch() {
         onChange={(e) => handleChange(e.target.value)}
         onFocus={() => results.length > 0 && setOpen(true)}
         placeholder="Search employees... (Ctrl+K)"
-        className="h-9 w-64 rounded-lg border border-gray-200 bg-gray-50 pl-10 pr-4 text-sm placeholder:text-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 lg:w-80"
+        className="focus:border-brand-500 focus:ring-brand-500 h-9 w-64 rounded-lg border border-gray-200 bg-gray-50 pl-10 pr-4 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 lg:w-80"
       />
-      {loading && <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-gray-400" />}
+      {loading && (
+        <Loader2 className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 animate-spin text-gray-400" />
+      )}
 
       {open && results.length > 0 && (
         <div className="absolute left-0 top-full z-50 mt-1 w-64 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg lg:w-80">
           {results.map((emp: any) => (
             <button
               key={emp.id}
-              onClick={() => { navigate(`/employees/${emp.id}`); setOpen(false); setQuery(""); }}
+              onClick={() => {
+                navigate(`/employees/${emp.id}`);
+                setOpen(false);
+                setQuery("");
+              }}
               className="flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-gray-50"
             >
               <Avatar name={`${emp.first_name} ${emp.last_name}`} size="sm" />
               <div>
-                <p className="text-sm font-medium text-gray-900">{emp.first_name} {emp.last_name}</p>
-                <p className="text-xs text-gray-500">{emp.employee_code} &middot; {emp.department}</p>
+                <p className="text-sm font-medium text-gray-900">
+                  {emp.first_name} {emp.last_name}
+                </p>
+                <p className="text-xs text-gray-500">
+                  {emp.employee_code} &middot; {emp.department}
+                </p>
               </div>
             </button>
           ))}

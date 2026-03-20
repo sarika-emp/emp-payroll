@@ -21,26 +21,85 @@ function getNotifications(): Notification[] {
 
   if (isAdmin) {
     return [
-      { id: "1", icon: AlertCircle, title: "TDS Filing Due", description: `Form 24Q for Q4 FY 2025-26 is due soon`, time: "Action needed", read: false, link: "/tax" },
-      { id: "2", icon: CreditCard, title: `${month} Payroll Pending`, description: "Create and run this month's payroll", time: "This month", read: false, link: "/payroll/runs" },
-      { id: "3", icon: CheckCircle2, title: "Last Payroll Completed", description: "All payslips generated and paid", time: "Last month", read: true, link: "/payroll/runs" },
-      { id: "4", icon: Users, title: "10 Active Employees", description: "All statutory registrations up to date", time: "System", read: true, link: "/employees" },
+      {
+        id: "1",
+        icon: AlertCircle,
+        title: "TDS Filing Due",
+        description: `Form 24Q for Q4 FY 2025-26 is due soon`,
+        time: "Action needed",
+        read: false,
+        link: "/tax",
+      },
+      {
+        id: "2",
+        icon: CreditCard,
+        title: `${month} Payroll Pending`,
+        description: "Create and run this month's payroll",
+        time: "This month",
+        read: false,
+        link: "/payroll/runs",
+      },
+      {
+        id: "3",
+        icon: CheckCircle2,
+        title: "Last Payroll Completed",
+        description: "All payslips generated and paid",
+        time: "Last month",
+        read: true,
+        link: "/payroll/runs",
+      },
+      {
+        id: "4",
+        icon: Users,
+        title: "10 Active Employees",
+        description: "All statutory registrations up to date",
+        time: "System",
+        read: true,
+        link: "/employees",
+      },
     ];
   }
 
   return [
-    { id: "1", icon: FileText, title: "Payslip Available", description: "Your latest payslip is ready to view", time: "Recently", read: false, link: "/my/payslips" },
-    { id: "2", icon: AlertCircle, title: "Tax Declaration Reminder", description: "Submit your investment proofs before deadline", time: "This quarter", read: false, link: "/my/declarations" },
-    { id: "3", icon: CheckCircle2, title: "Salary Credited", description: "Your salary has been credited to your bank account", time: "Last month", read: true },
+    {
+      id: "1",
+      icon: FileText,
+      title: "Payslip Available",
+      description: "Your latest payslip is ready to view",
+      time: "Recently",
+      read: false,
+      link: "/my/payslips",
+    },
+    {
+      id: "2",
+      icon: AlertCircle,
+      title: "Tax Declaration Reminder",
+      description: "Submit your investment proofs before deadline",
+      time: "This quarter",
+      read: false,
+      link: "/my/declarations",
+    },
+    {
+      id: "3",
+      icon: CheckCircle2,
+      title: "Salary Credited",
+      description: "Your salary has been credited to your bank account",
+      time: "Last month",
+      read: true,
+    },
   ];
 }
 
 export function NotificationBell() {
   const [open, setOpen] = useState(false);
-  const [notifications] = useState(getNotifications);
+  const [notifications, setNotifications] = useState(getNotifications);
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const unread = notifications.filter((n) => !n.read).length;
+
+  function markAllAsRead() {
+    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+  }
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -69,9 +128,12 @@ export function NotificationBell() {
           <div className="flex items-center justify-between border-b border-gray-100 px-4 py-3">
             <h3 className="text-sm font-semibold text-gray-900">Notifications</h3>
             {unread > 0 && (
-              <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-600">
-                {unread} new
-              </span>
+              <button
+                onClick={markAllAsRead}
+                className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-600 transition-colors hover:bg-red-200"
+              >
+                {unread} new — Mark read
+              </button>
             )}
           </div>
 
@@ -81,29 +143,36 @@ export function NotificationBell() {
               return (
                 <button
                   key={n.id}
-                  onClick={() => { if (n.link) navigate(n.link); setOpen(false); }}
+                  onClick={() => {
+                    if (n.link) navigate(n.link);
+                    setOpen(false);
+                  }}
                   className={`flex w-full items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-gray-50 ${
                     !n.read ? "bg-brand-50/30" : ""
                   }`}
                 >
-                  <div className={`mt-0.5 rounded-full p-1.5 ${!n.read ? "bg-brand-100" : "bg-gray-100"}`}>
+                  <div
+                    className={`mt-0.5 rounded-full p-1.5 ${!n.read ? "bg-brand-100" : "bg-gray-100"}`}
+                  >
                     <Icon className={`h-4 w-4 ${!n.read ? "text-brand-600" : "text-gray-400"}`} />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className={`text-sm ${!n.read ? "font-semibold text-gray-900" : "font-medium text-gray-700"}`}>
+                  <div className="min-w-0 flex-1">
+                    <p
+                      className={`text-sm ${!n.read ? "font-semibold text-gray-900" : "font-medium text-gray-700"}`}
+                    >
                       {n.title}
                     </p>
-                    <p className="text-xs text-gray-500 truncate">{n.description}</p>
+                    <p className="truncate text-xs text-gray-500">{n.description}</p>
                     <p className="mt-0.5 text-xs text-gray-400">{n.time}</p>
                   </div>
-                  {!n.read && <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand-500" />}
+                  {!n.read && <span className="bg-brand-500 mt-2 h-2 w-2 shrink-0 rounded-full" />}
                 </button>
               );
             })}
           </div>
 
           <div className="border-t border-gray-100 p-2">
-            <button className="w-full rounded-lg px-3 py-2 text-center text-xs font-medium text-brand-600 hover:bg-brand-50">
+            <button className="text-brand-600 hover:bg-brand-50 w-full rounded-lg px-3 py-2 text-center text-xs font-medium">
               View all notifications
             </button>
           </div>
