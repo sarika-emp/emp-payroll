@@ -27,7 +27,7 @@ export function LoginPage() {
       const res = await loginMutation.mutateAsync({ email, password });
       if (res.success) {
         saveAuth(res.data);
-        toast.success(`Welcome back, ${res.data.user.first_name}!`);
+        toast.success(`Welcome back, ${res.data.user.firstName}!`);
         const role = res.data.user.role;
         navigate(role === "hr_admin" || role === "hr_manager" ? "/dashboard" : "/my");
       } else {

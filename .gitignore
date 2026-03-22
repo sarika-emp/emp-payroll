@@ -8,6 +8,12 @@ packages/client/.env
 *.log
 logs/
 .DS_Store
+
+# SSH / deploy keys — NEVER commit
+*.pem
+*.key
+.ssh/
+deploy-keys/
 coverage/
 .turbo/
 

@@ -1,0 +1,307 @@
+# =============================================================================
+# EmpCloud Unified Deployment — All 3 Apps + Shared Infrastructure
+# =============================================================================
+# Usage:
+#   docker compose -f docker-compose.cloud.yml up -d
+#   docker compose -f docker-compose.cloud.yml down
+#
+# Port Map:
+#   80/443  → Nginx reverse proxy (public entry point)
+#   3001    → emp-payroll client
+#   3002    → emp-billing app
+#   3003    → emp-lms web
+#   4000    → emp-payroll API (internal)
+#   4001    → emp-billing API (internal)
+#   4002    → emp-lms API (internal)
+#   8080    → Jenkins (internal/admin)
+#   9000    → MinIO S3 API (internal)
+#   9001    → MinIO console (admin)
+# =============================================================================
+
+services:
+
+  # ===========================================================================
+  # SHARED INFRASTRUCTURE
+  # ===========================================================================
+
+  # --- Nginx Reverse Proxy (public entry point) ---
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: empcloud-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+      - nginx_certs:/etc/nginx/certs
+    depends_on:
+      - payroll-client
+      - billing-app
+      - lms-web
+    networks:
+      - empcloud-net
+
+  # --- Shared MySQL (all 3 apps, separate databases) ---
+  mysql:
+    image: mysql:8.0
+    container_name: empcloud-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-empcloud_root_secret}
+    command: >
+      --default-authentication-plugin=mysql_native_password
+      --max-connections=300
+      --innodb-buffer-pool-size=512M
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/init-databases.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+    networks:
+      - empcloud-net
+
+  # --- Shared Redis ---
+  redis:
+    image: redis:7-alpine
+    container_name: empcloud-redis
+    restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 300M
+    networks:
+      - empcloud-net
+
+  # --- MinIO (S3-compatible storage, used by LMS) ---
+  minio:
+    image: minio/minio
+    container_name: empcloud-minio
+    restart: unless-stopped
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD:-minioadmin}
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    networks:
+      - empcloud-net
+
+  # ===========================================================================
+  # APP 1: EMP-PAYROLL (Express + React/Vite)
+  # ===========================================================================
+
+  payroll-server:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.server.prod
+    container_name: empcloud-payroll-server
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      HOST: 0.0.0.0
+      DB_PROVIDER: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-empcloud_root_secret}
+      DB_NAME: emp_payroll
+      EMPCLOUD_DB_HOST: mysql
+      EMPCLOUD_DB_PORT: 3306
+      EMPCLOUD_DB_USER: root
+      EMPCLOUD_DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-empcloud_root_secret}
+      EMPCLOUD_DB_NAME: empcloud
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      CORS_ORIGIN: "*"
+      PAYROLL_COUNTRY: IN
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    networks:
+      - empcloud-net
+
+  payroll-client:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.client.prod
+      args:
+        VITE_API_URL: /api/v1
+    container_name: empcloud-payroll-client
+    restart: unless-stopped
+    expose:
+      - "80"
+    depends_on:
+      - payroll-server
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+    networks:
+      - empcloud-net
+
+  # ===========================================================================
+  # APP 2: EMP-BILLING (Express + React — single container)
+  # ===========================================================================
+
+  billing-app:
+    build:
+      context: ${BILLING_PATH:-../emp-billing/emp-billing}
+      dockerfile: docker/Dockerfile
+    container_name: empcloud-billing-app
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4001
+      DB_PROVIDER: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-empcloud_root_secret}
+      DB_NAME: emp_billing
+      DB_AUTO_MIGRATE: "true"
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+    expose:
+      - "4001"
+    volumes:
+      - billing_uploads:/app/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    networks:
+      - empcloud-net
+
+  # ===========================================================================
+  # APP 3: EMP-LMS (NestJS API + Next.js Web)
+  # ===========================================================================
+
+  lms-api:
+    build:
+      context: ${LMS_PATH:-../../../emp-lms}
+      dockerfile: Dockerfile
+      target: production
+    container_name: empcloud-lms-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 4002
+      DATABASE_URL: mysql://root:${MYSQL_ROOT_PASSWORD:-empcloud_root_secret}@mysql:3306/emp_lms
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-production}
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+      MINIO_ACCESS_KEY: ${MINIO_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_PASSWORD:-minioadmin}
+    expose:
+      - "4002"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    networks:
+      - empcloud-net
+
+  lms-web:
+    build:
+      context: ${LMS_PATH:-../../../emp-lms}
+      dockerfile: Dockerfile.web
+      target: production
+      args:
+        NEXT_PUBLIC_API_URL: /lms/api
+    container_name: empcloud-lms-web
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    expose:
+      - "3000"
+    depends_on:
+      - lms-api
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    networks:
+      - empcloud-net
+
+  # ===========================================================================
+  # JENKINS (CI/CD for all apps)
+  # ===========================================================================
+
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    container_name: empcloud-jenkins
+    restart: unless-stopped
+    user: root
+    ports:
+      - "8080:8080"
+    environment:
+      JAVA_OPTS: -Xmx512m -Xms256m
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    deploy:
+      resources:
+        limits:
+          memory: 768M
+    networks:
+      - empcloud-net
+
+# =============================================================================
+# NETWORKS & VOLUMES
+# =============================================================================
+
+networks:
+  empcloud-net:
+    name: empcloud-net
+    driver: bridge
+
+volumes:
+  mysql_data:
+  redis_data:
+  minio_data:
+  nginx_certs:
+  billing_uploads:
+  jenkins_data:

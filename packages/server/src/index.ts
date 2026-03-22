@@ -49,14 +49,16 @@ app.use(
       if (!origin) return callback(null, true);
       // Allow all origins if configured with "*"
       if (config.cors.origin === "*") return callback(null, true);
-      // In development, allow all localhost origins
+      // In development, allow all localhost and ngrok origins
       if (
         config.env === "development" &&
-        (origin.startsWith("http://localhost") || origin.startsWith("http://127.0.0.1"))
+        (origin.startsWith("http://localhost") ||
+          origin.startsWith("http://127.0.0.1") ||
+          origin.endsWith(".ngrok-free.dev"))
       ) {
         return callback(null, true);
       }
-      // In production, check against configured origins (comma-separated)
+      // Check against configured origins (comma-separated)
       const allowed = config.cors.origin.split(",").map((s) => s.trim());
       if (allowed.includes(origin)) return callback(null, true);
       callback(new Error("Not allowed by CORS"));
