@@ -17,24 +17,29 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle 401 — redirect to login
+// Handle 401 — redirect to login (but skip for SSO exchange requests)
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response?.status === 401) {
+    const requestUrl = error.config?.url || "";
+    if (error.response?.status === 401 && !requestUrl.includes("/auth/sso")) {
       localStorage.removeItem("access_token");
       localStorage.removeItem("refresh_token");
+      localStorage.removeItem("user");
       window.location.href = "/login";
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 // ---------------------------------------------------------------------------
 // Typed API helpers
 // ---------------------------------------------------------------------------
 
-export async function apiGet<T>(url: string, params?: Record<string, any>): Promise<ApiResponse<T>> {
+export async function apiGet<T>(
+  url: string,
+  params?: Record<string, any>,
+): Promise<ApiResponse<T>> {
   const { data } = await api.get<ApiResponse<T>>(url, { params });
   return data;
 }

@@ -1,7 +1,8 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { getUser } from "@/api/auth";
+import { getUser, saveAuth, extractSSOToken } from "@/api/auth";
+import { apiPost } from "@/api/client";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { KeyboardHelp } from "@/components/ui/KeyboardHelp";
@@ -163,76 +164,134 @@ function AuthGuard({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+function SSOGate({ children }: { children: React.ReactNode }) {
+  const [ssoToken] = useState(() => extractSSOToken());
+  const [ready, setReady] = useState(!ssoToken);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!ssoToken) return;
+
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const res = await apiPost<{
+          user: any;
+          tokens: { accessToken: string; refreshToken: string };
+        }>("/auth/sso", { token: ssoToken });
+
+        if (cancelled) return;
+
+        saveAuth(res.data);
+
+        // Redirect to dashboard after SSO login
+        if (window.location.pathname === "/" || window.location.pathname === "/login") {
+          window.location.replace("/dashboard");
+          return;
+        }
+        setReady(true);
+      } catch (err: any) {
+        if (cancelled) return;
+        console.error("SSO exchange failed:", err);
+        setError("SSO login failed. Please try logging in manually.");
+        setReady(true);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [ssoToken]);
+
+  if (!ready) return <PageLoader />;
+  if (error) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="text-center">
+          <p className="mb-4 text-red-600">{error}</p>
+          <a href="/login" className="text-brand-600 underline">
+            Go to login
+          </a>
+        </div>
+      </div>
+    );
+  }
+  return <>{children}</>;
+}
+
 export default function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider>
         <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <CommandPalette />
-            <KeyboardHelp />
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route element={<AuthLayout />}>
-                  <Route path="/login" element={<LoginPage />} />
-                </Route>
+          <SSOGate>
+            <BrowserRouter>
+              <CommandPalette />
+              <KeyboardHelp />
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route element={<AuthLayout />}>
+                    <Route path="/login" element={<LoginPage />} />
+                  </Route>
 
-                <Route path="/" element={<RoleRedirect />} />
+                  <Route path="/" element={<RoleRedirect />} />
 
-                <Route
-                  element={
-                    <AdminGuard>
-                      <DashboardLayout />
-                    </AdminGuard>
-                  }
-                >
-                  <Route path="/dashboard" element={<DashboardPage />} />
-                  <Route path="/employees" element={<EmployeeListPage />} />
-                  <Route path="/employees/new" element={<EmployeeCreatePage />} />
-                  <Route path="/employees/import" element={<EmployeeImportPage />} />
-                  <Route path="/employees/:id" element={<EmployeeDetailPage />} />
-                  <Route path="/employees/org-chart" element={<OrgChartPage />} />
-                  <Route path="/payroll/structures" element={<SalaryStructuresPage />} />
-                  <Route path="/payroll/runs" element={<PayrollRunsPage />} />
-                  <Route path="/payroll/runs/:id" element={<PayrollRunDetailPage />} />
-                  <Route path="/payroll/analytics" element={<PayrollAnalyticsPage />} />
-                  <Route path="/payslips" element={<PayslipListPage />} />
-                  <Route path="/tax" element={<TaxOverviewPage />} />
-                  <Route path="/attendance" element={<AttendancePage />} />
-                  <Route path="/reimbursements" element={<ReimbursementsPage />} />
-                  <Route path="/holidays" element={<HolidaysPage />} />
-                  <Route path="/loans" element={<LoansPage />} />
-                  <Route path="/leaves" element={<LeavesPage />} />
-                  <Route path="/reports" element={<ReportsPage />} />
-                  <Route path="/settings" element={<SettingsPage />} />
-                  <Route path="/audit" element={<AuditLogPage />} />
-                  <Route path="/system" element={<SystemHealthPage />} />
-                  <Route path="/announcements" element={<AnnouncementsPage />} />
-                  <Route path="/exits" element={<ExitManagementPage />} />
-                </Route>
+                  <Route
+                    element={
+                      <AdminGuard>
+                        <DashboardLayout />
+                      </AdminGuard>
+                    }
+                  >
+                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/employees" element={<EmployeeListPage />} />
+                    <Route path="/employees/new" element={<EmployeeCreatePage />} />
+                    <Route path="/employees/import" element={<EmployeeImportPage />} />
+                    <Route path="/employees/:id" element={<EmployeeDetailPage />} />
+                    <Route path="/employees/org-chart" element={<OrgChartPage />} />
+                    <Route path="/payroll/structures" element={<SalaryStructuresPage />} />
+                    <Route path="/payroll/runs" element={<PayrollRunsPage />} />
+                    <Route path="/payroll/runs/:id" element={<PayrollRunDetailPage />} />
+                    <Route path="/payroll/analytics" element={<PayrollAnalyticsPage />} />
+                    <Route path="/payslips" element={<PayslipListPage />} />
+                    <Route path="/tax" element={<TaxOverviewPage />} />
+                    <Route path="/attendance" element={<AttendancePage />} />
+                    <Route path="/reimbursements" element={<ReimbursementsPage />} />
+                    <Route path="/holidays" element={<HolidaysPage />} />
+                    <Route path="/loans" element={<LoansPage />} />
+                    <Route path="/leaves" element={<LeavesPage />} />
+                    <Route path="/reports" element={<ReportsPage />} />
+                    <Route path="/settings" element={<SettingsPage />} />
+                    <Route path="/audit" element={<AuditLogPage />} />
+                    <Route path="/system" element={<SystemHealthPage />} />
+                    <Route path="/announcements" element={<AnnouncementsPage />} />
+                    <Route path="/exits" element={<ExitManagementPage />} />
+                  </Route>
 
-                <Route
-                  element={
-                    <AuthGuard>
-                      <SelfServiceLayout />
-                    </AuthGuard>
-                  }
-                >
-                  <Route path="/my" element={<SelfServiceDashboard />} />
-                  <Route path="/my/payslips" element={<MyPayslipsPage />} />
-                  <Route path="/my/salary" element={<MySalaryPage />} />
-                  <Route path="/my/tax" element={<MyTaxPage />} />
-                  <Route path="/my/declarations" element={<MyDeclarationsPage />} />
-                  <Route path="/my/reimbursements" element={<MyReimbursementsPage />} />
-                  <Route path="/my/leaves" element={<MyLeavesPage />} />
-                  <Route path="/my/profile" element={<MyProfilePage />} />
-                </Route>
+                  <Route
+                    element={
+                      <AuthGuard>
+                        <SelfServiceLayout />
+                      </AuthGuard>
+                    }
+                  >
+                    <Route path="/my" element={<SelfServiceDashboard />} />
+                    <Route path="/my/payslips" element={<MyPayslipsPage />} />
+                    <Route path="/my/salary" element={<MySalaryPage />} />
+                    <Route path="/my/tax" element={<MyTaxPage />} />
+                    <Route path="/my/declarations" element={<MyDeclarationsPage />} />
+                    <Route path="/my/reimbursements" element={<MyReimbursementsPage />} />
+                    <Route path="/my/leaves" element={<MyLeavesPage />} />
+                    <Route path="/my/profile" element={<MyProfilePage />} />
+                  </Route>
 
-                <Route path="/onboarding" element={<OnboardingPage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
+                  <Route path="/onboarding" element={<OnboardingPage />} />
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+          </SSOGate>
         </QueryClientProvider>
       </ThemeProvider>
     </ErrorBoundary>

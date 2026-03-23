@@ -211,7 +211,8 @@ export class EmployeeService {
     }
 
     // Create user in EmpCloud
-    const bcrypt = await import("bcryptjs");
+    const bcryptModule = await import("bcryptjs");
+    const bcrypt = bcryptModule.default || bcryptModule;
     const defaultPassword = await bcrypt.hash("Welcome@123", 12);
 
     const [userId] = await db("users").insert({

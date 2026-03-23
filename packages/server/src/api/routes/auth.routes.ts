@@ -28,17 +28,33 @@ router.post(
   }),
 );
 
+// ---------------------------------------------------------------------------
+// POST /sso — exchange EMP Cloud SSO token for Payroll tokens
+// ---------------------------------------------------------------------------
+router.post(
+  "/sso",
+  wrap(async (req, res) => {
+    const { token } = req.body;
+    if (!token) {
+      return res.status(400).json({
+        success: false,
+        error: { code: "MISSING_TOKEN", message: "SSO token is required" },
+      });
+    }
+    const result = await auth.ssoLogin(token);
+    res.json({ success: true, data: result });
+  }),
+);
+
 router.post(
   "/refresh-token",
   wrap(async (req, res) => {
     const { refreshToken } = req.body;
     if (!refreshToken) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          error: { code: "MISSING_TOKEN", message: "refreshToken is required" },
-        });
+      return res.status(400).json({
+        success: false,
+        error: { code: "MISSING_TOKEN", message: "refreshToken is required" },
+      });
     }
     const tokens = await auth.refreshToken(refreshToken);
     res.json({ success: true, data: tokens });
@@ -108,12 +124,10 @@ router.post(
     const twofa = new TwoFactorService();
     const valid = await twofa.verify(String(req.user!.empcloudUserId), req.body.otp);
     if (!valid) {
-      return res
-        .status(401)
-        .json({
-          success: false,
-          error: { code: "INVALID_OTP", message: "Invalid or expired verification code" },
-        });
+      return res.status(401).json({
+        success: false,
+        error: { code: "INVALID_OTP", message: "Invalid or expired verification code" },
+      });
     }
     res.json({
       success: true,

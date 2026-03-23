@@ -8,6 +8,8 @@ import {
 import { computeIncomeTax } from "./tax/india-tax.service";
 import { TaxRegime } from "@emp-payroll/shared";
 import { findUsersByOrgId, findOrgById, getEmpCloudDB } from "../db/empcloud";
+import { config } from "../config";
+import * as cloudHRMS from "./cloud-hrms.service";
 import dayjs from "dayjs";
 
 export class PayrollService {
@@ -72,7 +74,7 @@ export class PayrollService {
     });
   }
 
-  async computePayroll(runId: string, orgId: string) {
+  async computePayroll(runId: string, orgId: string, authToken?: string) {
     const run = await this.getRun(runId, orgId);
     if (run.status !== "draft") {
       throw new AppError(400, "INVALID_STATUS", "Only draft payroll runs can be computed");
@@ -104,12 +106,36 @@ export class PayrollService {
       });
       if (!salary) continue;
 
-      // Get attendance
-      const attendance = await this.db.findOne<any>("attendance_summaries", {
-        empcloud_user_id: ecEmp.id,
-        month: run.month,
-        year: run.year,
-      });
+      // Get attendance — from Cloud HRMS when enabled, else from local DB
+      let attendance: any = null;
+
+      if (config.cloudHrms.enabled) {
+        // Fetch from EMP Cloud's HRMS attendance API.
+        // Uses the system JWT (same token the request came in with, forwarded
+        // via the payroll run's processed_by user context). For service-to-service
+        // calls we use a placeholder token; in production this should be a
+        // machine-to-machine token or the HR admin's token stored on the run.
+        const systemToken = authToken || "";
+        const cloudData = await cloudHRMS.getMonthlyAttendance(
+          Number(orgId),
+          ecEmp.id,
+          run.month,
+          run.year,
+          systemToken,
+        );
+        if (cloudData) {
+          attendance = cloudHRMS.toLocalAttendanceFormat(cloudData);
+        }
+      }
+
+      // Fallback: local attendance_summaries table
+      if (!attendance) {
+        attendance = await this.db.findOne<any>("attendance_summaries", {
+          empcloud_user_id: ecEmp.id,
+          month: run.month,
+          year: run.year,
+        });
+      }
 
       const totalDays = attendance?.total_days || 30;
       const paidDays = attendance ? totalDays - (attendance.lop_days || 0) : totalDays;

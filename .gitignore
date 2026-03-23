@@ -38,6 +38,11 @@ $RECYCLE.BIN/
 *~
 .idea/
 
+# Playwright test artifacts
+test-results/
+playwright-report/
+packages/client/e2e/.auth/
+
 # Build
 *.tsbuildinfo
 

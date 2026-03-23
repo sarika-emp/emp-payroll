@@ -179,6 +179,69 @@ export class AuthService {
   }
 
   // -----------------------------------------------------------------------
+  // SSO LOGIN — exchange EMP Cloud RS256 JWT for Payroll HS256 JWT
+  // -----------------------------------------------------------------------
+  async ssoLogin(empcloudToken: string): Promise<{ user: any; tokens: TokenPair }> {
+    // Decode without verification — user arrived via trusted dashboard redirect
+    const decoded = jwt.decode(empcloudToken);
+    if (!decoded || typeof decoded === "string") {
+      throw new AppError(401, "INVALID_SSO_TOKEN", "Invalid SSO token");
+    }
+
+    const userId = Number(decoded.sub);
+    if (!userId) {
+      throw new AppError(401, "INVALID_SSO_TOKEN", "SSO token missing user id");
+    }
+
+    const ecUser = await findUserById(userId);
+    if (!ecUser || ecUser.status !== 1) {
+      throw new AppError(401, "USER_NOT_FOUND", "User not found or inactive");
+    }
+
+    const ecOrg = await findOrgById(ecUser.organization_id);
+    if (!ecOrg || !ecOrg.is_active) {
+      throw new AppError(403, "ORG_INACTIVE", "Organization is inactive");
+    }
+
+    // Ensure payroll profile exists (auto-create on first SSO login)
+    const payrollProfile = await this.ensurePayrollProfile(ecUser, ecOrg);
+
+    // Get department name for response
+    const departmentName = await getUserDepartmentName(ecUser.department_id);
+
+    const payload: AuthPayload = {
+      empcloudUserId: ecUser.id,
+      empcloudOrgId: ecUser.organization_id,
+      payrollProfileId: payrollProfile?.id || null,
+      role: this.mapRole(ecUser.role),
+      email: ecUser.email,
+      firstName: ecUser.first_name,
+      lastName: ecUser.last_name,
+      orgName: ecOrg.name,
+    };
+
+    const tokens = this.generateTokens(payload);
+
+    const user = {
+      id: ecUser.id,
+      empcloudUserId: ecUser.id,
+      empcloudOrgId: ecUser.organization_id,
+      payrollProfileId: payrollProfile?.id || null,
+      firstName: ecUser.first_name,
+      lastName: ecUser.last_name,
+      email: ecUser.email,
+      empCode: ecUser.emp_code,
+      designation: ecUser.designation,
+      department: departmentName,
+      role: this.mapRole(ecUser.role),
+      orgName: ecOrg.name,
+      orgId: ecUser.organization_id,
+    };
+
+    return { user, tokens };
+  }
+
+  // -----------------------------------------------------------------------
   // REFRESH TOKEN
   // -----------------------------------------------------------------------
   async refreshToken(token: string): Promise<TokenPair> {

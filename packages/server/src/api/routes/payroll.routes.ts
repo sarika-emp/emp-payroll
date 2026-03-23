@@ -47,7 +47,13 @@ router.post(
 router.post(
   "/:id/compute",
   wrap(async (req, res) => {
-    const data = await svc.computePayroll(param(req, "id"), String(req.user!.empcloudOrgId));
+    // Forward the bearer token so Cloud HRMS proxy can authenticate
+    const authToken = req.headers.authorization?.replace("Bearer ", "") || "";
+    const data = await svc.computePayroll(
+      param(req, "id"),
+      String(req.user!.empcloudOrgId),
+      authToken,
+    );
     res.json({ success: true, data });
   }),
 );

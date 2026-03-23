@@ -65,4 +65,11 @@ export const config = {
     defaultPayFrequency: process.env.PAY_FREQUENCY || "monthly",
     financialYearStartMonth: 4, // April
   },
+
+  // Cloud HRMS integration — when enabled, payroll computation fetches
+  // attendance/leave data from EMP Cloud's HRMS APIs instead of local DB.
+  cloudHrms: {
+    enabled: process.env.USE_CLOUD_HRMS === "true",
+    apiUrl: process.env.EMPCLOUD_API_URL || "http://localhost:3000/api/v1",
+  },
 } as const;

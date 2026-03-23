@@ -1,3 +1,7 @@
+// NOTE: When USE_CLOUD_HRMS=true, payroll computation fetches attendance/leave
+// data from EMP Cloud's HRMS APIs (via cloud-hrms.service.ts).
+// These local routes remain as a fallback and for backward compatibility.
+
 import { Router } from "express";
 import { LeaveService } from "../../services/leave.service";
 import { authenticate, authorize } from "../middleware/auth.middleware";

@@ -7,7 +7,7 @@ export class AppError extends Error {
     public statusCode: number,
     public code: string,
     message: string,
-    public details?: Record<string, string[]>
+    public details?: Record<string, string[]>,
   ) {
     super(message);
     this.name = "AppError";
@@ -29,11 +29,12 @@ export function errorHandler(err: Error, _req: Request, res: Response, _next: Ne
 
   logger.error("Unhandled error:", err);
 
+  const isDev = process.env.NODE_ENV !== "production";
   const response: ApiResponse<null> = {
     success: false,
     error: {
       code: "INTERNAL_ERROR",
-      message: "An unexpected error occurred",
+      message: isDev ? err.message : "An unexpected error occurred",
     },
   };
   return res.status(500).json(response);

@@ -58,6 +58,24 @@ export function isLoggedIn(): boolean {
   return !!getToken();
 }
 
+/**
+ * Extract the SSO token from the URL query string (if present).
+ * Returns the raw token string, or null if not found.
+ * The token will be exchanged server-side for Payroll-specific JWTs.
+ */
+export function extractSSOToken(): string | null {
+  const params = new URLSearchParams(window.location.search);
+  const ssoToken = params.get("sso_token");
+  if (!ssoToken) return null;
+
+  // Clean the URL immediately so the token doesn't linger
+  const url = new URL(window.location.href);
+  url.searchParams.delete("sso_token");
+  window.history.replaceState({}, "", url.pathname + url.hash);
+
+  return ssoToken;
+}
+
 export function logout() {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
