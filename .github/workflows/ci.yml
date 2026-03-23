@@ -2,58 +2,61 @@ name: CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  lint-and-test:
+  build-and-test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20, 22]
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: emp_payroll
+        ports: ['3306:3306']
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v2
         with:
           version: 9
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: pnpm
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
+      - run: pnpm install --frozen-lockfile
+      - name: Create databases
+        run: |
+          mysql -h 127.0.0.1 -u root -psecret -e "CREATE DATABASE IF NOT EXISTS empcloud;"
+          mysql -h 127.0.0.1 -u root -psecret -e "CREATE DATABASE IF NOT EXISTS emp_payroll;"
       - name: Type check (shared)
         run: pnpm --filter @emp-payroll/shared exec tsc --noEmit
-
       - name: Type check (server)
         run: pnpm --filter @emp-payroll/server exec tsc --noEmit
-
       - name: Type check (client)
         run: pnpm --filter @emp-payroll/client exec tsc --noEmit
-
-      - name: Run server unit tests
+      - name: Run tests
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: root
+          DB_PASSWORD: secret
+          DB_NAME: emp_payroll
+          EMPCLOUD_DB_HOST: 127.0.0.1
+          EMPCLOUD_DB_PORT: 3306
+          EMPCLOUD_DB_USER: root
+          EMPCLOUD_DB_PASSWORD: secret
+          EMPCLOUD_DB_NAME: empcloud
+          REDIS_HOST: 127.0.0.1
+          NODE_ENV: test
+          JWT_SECRET: test-secret
         run: pnpm --filter @emp-payroll/server test
-
       - name: Build client
         run: pnpm --filter @emp-payroll/client build
-
-  docker:
-    runs-on: ubuntu-latest
-    needs: lint-and-test
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build Docker images
-        run: |
-          docker compose -f docker-compose.prod.yml build --no-cache
-          echo "Docker images built successfully"
