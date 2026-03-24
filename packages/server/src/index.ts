@@ -39,6 +39,8 @@ import { glAccountingRoutes } from "./api/routes/gl-accounting.routes";
 import { payEquityRoutes } from "./api/routes/pay-equity.routes";
 import { compensationBenchmarkRoutes } from "./api/routes/compensation-benchmark.routes";
 import { totalRewardsRoutes } from "./api/routes/total-rewards.routes";
+import { earnedWageRoutes } from "./api/routes/earned-wage.routes";
+import { insuranceRoutes } from "./api/routes/insurance.routes";
 import path from "path";
 
 const app = express();
@@ -109,6 +111,8 @@ v1.use("/gl", glAccountingRoutes);
 v1.use("/pay-equity", payEquityRoutes);
 v1.use("/benchmarks", compensationBenchmarkRoutes);
 v1.use("/total-rewards", totalRewardsRoutes);
+v1.use("/earned-wage", earnedWageRoutes);
+v1.use("/insurance", insuranceRoutes);
 v1.get("/docs/openapi.json", apiDocsHandler);
 v1.get("/docs", swaggerUIHandler);
 

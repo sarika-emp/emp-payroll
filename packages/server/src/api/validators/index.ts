@@ -316,6 +316,86 @@ export const importBenchmarksSchema = z.object({
 });
 
 // ---------------------------------------------------------------------------
+// Earned Wage Access Schemas
+// ---------------------------------------------------------------------------
+export const earnedWageSettingsSchema = z.object({
+  body: z.object({
+    isEnabled: z.boolean().optional(),
+    maxPercentage: z.number().min(1).max(100).optional(),
+    minAmount: z.number().min(0).optional(),
+    maxAmount: z.number().min(0).optional(),
+    feePercentage: z.number().min(0).max(100).optional(),
+    feeFlat: z.number().min(0).optional(),
+    autoApproveBelow: z.number().min(0).optional(),
+    requiresManagerApproval: z.boolean().optional(),
+    cooldownDays: z.number().min(0).max(365).optional(),
+  }),
+});
+
+export const earnedWageRequestSchema = z.object({
+  body: z.object({
+    amount: z.number().positive(),
+    reason: z.string().max(1000).optional(),
+  }),
+});
+
+export const earnedWageRejectSchema = z.object({
+  body: z.object({
+    reason: z.string().max(1000).optional(),
+  }),
+});
+
+// ---------------------------------------------------------------------------
+// Insurance Schemas
+// ---------------------------------------------------------------------------
+export const createInsurancePolicySchema = z.object({
+  body: z.object({
+    name: z.string().min(1).max(255),
+    policyNumber: z.string().max(100).optional(),
+    provider: z.string().min(1).max(255),
+    type: z.enum(["group_health", "group_life", "disability", "accidental", "travel"]),
+    premiumTotal: z.number().min(0).default(0),
+    premiumPerEmployee: z.number().min(0).default(0),
+    coverageAmount: z.number().min(0).default(0),
+    startDate: z.string(),
+    endDate: z.string().optional(),
+    renewalDate: z.string().optional(),
+    documentUrl: z.string().optional(),
+    terms: z.string().optional(),
+  }),
+});
+
+export const enrollInsuranceSchema = z.object({
+  body: z.object({
+    policyId: z.string(),
+    employeeId: z.union([z.string(), z.number()]).transform(String),
+    sumInsured: z.number().min(0).optional(),
+    premiumShare: z.number().min(0).default(0),
+    nomineeName: z.string().max(255).optional(),
+    nomineeRelationship: z.string().max(50).optional(),
+  }),
+});
+
+export const submitInsuranceClaimSchema = z.object({
+  body: z.object({
+    policyId: z.string(),
+    claimType: z.enum(["hospitalization", "outpatient", "dental", "vision", "life", "disability"]),
+    amountClaimed: z.number().positive(),
+    description: z.string().max(2000).optional(),
+    documents: z.array(z.string()).optional(),
+    notes: z.string().max(1000).optional(),
+  }),
+});
+
+export const reviewInsuranceClaimSchema = z.object({
+  body: z.object({
+    amountApproved: z.number().min(0).optional(),
+    rejectionReason: z.string().max(1000).optional(),
+    notes: z.string().max(1000).optional(),
+  }),
+});
+
+// ---------------------------------------------------------------------------
 // Pagination query params
 // ---------------------------------------------------------------------------
 export const paginationSchema = z.object({

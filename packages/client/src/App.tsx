@@ -140,6 +140,12 @@ const BenchmarksPage = lazy(() =>
 const TotalRewardsPage = lazy(() =>
   import("@/pages/total-rewards/TotalRewardsPage").then((m) => ({ default: m.TotalRewardsPage })),
 );
+const EarnedWagePage = lazy(() =>
+  import("@/pages/earned-wage/EarnedWagePage").then((m) => ({ default: m.EarnedWagePage })),
+);
+const InsurancePage = lazy(() =>
+  import("@/pages/insurance/InsurancePage").then((m) => ({ default: m.InsurancePage })),
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -287,6 +293,8 @@ export default function App() {
                     <Route path="/pay-equity" element={<PayEquityPage />} />
                     <Route path="/benchmarks" element={<BenchmarksPage />} />
                     <Route path="/total-rewards" element={<TotalRewardsPage />} />
+                    <Route path="/earned-wage" element={<EarnedWagePage />} />
+                    <Route path="/insurance" element={<InsurancePage />} />
                   </Route>
 
                   <Route
