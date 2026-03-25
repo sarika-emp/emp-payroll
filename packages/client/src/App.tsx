@@ -146,6 +146,36 @@ const EarnedWagePage = lazy(() =>
 const InsurancePage = lazy(() =>
   import("@/pages/insurance/InsurancePage").then((m) => ({ default: m.InsurancePage })),
 );
+const GlobalDashboardPage = lazy(() =>
+  import("@/pages/global-payroll/GlobalDashboardPage").then((m) => ({
+    default: m.GlobalDashboardPage,
+  })),
+);
+const GlobalEmployeesPage = lazy(() =>
+  import("@/pages/global-payroll/GlobalEmployeesPage").then((m) => ({
+    default: m.GlobalEmployeesPage,
+  })),
+);
+const GlobalEmployeeDetailPage = lazy(() =>
+  import("@/pages/global-payroll/GlobalEmployeeDetailPage").then((m) => ({
+    default: m.GlobalEmployeeDetailPage,
+  })),
+);
+const GlobalPayrollRunsPage = lazy(() =>
+  import("@/pages/global-payroll/GlobalPayrollRunsPage").then((m) => ({
+    default: m.GlobalPayrollRunsPage,
+  })),
+);
+const ContractorInvoicesPage = lazy(() =>
+  import("@/pages/global-payroll/ContractorInvoicesPage").then((m) => ({
+    default: m.ContractorInvoicesPage,
+  })),
+);
+const CountryCompliancePage = lazy(() =>
+  import("@/pages/global-payroll/CountryCompliancePage").then((m) => ({
+    default: m.CountryCompliancePage,
+  })),
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -295,6 +325,15 @@ export default function App() {
                     <Route path="/total-rewards" element={<TotalRewardsPage />} />
                     <Route path="/earned-wage" element={<EarnedWagePage />} />
                     <Route path="/insurance" element={<InsurancePage />} />
+                    <Route path="/global-payroll" element={<GlobalDashboardPage />} />
+                    <Route path="/global-payroll/employees" element={<GlobalEmployeesPage />} />
+                    <Route
+                      path="/global-payroll/employees/:id"
+                      element={<GlobalEmployeeDetailPage />}
+                    />
+                    <Route path="/global-payroll/runs" element={<GlobalPayrollRunsPage />} />
+                    <Route path="/global-payroll/invoices" element={<ContractorInvoicesPage />} />
+                    <Route path="/global-payroll/compliance" element={<CountryCompliancePage />} />
                   </Route>
 
                   <Route

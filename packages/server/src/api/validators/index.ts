@@ -396,6 +396,86 @@ export const reviewInsuranceClaimSchema = z.object({
 });
 
 // ---------------------------------------------------------------------------
+// Global Payroll / EOR Schemas
+// ---------------------------------------------------------------------------
+export const addGlobalEmployeeSchema = z.object({
+  body: z.object({
+    firstName: z.string().min(1).max(100),
+    lastName: z.string().min(1).max(100),
+    email: z.string().email(),
+    countryId: z.string().min(1),
+    employmentType: z.enum(["eor", "contractor", "direct_hire"]),
+    contractType: z.enum(["full_time", "part_time", "fixed_term"]),
+    jobTitle: z.string().min(1).max(200),
+    department: z.string().max(100).optional(),
+    startDate: z.string(),
+    endDate: z.string().optional(),
+    salaryAmount: z.number().positive(),
+    salaryCurrency: z.string().length(3).optional(),
+    salaryFrequency: z.enum(["monthly", "biweekly", "weekly", "annual"]).default("monthly"),
+    empcloudUserId: z.union([z.string(), z.number()]).optional(),
+    taxId: z.string().max(50).optional(),
+    bankName: z.string().max(100).optional(),
+    bankAccount: z.string().max(50).optional(),
+    bankRouting: z.string().max(50).optional(),
+    contractDocumentUrl: z.string().optional(),
+    notes: z.string().optional(),
+  }),
+});
+
+export const updateGlobalEmployeeSchema = z.object({
+  params: z.object({ id: z.string() }),
+  body: z.object({
+    firstName: z.string().min(1).max(100).optional(),
+    lastName: z.string().min(1).max(100).optional(),
+    email: z.string().email().optional(),
+    countryId: z.string().optional(),
+    employmentType: z.enum(["eor", "contractor", "direct_hire"]).optional(),
+    contractType: z.enum(["full_time", "part_time", "fixed_term"]).optional(),
+    jobTitle: z.string().max(200).optional(),
+    department: z.string().max(100).optional(),
+    startDate: z.string().optional(),
+    endDate: z.string().optional(),
+    salaryAmount: z.number().positive().optional(),
+    salaryCurrency: z.string().length(3).optional(),
+    salaryFrequency: z.enum(["monthly", "biweekly", "weekly", "annual"]).optional(),
+    status: z.enum(["active", "onboarding", "offboarding", "terminated"]).optional(),
+    taxId: z.string().max(50).optional(),
+    bankName: z.string().max(100).optional(),
+    bankAccount: z.string().max(50).optional(),
+    bankRouting: z.string().max(50).optional(),
+    contractDocumentUrl: z.string().optional(),
+    notes: z.string().optional(),
+  }),
+});
+
+export const createGlobalPayrollRunSchema = z.object({
+  body: z.object({
+    countryId: z.string().min(1),
+    month: z.number().min(1).max(12),
+    year: z.number().min(2020).max(2100),
+  }),
+});
+
+export const submitContractorInvoiceSchema = z.object({
+  body: z.object({
+    globalEmployeeId: z.string().min(1),
+    amount: z.number().positive(),
+    currency: z.string().length(3).optional(),
+    description: z.string().max(2000).optional(),
+    periodStart: z.string(),
+    periodEnd: z.string(),
+  }),
+});
+
+export const updateComplianceItemSchema = z.object({
+  params: z.object({ itemId: z.string() }),
+  body: z.object({
+    completed: z.boolean(),
+  }),
+});
+
+// ---------------------------------------------------------------------------
 // Pagination query params
 // ---------------------------------------------------------------------------
 export const paginationSchema = z.object({

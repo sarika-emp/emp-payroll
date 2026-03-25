@@ -32,6 +32,9 @@ import {
   Award,
   HandCoins,
   ShieldCheck,
+  Globe,
+  FileSignature,
+  MapPinned,
 } from "lucide-react";
 
 type Role = "hr_admin" | "hr_manager" | "employee";
@@ -127,6 +130,37 @@ const navItems: NavItem[] = [
     roles: ["hr_admin", "hr_manager"],
   },
   { to: "/gl-accounting", label: "GL / Accounting", icon: BookOpen, roles: ["hr_admin"] },
+  {
+    to: "/global-payroll",
+    label: "Global Dashboard",
+    icon: Globe,
+    roles: ["hr_admin", "hr_manager"],
+    section: "Global Payroll",
+  },
+  {
+    to: "/global-payroll/employees",
+    label: "Global Employees",
+    icon: Users,
+    roles: ["hr_admin", "hr_manager"],
+  },
+  {
+    to: "/global-payroll/runs",
+    label: "Payroll Runs",
+    icon: Play,
+    roles: ["hr_admin", "hr_manager"],
+  },
+  {
+    to: "/global-payroll/invoices",
+    label: "Contractor Invoices",
+    icon: FileSignature,
+    roles: ["hr_admin", "hr_manager"],
+  },
+  {
+    to: "/global-payroll/compliance",
+    label: "Country Compliance",
+    icon: MapPinned,
+    roles: ["hr_admin", "hr_manager"],
+  },
   {
     to: "/reports",
     label: "Reports",
