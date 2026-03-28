@@ -57,6 +57,10 @@ app.use(
       if (!origin) return callback(null, true);
       // Allow all origins if configured with "*"
       if (config.cors.origin === "*") return callback(null, true);
+      // Allow empcloud.com subdomains (production & test)
+      if (origin.endsWith(".empcloud.com") && origin.startsWith("https://")) {
+        return callback(null, true);
+      }
       // In development, allow all localhost and ngrok origins
       if (
         config.env === "development" &&
