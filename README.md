@@ -1,12 +1,13 @@
 # EMP Payroll
 
-**Open-source payroll management system — part of the [EmpCloud](https://empcloud.com) HRMS ecosystem.**
+> Multi-country payroll engine with India TDS/PF/ESI, US Federal/State/FICA, UK PAYE/NIC -- plus loans, reimbursements, benefits, GL accounting, insurance, global payroll/EOR, earned wage access, pay equity, and compensation benchmarking.
 
-India-first payroll engine with PF, ESI, TDS, and Professional Tax built in. Multi-country tax support (India, US, UK). Designed to be the open-source alternative to Zoho Payroll, Keka, and Razorpay Payroll.
-
-[![License: GPL v3](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
+[![Part of EmpCloud](https://img.shields.io/badge/EmpCloud-Module-blue)]()
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-purple.svg)](LICENSE)
+[![Tests: 67 passing](https://img.shields.io/badge/tests-67%20passing-brightgreen.svg)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Tests](https://img.shields.io/badge/tests-67%20passing-brightgreen.svg)]()
+
+EMP Payroll is the payroll management module of the [EmpCloud](https://empcloud.com) HRMS ecosystem. India-first payroll engine with PF, ESI, TDS, and Professional Tax built in. Multi-country tax support covers India (FY 2025-26), United States (federal + 50 states), and United Kingdom (PAYE + NIC). Includes salary structure builder, payroll processing lifecycle, payslip generation, bank transfer files, statutory reports, employee benefits, group insurance, GL accounting integration, global payroll for 30 countries with EOR/contractor support, earned wage access, pay equity analysis, and compensation benchmarking.
 
 ---
 
@@ -16,11 +17,10 @@ India-first payroll engine with PF, ESI, TDS, and Professional Tax built in. Mul
 - [Tech Stack](#tech-stack)
 - [Quick Start](#quick-start)
 - [Project Structure](#project-structure)
-- [API Reference](#api-reference)
+- [API Endpoints](#api-endpoints)
 - [Frontend Pages](#frontend-pages)
 - [Testing](#testing)
-- [Deployment](#deployment)
-- [Demo Data](#demo-data)
+- [Test Deployment](#test-deployment)
 - [Environment Variables](#environment-variables)
 - [License](#license)
 
@@ -29,105 +29,105 @@ India-first payroll engine with PF, ESI, TDS, and Professional Tax built in. Mul
 ## Features
 
 ### Payroll Engine
-- **Salary Structure Builder** — CTC breakdown with configurable components (Basic, HRA, SA, LTA, custom)
-- **Payroll Processing** — Full lifecycle: Draft > Compute > Approve > Pay with audit trail
-- **Payslip Generation** — Printable HTML payslips with company header, earnings/deductions, YTD
-- **Bank Transfer File** — NEFT/RTGS CSV for direct salary credit
-- **Payroll Analytics** — Cost trends, month-over-month comparison, headcount charts, department breakdown
-- **Payroll Variance Alerts** — Automatic detection of zero net pay or high deduction ratios
-- **Cost Breakdown Charts** — Pie chart (net/deductions/employer), department-wise cost split
-- **Batch Email Payslips** — One-click email all payslips for a payroll run
+
+| Feature | Description |
+|---------|-------------|
+| **Salary Structure Builder** | CTC breakdown with configurable components (Basic, HRA, SA, LTA, custom). Assign structures to employees with auto-calculated component splits. |
+| **Payroll Processing** | Full lifecycle: Draft > Compute > Approve > Pay with complete audit trail. Payroll variance alerts detect zero net pay or high deduction ratios. |
+| **Payslip Generation** | Printable HTML payslips with company header, earnings/deductions breakdown, and YTD totals. Batch email all payslips for a run. |
+| **Bank Transfer File** | NEFT/RTGS CSV generation for direct salary credit to employee bank accounts. |
+| **Payroll Analytics** | Cost trends, month-over-month comparison, headcount charts, department breakdown, cost pie charts. |
 
 ### Multi-Country Tax Engines
 
-#### India (FY 2025-26)
-- **Income Tax** — Old & New regime TDS, Sec 87A rebate, marginal relief, surcharge, 4% cess
-- **Provident Fund** — 12% EPF, EPS, admin/EDLI charges, PF ECR generation
-- **ESI** — 0.75% employee + 3.25% employer (gross <= 21,000)
-- **Professional Tax** — Karnataka, Maharashtra, Tamil Nadu, Telangana, West Bengal, Gujarat, Delhi
-- **Form 16** — Part A (TDS certificate) + Part B (salary & tax computation)
-- **Statutory Reports** — PF ECR, ESI return, PT return, TDS summary
-
-#### United States
-- **Federal Income Tax** — W-4 based withholding with bracket computation
-- **FICA** — Social Security (6.2% up to wage base $176,100) + Medicare (1.45% + 0.9% additional)
-- **State Tax** — 50-state support (flat/progressive rates, no-income-tax states)
-- **FUTA** — Federal unemployment tax (employer-only)
-
-#### United Kingdom
-- **PAYE** — Income tax with cumulative/non-cumulative basis, all tax codes
-- **National Insurance** — Employee (Category A/C) + Employer contributions
-- **Student Loan** — Plan 1, 2, 4, 5 automatic deductions
-- **Auto-Enrollment Pension** — Qualifying earnings, configurable rates
-- **Scottish/Welsh Tax** — Regional tax band support
+| Country | Coverage |
+|---------|----------|
+| **India (FY 2025-26)** | Old & New regime TDS with Sec 87A rebate, marginal relief, surcharge, 4% cess. EPF (12%) with EPS, admin/EDLI charges, PF ECR generation. ESI (0.75% + 3.25%). Professional Tax for 7 states (Karnataka, Maharashtra, Tamil Nadu, Telangana, West Bengal, Gujarat, Delhi). Form 16 Part A + Part B. |
+| **United States** | W-4 based federal withholding with bracket computation. FICA: Social Security (6.2% up to $176,100 wage base) + Medicare (1.45% + 0.9% additional). 50-state tax support (flat/progressive/no-income-tax). FUTA employer unemployment tax. |
+| **United Kingdom** | PAYE income tax (cumulative/non-cumulative, all tax codes). National Insurance (Category A/C employee + employer). Student Loan (Plan 1, 2, 4, 5). Auto-enrollment pension (qualifying earnings). Scottish/Welsh regional tax bands. |
 
 ### Employee Management
-- **Employee CRUD** — Full profile with personal, bank, tax, PF details
-- **Salary Assignment** — Assign structures, revise CTC with auto-calculated breakdown
-- **Employee Notes** — Categorized notes (general, performance, HR, finance) with author tracking
-- **Employee Timeline** — Visual history showing join date, salary revisions, payslips
-- **YTD Summary** — Year-to-date gross, deductions, net pay per employee
-- **Employee Search** — Instant text search by name, email, code, or designation
-- **Department Filters** — Quick filter employees by department
-- **CSV Import/Export** — Bulk employee import, CSV export with full details
-- **Org Chart** — Visual organizational hierarchy
-- **Salary Revision History** — Track all past salary changes with effective dates
 
-### Attendance & Leave
-- **Attendance Summary** — Per-employee monthly summary (present, absent, LOP, overtime)
-- **Bulk Attendance** — "Mark All Present" for quick monthly entry
-- **Attendance Import** — CSV/API import for integration with biometric systems
-- **LOP Override** — Manual override of loss-of-pay days
-- **Leave Balances** — Earned/casual/sick/privilege leave tracking per financial year
-- **Holiday Calendar** — Company-wide holiday management
+| Feature | Description |
+|---------|-------------|
+| **Employee CRUD** | Full profile with personal, bank, tax, PF details. CSV import/export. Department filters and instant search. |
+| **Salary Assignment** | Assign structures, revise CTC with auto-calculated breakdown. Salary revision history with effective dates. |
+| **Employee Notes** | Categorized notes (general, performance, HR, finance) with author tracking. |
+| **Employee Timeline** | Visual history showing join date, salary revisions, payslips. YTD summary per employee. |
+| **Org Chart** | Visual organizational hierarchy. |
 
 ### Loans & Reimbursements
-- **Employee Loans** — Salary advance, emergency loan, personal loan with EMI tracking
-- **Loan Payments** — Record payments, auto-calculate outstanding balance
-- **Reimbursement Claims** — Submit, approve, reject, pay expense claims
-- **Status Tracker** — Visual progress bar (pending > approved > paid)
-- **Category-Based** — Medical, travel, food, equipment, internet, books, other
+
+| Feature | Description |
+|---------|-------------|
+| **Employee Loans** | Salary advance, emergency loan, personal loan with EMI tracking. Record payments, auto-calculate outstanding balance. |
+| **Reimbursement Claims** | Submit, approve, reject, pay expense claims. Category-based (medical, travel, food, equipment, internet, books). Visual progress bar. |
+
+### Benefits & Insurance
+
+| Feature | Description |
+|---------|-------------|
+| **Benefits Plans** | Create benefit plans (health, dental, vision, retirement, wellness, education, transport, meal). Employee enrollment and contribution tracking. Admin dashboard with plan statistics. |
+| **Group Insurance** | Insurance policy management (health, life, accident, disability, dental, vision, critical illness). Employee enrollment, dependent coverage, and claims processing with review workflow. |
+
+### GL Accounting
+
+| Feature | Description |
+|---------|-------------|
+| **GL Mappings** | Map payroll components to general ledger account codes. |
+| **Journal Entries** | Auto-generate journal entries from payroll runs. Export journal entry reports. |
+| **Period Summaries** | GL period summary with account-wise totals. |
+
+### Global Payroll & EOR
+
+| Feature | Description |
+|---------|-------------|
+| **30-Country Support** | Country profiles with tax rules, currency, statutory requirements across 6 regions (Asia-Pacific, Europe, Middle East, Americas, Africa). |
+| **Global Employees** | Manage employees across countries with country-specific employment type (full-time, part-time, contractor, EOR). |
+| **Global Payroll Runs** | Country-specific payroll processing with local currency. Multi-country cost analysis dashboard. |
+| **Contractor Invoices** | Submit and manage contractor invoices with approval workflow. |
+| **Country Compliance** | Track compliance items per country with status and deadlines. |
+
+### Earned Wage Access
+
+| Feature | Description |
+|---------|-------------|
+| **EWA Settings** | Configure max advance percentage, fee structure, minimum days worked, and auto-repay rules per org. |
+| **Employee Requests** | Employees request early wage access against earned but unpaid salary. Eligibility calculation based on days worked. |
+| **Approval & Disbursement** | Admin approval workflow. Auto-repay from next payroll run. |
+
+### Pay Equity & Compensation
+
+| Feature | Description |
+|---------|-------------|
+| **Pay Equity Analysis** | Analyze pay gaps across dimensions (gender, department, role, location). Compliance report generation. |
+| **Compensation Benchmarking** | Import and manage market salary benchmarks by job title and department. Compare actual compensation against market data. Percentile analysis and import support. |
+| **Total Rewards Statement** | Comprehensive view of employee compensation: salary, benefits, insurance, bonuses. |
 
 ### Tax Declarations
-- **Self-Service Declarations** — Employees submit 80C/80D/NPS/HRA proofs
-- **Quick Declare Wizard** — Declare all sections in one go
-- **Approval Workflow** — HR reviews and approves declarations
-- **Form 16 Generation** — Downloadable Form 16 (Part A + Part B)
 
-### Employee Self-Service Portal
-- **Dashboard** — CTC, latest payslip, tax regime, days at company, quick links
-- **My Payslips** — View history, expandable details, PDF download, dispute workflow
-- **My Salary** — CTC breakdown with component-wise display
-- **My Tax** — Tax computation, TDS tracker, Form 16 download
-- **Declarations** — Submit investment proofs with bulk wizard
-- **Reimbursements** — Submit expense claims, track approval status
-- **My Profile** — View personal details, bank info, statutory details
-- **Change Password** — Self-service password change with validation
+| Feature | Description |
+|---------|-------------|
+| **Self-Service Declarations** | Employees submit 80C/80D/NPS/HRA investment proofs. Quick declare wizard for all sections. |
+| **Approval Workflow** | HR reviews and approves declarations. |
+| **Form 16 Generation** | Downloadable Form 16 (Part A + Part B). |
+
+### Attendance & Leave
+
+| Feature | Description |
+|---------|-------------|
+| **Attendance Summary** | Per-employee monthly summary (present, absent, LOP, overtime). Bulk "Mark All Present". CSV/API import for biometric integration. |
+| **Leave Balances** | Earned/casual/sick/privilege leave tracking per financial year. Holiday calendar. |
+| **Cloud HRMS Proxy** | When `USE_CLOUD_HRMS=true`, fetches attendance and leave data from EMP Cloud instead of local tables. |
 
 ### UI & UX
-- **Dark Mode** — Light / Dark / System with persistent toggle
-- **Command Palette** — Ctrl+K to search pages, employees, actions
-- **Keyboard Navigation** — G+D (Dashboard), G+E (Employees), G+P (Payroll), G+S (Settings)
-- **Keyboard Help** — Press ? for categorized shortcut reference
-- **Global Search** — Debounced employee search in top bar
-- **Notifications** — Bell dropdown with contextual alerts
-- **Breadcrumbs** — Auto-generated navigation trail
-- **Dashboard Quick Actions** — 6 shortcut buttons (Run Payroll, Add Employee, etc.)
-- **Pagination** — Client-side with page numbers on all tables
-- **Mobile Responsive** — Hamburger menu, adaptive layouts
-- **Error Boundary** — Graceful error handling with recovery
-- **Loading Skeletons** — Shimmer states for all pages
-- **Lazy Loading** — React.lazy code splitting for all 30+ pages
 
-### Infrastructure
-- **Docker Compose** — One-command dev setup (MySQL + Redis + API + Client)
-- **Production Docker** — Multi-stage builds, nginx reverse proxy, gzip compression
-- **API Rate Limiting** — Auth: 200/15min (dev), 20/15min (prod); API: 100/min
-- **Swagger/OpenAPI** — Interactive API docs at /api/v1/docs/openapi.json
-- **CI/CD** — GitHub Actions with type-check + tests + build
-- **Multi-DB** — MySQL (default), PostgreSQL, or MongoDB via env var
-- **Environment Validation** — Server validates required env vars on startup
-- **System Health Dashboard** — Real-time uptime, DB status, memory usage, data counts
+| Feature | Description |
+|---------|-------------|
+| **Dark Mode** | Light / Dark / System with persistent toggle. |
+| **Command Palette** | Ctrl+K to search pages, employees, actions. |
+| **Keyboard Navigation** | G+D (Dashboard), G+E (Employees), G+P (Payroll), G+S (Settings), G+R (Reports), G+A (Attendance). Press ? for shortcut reference. |
+| **Mobile Responsive** | Hamburger menu, adaptive layouts, lazy loading for all 40+ pages. |
 
 ---
 
@@ -135,16 +135,16 @@ India-first payroll engine with PF, ESI, TDS, and Professional Tax built in. Mul
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | React 19 + Vite 6 + TypeScript + Tailwind CSS 4 + React Query |
-| Backend | Node.js 20 + Express 5 + TypeScript |
+| Frontend | React 19, Vite 6, TypeScript, Tailwind CSS 4, React Query |
+| Backend | Node.js 20, Express 5, TypeScript |
 | Database | MySQL 8 (default) / PostgreSQL / MongoDB |
 | Cache | Redis 7 |
-| Auth | JWT (access + refresh tokens) + bcrypt |
+| Auth | JWT (access + refresh tokens) + bcrypt. SSO via EMP Cloud OAuth2. |
 | Validation | Zod (server-side request validation) |
 | Charts | Recharts (bar, line, area, pie) |
 | Email | Nodemailer (SMTP) |
 | Testing | Vitest (67 tests: 40 unit + 27 integration) |
-| Monorepo | pnpm workspaces |
+| Monorepo | pnpm workspaces (3 packages) |
 
 ---
 
@@ -206,117 +206,202 @@ Serves on port 80 with nginx reverse proxy, gzip compression, and static asset c
 
 ```
 emp-payroll/
-├── packages/
-│   ├── shared/                 # Shared types, tax constants (India/US/UK)
-│   │   └── src/
-│   │       ├── types/          # TypeScript interfaces & enums
-│   │       └── constants/      # Tax brackets, PF/ESI rates, state taxes
-│   ├── server/                 # Express API (90+ endpoints)
-│   │   ├── src/
-│   │   │   ├── api/
-│   │   │   │   ├── routes/     # 13 route modules
-│   │   │   │   ├── middleware/ # Auth, rate-limit, error handling
-│   │   │   │   ├── validators/ # Zod request schemas
-│   │   │   │   └── docs.ts    # OpenAPI specification
-│   │   │   ├── services/       # 25 business logic services
-│   │   │   │   ├── tax/        # India, US, UK tax engines
-│   │   │   │   ├── compliance/ # PF, ESI, PT statutory calculations
-│   │   │   │   └── ...        # payroll, employee, salary, etc.
-│   │   │   ├── db/
-│   │   │   │   ├── adapters/   # Knex (MySQL/PG) + MongoDB adapters
-│   │   │   │   ├── migrations/ # 4 schema migrations
-│   │   │   │   └── seed.ts    # Demo data seeder
-│   │   │   └── config/        # Env validation, app config
-│   │   └── tests/
-│   │       ├── unit/           # 40 unit tests (tax engines)
-│   │       └── integration/    # 27 API integration tests
-│   └── client/                 # React SPA (30+ pages)
-│       └── src/
-│           ├── api/            # Axios client, React Query hooks, auth
-│           ├── components/
-│           │   ├── layout/     # DashboardLayout, Sidebar, AuthLayout
-│           │   └── ui/         # 20+ reusable components
-│           ├── pages/          # 30+ lazy-loaded page components
-│           ├── lib/            # Utils, theme provider
-│           └── styles/         # Tailwind + dark mode CSS
-├── docker/                     # Dockerfiles (dev + prod), nginx.conf
-├── docker-compose.yml          # Development setup
-├── docker-compose.prod.yml     # Production setup
-└── .github/workflows/ci.yml   # CI pipeline
+  packages/
+    shared/                 # Shared types, tax constants (India/US/UK)
+      src/
+        types/              # TypeScript interfaces & enums
+        constants/          # Tax brackets, PF/ESI rates, state taxes
+    server/                 # Express API (90+ endpoints)
+      src/
+        api/
+          routes/           # 26 route modules
+          middleware/        # Auth, rate-limit, error handling
+          validators/       # Zod request schemas
+          docs.ts           # OpenAPI specification
+        services/           # 50+ business logic services
+          tax/              # India, US, UK tax engines
+          compliance/       # PF, ESI, PT statutory calculations
+        db/
+          adapters/         # Knex (MySQL/PG) + MongoDB adapters
+          migrations/sql/   # 19 migration files
+          seed.ts           # Demo data seeder
+        config/             # Env validation, app config
+      tests/
+        unit/               # 40 unit tests (tax engines)
+        integration/        # 27 API integration tests
+    client/                 # React SPA (40+ pages)
+      src/
+        api/                # Axios client, React Query hooks, auth
+        components/
+          layout/           # DashboardLayout, Sidebar, AuthLayout
+          ui/               # 20+ reusable components
+        pages/              # 27 page modules (lazy-loaded)
+        lib/                # Utils, theme provider
+        styles/             # Tailwind + dark mode CSS
+  docker/                   # Dockerfiles (dev + prod), nginx.conf
+  docker-compose.yml        # Development setup
+  docker-compose.prod.yml   # Production setup
+  .github/workflows/ci.yml  # CI pipeline
 ```
 
 ---
 
-## API Reference
+## API Endpoints
 
 ### Authentication (`/api/v1/auth`)
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| POST | `/login` | Login with email/password | No |
-| POST | `/register` | Register new user | No |
-| POST | `/refresh-token` | Refresh access token | No |
-| POST | `/change-password` | Change own password | Yes |
-| POST | `/reset-employee-password` | Admin reset password | HR Admin |
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/login` | Login with email/password |
+| POST | `/register` | Register new user |
+| POST | `/refresh-token` | Refresh access token |
+| POST | `/change-password` | Change own password |
+| POST | `/reset-employee-password` | Admin reset password |
 
 ### Employees (`/api/v1/employees`)
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| GET | `/` | List employees (paginated, filterable) | HR Admin/Manager |
-| POST | `/` | Create employee | HR Admin/Manager |
-| GET | `/export` | Export CSV | HR Admin/Manager |
-| GET | `/:id` | Get employee detail | Yes |
-| PUT | `/:id` | Update employee | HR Admin/Manager |
-| DELETE | `/:id` | Deactivate employee | HR Admin |
-| GET | `/:id/bank-details` | Get bank details | Yes |
-| PUT | `/:id/bank-details` | Update bank details | HR Admin/Manager |
-| GET | `/:id/tax-info` | Get tax info | Yes |
-| PUT | `/:id/tax-info` | Update tax info | HR Admin/Manager |
-| GET | `/:id/pf-details` | Get PF details | Yes |
-| PUT | `/:id/pf-details` | Update PF details | HR Admin/Manager |
-| GET | `/:id/notes` | List employee notes | Yes |
-| POST | `/:id/notes` | Add note | Yes |
-| DELETE | `/:id/notes/:noteId` | Delete note | HR Admin/Manager |
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | List employees (paginated, filterable) |
+| POST | `/` | Create employee |
+| GET | `/export` | Export CSV |
+| GET | `/:id` | Get employee detail |
+| PUT | `/:id` | Update employee |
+| DELETE | `/:id` | Deactivate employee |
+| GET | `/:id/bank-details` | Get bank details |
+| PUT | `/:id/bank-details` | Update bank details |
+| GET | `/:id/tax-info` | Get tax info |
+| PUT | `/:id/tax-info` | Update tax info |
+| GET | `/:id/pf-details` | Get PF details |
+| PUT | `/:id/pf-details` | Update PF details |
+| GET | `/:id/notes` | List employee notes |
+| POST | `/:id/notes` | Add note |
+| DELETE | `/:id/notes/:noteId` | Delete note |
 
 ### Payroll (`/api/v1/payroll`)
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| GET | `/` | List payroll runs | HR Admin/Manager |
-| POST | `/` | Create payroll run | HR Admin/Manager |
-| GET | `/:id` | Get run details | HR Admin/Manager |
-| POST | `/:id/compute` | Compute payroll | HR Admin/Manager |
-| POST | `/:id/approve` | Approve payroll | HR Admin |
-| POST | `/:id/pay` | Mark as paid | HR Admin |
-| POST | `/:id/cancel` | Cancel run | HR Admin |
-| GET | `/:id/payslips` | Get run payslips (with employee names) | HR Admin/Manager |
-| POST | `/:id/send-payslips` | Email payslips to all employees | HR Admin/Manager |
-| GET | `/:id/reports/pf` | Download PF ECR file | HR Admin/Manager |
-| GET | `/:id/reports/esi` | Download ESI return | HR Admin/Manager |
-| GET | `/:id/reports/pt` | Download PT return | HR Admin/Manager |
-| GET | `/:id/reports/tds` | Get TDS summary | HR Admin/Manager |
-| GET | `/:id/reports/bank-file` | Download bank transfer file | HR Admin/Manager |
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | List payroll runs |
+| POST | `/` | Create payroll run |
+| GET | `/:id` | Get run details |
+| POST | `/:id/compute` | Compute payroll |
+| POST | `/:id/approve` | Approve payroll |
+| POST | `/:id/pay` | Mark as paid |
+| POST | `/:id/cancel` | Cancel run |
+| GET | `/:id/payslips` | Get run payslips |
+| POST | `/:id/send-payslips` | Email payslips to all employees |
+| GET | `/:id/reports/pf` | Download PF ECR file |
+| GET | `/:id/reports/esi` | Download ESI return |
+| GET | `/:id/reports/pt` | Download PT return |
+| GET | `/:id/reports/tds` | Get TDS summary |
+| GET | `/:id/reports/bank-file` | Download bank transfer file |
 
 ### Salary Structures (`/api/v1/salary-structures`)
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| GET | `/` | List structures | Yes |
-| POST | `/` | Create structure | HR Admin |
-| GET | `/:id/components` | Get components | Yes |
-| POST | `/assign` | Assign to employee | HR Admin/Manager |
-| GET | `/employee/:empId` | Get employee salary | Yes |
-| GET | `/employee/:empId/history` | Get salary history | Yes |
 
-### Payslips (`/api/v1/payslips`)
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| GET | `/` | List payslips | HR Admin/Manager |
-| GET | `/export/csv` | Export CSV | HR Admin/Manager |
-| GET | `/employee/:empId` | Get employee payslips | Yes |
-| GET | `/:id` | Get payslip detail | Yes |
-| GET | `/:id/pdf` | Get payslip HTML | Yes |
-| POST | `/:id/dispute` | Raise dispute | Yes |
-| POST | `/:id/resolve` | Resolve dispute | HR Admin/Manager |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | List structures |
+| POST | `/` | Create structure |
+| GET | `/:id/components` | Get components |
+| POST | `/assign` | Assign to employee |
+| GET | `/employee/:empId` | Get employee salary |
+| GET | `/employee/:empId/history` | Get salary revision history |
+
+### Benefits (`/api/v1/benefits`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/dashboard` | Benefits admin dashboard stats |
+| GET | `/plans` | List benefit plans |
+| POST | `/plans` | Create benefit plan |
+| GET | `/plans/:id` | Get plan detail |
+| PUT | `/plans/:id` | Update plan |
+| GET | `/enrollments` | List enrollments |
+| POST | `/enrollments` | Enroll employee |
+| GET | `/my` | My enrolled benefits |
+
+### Insurance (`/api/v1/insurance`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/dashboard` | Insurance dashboard stats |
+| GET | `/policies` | List insurance policies |
+| POST | `/policies` | Create insurance policy |
+| GET | `/policies/:id` | Get policy detail |
+| PUT | `/policies/:id` | Update policy |
+| GET | `/enrollments` | List enrollments |
+| POST | `/enrollments` | Enroll employee |
+| GET | `/claims` | List insurance claims |
+| POST | `/claims` | Submit claim |
+| PUT | `/claims/:id/review` | Review claim |
+
+### GL Accounting (`/api/v1/gl-accounting`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/mappings` | List GL mappings |
+| POST | `/mappings` | Create GL mapping |
+| PUT | `/mappings/:id` | Update mapping |
+| DELETE | `/mappings/:id` | Delete mapping |
+| POST | `/journal-entries/generate` | Generate journal entries from payroll run |
+| GET | `/journal-entries` | List journal entries |
+| GET | `/period-summary` | GL period summary |
+
+### Global Payroll (`/api/v1/global-payroll`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/dashboard` | Global payroll dashboard |
+| GET | `/cost-analysis` | Multi-country cost analysis |
+| GET | `/countries` | List supported countries |
+| GET | `/countries/:id` | Country detail |
+| GET | `/employees` | List global employees |
+| POST | `/employees` | Add global employee |
+| GET | `/employees/:id` | Global employee detail |
+| PUT | `/employees/:id` | Update global employee |
+| GET | `/runs` | List global payroll runs |
+| POST | `/runs` | Create global payroll run |
+| GET | `/contractor-invoices` | List contractor invoices |
+| POST | `/contractor-invoices` | Submit contractor invoice |
+| GET | `/compliance` | Country compliance items |
+| PUT | `/compliance/:id` | Update compliance status |
+
+### Earned Wage Access (`/api/v1/earned-wage`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/settings` | Get EWA settings |
+| PUT | `/settings` | Update EWA settings (admin) |
+| GET | `/requests` | List all EWA requests |
+| POST | `/requests` | Create EWA request |
+| GET | `/requests/:id` | Get request detail |
+| PUT | `/requests/:id/approve` | Approve request |
+| PUT | `/requests/:id/reject` | Reject request |
+| GET | `/my/eligibility` | Check my EWA eligibility |
+| GET | `/my/requests` | My EWA requests |
+
+### Pay Equity (`/api/v1/pay-equity`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/analysis` | Pay equity analysis (by dimension: gender, department, role) |
+| GET | `/compliance-report` | Generate pay equity compliance report |
+
+### Compensation Benchmarking (`/api/v1/compensation-benchmarks`)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | List benchmarks |
+| POST | `/` | Create benchmark |
+| GET | `/:id` | Get benchmark detail |
+| PUT | `/:id` | Update benchmark |
+| DELETE | `/:id` | Delete benchmark |
+| POST | `/import` | Bulk import benchmarks |
+| GET | `/comparison` | Compare actual vs. market compensation |
 
 ### Self-Service (`/api/v1/self-service`)
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/dashboard` | Employee dashboard data |
@@ -328,26 +413,32 @@ emp-payroll/
 | POST | `/tax/declarations` | Submit declarations |
 | GET | `/tax/form16` | Download Form 16 |
 | GET | `/reimbursements` | My reimbursements |
-| POST | `/reimbursements` | Submit claim |
+| POST | `/reimbursements` | Submit reimbursement claim |
 | GET | `/profile` | My profile |
 
 ### Other Modules
+
 | Module | Base Path | Key Endpoints |
 |--------|-----------|---------------|
-| Attendance | `/api/v1/attendance` | summary, import, LOP override |
-| Leaves | `/api/v1/leaves` | balances, record, adjust |
+| Attendance | `/api/v1/attendance` | Summary, import, LOP override |
+| Leaves | `/api/v1/leaves` | Balances, record, adjust |
 | Loans | `/api/v1/loans` | CRUD, payments, EMI tracking |
-| Reimbursements | `/api/v1/reimbursements` | approve, reject, pay |
-| Tax | `/api/v1/tax` | compute, declarations, Form 16 |
-| Organizations | `/api/v1/organizations` | settings, activity log |
-| Health | `/health` | basic + detailed health checks |
+| Reimbursements | `/api/v1/reimbursements` | Approve, reject, pay |
+| Tax | `/api/v1/tax` | Compute, declarations, Form 16 |
+| Total Rewards | `/api/v1/total-rewards` | Employee total rewards statement |
+| Adjustments | `/api/v1/adjustments` | Salary adjustments, bonus, arrears |
+| Announcements | `/api/v1/announcements` | Company announcements |
+| Organizations | `/api/v1/organizations` | Settings, activity log |
+| Webhooks | `/api/v1/webhooks` | Inbound/outbound event hooks |
+| Health | `/health` | Basic + detailed health checks |
 | Docs | `/api/v1/docs/openapi.json` | OpenAPI 3.0.3 spec |
 
 ---
 
 ## Frontend Pages
 
-### Admin Dashboard (15 pages)
+### Admin Dashboard (27 page modules)
+
 | Page | Path | Description |
 |------|------|-------------|
 | Dashboard | `/` | Stats, charts, quick actions, recent activity |
@@ -362,11 +453,26 @@ emp-payroll/
 | Payslips | `/payslips` | Browse all payslips, export CSV |
 | Attendance | `/attendance` | Monthly summary, bulk marking |
 | Reports | `/reports` | PF ECR, ESI, PT, TDS downloads |
+| Benefits | `/benefits` | Benefit plan management and enrollment |
+| Insurance | `/insurance` | Insurance policies, enrollments, claims |
+| GL Accounting | `/gl-accounting` | GL mappings, journal entries, period summary |
+| Global Payroll | `/global-payroll` | Dashboard, countries, global employees, runs |
+| Global Employees | `/global-payroll/employees` | Global employee management |
+| Contractor Invoices | `/global-payroll/invoices` | Contractor invoice management |
+| Country Compliance | `/global-payroll/compliance` | Country-level compliance tracking |
+| Earned Wage Access | `/earned-wage` | EWA settings, requests, approvals |
+| Pay Equity | `/pay-equity` | Pay gap analysis and compliance reports |
+| Benchmarks | `/benchmarks` | Compensation benchmarking data |
+| Total Rewards | `/total-rewards` | Total rewards statements |
+| Leaves | `/leaves` | Leave management |
+| Loans | `/loans` | Loan management and EMI tracking |
+| Exits | `/exits` | Exit management integration |
 | Settings | `/settings` | Org info, statutory, payment config |
 | Audit Log | `/audit-log` | System activity history |
 | System Health | `/system/health` | Uptime, DB, memory monitoring |
 
-### Self-Service Portal (7 pages)
+### Self-Service Portal (8 pages)
+
 | Page | Path | Description |
 |------|------|-------------|
 | Dashboard | `/my` | Personal stats, quick links |
@@ -375,15 +481,8 @@ emp-payroll/
 | Tax | `/my/tax` | Tax computation, Form 16 |
 | Declarations | `/my/declarations` | Submit/track investment proofs |
 | Reimbursements | `/my/reimbursements` | Submit/track expense claims |
+| Leaves | `/my/leaves` | Leave balances and requests |
 | Profile | `/my/profile` | Personal details, change password |
-
-### Other Pages
-- Login (`/login`) with demo credentials
-- Onboarding wizard (`/onboarding`)
-- Holidays (`/holidays`)
-- Leaves (`/leaves`)
-- Loans (`/loans`)
-- 404 Not Found
 
 ---
 
@@ -425,38 +524,7 @@ pnpm --filter @emp-payroll/client exec tsc --noEmit
 | Frontend | https://testpayroll.empcloud.com |
 | API | https://testpayroll-api.empcloud.com |
 
-SSO integrated with EMP Cloud. HRMS proxy enabled (`USE_CLOUD_HRMS=true`) — attendance and leave data fetched from EMP Cloud.
-
----
-
-## Deployment
-
-### Docker Compose (Development)
-
-```bash
-docker compose up -d --build
-# Services: MySQL (3306), Redis (6379), API (4000), Client (5175)
-```
-
-### Docker Compose (Production)
-
-```bash
-docker compose -f docker-compose.prod.yml up -d --build
-# Services: MySQL, Redis, API (internal), Nginx (80)
-```
-
-Production config includes:
-- Multi-stage Docker builds (smaller images)
-- Nginx reverse proxy with gzip compression
-- Static asset caching (1 year for hashed files)
-- SPA routing (all paths -> index.html)
-
-### Manual Deployment
-
-1. Build the client: `pnpm --filter @emp-payroll/client build`
-2. Build the server: `pnpm --filter @emp-payroll/server build`
-3. Serve `packages/client/dist/` with nginx
-4. Run server: `node packages/server/dist/index.js`
+SSO integrated with EMP Cloud. HRMS proxy enabled (`USE_CLOUD_HRMS=true`) -- attendance and leave data fetched from EMP Cloud.
 
 ---
 
@@ -486,40 +554,22 @@ See `packages/server/.env.example` for all options.
 | `DB_PORT` | `3306` | Database port |
 | `DB_NAME` | `emp_payroll` | Database name |
 | `DB_USER` | `root` | Database user |
-| `DB_PASSWORD` | — | Database password |
-| `JWT_SECRET` | `change-this` | JWT signing secret (must change in production!) |
+| `DB_PASSWORD` | -- | Database password |
+| `JWT_SECRET` | `change-this` | JWT signing secret |
 | `JWT_ACCESS_EXPIRY` | `15m` | Access token lifetime |
 | `JWT_REFRESH_EXPIRY` | `7d` | Refresh token lifetime |
 | `CORS_ORIGIN` | `http://localhost:5173` | Allowed frontend origin |
 | `PAYROLL_COUNTRY` | `IN` | Default country for tax rules (IN, US, UK) |
-| `SMTP_HOST` | — | Email server host |
+| `USE_CLOUD_HRMS` | `false` | Fetch attendance/leave from EMP Cloud |
+| `EMP_CLOUD_URL` | -- | EMP Cloud API URL (for HRMS proxy) |
+| `SMTP_HOST` | -- | Email server host |
 | `SMTP_PORT` | `587` | Email server port |
-| `SMTP_USER` | — | Email username |
-| `SMTP_PASS` | — | Email password |
+| `SMTP_USER` | -- | Email username |
+| `SMTP_PASS` | -- | Email password |
 | `REDIS_URL` | `redis://localhost:6379` | Redis connection URL |
-
----
-
-## Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl+K` | Open command palette |
-| `?` | Show keyboard shortcuts |
-| `G` then `D` | Go to Dashboard |
-| `G` then `E` | Go to Employees |
-| `G` then `P` | Go to Payroll |
-| `G` then `S` | Go to Settings |
-| `G` then `R` | Go to Reports |
-| `G` then `A` | Go to Attendance |
-| `Esc` | Close modal/palette |
 
 ---
 
 ## License
 
-[GPL-3.0](./LICENSE) — Free to use, modify, and distribute.
-
----
-
-**Built with care by the [EmpCloud](https://empcloud.com) team**
+This project is licensed under the [AGPL-3.0 License](LICENSE).
