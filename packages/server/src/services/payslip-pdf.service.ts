@@ -9,41 +9,85 @@ export class PayslipPDFService {
     const payslip = await this.db.findById<any>("payslips", payslipId);
     if (!payslip) throw new AppError(404, "NOT_FOUND", "Payslip not found");
 
-    // Look up employee from EmpCloud using empcloud_user_id (post-migration 010)
-    // Falls back to legacy employee_id for backward compatibility
     let employee: any = null;
     let bankDetails: any = {};
     let org: any = null;
 
+    // Look up payroll profile — works with both empcloud_user_id and employee_id
+    let profile: any = null;
     if (payslip.empcloud_user_id) {
-      const ecUser = await findUserById(Number(payslip.empcloud_user_id));
-      if (!ecUser) throw new AppError(404, "NOT_FOUND", "Employee not found");
-
-      const departmentName = await getUserDepartmentName(ecUser.department_id);
-
-      // Get payroll profile for bank details
-      const profile = await this.db.findOne<any>("employee_payroll_profiles", {
+      profile = await this.db.findOne<any>("employee_payroll_profiles", {
         empcloud_user_id: Number(payslip.empcloud_user_id),
       });
+    }
+    // Fallback: employee_id may be a payroll profile UUID (seed data sets it this way)
+    if (
+      !profile &&
+      payslip.employee_id &&
+      payslip.employee_id !== "00000000-0000-0000-0000-000000000000"
+    ) {
+      profile = await this.db.findById<any>("employee_payroll_profiles", payslip.employee_id);
+    }
+
+    // Resolve the empcloud_user_id — from payslip directly, or from the payroll profile
+    const empcloudUserId = payslip.empcloud_user_id
+      ? Number(payslip.empcloud_user_id)
+      : profile?.empcloud_user_id
+        ? Number(profile.empcloud_user_id)
+        : null;
+
+    if (empcloudUserId) {
+      const ecUser = await findUserById(empcloudUserId);
+
+      if (ecUser) {
+        // Primary path: employee found in EmpCloud
+        const departmentName = await getUserDepartmentName(ecUser.department_id);
+
+        employee = {
+          first_name: ecUser.first_name,
+          last_name: ecUser.last_name,
+          employee_code: ecUser.emp_code || profile?.employee_code || "N/A",
+          department: departmentName || "N/A",
+          designation: ecUser.designation || "N/A",
+        };
+
+        // Get org from payroll settings
+        const orgSettings = await this.db.findOne<any>("organization_payroll_settings", {
+          empcloud_org_id: Number(ecUser.organization_id),
+        });
+        org = orgSettings;
+      } else {
+        // Employee record missing from EmpCloud (e.g. after DB re-seed).
+        // Use whatever data is available from the payroll profile.
+        employee = {
+          first_name: profile?.employee_code || "Employee",
+          last_name: `#${empcloudUserId}`,
+          employee_code: profile?.employee_code || "N/A",
+          department: "N/A",
+          designation: "N/A",
+        };
+
+        // Resolve org from profile or from the payroll run
+        if (profile?.empcloud_org_id) {
+          org = await this.db.findOne<any>("organization_payroll_settings", {
+            empcloud_org_id: Number(profile.empcloud_org_id),
+          });
+        }
+        if (!org && payslip.payroll_run_id) {
+          const run = await this.db.findById<any>("payroll_runs", payslip.payroll_run_id);
+          if (run?.empcloud_org_id) {
+            org = await this.db.findOne<any>("organization_payroll_settings", {
+              empcloud_org_id: Number(run.empcloud_org_id),
+            });
+          }
+        }
+      }
+
       bankDetails = profile?.bank_details
         ? typeof profile.bank_details === "string"
           ? JSON.parse(profile.bank_details)
           : profile.bank_details
         : {};
-
-      employee = {
-        first_name: ecUser.first_name,
-        last_name: ecUser.last_name,
-        employee_code: ecUser.emp_code || profile?.employee_code || "N/A",
-        department: departmentName || "N/A",
-        designation: ecUser.designation || "N/A",
-      };
-
-      // Get org from payroll settings
-      const orgSettings = await this.db.findOne<any>("organization_payroll_settings", {
-        empcloud_org_id: Number(ecUser.organization_id),
-      });
-      org = orgSettings;
     } else {
       // Legacy fallback: employee_id references old employees table
       employee = await this.db.findById<any>("employees", payslip.employee_id);

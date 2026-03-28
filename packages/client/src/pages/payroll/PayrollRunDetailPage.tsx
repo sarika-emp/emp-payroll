@@ -6,8 +6,27 @@ import { StatCard } from "@/components/ui/StatCard";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/Card";
 import { DataTable } from "@/components/ui/DataTable";
 import { formatCurrency, formatMonth } from "@/lib/utils";
-import { usePayrollRun, useRunPayslips, useComputePayroll, useApprovePayroll, usePayPayroll } from "@/api/hooks";
-import { ArrowLeft, Users, Wallet, TrendingDown, Building2, CheckCircle, Play, Loader2, CreditCard, Download, Mail, AlertTriangle } from "lucide-react";
+import {
+  usePayrollRun,
+  useRunPayslips,
+  useComputePayroll,
+  useApprovePayroll,
+  usePayPayroll,
+} from "@/api/hooks";
+import {
+  ArrowLeft,
+  Users,
+  Wallet,
+  TrendingDown,
+  Building2,
+  CheckCircle,
+  Play,
+  Loader2,
+  CreditCard,
+  Download,
+  Mail,
+  AlertTriangle,
+} from "lucide-react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import { api, apiPost } from "@/api/client";
 import { useState } from "react";
@@ -22,7 +41,11 @@ const columns = [
         <p className="font-medium text-gray-900">
           {row.first_name ? `${row.first_name} ${row.last_name}` : row.employee_id?.slice(0, 8)}
         </p>
-        {row.employee_code && <p className="text-xs text-gray-500">{row.employee_code} &middot; {row.department}</p>}
+        {row.employee_code && (
+          <p className="text-xs text-gray-500">
+            {row.employee_code} &middot; {row.department}
+          </p>
+        )}
       </div>
     ),
   },
@@ -35,11 +58,14 @@ const columns = [
     key: "deductions",
     header: "Deductions",
     render: (row: any) => {
-      const deds = typeof row.deductions === "string" ? JSON.parse(row.deductions) : row.deductions || [];
+      const deds =
+        typeof row.deductions === "string" ? JSON.parse(row.deductions) : row.deductions || [];
       return (
         <div className="text-xs">
           {deds.map((d: any) => (
-            <span key={d.code} className="mr-2">{d.code}: {formatCurrency(d.amount)}</span>
+            <span key={d.code} className="mr-2">
+              {d.code}: {formatCurrency(d.amount)}
+            </span>
           ))}
         </div>
       );
@@ -61,15 +87,16 @@ const columns = [
     key: "actions",
     header: "",
     render: (row: any) => (
-      <a
-        href={`${import.meta.env.VITE_API_URL || "/api/v1"}/payslips/${row.id}/pdf`}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          const url = `${import.meta.env.VITE_API_URL || "/api/v1"}/payslips/${row.id}/pdf`;
+          window.open(url + `?token=${localStorage.getItem("access_token")}`, "_blank");
+        }}
         className="text-brand-600 hover:text-brand-700 text-xs font-medium"
-        onClick={(e) => e.stopPropagation()}
       >
         View Payslip
-      </a>
+      </button>
     ),
   },
 ];
@@ -85,7 +112,11 @@ export function PayrollRunDetailPage() {
   const [emailing, setEmailing] = useState(false);
 
   if (isLoading) {
-    return <div className="flex h-64 items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-brand-600" /></div>;
+    return (
+      <div className="flex h-64 items-center justify-center">
+        <Loader2 className="text-brand-600 h-8 w-8 animate-spin" />
+      </div>
+    );
   }
 
   const run = runRes?.data;
@@ -130,26 +161,42 @@ export function PayrollRunDetailPage() {
               <ArrowLeft className="h-4 w-4" /> Back
             </Button>
             {(run.status === "draft" || run.status === "computed") && (
-              <Button variant="outline" className="text-red-500 hover:text-red-700" onClick={async () => {
-                if (!confirm("Cancel this payroll run? This cannot be undone.")) return;
-                try {
-                  await apiPost(`/payroll/${id}/cancel`);
-                  toast.success("Payroll run cancelled");
-                  navigate("/payroll/runs");
-                } catch (err: any) { toast.error(err.response?.data?.error?.message || "Failed to cancel"); }
-              }}>
+              <Button
+                variant="outline"
+                className="text-red-500 hover:text-red-700"
+                onClick={async () => {
+                  if (!confirm("Cancel this payroll run? This cannot be undone.")) return;
+                  try {
+                    await apiPost(`/payroll/${id}/cancel`);
+                    toast.success("Payroll run cancelled");
+                    navigate("/payroll/runs");
+                  } catch (err: any) {
+                    toast.error(err.response?.data?.error?.message || "Failed to cancel");
+                  }
+                }}
+              >
                 Cancel Run
               </Button>
             )}
             {(run.status === "computed" || run.status === "approved") && (
-              <Button variant="outline" onClick={async () => {
-                if (!confirm("Revert to draft? This will delete all computed payslips for this run so you can fix data and recompute.")) return;
-                try {
-                  await apiPost(`/payroll/${id}/revert`);
-                  toast.success("Reverted to draft — fix data and recompute");
-                  window.location.reload();
-                } catch (err: any) { toast.error(err.response?.data?.error?.message || "Failed to revert"); }
-              }}>
+              <Button
+                variant="outline"
+                onClick={async () => {
+                  if (
+                    !confirm(
+                      "Revert to draft? This will delete all computed payslips for this run so you can fix data and recompute.",
+                    )
+                  )
+                    return;
+                  try {
+                    await apiPost(`/payroll/${id}/revert`);
+                    toast.success("Reverted to draft — fix data and recompute");
+                    window.location.reload();
+                  } catch (err: any) {
+                    toast.error(err.response?.data?.error?.message || "Failed to revert");
+                  }
+                }}
+              >
                 Revert to Draft
               </Button>
             )}
@@ -169,27 +216,44 @@ export function PayrollRunDetailPage() {
               </Button>
             )}
             {(run.status === "approved" || run.status === "paid") && (
-              <Button variant="outline" onClick={async () => {
-                try {
-                  const { data } = await api.get(`/payroll/${id}/reports/bank-file`, { responseType: "blob" });
-                  const url = URL.createObjectURL(new Blob([data]));
-                  const a = document.createElement("a"); a.href = url; a.download = `bank-transfer-${run.month}-${run.year}.csv`; a.click();
-                  URL.revokeObjectURL(url);
-                  toast.success("Bank file downloaded");
-                } catch { toast.error("Failed to generate bank file"); }
-              }}>
+              <Button
+                variant="outline"
+                onClick={async () => {
+                  try {
+                    const { data } = await api.get(`/payroll/${id}/reports/bank-file`, {
+                      responseType: "blob",
+                    });
+                    const url = URL.createObjectURL(new Blob([data]));
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `bank-transfer-${run.month}-${run.year}.csv`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    toast.success("Bank file downloaded");
+                  } catch {
+                    toast.error("Failed to generate bank file");
+                  }
+                }}
+              >
                 <Download className="h-4 w-4" /> Bank File
               </Button>
             )}
             {(run.status === "paid" || run.status === "approved") && (
-              <Button variant="outline" loading={emailing} onClick={async () => {
-                setEmailing(true);
-                try {
-                  const res = await apiPost<any>(`/payroll/${id}/send-payslips`);
-                  toast.success(res.data?.message || "Payslip emails sent");
-                } catch { toast.error("Failed to send emails"); }
-                finally { setEmailing(false); }
-              }}>
+              <Button
+                variant="outline"
+                loading={emailing}
+                onClick={async () => {
+                  setEmailing(true);
+                  try {
+                    const res = await apiPost<any>(`/payroll/${id}/send-payslips`);
+                    toast.success(res.data?.message || "Payslip emails sent");
+                  } catch {
+                    toast.error("Failed to send emails");
+                  } finally {
+                    setEmailing(false);
+                  }
+                }}
+              >
                 <Mail className="h-4 w-4" /> Email Payslips
               </Button>
             )}
@@ -203,91 +267,138 @@ export function PayrollRunDetailPage() {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard title="Employees" value={String(run.employee_count || 0)} icon={Users} />
-        <StatCard title="Gross Pay" value={Number(run.total_gross) ? formatCurrency(run.total_gross) : "—"} icon={Wallet} />
-        <StatCard title="Deductions" value={Number(run.total_deductions) ? formatCurrency(run.total_deductions) : "—"} icon={TrendingDown} />
-        <StatCard title="Net Pay" value={Number(run.total_net) ? formatCurrency(run.total_net) : "—"} icon={Building2} />
+        <StatCard
+          title="Gross Pay"
+          value={Number(run.total_gross) ? formatCurrency(run.total_gross) : "—"}
+          icon={Wallet}
+        />
+        <StatCard
+          title="Deductions"
+          value={Number(run.total_deductions) ? formatCurrency(run.total_deductions) : "—"}
+          icon={TrendingDown}
+        />
+        <StatCard
+          title="Net Pay"
+          value={Number(run.total_net) ? formatCurrency(run.total_net) : "—"}
+          icon={Building2}
+        />
       </div>
 
       {/* Cost Breakdown */}
-      {Number(run.total_gross) > 0 && (() => {
-        const data = [
-          { name: "Net Pay", value: Number(run.total_net), fill: "#6366F1" },
-          { name: "Deductions", value: Number(run.total_deductions), fill: "#F59E0B" },
-          { name: "Employer Cost", value: Number(run.total_employer_contributions || 0), fill: "#10B981" },
-        ].filter((d) => d.value > 0);
-        return (
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <Card>
-              <CardHeader><CardTitle>Cost Breakdown</CardTitle></CardHeader>
-              <CardContent>
-                <div className="h-48">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }: any) => `${name} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
-                        {data.map((entry, i) => <Cell key={i} fill={entry.fill} />)}
-                      </Pie>
-                      <Tooltip formatter={(v: number) => formatCurrency(v)} />
-                    </PieChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader><CardTitle>Department Breakdown</CardTitle></CardHeader>
-              <CardContent>
-                {(() => {
-                  const deptMap: Record<string, number> = {};
-                  for (const p of payslips) {
-                    const dept = (p as any).department || "Other";
-                    deptMap[dept] = (deptMap[dept] || 0) + Number((p as any).net_pay || 0);
-                  }
-                  const deptData = Object.entries(deptMap).map(([dept, amount]) => ({ dept, amount })).sort((a, b) => b.amount - a.amount);
-                  return (
-                    <div className="space-y-2">
-                      {deptData.map(({ dept, amount }) => (
-                        <div key={dept} className="flex items-center justify-between">
-                          <span className="text-sm text-gray-700">{dept}</span>
-                          <span className="text-sm font-semibold text-gray-900">{formatCurrency(amount)}</span>
-                        </div>
-                      ))}
-                    </div>
-                  );
-                })()}
-              </CardContent>
-            </Card>
-          </div>
-        );
-      })()}
+      {Number(run.total_gross) > 0 &&
+        (() => {
+          const data = [
+            { name: "Net Pay", value: Number(run.total_net), fill: "#6366F1" },
+            { name: "Deductions", value: Number(run.total_deductions), fill: "#F59E0B" },
+            {
+              name: "Employer Cost",
+              value: Number(run.total_employer_contributions || 0),
+              fill: "#10B981",
+            },
+          ].filter((d) => d.value > 0);
+          return (
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Cost Breakdown</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-48">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={data}
+                          dataKey="value"
+                          nameKey="name"
+                          cx="50%"
+                          cy="50%"
+                          outerRadius={80}
+                          label={({ name, percent }: any) =>
+                            `${name} ${(percent * 100).toFixed(0)}%`
+                          }
+                          labelLine={false}
+                        >
+                          {data.map((entry, i) => (
+                            <Cell key={i} fill={entry.fill} />
+                          ))}
+                        </Pie>
+                        <Tooltip formatter={(v: number) => formatCurrency(v)} />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Department Breakdown</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {(() => {
+                    const deptMap: Record<string, number> = {};
+                    for (const p of payslips) {
+                      const dept = (p as any).department || "Other";
+                      deptMap[dept] = (deptMap[dept] || 0) + Number((p as any).net_pay || 0);
+                    }
+                    const deptData = Object.entries(deptMap)
+                      .map(([dept, amount]) => ({ dept, amount }))
+                      .sort((a, b) => b.amount - a.amount);
+                    return (
+                      <div className="space-y-2">
+                        {deptData.map(({ dept, amount }) => (
+                          <div key={dept} className="flex items-center justify-between">
+                            <span className="text-sm text-gray-700">{dept}</span>
+                            <span className="text-sm font-semibold text-gray-900">
+                              {formatCurrency(amount)}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
+                </CardContent>
+              </Card>
+            </div>
+          );
+        })()}
 
       {/* Variance Alerts */}
-      {payslips.length > 0 && (() => {
-        const zeroNet = payslips.filter((p: any) => Number(p.net_pay) <= 0);
-        const highDeduction = payslips.filter((p: any) => Number(p.total_deductions) > Number(p.gross_earnings) * 0.5);
-        const alerts = [
-          ...zeroNet.map((p: any) => `${p.first_name || "Employee"} has zero/negative net pay`),
-          ...highDeduction.map((p: any) => `${p.first_name || "Employee"} has deductions > 50% of gross`),
-        ];
-        return alerts.length > 0 ? (
-          <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950">
-            <div className="flex items-center gap-2 mb-2">
-              <AlertTriangle className="h-5 w-5 text-amber-600" />
-              <h3 className="font-semibold text-amber-800 dark:text-amber-200">Payroll Alerts ({alerts.length})</h3>
+      {payslips.length > 0 &&
+        (() => {
+          const zeroNet = payslips.filter((p: any) => Number(p.net_pay) <= 0);
+          const highDeduction = payslips.filter(
+            (p: any) => Number(p.total_deductions) > Number(p.gross_earnings) * 0.5,
+          );
+          const alerts = [
+            ...zeroNet.map((p: any) => `${p.first_name || "Employee"} has zero/negative net pay`),
+            ...highDeduction.map(
+              (p: any) => `${p.first_name || "Employee"} has deductions > 50% of gross`,
+            ),
+          ];
+          return alerts.length > 0 ? (
+            <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950">
+              <div className="mb-2 flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5 text-amber-600" />
+                <h3 className="font-semibold text-amber-800 dark:text-amber-200">
+                  Payroll Alerts ({alerts.length})
+                </h3>
+              </div>
+              <ul className="list-inside list-disc space-y-1">
+                {alerts.map((a, i) => (
+                  <li key={i} className="text-sm text-amber-700 dark:text-amber-300">
+                    {a}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="list-disc list-inside space-y-1">
-              {alerts.map((a, i) => <li key={i} className="text-sm text-amber-700 dark:text-amber-300">{a}</li>)}
-            </ul>
-          </div>
-        ) : null;
-      })()}
+          ) : null;
+        })()}
 
       <Card>
-        <CardHeader><CardTitle>Employee Payslips</CardTitle></CardHeader>
+        <CardHeader>
+          <CardTitle>Employee Payslips</CardTitle>
+        </CardHeader>
         <CardContent className="p-0">
-          <DataTable
-            columns={columns}
-            data={payslips}
-            emptyMessage="Payroll not yet computed"
-          />
+          <DataTable columns={columns} data={payslips} emptyMessage="Payroll not yet computed" />
         </CardContent>
       </Card>
     </div>
