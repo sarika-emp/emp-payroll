@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Modal } from "@/components/ui/Modal";
-import { DollarSign, Eye, EyeOff } from "lucide-react";
+import { DollarSign, Eye, EyeOff, Loader2 } from "lucide-react";
 import { useLogin } from "@/api/hooks";
 import { apiPost } from "@/api/client";
 import { saveAuth } from "@/api/auth";
@@ -73,91 +73,147 @@ export function LoginPage() {
   }
 
   return (
-    <div>
-      <div className="mb-8 flex items-center gap-3 lg:hidden">
-        <div className="bg-brand-600 flex h-10 w-10 items-center justify-center rounded-xl">
-          <DollarSign className="h-6 w-6 text-white" />
-        </div>
-        <span className="text-xl font-bold text-gray-900">EMP Payroll</span>
-      </div>
-
-      <h2 className="text-2xl font-bold text-gray-900">Welcome back</h2>
-      <p className="mt-1 text-sm text-gray-500">Sign in to manage your payroll</p>
-
-      <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-        <Input
-          id="email"
-          label="Email address"
-          type="email"
-          placeholder="you@company.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <div className="space-y-1">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-            Password
-          </label>
-          <div className="relative">
-            <input
-              id="password"
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="focus:border-brand-500 focus:ring-brand-500 block w-full rounded-lg border border-gray-300 px-3 py-2 pr-10 text-sm shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-1"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              aria-label={showPassword ? "Hide password" : "Show password"}
-            >
-              {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-            </button>
+    <div className="flex min-h-screen">
+      {/* Left panel — brand */}
+      <div className="hidden items-center justify-center bg-gradient-to-br from-emerald-600 to-emerald-800 p-12 lg:flex lg:w-1/2">
+        <div className="max-w-md text-white">
+          <div className="mb-8 flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20">
+              <DollarSign className="h-7 w-7 text-white" />
+            </div>
+            <span className="text-2xl font-bold">EMP Payroll</span>
+          </div>
+          <h2 className="mb-4 text-3xl font-bold leading-tight">Streamline payroll management</h2>
+          <p className="text-lg leading-relaxed text-emerald-100">
+            Process salaries, manage tax compliance, generate payslips, handle reimbursements, and
+            track loans -- all in one place.
+          </p>
+          <div className="mt-10 grid grid-cols-2 gap-4">
+            {[
+              "Salary processing",
+              "Tax computation",
+              "Payslip generation",
+              "Compliance",
+              "Reimbursements",
+              "Loans & advances",
+              "Reports",
+              "Multi-currency",
+            ].map((feature) => (
+              <div key={feature} className="flex items-center gap-2 text-sm text-emerald-100">
+                <div className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
+                {feature}
+              </div>
+            ))}
           </div>
         </div>
-        <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 text-sm">
-            <input
-              type="checkbox"
-              defaultChecked
-              className="text-brand-600 focus:ring-brand-500 rounded border-gray-300"
-            />
-            <span className="text-gray-600">Remember me</span>
-          </label>
-          <button
-            type="button"
-            onClick={() => {
-              setForgotOpen(true);
-              setForgotStep("email");
-            }}
-            className="text-brand-600 hover:text-brand-700 text-sm font-medium"
-          >
-            Forgot password?
-          </button>
-        </div>
-        <Button type="submit" loading={loginMutation.isPending} className="w-full">
-          Sign in
-        </Button>
-      </form>
-
-      <div className="mt-4 rounded-lg bg-gray-50 p-3 text-xs text-gray-500">
-        <p className="font-medium">Demo credentials:</p>
-        <p>ananya@technova.in / Welcome@123</p>
       </div>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
-        Don't have an account?{" "}
-        <button
-          type="button"
-          onClick={() => setContactOpen(true)}
-          className="text-brand-600 hover:text-brand-700 font-medium"
-        >
-          Contact your HR admin
-        </button>
-      </p>
+      {/* Right panel — form */}
+      <div className="flex w-full items-center justify-center bg-gray-50 px-4 lg:w-1/2">
+        <div className="w-full max-w-sm">
+          <div className="mb-8 flex items-center justify-center gap-3 lg:hidden">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-600">
+              <DollarSign className="h-6 w-6 text-white" />
+            </div>
+            <span className="text-xl font-bold text-gray-900">EMP Payroll</span>
+          </div>
+
+          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h2 className="text-2xl font-bold text-gray-900">Welcome back</h2>
+            <p className="mt-1 text-sm text-gray-500">Sign in to manage your payroll</p>
+
+            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+              <div className="space-y-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="you@company.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm placeholder:text-gray-400 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                />
+              </div>
+
+              <div className="space-y-1">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <div className="relative">
+                  <input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="block w-full rounded-lg border border-gray-300 px-3 py-2 pr-10 text-sm shadow-sm placeholder:text-gray-400 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                  >
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <label className="flex items-center gap-2 text-sm">
+                  <input
+                    type="checkbox"
+                    defaultChecked
+                    className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
+                  />
+                  <span className="text-gray-600">Remember me</span>
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setForgotOpen(true);
+                    setForgotStep("email");
+                  }}
+                  className="text-sm font-medium text-emerald-600 hover:text-emerald-700"
+                >
+                  Forgot password?
+                </button>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loginMutation.isPending}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+              >
+                {loginMutation.isPending && <Loader2 className="h-4 w-4 animate-spin" />}
+                Sign in
+              </button>
+            </form>
+
+            <div className="mt-4 rounded-lg bg-gray-50 p-3 text-xs text-gray-500">
+              <p className="font-medium">Demo credentials:</p>
+              <p>ananya@technova.in / Welcome@123</p>
+            </div>
+          </div>
+
+          <p className="mt-6 text-center text-sm text-gray-500">
+            Don't have an account?{" "}
+            <button
+              type="button"
+              onClick={() => setContactOpen(true)}
+              className="font-medium text-emerald-600 hover:text-emerald-700"
+            >
+              Contact your HR admin
+            </button>
+          </p>
+
+          <p className="mt-4 text-center text-xs text-gray-400">Part of the EMP HRMS ecosystem</p>
+        </div>
+      </div>
 
       {/* Contact HR Admin Modal */}
       <Modal
