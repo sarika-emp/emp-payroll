@@ -43,6 +43,8 @@ export const config = {
     secret: process.env.JWT_SECRET || "change-this-in-production",
     accessExpiry: process.env.JWT_ACCESS_EXPIRY || "15m",
     refreshExpiry: process.env.JWT_REFRESH_EXPIRY || "7d",
+    // RS256 public key from EMP Cloud — used to verify SSO tokens
+    empcloudPublicKey: process.env.EMPCLOUD_PUBLIC_KEY || "",
   },
 
   // Email (payslip delivery)

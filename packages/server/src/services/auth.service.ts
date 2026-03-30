@@ -182,8 +182,26 @@ export class AuthService {
   // SSO LOGIN — exchange EMP Cloud RS256 JWT for Payroll HS256 JWT
   // -----------------------------------------------------------------------
   async ssoLogin(empcloudToken: string): Promise<{ user: any; tokens: TokenPair }> {
-    // Decode without verification — user arrived via trusted dashboard redirect
-    const decoded = jwt.decode(empcloudToken);
+    // Verify the EMP Cloud RS256 JWT signature before trusting it.
+    // Falls back to HS256 verification with local secret if no public key is configured.
+    let decoded: jwt.JwtPayload;
+    try {
+      const publicKey = config.jwt.empcloudPublicKey;
+      if (publicKey) {
+        decoded = jwt.verify(empcloudToken, publicKey, {
+          algorithms: ["RS256"],
+        }) as jwt.JwtPayload;
+      } else {
+        // Fallback: verify with local secret (HS256) — still validates signature
+        decoded = jwt.verify(empcloudToken, config.jwt.secret) as jwt.JwtPayload;
+      }
+    } catch (err: any) {
+      if (err.name === "TokenExpiredError") {
+        throw new AppError(401, "SSO_TOKEN_EXPIRED", "SSO token has expired");
+      }
+      throw new AppError(401, "INVALID_SSO_TOKEN", "Invalid or tampered SSO token");
+    }
+
     if (!decoded || typeof decoded === "string") {
       throw new AppError(401, "INVALID_SSO_TOKEN", "Invalid SSO token");
     }
