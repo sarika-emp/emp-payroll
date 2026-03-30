@@ -6,6 +6,7 @@ import { NotificationBell } from "@/components/ui/NotificationBell";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Avatar } from "@/components/ui/Avatar";
+import { BackToDashboard } from "@/components/ui/BackToDashboard";
 import { isLoggedIn, getUser } from "@/api/auth";
 import { apiGet } from "@/api/client";
 
@@ -51,6 +52,7 @@ export function DashboardLayout() {
         {/* Top bar */}
         <header className="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 lg:px-8">
           <div className="flex items-center gap-3">
+            <BackToDashboard />
             <button
               onClick={() => setMobileOpen(true)}
               className="rounded-lg p-2 text-gray-400 hover:bg-gray-100 lg:hidden"
