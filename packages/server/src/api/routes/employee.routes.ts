@@ -287,6 +287,23 @@ router.put(
   }),
 );
 
+router.get(
+  "/:id/esi-details",
+  wrap(async (req, res) => {
+    const data = await svc.getEsiDetails(numParam(req, "id"), req.user!.empcloudOrgId);
+    res.json({ success: true, data });
+  }),
+);
+
+router.put(
+  "/:id/esi-details",
+  authorize("hr_admin", "hr_manager", "org_admin"),
+  wrap(async (req, res) => {
+    const data = await svc.updateEsiDetails(numParam(req, "id"), req.user!.empcloudOrgId, req.body);
+    res.json({ success: true, data });
+  }),
+);
+
 // Notes (still uses string IDs for payroll-internal tables)
 router.get(
   "/:id/notes",

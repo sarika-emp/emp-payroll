@@ -385,6 +385,26 @@ export class EmployeeService {
   }
 
   /**
+   * Get ESI details from payroll profile.
+   */
+  async getEsiDetails(empcloudUserId: number, empcloudOrgId: number) {
+    const emp = await this.getByEmpCloudId(empcloudUserId, empcloudOrgId);
+    return emp.esiDetails;
+  }
+
+  /**
+   * Update ESI details in payroll profile.
+   */
+  async updateEsiDetails(empcloudUserId: number, empcloudOrgId: number, esiDetails: any) {
+    await this.getByEmpCloudId(empcloudUserId, empcloudOrgId);
+    const profile = await this.ensurePayrollProfile(empcloudUserId, empcloudOrgId);
+    await this.payrollDb.update("employee_payroll_profiles", profile.id, {
+      esi_details: JSON.stringify(esiDetails),
+    });
+    return esiDetails;
+  }
+
+  /**
    * Count active employees in org.
    */
   async count(empcloudOrgId: number) {

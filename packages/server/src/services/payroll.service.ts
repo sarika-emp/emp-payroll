@@ -212,23 +212,33 @@ export class PayrollService {
           month: run.month,
           year: run.year,
           basicSalary: basicMonthly,
+          contributionRate: pfDetails?.contributionRate || undefined,
+          isVoluntaryPF: !!pfDetails?.vpfRate,
+          vpfRate: pfDetails?.vpfRate || 0,
         });
         deductions.push({ code: "EPF", name: "Employee PF", amount: pf.employeeEPF });
         totalDed += pf.employeeEPF;
         employeeEmployerContributions += pf.totalEmployer;
       }
 
-      // ESI
-      const esi = computeESI({
-        employeeId: String(ecEmp.id),
-        month: run.month,
-        year: run.year,
-        grossSalary: grossEarnings,
-      });
-      if (esi) {
-        deductions.push({ code: "ESI", name: "Employee ESI", amount: esi.employeeContribution });
-        totalDed += esi.employeeContribution;
-        employeeEmployerContributions += esi.employerContribution;
+      // ESI — check eligibility from profile
+      const esiDetails = profile?.esi_details
+        ? typeof profile.esi_details === "string"
+          ? JSON.parse(profile.esi_details)
+          : profile.esi_details
+        : {};
+      if (esiDetails?.isEligible !== false) {
+        const esi = computeESI({
+          employeeId: String(ecEmp.id),
+          month: run.month,
+          year: run.year,
+          grossSalary: grossEarnings,
+        });
+        if (esi) {
+          deductions.push({ code: "ESI", name: "Employee ESI", amount: esi.employeeContribution });
+          totalDed += esi.employeeContribution;
+          employeeEmployerContributions += esi.employerContribution;
+        }
       }
 
       // Professional Tax
@@ -276,6 +286,34 @@ export class PayrollService {
       if (taxResult.monthlyTds > 0) {
         deductions.push({ code: "TDS", name: "Income Tax (TDS)", amount: taxResult.monthlyTds });
         totalDed += taxResult.monthlyTds;
+      }
+
+      // Loan EMI auto-deduction — find active loans for this employee
+      // Loans reference the local employees table; try both empcloud user id and profile id
+      const loanFilters = [
+        { employee_id: String(ecEmp.id), status: "active" },
+        ...(profile ? [{ employee_id: profile.id, status: "active" }] : []),
+      ];
+      for (const lf of loanFilters) {
+        const activeLoans = await this.db.findMany<any>("loans", { filters: lf });
+        for (const loan of activeLoans.data) {
+          const emi = Math.round(Number(loan.emi_amount));
+          if (emi > 0) {
+            deductions.push({
+              code: "LOAN",
+              name: `Loan EMI — ${loan.type || "Loan"}`,
+              amount: emi,
+            });
+            totalDed += emi;
+            // Update loan tracking
+            await this.db.update("loans", loan.id, {
+              installments_paid: (Number(loan.installments_paid) || 0) + 1,
+              outstanding_amount: Math.max(0, Number(loan.outstanding_amount) - emi),
+              ...(Number(loan.outstanding_amount) - emi <= 0 ? { status: "completed" } : {}),
+            });
+          }
+        }
+        if (activeLoans.data.length > 0) break; // Found loans, don't query again
       }
 
       const netPay = grossEarnings - totalDed;
