@@ -42,6 +42,7 @@ import { totalRewardsRoutes } from "./api/routes/total-rewards.routes";
 import { earnedWageRoutes } from "./api/routes/earned-wage.routes";
 import { insuranceRoutes } from "./api/routes/insurance.routes";
 import { globalPayrollRoutes } from "./api/routes/global-payroll.routes";
+import { holidayRoutes } from "./api/routes/holiday.routes";
 import path from "path";
 
 const app = express();
@@ -119,6 +120,7 @@ v1.use("/total-rewards", totalRewardsRoutes);
 v1.use("/earned-wage", earnedWageRoutes);
 v1.use("/insurance", insuranceRoutes);
 v1.use("/global", globalPayrollRoutes);
+v1.use("/holidays", holidayRoutes);
 v1.get("/docs/openapi.json", apiDocsHandler);
 v1.get("/docs", swaggerUIHandler);
 
