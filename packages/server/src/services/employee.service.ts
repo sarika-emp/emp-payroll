@@ -465,17 +465,28 @@ export class EmployeeService {
     });
     if (profile) return profile;
 
-    const ecUser = await findUserById(empcloudUserId);
-    return this.payrollDb.create<any>("employee_payroll_profiles", {
-      id: uuidv4(),
-      empcloud_user_id: empcloudUserId,
-      empcloud_org_id: empcloudOrgId,
-      employee_code: ecUser?.emp_code || null,
-      bank_details: JSON.stringify({}),
-      tax_info: JSON.stringify({ pan: "", regime: "new" }),
-      pf_details: JSON.stringify({}),
-      esi_details: JSON.stringify({}),
-      is_active: true,
-    });
+    try {
+      const ecUser = await findUserById(empcloudUserId);
+      return await this.payrollDb.create<any>("employee_payroll_profiles", {
+        id: uuidv4(),
+        empcloud_user_id: empcloudUserId,
+        empcloud_org_id: empcloudOrgId,
+        employee_code: ecUser?.emp_code || null,
+        bank_details: JSON.stringify({}),
+        tax_info: JSON.stringify({ pan: "", regime: "new" }),
+        pf_details: JSON.stringify({}),
+        esi_details: JSON.stringify({}),
+        is_active: true,
+      });
+    } catch (err: any) {
+      // Race condition: another request created it first — re-fetch
+      if (err.code === "ER_DUP_ENTRY" || err.errno === 1062) {
+        profile = await this.payrollDb.findOne<any>("employee_payroll_profiles", {
+          empcloud_user_id: empcloudUserId,
+        });
+        if (profile) return profile;
+      }
+      throw err;
+    }
   }
 }
