@@ -902,7 +902,7 @@ describe("employee.service — dual-DB employee management", () => {
     if (emps.length === 0) return;
 
     // Get a department from empcloud
-    const dept = await ecDb("departments").where({ organization_id: ORG }).first();
+    const dept = await ecDb("organization_departments").where({ organization_id: ORG }).first();
     if (!dept) return;
 
     // Verify the bulk assignment logic works per-user
@@ -919,7 +919,7 @@ describe("employee.service — dual-DB employee management", () => {
     const emp = await ecDb("users").where({ id: USER, organization_id: ORG }).first();
     if (!emp || !emp.department_id) return;
 
-    const dept = await ecDb("departments").where({ id: emp.department_id }).first();
+    const dept = await ecDb("organization_departments").where({ id: emp.department_id }).first();
     if (dept) {
       expect(dept.name).toBeDefined();
     }
