@@ -74,16 +74,12 @@ beforeAll(async () => {
     await db.raw("SELECT 1");
     await ecDb.raw("SELECT 1");
     dbAvailable = true;
-    // Pre-cleanup: remove leftover test runs from previous failed test executions
+    // Pre-cleanup: remove ALL leftover test runs for the test org_id to avoid duplicate key errors
     try {
-      const staleRuns = await db("payroll_runs")
-        .where({ org_id: "00000000-0000-0000-0000-000000000000", empcloud_org_id: ORG })
-        .whereIn("name", [
-          "Test April 2026 Payroll",
-          "Draft Run for Reject Test",
-          "To Cancel Run",
-          "To Revert Run",
-        ]);
+      const staleRuns = await db("payroll_runs").where({
+        org_id: "00000000-0000-0000-0000-000000000000",
+        empcloud_org_id: ORG,
+      });
       for (const run of staleRuns) {
         try {
           await db("payslips").where("payroll_run_id", run.id).delete();
