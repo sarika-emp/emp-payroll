@@ -83,7 +83,7 @@ export class PayslipService {
     if (userIds.length === 0) return result;
 
     const users = await ecDb("users")
-      .whereIn("id", userIds)
+      .whereIn("users.id", userIds)
       .leftJoin("organization_departments as dept", "users.department_id", "dept.id")
       .select(
         "users.id",
