@@ -12,7 +12,7 @@
 
 import { config } from "../config";
 
-const CLOUD_API = config.cloudHrms.apiUrl;
+const CLOUD_API = config?.cloudHrms?.apiUrl || "http://localhost:3000/api/v1";
 
 interface CloudAttendanceRecord {
   user_id: number;
