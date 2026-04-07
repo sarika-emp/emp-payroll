@@ -10,6 +10,9 @@ import {
   findUserById,
   findUsersByOrgId,
   countUsersByOrgId,
+  findSeatedUsersForModule,
+  countSeatedUsersForModule,
+  findUnseatedUsersForModule,
   getUserDepartmentName,
   getEmpCloudDB,
   EmpCloudUser,
@@ -108,22 +111,18 @@ export class EmployeeService {
   private payrollDb = getDB();
 
   /**
-   * List employees in an org — fetches from EmpCloud, enriches with payroll data.
+   * List employees in an org — only shows employees with a payroll seat.
+   * Fetches seated users from EmpCloud, enriches with payroll data.
    */
   async list(empcloudOrgId: number, options?: QueryOptions) {
     const limit = options?.limit || 20;
     const page = options?.page || 1;
     const offset = (page - 1) * limit;
 
-    const users = await findUsersByOrgId(empcloudOrgId, { limit, offset });
-    const total = await countUsersByOrgId(empcloudOrgId);
-    console.log("[LIST] Found", users.length, "users, calling mergeUserWithProfile"); // TRACE
+    const users = await findSeatedUsersForModule(empcloudOrgId, "emp-payroll", { limit, offset });
+    const total = await countSeatedUsersForModule(empcloudOrgId, "emp-payroll");
 
     const data = await Promise.all(users.map((u) => mergeUserWithProfile(u, this.payrollDb)));
-    console.log(
-      "[LIST] Merged. First keys:",
-      data.length > 0 ? Object.keys(data[0]).slice(0, 5).join(",") : "empty",
-    ); // TRACE
 
     return {
       data,
@@ -132,6 +131,22 @@ export class EmployeeService {
       limit,
       totalPages: Math.ceil(total / limit),
     };
+  }
+
+  /**
+   * List EmpCloud employees who are NOT yet assigned to payroll (available for import).
+   */
+  async listAvailableForImport(empcloudOrgId: number) {
+    const users = await findUnseatedUsersForModule(empcloudOrgId, "emp-payroll");
+    return users.map((u: any) => ({
+      id: u.id,
+      first_name: u.first_name,
+      last_name: u.last_name,
+      email: u.email,
+      emp_code: u.emp_code,
+      designation: u.designation,
+      role: u.role,
+    }));
   }
 
   /**
