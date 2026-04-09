@@ -137,7 +137,7 @@ export class PayrollService {
         if (day !== 0 && day !== 6) workingDays++;
       }
 
-      const [attRecord] = await empcloudDb("attendance_records")
+      const [attRecord] = (await empcloudDb("attendance_records")
         .where("user_id", ecEmp.id)
         .where("organization_id", Number(orgId))
         .whereBetween("date", [startDate, endDate])
@@ -147,10 +147,10 @@ export class PayrollService {
           ),
           empcloudDb.raw("SUM(CASE WHEN status = 'absent' THEN 1 ELSE 0 END) as absent_days"),
           empcloudDb.raw("SUM(CASE WHEN status = 'on_leave' THEN 1 ELSE 0 END) as leave_days"),
-        );
+        )) as any[];
 
       // Get approved paid leave days from EmpCloud
-      const leaveResult = await empcloudDb("leave_applications as la")
+      const leaveResult = (await empcloudDb("leave_applications as la")
         .join("leave_types as lt", "la.leave_type_id", "lt.id")
         .where("la.user_id", ecEmp.id)
         .where("la.organization_id", Number(orgId))
@@ -165,7 +165,7 @@ export class PayrollService {
             "SUM(CASE WHEN lt.is_paid = 0 THEN la.days_count ELSE 0 END) as unpaid_leave",
           ),
         )
-        .first();
+        .first()) as any;
 
       const presentDays = Number(attRecord?.present_days || 0);
       const paidLeaveDays = Number(leaveResult?.paid_leave || 0);

@@ -147,7 +147,7 @@ export class AttendanceService {
       const endDate = new Date(year, month, 0).toISOString().slice(0, 10);
       const totalWorkingDays = this.getWorkingDaysInMonth(month, year);
 
-      const [record] = await empcloudDb("attendance_records")
+      const [record] = (await empcloudDb("attendance_records")
         .where("user_id", userId)
         .whereBetween("date", [startDate, endDate])
         .select(
@@ -162,7 +162,7 @@ export class AttendanceService {
           empcloudDb.raw("SUM(CASE WHEN status = 'absent' THEN 1 ELSE 0 END) as absent_days"),
           empcloudDb.raw("SUM(CASE WHEN status = 'on_leave' THEN 1 ELSE 0 END) as leave_days"),
           empcloudDb.raw("ROUND(SUM(COALESCE(overtime_minutes, 0)) / 60, 1) as overtime_hours"),
-        );
+        )) as any[];
 
       if (!record || !record.present_days) return null;
 
@@ -260,7 +260,7 @@ export class AttendanceService {
 
   async computeOvertimePay(employeeId: string, month: number, year: number, monthlyBasic: number) {
     // Try EmpCloud first
-    const cloud = await this.getFromEmpCloud(Number(employeeId), month, year);
+    const cloud = (await this.getFromEmpCloud(Number(employeeId), month, year)) as any;
     const otHours = cloud ? Number(cloud.overtime_hours || 0) : 0;
 
     if (!otHours) {

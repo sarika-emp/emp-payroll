@@ -4,20 +4,16 @@
     "module": "commonjs",
     "lib": ["ES2022"],
     "outDir": "./dist",
-    "rootDir": "../",
-    "strict": true,
+    "rootDir": "./src",
+    "strict": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "declaration": false,
     "declarationMap": false,
     "sourceMap": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "@emp-payroll/shared": ["../shared/src"]
-    }
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "../shared/src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "tests", "src/__tests__", "**/*.test.ts"]
 }
