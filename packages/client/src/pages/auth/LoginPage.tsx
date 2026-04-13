@@ -12,8 +12,8 @@ import toast from "react-hot-toast";
 export function LoginPage() {
   const navigate = useNavigate();
   const loginMutation = useLogin();
-  const [email, setEmail] = useState("ananya@technova.in");
-  const [password, setPassword] = useState("Welcome@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [forgotOpen, setForgotOpen] = useState(false);
   const [forgotStep, setForgotStep] = useState<"email" | "otp">("email");
   const [forgotEmail, setForgotEmail] = useState("");
@@ -193,11 +193,6 @@ export function LoginPage() {
                 Sign in
               </button>
             </form>
-
-            <div className="mt-4 rounded-lg bg-gray-50 p-3 text-xs text-gray-500">
-              <p className="font-medium">Demo credentials:</p>
-              <p>ananya@technova.in / Welcome@123</p>
-            </div>
           </div>
 
           <p className="mt-6 text-center text-sm text-gray-500">
