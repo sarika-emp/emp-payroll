@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { authenticate } from "../middleware/auth.middleware";
 import { wrap, param } from "../helpers";
+import { validate, selfUpdateBankDetailsSchema, bankUpdateRequestSchema } from "../validators";
 import { EmployeeService } from "../../services/employee.service";
 import { SalaryService } from "../../services/salary.service";
 import { PayslipService } from "../../services/payslip.service";
@@ -198,6 +199,7 @@ router.get(
 
 router.put(
   "/profile/bank-details",
+  validate(selfUpdateBankDetailsSchema),
   wrap(async (req, res) => {
     const data = await empSvc.updateBankDetails(
       req.user!.empcloudUserId,
@@ -214,6 +216,7 @@ const bankReqSvc = new BankUpdateRequestService();
 
 router.post(
   "/bank-update-request",
+  validate(bankUpdateRequestSchema),
   wrap(async (req, res) => {
     const data = await bankReqSvc.submit(req.user!.empcloudUserId, req.user!.empcloudOrgId, {
       currentDetails: req.body.currentDetails,

@@ -125,6 +125,43 @@ export const updateBankDetailsSchema = z.object({
   }),
 });
 
+// Same body as updateBankDetailsSchema but without the :id param — used by
+// the self-service route where the user is always operating on their own
+// profile. Having a dedicated schema lets the self-service route enforce
+// the same bank-name regex check that the HR route does.
+export const selfUpdateBankDetailsSchema = z.object({
+  body: z.object({
+    bankName: bankNameSchema,
+    accountNumber: z.string().min(1).max(50),
+    ifscCode: z.string().min(1).max(20),
+    accountType: z.enum(["savings", "current", "salary"]).optional(),
+    branchName: z.string().max(100).optional(),
+  }),
+});
+
+// Employee-submitted change request. currentDetails is read-only context;
+// only requestedDetails needs strict validation since that's what would be
+// applied if approved.
+export const bankUpdateRequestSchema = z.object({
+  body: z.object({
+    currentDetails: z
+      .object({
+        bankName: z.string().optional(),
+        accountNumber: z.string().optional(),
+        ifscCode: z.string().optional(),
+      })
+      .optional(),
+    requestedDetails: z.object({
+      bankName: bankNameSchema,
+      accountNumber: z.string().min(1).max(50),
+      ifscCode: z.string().min(1).max(20),
+      accountType: z.enum(["savings", "current", "salary"]).optional(),
+      branchName: z.string().max(100).optional(),
+    }),
+    reason: z.string().max(500).optional(),
+  }),
+});
+
 export const updateEmployeeSchema = z.object({
   params: z.object({ id: z.string() }),
   body: z.object({
@@ -452,7 +489,7 @@ export const addGlobalEmployeeSchema = z.object({
     salaryFrequency: z.enum(["monthly", "biweekly", "weekly", "annual"]).default("monthly"),
     empcloudUserId: z.union([z.string(), z.number()]).optional(),
     taxId: z.string().max(50).optional(),
-    bankName: z.string().max(100).optional(),
+    bankName: bankNameSchema.optional(),
     bankAccount: z.string().max(50).optional(),
     bankRouting: z.string().max(50).optional(),
     contractDocumentUrl: z.string().optional(),
@@ -478,7 +515,7 @@ export const updateGlobalEmployeeSchema = z.object({
     salaryFrequency: z.enum(["monthly", "biweekly", "weekly", "annual"]).optional(),
     status: z.enum(["active", "onboarding", "offboarding", "terminated"]).optional(),
     taxId: z.string().max(50).optional(),
-    bankName: z.string().max(100).optional(),
+    bankName: bankNameSchema.optional(),
     bankAccount: z.string().max(50).optional(),
     bankRouting: z.string().max(50).optional(),
     contractDocumentUrl: z.string().optional(),
