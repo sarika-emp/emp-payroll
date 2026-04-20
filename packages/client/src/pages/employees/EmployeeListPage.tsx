@@ -323,16 +323,15 @@ export function EmployeeListPage() {
           onSuccess={() => qc.invalidateQueries({ queryKey: ["employees"] })}
         />
 
-        {/* Temporarily disabled to debug error */}
-        {/* <BulkSalaryUpdateModal
-        open={showBulkSalary}
-        onClose={() => {
-          setShowBulkSalary(false);
-          setSelectedIds(new Set());
-        }}
-        employeeIds={[...selectedIds]}
-        employeeNames={selectedEmployeeNames}
-      /> */}
+        <BulkSalaryUpdateModal
+          open={showBulkSalary}
+          onClose={() => {
+            setShowBulkSalary(false);
+            setSelectedIds(new Set());
+          }}
+          employeeIds={[...selectedIds]}
+          employeeNames={selectedEmployeeNames}
+        />
       </div>
     </ErrorBoundary>
   );

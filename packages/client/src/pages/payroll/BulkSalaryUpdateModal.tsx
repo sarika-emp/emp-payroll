@@ -32,11 +32,10 @@ export function BulkSalaryUpdateModal({
   const { data: structRes } = useSalaryStructures();
   const { mutate: bulkAssign, isPending } = useBulkAssignSalary();
 
-  const [structureId, setStructureId] = useState(structRes?.data?.[0]?.id || "");
+  const structures = Array.isArray(structRes?.data) ? structRes.data : [];
+  const [structureId, setStructureId] = useState(structures[0]?.id || "");
   const [ctc, setCTC] = useState(0);
   const [effectiveFrom, setEffectiveFrom] = useState(new Date().toISOString().slice(0, 10));
-
-  const structures = structRes?.data || [];
 
   // Auto-calculate components from CTC
   // Basic = 40% of CTC, HRA = 50% of Basic, SA = remainder
