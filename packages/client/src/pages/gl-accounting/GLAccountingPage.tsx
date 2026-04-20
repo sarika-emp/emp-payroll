@@ -42,12 +42,24 @@ export function GLAccountingPage() {
 
   async function handleCreateMapping(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setCreating(true);
     const fd = new FormData(e.currentTarget);
+    const glAccountCode = String(fd.get("glAccountCode") || "").trim();
+
+    // #107 — Account codes are accounting ledger identifiers (e.g. 4001, 5100).
+    // Negative or non-numeric values have no accounting meaning, so reject
+    // them client-side before hitting the API.
+    if (!/^[0-9]+$/.test(glAccountCode)) {
+      toast.error(
+        "GL Account Code must be a positive number (no negative signs, letters, or spaces)",
+      );
+      return;
+    }
+
+    setCreating(true);
     try {
       await apiPost("/gl/mappings", {
         payComponent: fd.get("payComponent"),
-        glAccountCode: fd.get("glAccountCode"),
+        glAccountCode,
         glAccountName: fd.get("glAccountName"),
         description: fd.get("description"),
       });

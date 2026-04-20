@@ -8,7 +8,10 @@ const router = Router();
 const svc = new GLAccountingService();
 
 router.use(authenticate);
-router.use(authorize("hr_admin"));
+// #108 — Previously `authorize("hr_admin")` only; export links opened by
+// org_admin / super_admin 403'd silently (window.open = no visible error,
+// just a blank tab). Include every admin-tier role that can do finance work.
+router.use(authorize("hr_admin", "org_admin", "super_admin"));
 
 // ---------------------------------------------------------------------------
 // GL Mappings
