@@ -192,8 +192,16 @@ export function MyDeclarationsPage() {
       setShowAdd(false);
       qc.invalidateQueries({ queryKey: ["my-declarations"] });
     } catch (err: any) {
-      const msg =
-        err?.response?.data?.error?.message || err?.message || "Failed to submit declaration";
+      // #137 — surface server validation detail messages (e.g. per-field zod
+      // errors from the submitDeclarationSchema middleware) instead of just
+      // the generic top-level message, so the user can actually fix their input.
+      const resp = err?.response?.data?.error;
+      const detailMsgs = resp?.details
+        ? Object.values(resp.details as Record<string, string[]>)
+            .flat()
+            .join(", ")
+        : "";
+      const msg = detailMsgs || resp?.message || err?.message || "Failed to submit declaration";
       toast.error(msg);
     } finally {
       setSubmitting(false);

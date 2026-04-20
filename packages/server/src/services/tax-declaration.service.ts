@@ -170,6 +170,19 @@ export class TaxDeclarationService {
     // employee_id must be a valid employees.id UUID, so we resolve it here.
     const { empcloudUserId, employeeRowId } = await this.resolveEmployeeIds(employeeId);
 
+    // #137 — When a user has logged in via SSO but isn't yet onboarded in the
+    // payroll `employees` table, employeeRowId is null. The FK is NOT NULL, so
+    // the insert below would fail with a cryptic DB error ("Column 'employee_id'
+    // cannot be null") surfaced to the client as a generic 500. Return a clear
+    // 400 so the admin knows this user needs to be added to payroll first.
+    if (!employeeRowId) {
+      throw new AppError(
+        400,
+        "EMPLOYEE_NOT_IN_PAYROLL",
+        "You don't have a payroll profile yet. Please ask your admin to add you to payroll before submitting declarations.",
+      );
+    }
+
     const results = [];
     for (const decl of normalized) {
       try {
