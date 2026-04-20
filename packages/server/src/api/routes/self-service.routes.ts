@@ -1,7 +1,12 @@
 import { Router } from "express";
 import { authenticate } from "../middleware/auth.middleware";
 import { wrap, param } from "../helpers";
-import { validate, selfUpdateBankDetailsSchema, bankUpdateRequestSchema } from "../validators";
+import {
+  validate,
+  selfUpdateBankDetailsSchema,
+  bankUpdateRequestSchema,
+  submitDeclarationSchema,
+} from "../validators";
 import { EmployeeService } from "../../services/employee.service";
 import { SalaryService } from "../../services/salary.service";
 import { PayslipService } from "../../services/payslip.service";
@@ -139,6 +144,7 @@ router.get(
 
 router.post(
   "/tax/declarations",
+  validate(submitDeclarationSchema),
   wrap(async (req, res) => {
     const data = await taxSvc.submitDeclarations(
       uid(req),
