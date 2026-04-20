@@ -81,10 +81,33 @@ export function SettingsPage() {
     const orgGstin = val("org_gstin").trim();
     const orgStateVal = val("org_state");
     const orgAddressStr = val("org_address").trim();
+    const orgPan = val("org_pan").trim().toUpperCase();
+    const orgTan = val("org_tan").trim().toUpperCase();
+    const currency = val("currency").trim().toUpperCase();
     const pfEstab = val("pf_estab").trim();
     const esiEstab = val("esi_estab").trim();
     const payFreq = val("pay_frequency");
     const payDay = val("pay_day");
+
+    // #126 — Don't let the form save with the Company Name blank. It's the
+    // only truly-required field; other org identity fields can remain empty
+    // during initial onboarding. Previously we silently stripped empty
+    // values and toasted "saved" even when nothing actually persisted.
+    if (!orgName) {
+      toast.error("Company Name is required");
+      return;
+    }
+    // #124 — Basic shape checks for PAN (AAAAA9999A) and TAN (AAAA99999A).
+    // Skip when the user hasn't filled them in yet (they're optional for new
+    // tenants), but reject malformed values so bad data doesn't land.
+    if (orgPan && !/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(orgPan)) {
+      toast.error("PAN must be 10 characters: 5 letters, 4 digits, 1 letter (e.g. ABCDE1234F)");
+      return;
+    }
+    if (orgTan && !/^[A-Z]{4}[0-9]{5}[A-Z]$/.test(orgTan)) {
+      toast.error("TAN must be 10 characters: 4 letters, 5 digits, 1 letter (e.g. ABCD12345E)");
+      return;
+    }
 
     // Parse the comma-separated address back into the JSON shape the API
     // expects. Empty segments are dropped so we don't round-trip a
@@ -108,6 +131,9 @@ export function SettingsPage() {
     const orgPayload: Record<string, any> = {};
     if (orgName) orgPayload.name = orgName;
     if (orgGstin) orgPayload.gstin = orgGstin;
+    if (orgPan) orgPayload.pan = orgPan;
+    if (orgTan) orgPayload.tan = orgTan;
+    if (currency) orgPayload.currency = currency;
     if (orgStateVal) orgPayload.state = orgStateVal;
     if (pfEstab) orgPayload.pfEstablishmentCode = pfEstab;
     if (esiEstab) orgPayload.esiEstablishmentCode = esiEstab;
@@ -159,8 +185,22 @@ export function SettingsPage() {
               defaultValue={org?.legalName || org?.legal_name || ""}
               disabled
             />
-            <Input id="org_pan" label="PAN" defaultValue={org?.pan || ""} disabled />
-            <Input id="org_tan" label="TAN" defaultValue={org?.tan || ""} disabled />
+            <Input
+              id="org_pan"
+              label="PAN"
+              defaultValue={org?.pan || ""}
+              placeholder="ABCDE1234F"
+              maxLength={10}
+              style={{ textTransform: "uppercase" }}
+            />
+            <Input
+              id="org_tan"
+              label="TAN"
+              defaultValue={org?.tan || ""}
+              placeholder="ABCD12345E"
+              maxLength={10}
+              style={{ textTransform: "uppercase" }}
+            />
             <Input id="org_gstin" label="GSTIN" defaultValue={org?.gstin || ""} />
             <Input id="org_address" label="Registered Address" defaultValue={addressDisplay} />
             <SelectField
@@ -266,7 +306,19 @@ export function SettingsPage() {
               type="number"
               defaultValue={settings?.payDay?.toString() || "7"}
             />
-            <Input id="currency" label="Currency" defaultValue={org?.currency || "INR"} disabled />
+            <SelectField
+              id="currency"
+              label="Currency"
+              defaultValue={org?.currency || "INR"}
+              options={[
+                { value: "INR", label: "INR — Indian Rupee" },
+                { value: "USD", label: "USD — US Dollar" },
+                { value: "EUR", label: "EUR — Euro" },
+                { value: "GBP", label: "GBP — British Pound" },
+                { value: "AED", label: "AED — UAE Dirham" },
+                { value: "SGD", label: "SGD — Singapore Dollar" },
+              ]}
+            />
           </div>
         </CardContent>
       </Card>
