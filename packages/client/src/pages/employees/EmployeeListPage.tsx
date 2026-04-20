@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Avatar } from "@/components/ui/Avatar";
 import { DataTable } from "@/components/ui/DataTable";
 import { CSVImportModal } from "@/components/ui/CSVImportModal";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { formatCurrency } from "@/lib/utils";
 import { useEmployees } from "@/api/hooks";
 import { api, apiGet, apiPost } from "@/api/client";
@@ -147,181 +148,183 @@ export function EmployeeListPage() {
     .map((e: any) => `${e.first_name} ${e.last_name}`);
 
   return (
-    <div className="space-y-6">
-      {/* Pending Bank Update Requests */}
-      {pendingBankReqs.length > 0 && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950">
-          <div className="mb-3 flex items-center gap-2">
-            <AlertCircle className="h-5 w-5 text-amber-600" />
-            <h3 className="font-semibold text-amber-800 dark:text-amber-200">
-              Pending Bank Update Requests ({pendingBankReqs.length})
-            </h3>
+    <ErrorBoundary>
+      <div className="space-y-6">
+        {/* Pending Bank Update Requests */}
+        {pendingBankReqs.length > 0 && (
+          <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950">
+            <div className="mb-3 flex items-center gap-2">
+              <AlertCircle className="h-5 w-5 text-amber-600" />
+              <h3 className="font-semibold text-amber-800 dark:text-amber-200">
+                Pending Bank Update Requests ({pendingBankReqs.length})
+              </h3>
+            </div>
+            <div className="space-y-2">
+              {pendingBankReqs.map((r: any) => (
+                <div
+                  key={r.id}
+                  className="flex items-center justify-between rounded-lg bg-white p-3 text-sm dark:bg-gray-800"
+                >
+                  <div>
+                    <span className="font-medium text-gray-900">{r.employee_name}</span>
+                    <span className="ml-2 text-gray-500">{r.emp_code}</span>
+                    <span className="mx-2 text-gray-300">|</span>
+                    <span className="text-gray-600">
+                      {r.requested_details?.bankName} — A/C {r.requested_details?.accountNumber} —
+                      IFSC {r.requested_details?.ifscCode}
+                    </span>
+                    {r.reason && <span className="ml-2 text-xs text-gray-400">({r.reason})</span>}
+                  </div>
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleBankReqAction(r.id, "approve")}
+                      className="text-green-600 hover:text-green-700"
+                    >
+                      <Check className="h-3.5 w-3.5" /> Approve
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleBankReqAction(r.id, "reject")}
+                      className="text-red-500 hover:text-red-600"
+                    >
+                      <X className="h-3.5 w-3.5" /> Reject
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="space-y-2">
-            {pendingBankReqs.map((r: any) => (
-              <div
-                key={r.id}
-                className="flex items-center justify-between rounded-lg bg-white p-3 text-sm dark:bg-gray-800"
+        )}
+
+        <PageHeader
+          title="Employees"
+          description={
+            isLoading
+              ? "Loading..."
+              : `${employees.length}${deptFilter ? ` in ${deptFilter}` : ""}${
+                  statusFilter ? ` ${statusFilter}` : ""
+                } of ${total} employees`
+          }
+          actions={
+            <>
+              <Button variant="outline" size="sm" onClick={() => setShowImport(true)}>
+                <Upload className="h-4 w-4" /> Import
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={async () => {
+                  try {
+                    const { data } = await api.get("/employees/export", { responseType: "blob" });
+                    const url = URL.createObjectURL(new Blob([data]));
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "employees.csv";
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    toast.success("Exported employees CSV");
+                  } catch {
+                    toast.error("Export failed");
+                  }
+                }}
               >
-                <div>
-                  <span className="font-medium text-gray-900">{r.employee_name}</span>
-                  <span className="ml-2 text-gray-500">{r.emp_code}</span>
-                  <span className="mx-2 text-gray-300">|</span>
-                  <span className="text-gray-600">
-                    {r.requested_details?.bankName} — A/C {r.requested_details?.accountNumber} —
-                    IFSC {r.requested_details?.ifscCode}
-                  </span>
-                  {r.reason && <span className="ml-2 text-xs text-gray-400">({r.reason})</span>}
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => handleBankReqAction(r.id, "approve")}
-                    className="text-green-600 hover:text-green-700"
-                  >
-                    <Check className="h-3.5 w-3.5" /> Approve
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => handleBankReqAction(r.id, "reject")}
-                    className="text-red-500 hover:text-red-600"
-                  >
-                    <X className="h-3.5 w-3.5" /> Reject
-                  </Button>
-                </div>
-              </div>
-            ))}
+                <Download className="h-4 w-4" /> Export
+              </Button>
+              <Button size="sm" variant="outline" onClick={() => navigate("/employees/import")}>
+                <Upload className="h-4 w-4" /> Import CSV
+              </Button>
+              <Button size="sm" onClick={() => navigate("/employees/new")}>
+                <Plus className="h-4 w-4" /> Add Employee
+              </Button>
+            </>
+          }
+        />
+
+        {/* Search */}
+        {!isLoading && allEmployees.length > 0 && (
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search by name, email, code, or designation..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="focus:border-brand-500 focus:ring-brand-500 w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-1 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
+            />
           </div>
-        </div>
-      )}
+        )}
 
-      <PageHeader
-        title="Employees"
-        description={
-          isLoading
-            ? "Loading..."
-            : `${employees.length}${deptFilter ? ` in ${deptFilter}` : ""}${
-                statusFilter ? ` ${statusFilter}` : ""
-              } of ${total} employees`
-        }
-        actions={
-          <>
-            <Button variant="outline" size="sm" onClick={() => setShowImport(true)}>
-              <Upload className="h-4 w-4" /> Import
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={async () => {
-                try {
-                  const { data } = await api.get("/employees/export", { responseType: "blob" });
-                  const url = URL.createObjectURL(new Blob([data]));
-                  const a = document.createElement("a");
-                  a.href = url;
-                  a.download = "employees.csv";
-                  a.click();
-                  URL.revokeObjectURL(url);
-                  toast.success("Exported employees CSV");
-                } catch {
-                  toast.error("Export failed");
-                }
-              }}
-            >
-              <Download className="h-4 w-4" /> Export
-            </Button>
-            <Button size="sm" variant="outline" onClick={() => navigate("/employees/import")}>
-              <Upload className="h-4 w-4" /> Import CSV
-            </Button>
-            <Button size="sm" onClick={() => navigate("/employees/new")}>
-              <Plus className="h-4 w-4" /> Add Employee
-            </Button>
-          </>
-        }
-      />
-
-      {/* Search */}
-      {!isLoading && allEmployees.length > 0 && (
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search by name, email, code, or designation..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="focus:border-brand-500 focus:ring-brand-500 w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-1 dark:border-gray-700 dark:bg-gray-900 dark:text-white"
-          />
-        </div>
-      )}
-
-      {/* Department filters */}
-      {!isLoading && departments.length > 1 && (
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm text-gray-500">Filter:</span>
-          <button
-            onClick={() => setDeptFilter("")}
-            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-              !deptFilter
-                ? "bg-brand-600 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300"
-            }`}
-          >
-            All
-          </button>
-          {departments.map((dept: string) => (
+        {/* Department filters */}
+        {!isLoading && departments.length > 1 && (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm text-gray-500">Filter:</span>
             <button
-              key={dept}
-              onClick={() => setDeptFilter(deptFilter === dept ? "" : dept)}
+              onClick={() => setDeptFilter("")}
               className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                deptFilter === dept
+                !deptFilter
                   ? "bg-brand-600 text-white"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300"
               }`}
             >
-              {dept}
+              All
             </button>
-          ))}
-        </div>
-      )}
+            {departments.map((dept: string) => (
+              <button
+                key={dept}
+                onClick={() => setDeptFilter(deptFilter === dept ? "" : dept)}
+                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                  deptFilter === dept
+                    ? "bg-brand-600 text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300"
+                }`}
+              >
+                {dept}
+              </button>
+            ))}
+          </div>
+        )}
 
-      {/* Bulk salary update action bar */}
-      {selectedIds.size > 0 && (
-        <div className="flex items-center gap-3 rounded-lg border border-indigo-200 bg-indigo-50 px-4 py-3">
-          <span className="text-sm font-medium text-indigo-700">
-            {selectedIds.size} employee(s) selected
-          </span>
-          <Button size="sm" onClick={() => setShowBulkSalary(true)}>
-            Update Salary
-          </Button>
-          <button
-            className="ml-auto text-xs text-gray-500 hover:text-gray-700"
-            onClick={() => setSelectedIds(new Set())}
-          >
-            Clear
-          </button>
-        </div>
-      )}
+        {/* Bulk salary update action bar */}
+        {selectedIds.size > 0 && (
+          <div className="flex items-center gap-3 rounded-lg border border-indigo-200 bg-indigo-50 px-4 py-3">
+            <span className="text-sm font-medium text-indigo-700">
+              {selectedIds.size} employee(s) selected
+            </span>
+            <Button size="sm" onClick={() => setShowBulkSalary(true)}>
+              Update Salary
+            </Button>
+            <button
+              className="ml-auto text-xs text-gray-500 hover:text-gray-700"
+              onClick={() => setSelectedIds(new Set())}
+            >
+              Clear
+            </button>
+          </div>
+        )}
 
-      {isLoading ? (
-        <div className="flex h-64 items-center justify-center">
-          <Loader2 className="text-brand-600 h-8 w-8 animate-spin" />
-        </div>
-      ) : (
-        <DataTable
-          columns={columns}
-          data={employees}
-          onRowClick={(row) => navigate(`/employees/${row.id}`)}
+        {isLoading ? (
+          <div className="flex h-64 items-center justify-center">
+            <Loader2 className="text-brand-600 h-8 w-8 animate-spin" />
+          </div>
+        ) : (
+          <DataTable
+            columns={columns}
+            data={employees}
+            onRowClick={(row) => navigate(`/employees/${row.id}`)}
+          />
+        )}
+
+        <CSVImportModal
+          open={showImport}
+          onClose={() => setShowImport(false)}
+          onSuccess={() => qc.invalidateQueries({ queryKey: ["employees"] })}
         />
-      )}
 
-      <CSVImportModal
-        open={showImport}
-        onClose={() => setShowImport(false)}
-        onSuccess={() => qc.invalidateQueries({ queryKey: ["employees"] })}
-      />
-
-      <BulkSalaryUpdateModal
+        {/* Temporarily disabled to debug error */}
+        {/* <BulkSalaryUpdateModal
         open={showBulkSalary}
         onClose={() => {
           setShowBulkSalary(false);
@@ -329,7 +332,8 @@ export function EmployeeListPage() {
         }}
         employeeIds={[...selectedIds]}
         employeeNames={selectedEmployeeNames}
-      />
-    </div>
+      /> */}
+      </div>
+    </ErrorBoundary>
   );
 }
