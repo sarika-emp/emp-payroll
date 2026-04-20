@@ -6,6 +6,9 @@ const SelfServiceDashboard = lazy(() =>
     default: m.SelfServiceDashboard,
   })),
 );
+const NotificationsPage = lazy(() =>
+  import("@/pages/NotificationsPage").then((m) => ({ default: m.NotificationsPage })),
+);
 const MyPayslipsPage = lazy(() =>
   import("@/pages/self-service/MyPayslipsPage").then((m) => ({ default: m.MyPayslipsPage })),
 );
@@ -43,6 +46,7 @@ export function SelfServiceRoutes() {
       <Route path="/my/reimbursements" element={<MyReimbursementsPage />} />
       <Route path="/my/leaves" element={<MyLeavesPage />} />
       <Route path="/my/profile" element={<MyProfilePage />} />
+      <Route path="/notifications" element={<NotificationsPage />} />
     </>
   );
 }

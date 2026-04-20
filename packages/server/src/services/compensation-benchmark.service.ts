@@ -29,6 +29,7 @@ export class CompensationBenchmarkService {
   }
 
   async createBenchmark(orgId: string, data: any) {
+    this.validatePercentiles(data.marketP25, data.marketP50, data.marketP75);
     return this.db.create("compensation_benchmarks", {
       empcloud_org_id: Number(orgId),
       job_title: data.jobTitle,
@@ -43,7 +44,11 @@ export class CompensationBenchmarkService {
   }
 
   async updateBenchmark(id: string, orgId: string, data: any) {
-    await this.getBenchmark(id, orgId);
+    const existing = await this.getBenchmark(id, orgId);
+    const p25 = data.marketP25 !== undefined ? data.marketP25 : Number(existing.market_p25);
+    const p50 = data.marketP50 !== undefined ? data.marketP50 : Number(existing.market_p50);
+    const p75 = data.marketP75 !== undefined ? data.marketP75 : Number(existing.market_p75);
+    this.validatePercentiles(p25, p50, p75);
     const updateData: Record<string, any> = {};
     if (data.jobTitle !== undefined) updateData.job_title = data.jobTitle;
     if (data.department !== undefined) updateData.department = data.department;
@@ -54,6 +59,23 @@ export class CompensationBenchmarkService {
     if (data.source !== undefined) updateData.source = data.source;
     if (data.effectiveDate !== undefined) updateData.effective_date = data.effectiveDate;
     return this.db.update("compensation_benchmarks", id, updateData);
+  }
+
+  // #119 — P25 ≤ P50 ≤ P75 is a statistical guarantee; reject at the
+  // service layer so bad imports (which skip the UI) also fail.
+  private validatePercentiles(p25: number, p50: number, p75: number) {
+    const n25 = Number(p25);
+    const n50 = Number(p50);
+    const n75 = Number(p75);
+    if (!Number.isFinite(n25) || !Number.isFinite(n50) || !Number.isFinite(n75)) {
+      throw new AppError(400, "INVALID_BENCHMARK", "P25, P50 and P75 must all be numbers");
+    }
+    if (n25 < 0 || n50 < 0 || n75 < 0) {
+      throw new AppError(400, "INVALID_BENCHMARK", "Percentile values cannot be negative");
+    }
+    if (!(n25 <= n50 && n50 <= n75)) {
+      throw new AppError(400, "INVALID_BENCHMARK", "Percentiles must be ordered: P25 ≤ P50 ≤ P75");
+    }
   }
 
   async deleteBenchmark(id: string, orgId: string) {

@@ -19,6 +19,12 @@ export default defineConfig({
         target: "http://localhost:4000",
         changeOrigin: true,
       },
+      // #127 — Without this, /health/detailed hits the Vite dev server
+      // (which 404s) and the System Health page shows "Server unreachable".
+      "/health": {
+        target: "http://localhost:4000",
+        changeOrigin: true,
+      },
     },
   },
 });

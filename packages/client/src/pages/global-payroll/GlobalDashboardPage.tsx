@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/Card";
 import { StatCard } from "@/components/ui/StatCard";
 import { apiGet } from "@/api/client";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import {
   Globe,
   Users,
@@ -77,35 +78,65 @@ export function GlobalDashboardPage() {
         description="Manage your worldwide workforce across countries, currencies, and compliance requirements"
       />
 
-      {/* Stats */}
+      {/* Stats — each card links to the drill-down page (#115) */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard title="Active Employees" value={String(dash?.totalActive || 0)} icon={Users} />
-        <StatCard title="Countries" value={String(dash?.totalCountries || 0)} icon={Globe} />
-        <StatCard title="EOR Workers" value={String(dash?.totalEOR || 0)} icon={UserCheck} />
-        <StatCard
-          title="Contractors"
-          value={String(dash?.totalContractors || 0)}
-          icon={Briefcase}
-        />
+        <Link to="/global-payroll/employees" className="block transition hover:-translate-y-0.5">
+          <StatCard title="Active Employees" value={String(dash?.totalActive || 0)} icon={Users} />
+        </Link>
+        <Link to="/global-payroll/compliance" className="block transition hover:-translate-y-0.5">
+          <StatCard title="Countries" value={String(dash?.totalCountries || 0)} icon={Globe} />
+        </Link>
+        <Link
+          to="/global-payroll/employees?employmentType=eor"
+          className="block transition hover:-translate-y-0.5"
+        >
+          <StatCard title="EOR Workers" value={String(dash?.totalEOR || 0)} icon={UserCheck} />
+        </Link>
+        <Link
+          to="/global-payroll/employees?employmentType=contractor"
+          className="block transition hover:-translate-y-0.5"
+        >
+          <StatCard
+            title="Contractors"
+            value={String(dash?.totalContractors || 0)}
+            icon={Briefcase}
+          />
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <StatCard
-          title="Compliance Score"
-          value={`${dash?.compliancePercentage || 0}%`}
-          icon={ShieldCheck}
-          trend={
-            dash?.compliancePercentage >= 80
-              ? { value: "Good", positive: true }
-              : { value: "Needs attention", positive: false }
-          }
-        />
-        <StatCard
-          title="Pending Invoices"
-          value={String(dash?.pendingInvoices || 0)}
-          icon={FileText}
-        />
-        <StatCard title="Onboarding" value={String(dash?.totalOnboarding || 0)} icon={TrendingUp} />
+        <Link to="/global-payroll/compliance" className="block transition hover:-translate-y-0.5">
+          <StatCard
+            title="Compliance Score"
+            value={`${dash?.compliancePercentage || 0}%`}
+            icon={ShieldCheck}
+            trend={
+              dash?.compliancePercentage >= 80
+                ? { value: "Good", positive: true }
+                : { value: "Needs attention", positive: false }
+            }
+          />
+        </Link>
+        <Link
+          to="/global-payroll/invoices?status=pending"
+          className="block transition hover:-translate-y-0.5"
+        >
+          <StatCard
+            title="Pending Invoices"
+            value={String(dash?.pendingInvoices || 0)}
+            icon={FileText}
+          />
+        </Link>
+        <Link
+          to="/global-payroll/employees?status=onboarding"
+          className="block transition hover:-translate-y-0.5"
+        >
+          <StatCard
+            title="Onboarding"
+            value={String(dash?.totalOnboarding || 0)}
+            icon={TrendingUp}
+          />
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

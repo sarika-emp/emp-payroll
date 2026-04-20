@@ -19,7 +19,10 @@ const STATUS_COLORS: Record<string, "green" | "yellow" | "red" | "gray"> = {
 
 export function LeaveManagementPage() {
   const [filter, setFilter] = useState("pending");
-  const [remarksModal, setRemarksModal] = useState<{ id: string; action: "approve" | "reject" } | null>(null);
+  const [remarksModal, setRemarksModal] = useState<{
+    id: string;
+    action: "approve" | "reject";
+  } | null>(null);
   const [remarks, setRemarks] = useState("");
   const [processing, setProcessing] = useState(false);
   const qc = useQueryClient();
@@ -29,9 +32,25 @@ export function LeaveManagementPage() {
     queryFn: () => apiGet<any>(`/leaves/requests${filter !== "all" ? `?status=${filter}` : ""}`),
   });
 
+  // #111 — Previously the status counts were derived from the currently-
+  // filtered list, so Approved and Rejected always showed "—" when the
+  // filter was "pending" (no rows of those statuses loaded), and Total
+  // reflected only the filtered count. Fetch the unfiltered list once and
+  // compute every status count from the same source of truth.
+  const { data: allData } = useQuery({
+    queryKey: ["leave-requests", "all"],
+    queryFn: () => apiGet<any>(`/leaves/requests`),
+  });
+
   const requests = data?.data?.data || [];
-  const pendingCount = requests.filter((r: any) => r.status === "pending").length;
-  const cancelledCount = requests.filter((r: any) => r.status === "cancelled").length;
+  const allRequests = allData?.data?.data || [];
+  const countByStatus = (status: string) =>
+    allRequests.filter((r: any) => r.status === status).length;
+  const pendingCount = countByStatus("pending");
+  const approvedCount = countByStatus("approved");
+  const rejectedCount = countByStatus("rejected");
+  const cancelledCount = countByStatus("cancelled");
+  const totalCount = allRequests.length;
 
   async function handleAction() {
     if (!remarksModal) return;
@@ -69,7 +88,7 @@ export function LeaveManagementPage() {
           <CardContent className="flex items-center gap-3 p-4">
             <Clock className="h-8 w-8 text-yellow-500" />
             <div>
-              <p className="text-2xl font-bold">{pendingCount || "—"}</p>
+              <p className="text-2xl font-bold">{pendingCount}</p>
               <p className="text-sm text-gray-500">Pending</p>
             </div>
           </CardContent>
@@ -78,7 +97,7 @@ export function LeaveManagementPage() {
           <CardContent className="flex items-center gap-3 p-4">
             <Check className="h-8 w-8 text-green-500" />
             <div>
-              <p className="text-2xl font-bold">—</p>
+              <p className="text-2xl font-bold">{approvedCount}</p>
               <p className="text-sm text-gray-500">Approved</p>
             </div>
           </CardContent>
@@ -87,7 +106,7 @@ export function LeaveManagementPage() {
           <CardContent className="flex items-center gap-3 p-4">
             <X className="h-8 w-8 text-red-500" />
             <div>
-              <p className="text-2xl font-bold">—</p>
+              <p className="text-2xl font-bold">{rejectedCount}</p>
               <p className="text-sm text-gray-500">Rejected</p>
             </div>
           </CardContent>
@@ -100,7 +119,7 @@ export function LeaveManagementPage() {
           <CardContent className="flex items-center gap-3 p-4">
             <Ban className="h-8 w-8 text-gray-500" />
             <div>
-              <p className="text-2xl font-bold">{cancelledCount || "—"}</p>
+              <p className="text-2xl font-bold">{cancelledCount}</p>
               <p className="text-sm text-gray-500">Cancelled</p>
             </div>
           </CardContent>
@@ -109,7 +128,7 @@ export function LeaveManagementPage() {
           <CardContent className="flex items-center gap-3 p-4">
             <Calendar className="h-8 w-8 text-blue-500" />
             <div>
-              <p className="text-2xl font-bold">{data?.data?.total || "—"}</p>
+              <p className="text-2xl font-bold">{totalCount}</p>
               <p className="text-sm text-gray-500">Total</p>
             </div>
           </CardContent>
@@ -119,7 +138,12 @@ export function LeaveManagementPage() {
       {/* Filter Tabs */}
       <div className="flex items-center gap-2">
         {["all", "pending", "approved", "rejected", "cancelled"].map((s) => (
-          <Button key={s} variant={filter === s ? "primary" : "outline"} size="sm" onClick={() => setFilter(s)}>
+          <Button
+            key={s}
+            variant={filter === s ? "primary" : "outline"}
+            size="sm"
+            onClick={() => setFilter(s)}
+          >
             {s.charAt(0).toUpperCase() + s.slice(1)}
           </Button>
         ))}
@@ -127,10 +151,14 @@ export function LeaveManagementPage() {
 
       {/* Table */}
       <Card>
-        <CardHeader><CardTitle>Leave Requests</CardTitle></CardHeader>
+        <CardHeader>
+          <CardTitle>Leave Requests</CardTitle>
+        </CardHeader>
         <CardContent>
           {isLoading ? (
-            <div className="flex justify-center py-8"><Loader2 className="h-6 w-6 animate-spin" /></div>
+            <div className="flex justify-center py-8">
+              <Loader2 className="h-6 w-6 animate-spin" />
+            </div>
           ) : requests.length === 0 ? (
             <div className="py-8 text-center text-gray-500">
               <Calendar className="mx-auto mb-2 h-10 w-10 text-gray-300" />
@@ -139,45 +167,96 @@ export function LeaveManagementPage() {
           ) : (
             <DataTable
               columns={[
-                { key: "employeeName", header: "Employee", render: (r: any) => (
-                  <div>
-                    <p className="font-medium">{r.employeeName}</p>
-                    <p className="text-xs text-gray-500">{r.employeeCode} · {r.department}</p>
-                  </div>
-                )},
-                { key: "leave_type", header: "Type", render: (r: any) => (
-                  <span className="capitalize">{r.leave_type.replace("_", " ")}</span>
-                )},
-                { key: "start_date", header: "From", render: (r: any) => new Date(r.start_date).toLocaleDateString("en-IN") },
-                { key: "end_date", header: "To", render: (r: any) => new Date(r.end_date).toLocaleDateString("en-IN") },
-                { key: "days", header: "Days", render: (r: any) => (
-                  <span className="font-medium">{Number(r.days)}{r.is_half_day ? " (Half)" : ""}</span>
-                )},
-                { key: "reason", header: "Reason", render: (r: any) => (
-                  <span className="max-w-[200px] truncate block text-sm">{r.reason}</span>
-                )},
-                { key: "assigned_to", header: "Approver", render: (r: any) => (
-                  <span className="text-sm text-gray-500">{r.assignedToName || "HR Admin"}</span>
-                )},
-                { key: "status", header: "Status", render: (r: any) => (
-                  <Badge variant={STATUS_COLORS[r.status] || "gray"}>{r.status}</Badge>
-                )},
-                { key: "actions", header: "Actions", render: (r: any) => (
-                  r.status === "pending" ? (
-                    <div className="flex gap-1">
-                      <Button variant="ghost" size="sm" onClick={() => quickApprove(r.id)} title="Approve">
-                        <Check className="h-4 w-4 text-green-600" />
-                      </Button>
-                      <Button variant="ghost" size="sm" onClick={() => { setRemarksModal({ id: r.id, action: "reject" }); setRemarks(""); }} title="Reject">
-                        <X className="h-4 w-4 text-red-600" />
-                      </Button>
+                {
+                  key: "employeeName",
+                  header: "Employee",
+                  render: (r: any) => (
+                    <div>
+                      <p className="font-medium">{r.employeeName}</p>
+                      <p className="text-xs text-gray-500">
+                        {r.employeeCode} · {r.department}
+                      </p>
                     </div>
-                  ) : (
-                    r.approver_remarks ? (
-                      <span className="text-xs text-gray-500 italic">{r.approver_remarks}</span>
-                    ) : null
-                  )
-                )},
+                  ),
+                },
+                {
+                  key: "leave_type",
+                  header: "Type",
+                  render: (r: any) => (
+                    <span className="capitalize">{r.leave_type.replace("_", " ")}</span>
+                  ),
+                },
+                {
+                  key: "start_date",
+                  header: "From",
+                  render: (r: any) => new Date(r.start_date).toLocaleDateString("en-IN"),
+                },
+                {
+                  key: "end_date",
+                  header: "To",
+                  render: (r: any) => new Date(r.end_date).toLocaleDateString("en-IN"),
+                },
+                {
+                  key: "days",
+                  header: "Days",
+                  render: (r: any) => (
+                    <span className="font-medium">
+                      {Number(r.days)}
+                      {r.is_half_day ? " (Half)" : ""}
+                    </span>
+                  ),
+                },
+                {
+                  key: "reason",
+                  header: "Reason",
+                  render: (r: any) => (
+                    <span className="block max-w-[200px] truncate text-sm">{r.reason}</span>
+                  ),
+                },
+                {
+                  key: "assigned_to",
+                  header: "Approver",
+                  render: (r: any) => (
+                    <span className="text-sm text-gray-500">{r.assignedToName || "HR Admin"}</span>
+                  ),
+                },
+                {
+                  key: "status",
+                  header: "Status",
+                  render: (r: any) => (
+                    <Badge variant={STATUS_COLORS[r.status] || "gray"}>{r.status}</Badge>
+                  ),
+                },
+                {
+                  key: "actions",
+                  header: "Actions",
+                  render: (r: any) =>
+                    r.status === "pending" ? (
+                      <div className="flex gap-1">
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => quickApprove(r.id)}
+                          title="Approve"
+                        >
+                          <Check className="h-4 w-4 text-green-600" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setRemarksModal({ id: r.id, action: "reject" });
+                            setRemarks("");
+                          }}
+                          title="Reject"
+                        >
+                          <X className="h-4 w-4 text-red-600" />
+                        </Button>
+                      </div>
+                    ) : r.approver_remarks ? (
+                      <span className="text-xs italic text-gray-500">{r.approver_remarks}</span>
+                    ) : null,
+                },
               ]}
               data={requests}
             />
@@ -193,7 +272,9 @@ export function LeaveManagementPage() {
       >
         <div className="space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">Remarks (optional)</label>
+            <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Remarks (optional)
+            </label>
             <textarea
               value={remarks}
               onChange={(e) => setRemarks(e.target.value)}
@@ -203,7 +284,9 @@ export function LeaveManagementPage() {
             />
           </div>
           <div className="flex justify-end gap-2">
-            <Button variant="outline" onClick={() => setRemarksModal(null)}>Cancel</Button>
+            <Button variant="outline" onClick={() => setRemarksModal(null)}>
+              Cancel
+            </Button>
             <Button
               variant={remarksModal?.action === "reject" ? "danger" : "primary"}
               onClick={handleAction}

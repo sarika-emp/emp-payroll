@@ -172,9 +172,14 @@ export async function calculateFnF(id: string, orgId: number) {
 
   const db = getDB();
 
-  // Get employee salary
+  // #117 — The query referenced a table that doesn't exist
+  // (`employee_salary_assignments`). The actual payroll table is
+  // `employee_salaries` (migration 001 + migration 010 adds
+  // empcloud_user_id). Using the wrong name meant every FnF
+  // calculation threw "Table doesn't exist" → "unexpected error"
+  // in the UI.
   const salaryResult = await db.raw<any>(
-    `SELECT * FROM employee_salary_assignments WHERE empcloud_user_id = ? AND is_active = 1 LIMIT 1`,
+    `SELECT * FROM employee_salaries WHERE empcloud_user_id = ? AND is_active = 1 LIMIT 1`,
     [exit.employee_id],
   );
   const salaryRows = Array.isArray(salaryResult)

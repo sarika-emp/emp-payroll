@@ -55,15 +55,35 @@ export function BenchmarksPage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setCreating(true);
     const fd = new FormData(e.currentTarget);
+    const marketP25 = Number(fd.get("marketP25"));
+    const marketP50 = Number(fd.get("marketP50"));
+    const marketP75 = Number(fd.get("marketP75"));
+
+    // #119 — Statistically the 25/50/75 percentiles must be ordered. Reject
+    // the submit before hitting the API so the user sees the mistake inline
+    // instead of a cryptic 400.
+    if (!Number.isFinite(marketP25) || !Number.isFinite(marketP50) || !Number.isFinite(marketP75)) {
+      toast.error("Please enter valid P25, P50 and P75 amounts");
+      return;
+    }
+    if (marketP25 < 0 || marketP50 < 0 || marketP75 < 0) {
+      toast.error("Percentile values cannot be negative");
+      return;
+    }
+    if (!(marketP25 <= marketP50 && marketP50 <= marketP75)) {
+      toast.error("Percentiles must be ordered: P25 ≤ P50 ≤ P75");
+      return;
+    }
+
+    setCreating(true);
     const payload = {
       jobTitle: fd.get("jobTitle"),
       department: fd.get("department"),
       location: fd.get("location"),
-      marketP25: Number(fd.get("marketP25")),
-      marketP50: Number(fd.get("marketP50")),
-      marketP75: Number(fd.get("marketP75")),
+      marketP25,
+      marketP50,
+      marketP75,
       source: fd.get("source"),
       effectiveDate: fd.get("effectiveDate"),
     };

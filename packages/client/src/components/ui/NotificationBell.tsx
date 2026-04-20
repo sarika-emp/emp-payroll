@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Bell, CheckCircle2, AlertCircle, FileText, Users, CreditCard } from "lucide-react";
 import { getUser } from "@/api/auth";
 
-interface Notification {
+export interface Notification {
   id: string;
   icon: any;
   title: string;
@@ -13,7 +13,7 @@ interface Notification {
   link?: string;
 }
 
-function getNotifications(): Notification[] {
+export function getNotifications(): Notification[] {
   const user = getUser();
   const isAdmin = user?.role === "hr_admin" || user?.role === "hr_manager";
   const now = new Date();
@@ -172,7 +172,13 @@ export function NotificationBell() {
           </div>
 
           <div className="border-t border-gray-100 p-2">
-            <button className="text-brand-600 hover:bg-brand-50 w-full rounded-lg px-3 py-2 text-center text-xs font-medium">
+            <button
+              onClick={() => {
+                navigate("/notifications");
+                setOpen(false);
+              }}
+              className="text-brand-600 hover:bg-brand-50 w-full rounded-lg px-3 py-2 text-center text-xs font-medium"
+            >
               View all notifications
             </button>
           </div>
