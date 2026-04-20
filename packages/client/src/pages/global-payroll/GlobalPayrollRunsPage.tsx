@@ -245,11 +245,24 @@ export function GlobalPayrollRunsPage() {
         title="Create Global Payroll Run"
       >
         <div className="space-y-4">
+          {/* #118 — When no countries are seeded for this org, the dropdown
+              was empty and the user got a confusing "select a country" toast.
+              Surface a clear empty state + link-worthy hint instead. */}
           <SelectField
             label="Country *"
-            options={countryOptions}
+            options={[
+              {
+                value: "",
+                label:
+                  countryOptions.length > 0
+                    ? "Select a country..."
+                    : "No countries configured — contact your admin",
+              },
+              ...countryOptions,
+            ]}
             value={countryId}
             onChange={(e) => setCountryId(e.target.value)}
+            disabled={countryOptions.length === 0}
           />
           <div className="grid grid-cols-2 gap-4">
             <SelectField
