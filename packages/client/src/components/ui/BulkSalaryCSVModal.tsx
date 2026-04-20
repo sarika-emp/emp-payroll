@@ -98,13 +98,13 @@ export function BulkSalaryCSVModal({ open, onClose, onSuccess }: BulkSalaryCSVMo
       }
 
       try {
-        const response = await apiPost("/salary-structures/bulk-assign", {
+        const response = await apiPost<any>("/salary-structures/bulk-assign", {
           structureId,
           effectiveFrom,
           assignments,
         });
 
-        const { updated, failed: apiFailures } = response.data;
+        const { updated, failed: apiFailures } = response.data.data || { updated: 0, failed: 0 };
         setResult({ success: updated, failed: apiFailures, errors });
         if (updated > 0) {
           toast.success(`Updated salary for ${updated} employee(s)`);
