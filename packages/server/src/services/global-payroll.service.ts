@@ -222,6 +222,24 @@ export class GlobalPayrollService {
     const country = await this.db.findById<any>("countries", data.countryId);
     if (!country) throw new AppError(404, "NOT_FOUND", "Country not found");
 
+    // #123 — Block duplicate adds of the same employee (by email within the
+    // org). Previously nothing prevented clicking Save twice, so a single
+    // person appeared 2+ times in the list. The email+org pair is a natural
+    // uniqueness key for this table even without a DB constraint.
+    if (data.email) {
+      const existing = await this.db.findOne<any>("global_employees", {
+        empcloud_org_id: numOrgId,
+        email: data.email,
+      });
+      if (existing) {
+        throw new AppError(
+          409,
+          "DUPLICATE_EMPLOYEE",
+          `A global employee with email ${data.email} already exists in this organization.`,
+        );
+      }
+    }
+
     const employee = await this.db.create("global_employees", {
       empcloud_org_id: numOrgId,
       empcloud_user_id: data.empcloudUserId ? Number(data.empcloudUserId) : null,
