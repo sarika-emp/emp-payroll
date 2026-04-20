@@ -37,6 +37,11 @@ const POLICY_TYPES = [
   { value: "travel", label: "Travel" },
 ];
 
+// #100 — The claim-type dropdown used to list only medical-specific categories
+// (hospitalization, outpatient, etc.) even though policies could be Group Life,
+// Accidental, Travel, Disability — so a Group Life policy holder couldn't find
+// a matching claim type. Union the policy types into the options, grouped
+// so the common ones still lead.
 const CLAIM_TYPES = [
   { value: "hospitalization", label: "Hospitalization" },
   { value: "outpatient", label: "Outpatient" },
@@ -44,6 +49,10 @@ const CLAIM_TYPES = [
   { value: "vision", label: "Vision" },
   { value: "life", label: "Life" },
   { value: "disability", label: "Disability" },
+  { value: "accidental", label: "Accidental" },
+  { value: "travel", label: "Travel" },
+  { value: "group_health", label: "Group Health" },
+  { value: "group_life", label: "Group Life" },
 ];
 
 const STATUS_BADGE: Record<string, "active" | "draft" | "inactive"> = {
