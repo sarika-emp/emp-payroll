@@ -399,6 +399,10 @@ export function BenchmarksPage() {
               defaultValue={editing?.location || ""}
             />
           </div>
+          {/* #87 — placeholders (e.g. 800000) make it obvious what shape
+              the value takes, so users aren't left guessing whether to enter
+              an annual total, lakhs, or a shorthand. min=1 + step=any on
+              create forms nudges positive values. */}
           <div className="grid grid-cols-3 gap-4">
             <Input
               label="P25 (Annual)"
@@ -406,6 +410,7 @@ export function BenchmarksPage() {
               type="number"
               min={0}
               step="any"
+              placeholder="e.g. 800000"
               defaultValue={editing?.market_p25 ?? ""}
               required
             />
@@ -415,6 +420,7 @@ export function BenchmarksPage() {
               type="number"
               min={0}
               step="any"
+              placeholder="e.g. 1200000"
               defaultValue={editing?.market_p50 ?? ""}
               required
             />
@@ -424,6 +430,7 @@ export function BenchmarksPage() {
               type="number"
               min={0}
               step="any"
+              placeholder="e.g. 1800000"
               defaultValue={editing?.market_p75 ?? ""}
               required
             />
