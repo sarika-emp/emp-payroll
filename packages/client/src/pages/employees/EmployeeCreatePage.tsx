@@ -129,7 +129,7 @@ export function EmployeeCreatePage() {
             <CardTitle>Personal Information</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               <Input
                 id="first_name"
                 name="first_name"
@@ -188,7 +188,7 @@ export function EmployeeCreatePage() {
             <CardTitle>Employment Details</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               <Input
                 id="employee_id"
                 name="employee_id"
@@ -257,7 +257,7 @@ export function EmployeeCreatePage() {
             <CardTitle>Bank Details</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               <Input
                 id="bank_name"
                 name="bank_name"
@@ -285,7 +285,7 @@ export function EmployeeCreatePage() {
             <CardTitle>Tax & Statutory</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               <Input id="pan" name="pan" label="PAN Number" placeholder="ABCPS1234F" required />
               <Input id="uan" name="uan" label="UAN / PF Number" placeholder="BGBNG/12345/009" />
               <SelectField

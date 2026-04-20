@@ -307,7 +307,7 @@ export function MyLeavesPage() {
             <CardHeader>
               <CardTitle>Leave Requests</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="overflow-x-auto">
               {reqLoading ? (
                 <div className="flex justify-center py-8">
                   <Loader2 className="h-6 w-6 animate-spin" />
@@ -318,85 +318,87 @@ export function MyLeavesPage() {
                   <p>No leave requests found</p>
                 </div>
               ) : (
-                <DataTable
-                  columns={[
-                    {
-                      key: "leave_type",
-                      header: "Type",
-                      render: (r: any) => (
-                        <span className="font-medium capitalize">
-                          {r.leave_type.replace("_", " ")}
-                        </span>
-                      ),
-                    },
-                    {
-                      key: "start_date",
-                      header: "From",
-                      render: (r: any) => new Date(r.start_date).toLocaleDateString("en-IN"),
-                    },
-                    {
-                      key: "end_date",
-                      header: "To",
-                      render: (r: any) => new Date(r.end_date).toLocaleDateString("en-IN"),
-                    },
-                    {
-                      key: "days",
-                      header: "Days",
-                      render: (r: any) => (
-                        <span>
-                          {Number(r.days)}
-                          {r.is_half_day ? " (Half)" : ""}
-                        </span>
-                      ),
-                    },
-                    {
-                      key: "reason",
-                      header: "Reason",
-                      render: (r: any) => (
-                        <span className="block max-w-[200px] truncate">{r.reason}</span>
-                      ),
-                    },
-                    {
-                      key: "assigned_to",
-                      header: "Approver",
-                      render: (r: any) => (
-                        <span className="text-sm text-gray-500">
-                          {r.assignedToName || "HR Admin"}
-                        </span>
-                      ),
-                    },
-                    {
-                      key: "status",
-                      header: "Status",
-                      render: (r: any) => (
-                        <Badge variant={STATUS_COLORS[r.status] || "gray"}>{r.status}</Badge>
-                      ),
-                    },
-                    {
-                      key: "actions",
-                      header: "",
-                      render: (r: any) =>
-                        r.status === "pending" || r.status === "approved" ? (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => {
-                              setShowCancel(r.id);
-                              setCancelReason("");
-                            }}
-                            title="Cancel leave"
-                          >
-                            <X className="h-4 w-4 text-red-500" />
-                          </Button>
-                        ) : r.cancellation_reason ? (
-                          <span className="text-xs italic text-gray-400">
-                            Cancelled: {r.cancellation_reason}
+                <div className="-mx-6 min-w-full overflow-x-auto px-6">
+                  <DataTable
+                    columns={[
+                      {
+                        key: "leave_type",
+                        header: "Type",
+                        render: (r: any) => (
+                          <span className="font-medium capitalize">
+                            {r.leave_type.replace("_", " ")}
                           </span>
-                        ) : null,
-                    },
-                  ]}
-                  data={requests}
-                />
+                        ),
+                      },
+                      {
+                        key: "start_date",
+                        header: "From",
+                        render: (r: any) => new Date(r.start_date).toLocaleDateString("en-IN"),
+                      },
+                      {
+                        key: "end_date",
+                        header: "To",
+                        render: (r: any) => new Date(r.end_date).toLocaleDateString("en-IN"),
+                      },
+                      {
+                        key: "days",
+                        header: "Days",
+                        render: (r: any) => (
+                          <span>
+                            {Number(r.days)}
+                            {r.is_half_day ? " (Half)" : ""}
+                          </span>
+                        ),
+                      },
+                      {
+                        key: "reason",
+                        header: "Reason",
+                        render: (r: any) => (
+                          <span className="block max-w-[200px] truncate">{r.reason}</span>
+                        ),
+                      },
+                      {
+                        key: "assigned_to",
+                        header: "Approver",
+                        render: (r: any) => (
+                          <span className="text-sm text-gray-500">
+                            {r.assignedToName || "HR Admin"}
+                          </span>
+                        ),
+                      },
+                      {
+                        key: "status",
+                        header: "Status",
+                        render: (r: any) => (
+                          <Badge variant={STATUS_COLORS[r.status] || "gray"}>{r.status}</Badge>
+                        ),
+                      },
+                      {
+                        key: "actions",
+                        header: "",
+                        render: (r: any) =>
+                          r.status === "pending" || r.status === "approved" ? (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => {
+                                setShowCancel(r.id);
+                                setCancelReason("");
+                              }}
+                              title="Cancel leave"
+                            >
+                              <X className="h-4 w-4 text-red-500" />
+                            </Button>
+                          ) : r.cancellation_reason ? (
+                            <span className="text-xs italic text-gray-400">
+                              Cancelled: {r.cancellation_reason}
+                            </span>
+                          ) : null,
+                      },
+                    ]}
+                    data={requests}
+                  />
+                </div>
               )}
             </CardContent>
           </Card>
@@ -421,7 +423,7 @@ export function MyLeavesPage() {
             <CardHeader>
               <CardTitle>Team Leave Requests (Direct Reports)</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="overflow-x-auto">
               {teamLoading ? (
                 <div className="flex justify-center py-8">
                   <Loader2 className="h-6 w-6 animate-spin" />
@@ -432,94 +434,98 @@ export function MyLeavesPage() {
                   <p>No {teamFilter !== "all" ? teamFilter : ""} leave requests from your team</p>
                 </div>
               ) : (
-                <DataTable
-                  columns={[
-                    {
-                      key: "employeeName",
-                      header: "Employee",
-                      render: (r: any) => (
-                        <div>
-                          <p className="font-medium">{r.employeeName}</p>
-                          <p className="text-xs text-gray-500">
-                            {r.employeeCode} · {r.department}
-                          </p>
-                        </div>
-                      ),
-                    },
-                    {
-                      key: "leave_type",
-                      header: "Type",
-                      render: (r: any) => (
-                        <span className="capitalize">{r.leave_type.replace("_", " ")}</span>
-                      ),
-                    },
-                    {
-                      key: "start_date",
-                      header: "From",
-                      render: (r: any) => new Date(r.start_date).toLocaleDateString("en-IN"),
-                    },
-                    {
-                      key: "end_date",
-                      header: "To",
-                      render: (r: any) => new Date(r.end_date).toLocaleDateString("en-IN"),
-                    },
-                    {
-                      key: "days",
-                      header: "Days",
-                      render: (r: any) => (
-                        <span className="font-medium">
-                          {Number(r.days)}
-                          {r.is_half_day ? " (Half)" : ""}
-                        </span>
-                      ),
-                    },
-                    {
-                      key: "reason",
-                      header: "Reason",
-                      render: (r: any) => (
-                        <span className="block max-w-[200px] truncate text-sm">{r.reason}</span>
-                      ),
-                    },
-                    {
-                      key: "status",
-                      header: "Status",
-                      render: (r: any) => (
-                        <Badge variant={STATUS_COLORS[r.status] || "gray"}>{r.status}</Badge>
-                      ),
-                    },
-                    {
-                      key: "actions",
-                      header: "Actions",
-                      render: (r: any) =>
-                        r.status === "pending" ? (
-                          <div className="flex gap-1">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => quickApprove(r.id)}
-                              title="Approve"
-                            >
-                              <Check className="h-4 w-4 text-green-600" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => {
-                                setRemarksModal({ id: r.id, action: "reject" });
-                                setRemarks("");
-                              }}
-                              title="Reject"
-                            >
-                              <X className="h-4 w-4 text-red-600" />
-                            </Button>
+                <div className="-mx-6 min-w-full overflow-x-auto px-6">
+                  <DataTable
+                    columns={[
+                      {
+                        key: "employeeName",
+                        header: "Employee",
+                        render: (r: any) => (
+                          <div>
+                            <p className="font-medium">{r.employeeName}</p>
+                            <p className="text-xs text-gray-500">
+                              {r.employeeCode} · {r.department}
+                            </p>
                           </div>
-                        ) : r.approver_remarks ? (
-                          <span className="text-xs italic text-gray-500">{r.approver_remarks}</span>
-                        ) : null,
-                    },
-                  ]}
-                  data={teamRequests}
-                />
+                        ),
+                      },
+                      {
+                        key: "leave_type",
+                        header: "Type",
+                        render: (r: any) => (
+                          <span className="capitalize">{r.leave_type.replace("_", " ")}</span>
+                        ),
+                      },
+                      {
+                        key: "start_date",
+                        header: "From",
+                        render: (r: any) => new Date(r.start_date).toLocaleDateString("en-IN"),
+                      },
+                      {
+                        key: "end_date",
+                        header: "To",
+                        render: (r: any) => new Date(r.end_date).toLocaleDateString("en-IN"),
+                      },
+                      {
+                        key: "days",
+                        header: "Days",
+                        render: (r: any) => (
+                          <span className="font-medium">
+                            {Number(r.days)}
+                            {r.is_half_day ? " (Half)" : ""}
+                          </span>
+                        ),
+                      },
+                      {
+                        key: "reason",
+                        header: "Reason",
+                        render: (r: any) => (
+                          <span className="block max-w-[200px] truncate text-sm">{r.reason}</span>
+                        ),
+                      },
+                      {
+                        key: "status",
+                        header: "Status",
+                        render: (r: any) => (
+                          <Badge variant={STATUS_COLORS[r.status] || "gray"}>{r.status}</Badge>
+                        ),
+                      },
+                      {
+                        key: "actions",
+                        header: "Actions",
+                        render: (r: any) =>
+                          r.status === "pending" ? (
+                            <div className="flex gap-1">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => quickApprove(r.id)}
+                                title="Approve"
+                              >
+                                <Check className="h-4 w-4 text-green-600" />
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => {
+                                  setRemarksModal({ id: r.id, action: "reject" });
+                                  setRemarks("");
+                                }}
+                                title="Reject"
+                              >
+                                <X className="h-4 w-4 text-red-600" />
+                              </Button>
+                            </div>
+                          ) : r.approver_remarks ? (
+                            <span className="text-xs italic text-gray-500">
+                              {r.approver_remarks}
+                            </span>
+                          ) : null,
+                      },
+                    ]}
+                    data={teamRequests}
+                  />
+                </div>
               )}
             </CardContent>
           </Card>
