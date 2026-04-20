@@ -1,6 +1,10 @@
 import { lazy } from "react";
 import { Route } from "react-router-dom";
 
+const NotificationsPage = lazy(() =>
+  import("@/pages/NotificationsPage").then((m) => ({ default: m.NotificationsPage })),
+);
+
 const DashboardPage = lazy(() =>
   import("@/pages/dashboard/DashboardPage").then((m) => ({ default: m.DashboardPage })),
 );
@@ -171,6 +175,7 @@ export function AdminRoutes() {
       <Route path="/global-payroll/runs" element={<GlobalPayrollRunsPage />} />
       <Route path="/global-payroll/invoices" element={<ContractorInvoicesPage />} />
       <Route path="/global-payroll/compliance" element={<CountryCompliancePage />} />
+      <Route path="/notifications" element={<NotificationsPage />} />
     </>
   );
 }
