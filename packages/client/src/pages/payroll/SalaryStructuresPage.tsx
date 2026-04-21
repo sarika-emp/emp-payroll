@@ -260,8 +260,8 @@ export function SalaryStructuresPage() {
         title={editingStructure ? "Edit Salary Structure" : "New Salary Structure"}
         className="max-w-3xl"
       >
-        <form className="flex flex-col" onSubmit={handleSave}>
-          <div className="max-h-[calc(100vh-260px)] space-y-5 overflow-y-auto pr-1">
+        <form className="flex h-full min-h-0 flex-col" onSubmit={handleSave}>
+          <div className="min-h-0 flex-1 space-y-5 overflow-y-auto pr-1">
             <div className="grid grid-cols-2 gap-4">
               <Input
                 id="name"
@@ -417,7 +417,7 @@ export function SalaryStructuresPage() {
             </div>
           </div>
 
-          <div className="sticky bottom-0 mt-4 flex justify-end gap-3 border-t border-gray-100 bg-white pt-4 dark:border-gray-800 dark:bg-gray-900">
+          <div className="mt-4 flex shrink-0 justify-end gap-3 border-t border-gray-100 bg-white pt-4 dark:border-gray-800 dark:bg-gray-900">
             <Button variant="outline" type="button" onClick={closeModal}>
               Cancel
             </Button>
