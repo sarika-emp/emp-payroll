@@ -102,15 +102,18 @@ export class SalaryService {
 
     // Reconcile components when the caller supplies the `components` array.
     // The UI always posts the full current list, so the simplest correct
-    // behaviour is replace-all: soft-delete the existing active rows and
-    // insert the new list. Omitting this was the root of issues #19 / #9 —
+    // behaviour is replace-all. Omitting this was the root of issues #19 / #9 —
     // the structure itself saved (name/description) but any added, removed
     // or edited preset rows silently disappeared after the toast.
+    //
+    // #163 — Previously we soft-deleted (is_active=false) the existing rows
+    // and re-inserted, but `salary_components` has a UNIQUE constraint on
+    // (structure_id, code). Re-inserting with the same code as a soft-deleted
+    // row tripped the unique index and threw a 500. Hard-delete on replace
+    // is safe here: payslips store the resolved numeric breakdown, not
+    // component FKs, so there is no history to preserve at this level.
     if (Array.isArray(data.components)) {
-      const { data: existing } = await this.getComponents(id);
-      for (const c of existing) {
-        await this.db.update("salary_components", (c as any).id, { is_active: false });
-      }
+      await this.db.deleteMany("salary_components", { structure_id: id });
       for (let i = 0; i < data.components.length; i++) {
         const c = data.components[i];
         await this.db.create("salary_components", {
