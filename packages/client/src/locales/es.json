@@ -545,6 +545,396 @@
     "employeePortal": "Portal del empleado",
     "adminPanel": "Panel de administración"
   },
+  "myProfile": {
+    "title": "Mi perfil",
+    "notFound": "No se encontró el perfil",
+    "notAvailable": "No disponible",
+    "cancel": "Cancelar",
+    "requestUpdate": "Solicitar actualización",
+    "pendingBankRequest": "Tienes una solicitud de actualización bancaria pendiente de aprobación del administrador.",
+    "status": { "active": "Activo", "inactive": "Inactivo" },
+    "taxRegime": { "new": "Nuevo régimen fiscal", "old": "Antiguo régimen fiscal" },
+    "sections": {
+      "personalDetails": "Datos personales",
+      "employment": "Empleo",
+      "bankDetails": "Datos bancarios",
+      "statutoryDetails": "Datos legales",
+      "security": "Seguridad"
+    },
+    "fields": {
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "dateOfBirth": "Fecha de nacimiento",
+      "gender": "Género",
+      "employeeCode": "Código de empleado",
+      "department": "Departamento",
+      "designation": "Cargo",
+      "employmentType": "Tipo de empleo",
+      "dateOfJoining": "Fecha de incorporación",
+      "bank": "Banco",
+      "accountNumber": "Número de cuenta",
+      "ifsc": "IFSC",
+      "pan": "PAN",
+      "uan": "UAN",
+      "pfNumber": "Número PF",
+      "password": "Contraseña"
+    },
+    "values": {
+      "gender": {
+        "female": "Mujer",
+        "male": "Hombre",
+        "non_binary": "No binario",
+        "other": "Otro"
+      },
+      "employmentTypes": {
+        "full_time": "Tiempo completo",
+        "part_time": "Tiempo parcial",
+        "contract": "Contrato",
+        "intern": "Prácticas",
+        "consultant": "Consultoría"
+      }
+    },
+    "security": {
+      "changePasswordHelp": "Cambia la contraseña de tu cuenta",
+      "changePassword": "Cambiar contraseña"
+    },
+    "bankModal": {
+      "title": "Solicitar actualización de datos bancarios",
+      "reviewNotice": "RR. HH. o un administrador revisará tu solicitud antes de aplicar los cambios.",
+      "newBankName": "Nuevo nombre del banco",
+      "bankPlaceholder": "p. ej., Banco HDFC",
+      "newAccountNumber": "Nuevo número de cuenta",
+      "accountPlaceholder": "p. ej., 1234567890",
+      "newIfscCode": "Nuevo código IFSC",
+      "ifscPlaceholder": "p. ej., HDFC0001234",
+      "ifscValidation": "El IFSC debe tener 11 caracteres: 4 letras + '0' + 6 letras o dígitos (p. ej., HDFC0001234).",
+      "accountType": "Tipo de cuenta",
+      "accountTypes": {
+        "savings": "Ahorros",
+        "current": "Corriente",
+        "salary": "Cuenta de nómina"
+      },
+      "reason": "Motivo del cambio",
+      "reasonPlaceholder": "p. ej., Cambio a un nuevo banco",
+      "submit": "Enviar solicitud",
+      "success": "Solicitud de actualización bancaria enviada para su aprobación",
+      "failure": "No se pudo enviar la solicitud"
+    },
+    "passwordModal": {
+      "title": "Cambiar contraseña",
+      "currentPassword": "Contraseña actual",
+      "newPassword": "Nueva contraseña",
+      "confirmNewPassword": "Confirmar nueva contraseña",
+      "mismatch": "Las contraseñas no coinciden",
+      "success": "Contraseña cambiada",
+      "failure": "No se pudo cambiar la contraseña",
+      "submit": "Cambiar contraseña"
+    }
+  },
+  "totalRewardsPage": {
+    "title": "Extractos de recompensas totales",
+    "description": "Genera extractos completos de compensación y beneficios para los empleados",
+    "printPdf": "Imprimir / PDF",
+    "selectEmployee": "Seleccionar empleado",
+    "chooseEmployee": "Elige un empleado…",
+    "searchEmployee": "Buscar por nombre, cargo o código…",
+    "noEmployeeMatches": "Ningún empleado coincide con la búsqueda",
+    "employeesAvailable_one": "{{count}} empleado disponible",
+    "employeesAvailable_other": "{{count}} empleados disponibles",
+    "unnamedEmployee": "Empleado sin nombre",
+    "totalRewardsValue": "Valor total de recompensas",
+    "financialYear": "Ejercicio {{year}}",
+    "directCompensation": "Compensación directa",
+    "benefitsValue": "Valor de los beneficios",
+    "ytdNetPay": "Pago neto acumulado",
+    "reimbursements": "Reembolsos",
+    "salaryBreakdown": "Desglose salarial",
+    "perMonth": "/mes",
+    "annualCtc": "CTC anual",
+    "benefitsEnrollment": "Inscripción en beneficios",
+    "noBenefits": "Sin beneficios inscritos",
+    "perYear": "/año",
+    "totalEmployerContribution": "Contribución total del empleador",
+    "ytdEarnings": "Ingresos acumulados del año",
+    "monthsProcessed_one": "{{count}} mes procesado",
+    "monthsProcessed_other": "{{count}} meses procesados",
+    "grossEarnings": "Ingresos brutos",
+    "totalDeductions": "Deducciones totales",
+    "netPay": "Pago neto",
+    "taxPaid": "Impuestos pagados",
+    "activeLoans": "Préstamos activos",
+    "outstanding": "Pendiente",
+    "emi": "Cuota",
+    "selectPrompt": "Selecciona un empleado para generar su extracto de recompensas totales",
+    "components": {
+      "basic": "Salario base",
+      "hra": "Subsidio de vivienda",
+      "sa": "Asignación especial"
+    },
+    "benefitTypes": {
+      "health": "Salud",
+      "life": "Vida",
+      "dental": "Dental",
+      "vision": "Visión",
+      "accident": "Accidentes"
+    },
+    "coverageTypes": {
+      "employee": "Empleado",
+      "employee_spouse": "Empleado y cónyuge",
+      "family": "Familia",
+      "parents": "Padres"
+    },
+    "loanTypes": {
+      "personal_loan": "Préstamo personal",
+      "salary_advance": "Anticipo salarial",
+      "home_loan": "Préstamo hipotecario",
+      "car_loan": "Préstamo para vehículo",
+      "education_loan": "Préstamo educativo"
+    }
+  },
+  "benefitsPage": {
+    "title": "Administración de beneficios",
+    "description": "Gestiona los planes de beneficios y las inscripciones de empleados",
+    "enrollEmployee": "Inscribir empleado",
+    "newPlan": "Nuevo plan",
+    "stats": {
+      "activePlans": "Planes activos",
+      "enrolled": "Inscritos",
+      "pending": "Pendientes",
+      "monthlyEmployerCost": "Coste mensual del empleador"
+    },
+    "tabs": {
+      "plans": "Planes ({{count}})",
+      "enrollments": "Inscripciones ({{count}})",
+      "pending": "Pendientes ({{count}})"
+    },
+    "columns": {
+      "planName": "Nombre del plan",
+      "type": "Tipo",
+      "provider": "Proveedor",
+      "premium": "Prima",
+      "employerShare": "Aporte del empleador",
+      "status": "Estado",
+      "employee": "Empleado",
+      "plan": "Plan",
+      "coverage": "Cobertura",
+      "employeeShare": "Aporte del empleado"
+    },
+    "empty": {
+      "plans": "Aún no se han creado planes de beneficios",
+      "enrollments": "Aún no hay inscripciones",
+      "pending": "No hay inscripciones pendientes"
+    },
+    "status": {
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "enrolled": "Inscrito",
+      "pending": "Pendiente",
+      "cancelled": "Cancelado"
+    },
+    "actions": {
+      "edit": "Editar",
+      "deactivate": "Desactivar",
+      "cancel": "Cancelar"
+    },
+    "planTypes": {
+      "health": "Salud",
+      "dental": "Dental",
+      "vision": "Visión",
+      "life": "Seguro de vida",
+      "disability": "Discapacidad",
+      "retirement": "Jubilación"
+    },
+    "coverageTypes": {
+      "individual": "Individual",
+      "family": "Familiar",
+      "individual_plus_spouse": "Individual + cónyuge"
+    },
+    "fallbackUser": "Usuario n.º {{id}}",
+    "messages": {
+      "invalidEnrollmentDates": "La fecha de finalización no puede ser anterior a la fecha de inicio",
+      "planUpdated": "Plan de beneficios actualizado",
+      "planCreated": "Plan de beneficios creado",
+      "savePlanFailed": "No se pudo guardar el plan",
+      "deactivateConfirm": "¿Desactivar este plan de beneficios? Las inscripciones existentes no se verán afectadas.",
+      "planDeactivated": "Plan de beneficios desactivado",
+      "deactivateFailed": "No se pudo desactivar el plan",
+      "employeeEnrolled": "Empleado inscrito en el plan de beneficios",
+      "enrollFailed": "No se pudo completar la inscripción",
+      "enrollmentCancelled": "Inscripción cancelada",
+      "actionFailed": "La acción no se pudo completar"
+    },
+    "planModal": {
+      "editTitle": "Editar plan de beneficios",
+      "createTitle": "Crear plan de beneficios",
+      "planName": "Nombre del plan",
+      "type": "Tipo",
+      "provider": "Proveedor",
+      "description": "Descripción",
+      "monthlyPremium": "Prima mensual",
+      "employerContribution": "Aporte del empleador",
+      "enrollmentStart": "Inicio de inscripción",
+      "enrollmentEnd": "Fin de inscripción",
+      "cancel": "Cancelar",
+      "updatePlan": "Actualizar plan",
+      "createPlan": "Crear plan"
+    },
+    "enrollModal": {
+      "title": "Inscribir empleado en un plan de beneficios",
+      "employee": "Empleado",
+      "benefitPlan": "Plan de beneficios",
+      "coverageType": "Tipo de cobertura",
+      "startDate": "Fecha de inicio",
+      "employeePremiumShare": "Aporte del empleado",
+      "employerPremiumShare": "Aporte del empleador",
+      "cancel": "Cancelar",
+      "submit": "Inscribir"
+    }
+  },
+  "benchmarksPage": {
+    "title": "Comparación salarial",
+    "description": "Compara la remuneración de los empleados con los datos del mercado",
+    "addBenchmark": "Añadir referencia",
+    "stats": {
+      "benchmarks": "Referencias",
+      "avgCompaRatio": "Compa-ratio promedio",
+      "belowMarket": "Por debajo del mercado",
+      "aboveMarket": "Por encima del mercado"
+    },
+    "tabs": {
+      "marketBenchmarks": "Referencias de mercado ({{count}})",
+      "compaRatioReport": "Informe de compa-ratio",
+      "belowMarket": "Por debajo ({{count}})",
+      "aboveMarket": "Por encima ({{count}})"
+    },
+    "columns": {
+      "jobTitle": "Puesto",
+      "department": "Departamento",
+      "location": "Ubicación",
+      "p50Median": "P50 (mediana)",
+      "source": "Fuente",
+      "effective": "Vigente desde",
+      "employee": "Empleado",
+      "marketP50": "P50 del mercado",
+      "compaRatio": "Compa-ratio",
+      "position": "Posición"
+    },
+    "empty": {
+      "benchmarks": "Aún no se han añadido referencias",
+      "employees": "No hay datos de empleados disponibles",
+      "belowMarket": "No hay empleados por debajo del mercado",
+      "aboveMarket": "No hay empleados por encima del mercado"
+    },
+    "summary": {
+      "employeesTotal": "empleados en total",
+      "matchedToBenchmarks": "asociados a referencias",
+      "withoutBenchmarkData": "sin datos de referencia"
+    },
+    "labels": {
+      "noBenchmark": "Sin referencia",
+      "notAvailable": "N/D",
+      "noData": "Sin datos",
+      "below": "Por debajo",
+      "above": "Por encima",
+      "atMarket": "En el mercado"
+    },
+    "actions": {
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "messages": {
+      "validPercentiles": "Introduce importes válidos para P25, P50 y P75",
+      "nonNegative": "Los valores percentiles no pueden ser negativos",
+      "ordered": "Los percentiles deben estar ordenados: P25 ≤ P50 ≤ P75",
+      "updated": "Referencia actualizada",
+      "created": "Referencia creada",
+      "deleted": "Referencia eliminada",
+      "failed": "La acción no se pudo completar"
+    },
+    "modal": {
+      "editTitle": "Editar referencia salarial",
+      "addTitle": "Añadir referencia salarial",
+      "jobTitle": "Puesto",
+      "jobTitlePlaceholder": "p. ej., Ingeniero de software",
+      "department": "Departamento",
+      "selectDepartment": "Seleccionar departamento...",
+      "noDepartments": "No hay departamentos configurados",
+      "location": "Ubicación",
+      "locationPlaceholder": "p. ej., Bangalore",
+      "p25Annual": "P25 (anual)",
+      "p50Annual": "Mediana P50 (anual)",
+      "p75Annual": "P75 (anual)",
+      "p25Placeholder": "p. ej., 800000",
+      "p50Placeholder": "p. ej., 1200000",
+      "p75Placeholder": "p. ej., 1800000",
+      "source": "Fuente",
+      "sourcePlaceholder": "p. ej., Glassdoor 2026",
+      "effectiveDate": "Fecha de vigencia",
+      "cancel": "Cancelar",
+      "updateBenchmark": "Actualizar referencia",
+      "saveBenchmark": "Guardar referencia"
+    }
+  },
+  "payEquityPage": {
+    "title": "Análisis de equidad salarial",
+    "description": "Analiza la equidad retributiva por género, departamento y puesto",
+    "stats": {
+      "employeesAnalyzed": "Empleados analizados",
+      "medianSalary": "Salario mediano",
+      "meanPayGap": "Brecha salarial media",
+      "medianPayGap": "Brecha salarial mediana"
+    },
+    "tabs": {
+      "overview": "Resumen del análisis",
+      "compliance": "Informe de cumplimiento"
+    },
+    "gender": {
+      "title": "Análisis de la brecha salarial por género",
+      "maleEmployees": "Empleados",
+      "femaleEmployees": "Empleadas",
+      "maleMeanSalary": "Salario medio de los hombres",
+      "femaleMeanSalary": "Salario medio de las mujeres",
+      "menPaidMore": "Los hombres cobran más en promedio",
+      "womenPaidMore": "Las mujeres cobran más en promedio",
+      "noGap": "No se detectó ninguna brecha"
+    },
+    "department": {
+      "title": "Análisis por departamento",
+      "department": "Departamento",
+      "employees": "Empleados",
+      "meanSalary": "Salario medio",
+      "median": "Mediana",
+      "min": "Mín.",
+      "max": "Máx.",
+      "spread": "Dispersión"
+    },
+    "role": {
+      "title": "Análisis por puesto",
+      "designation": "Puesto",
+      "count": "Cantidad",
+      "mean": "Media",
+      "median": "Mediana"
+    },
+    "compliance": {
+      "title": "Informe de cumplimiento",
+      "generated": "Generado",
+      "findings": "Hallazgos",
+      "recommendations": "Recomendaciones",
+      "notAvailable": "N/D"
+    },
+    "complianceMessages": {
+      "significantMean": "Se detectó una brecha salarial media significativa: {{value}}% ({{group}})",
+      "significantMedian": "Se detectó una brecha salarial mediana significativa: {{value}}%",
+      "menPaidMore": "los hombres cobran más",
+      "womenPaidMore": "las mujeres cobran más",
+      "highVariance": "Alta variación salarial en el departamento «{{department}}» (CV: {{value}}%)",
+      "acceptableGap": "La brecha salarial está dentro del rango aceptable (hasta el 5%)",
+      "noConcerns": "No se detectaron problemas significativos de equidad salarial",
+      "reviewDepartment": "Revisa las bandas salariales del departamento «{{department}}» para garantizar la equidad interna",
+      "reviewCompensation": "Realiza una revisión detallada de la remuneración en los puestos con brechas significativas",
+      "continueMonitoring": "Continúa supervisando la equidad salarial trimestralmente"
+    }
+  },
   "payrollRuns": {
     "title": "Procesos de nómina",
     "description": "Procesamiento mensual de nómina",

@@ -542,6 +542,388 @@
     "setup": "Einrichtung"
   },
   "selfService": { "employeePortal": "Mitarbeiterportal", "adminPanel": "Adminbereich" },
+  "myProfile": {
+    "title": "Mein Profil",
+    "notFound": "Profil nicht gefunden",
+    "notAvailable": "Nicht verfügbar",
+    "cancel": "Abbrechen",
+    "requestUpdate": "Änderung beantragen",
+    "pendingBankRequest": "Eine Änderung der Bankdaten wartet auf die Genehmigung durch die Administration.",
+    "status": { "active": "Aktiv", "inactive": "Inaktiv" },
+    "taxRegime": { "new": "Neues Steuersystem", "old": "Altes Steuersystem" },
+    "sections": {
+      "personalDetails": "Persönliche Daten",
+      "employment": "Beschäftigung",
+      "bankDetails": "Bankverbindung",
+      "statutoryDetails": "Gesetzliche Angaben",
+      "security": "Sicherheit"
+    },
+    "fields": {
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "dateOfBirth": "Geburtsdatum",
+      "gender": "Geschlecht",
+      "employeeCode": "Mitarbeiternummer",
+      "department": "Abteilung",
+      "designation": "Position",
+      "employmentType": "Beschäftigungsart",
+      "dateOfJoining": "Eintrittsdatum",
+      "bank": "Bank",
+      "accountNumber": "Kontonummer",
+      "ifsc": "IFSC",
+      "pan": "PAN",
+      "uan": "UAN",
+      "pfNumber": "PF-Nummer",
+      "password": "Passwort"
+    },
+    "values": {
+      "gender": {
+        "female": "Weiblich",
+        "male": "Männlich",
+        "non_binary": "Nichtbinär",
+        "other": "Andere"
+      },
+      "employmentTypes": {
+        "full_time": "Vollzeit",
+        "part_time": "Teilzeit",
+        "contract": "Vertrag",
+        "intern": "Praktikum",
+        "consultant": "Beratung"
+      }
+    },
+    "security": {
+      "changePasswordHelp": "Kontopasswort ändern",
+      "changePassword": "Passwort ändern"
+    },
+    "bankModal": {
+      "title": "Änderung der Bankdaten beantragen",
+      "reviewNotice": "Die Personalabteilung oder Administration prüft den Antrag, bevor die Änderungen wirksam werden.",
+      "newBankName": "Neuer Bankname",
+      "bankPlaceholder": "z. B. HDFC Bank",
+      "newAccountNumber": "Neue Kontonummer",
+      "accountPlaceholder": "z. B. 1234567890",
+      "newIfscCode": "Neuer IFSC-Code",
+      "ifscPlaceholder": "z. B. HDFC0001234",
+      "ifscValidation": "Der IFSC muss 11 Zeichen enthalten: 4 Buchstaben + '0' + 6 Buchstaben/Ziffern (z. B. HDFC0001234).",
+      "accountType": "Kontotyp",
+      "accountTypes": { "savings": "Sparkonto", "current": "Girokonto", "salary": "Gehaltskonto" },
+      "reason": "Änderungsgrund",
+      "reasonPlaceholder": "z. B. Wechsel zu einer neuen Bank",
+      "submit": "Antrag senden",
+      "success": "Änderung der Bankdaten zur Genehmigung eingereicht",
+      "failure": "Antrag konnte nicht gesendet werden"
+    },
+    "passwordModal": {
+      "title": "Passwort ändern",
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "confirmNewPassword": "Neues Passwort bestätigen",
+      "mismatch": "Die Passwörter stimmen nicht überein",
+      "success": "Passwort geändert",
+      "failure": "Passwort konnte nicht geändert werden",
+      "submit": "Passwort ändern"
+    }
+  },
+  "totalRewardsPage": {
+    "title": "Gesamtvergütungsnachweise",
+    "description": "Umfassende Vergütungs- und Leistungsnachweise für Mitarbeitende erstellen",
+    "printPdf": "Drucken / PDF",
+    "selectEmployee": "Mitarbeiter auswählen",
+    "chooseEmployee": "Mitarbeiter auswählen…",
+    "searchEmployee": "Nach Name, Position oder Nummer suchen…",
+    "noEmployeeMatches": "Keine passenden Mitarbeiter gefunden",
+    "employeesAvailable_one": "{{count}} Mitarbeiter verfügbar",
+    "employeesAvailable_other": "{{count}} Mitarbeiter verfügbar",
+    "unnamedEmployee": "Unbenannter Mitarbeiter",
+    "totalRewardsValue": "Gesamtwert der Vergütung",
+    "financialYear": "GJ {{year}}",
+    "directCompensation": "Direktvergütung",
+    "benefitsValue": "Wert der Zusatzleistungen",
+    "ytdNetPay": "Nettolohn seit Jahresbeginn",
+    "reimbursements": "Erstattungen",
+    "salaryBreakdown": "Gehaltsaufschlüsselung",
+    "perMonth": "/Monat",
+    "annualCtc": "Jährliche CTC",
+    "benefitsEnrollment": "Zusatzleistungen",
+    "noBenefits": "Keine Zusatzleistungen",
+    "perYear": "/Jahr",
+    "totalEmployerContribution": "Gesamter Arbeitgeberbeitrag",
+    "ytdEarnings": "Jahresverdienst bis heute",
+    "monthsProcessed_one": "{{count}} Monat verarbeitet",
+    "monthsProcessed_other": "{{count}} Monate verarbeitet",
+    "grossEarnings": "Bruttoverdienst",
+    "totalDeductions": "Gesamtabzüge",
+    "netPay": "Nettolohn",
+    "taxPaid": "Gezahlte Steuer",
+    "activeLoans": "Aktive Darlehen",
+    "outstanding": "Ausstehend",
+    "emi": "Rate",
+    "selectPrompt": "Mitarbeiter auswählen, um den Gesamtvergütungsnachweis zu erstellen",
+    "components": { "basic": "Grundgehalt", "hra": "Wohnkostenzuschuss", "sa": "Sonderzulage" },
+    "benefitTypes": {
+      "health": "Gesundheit",
+      "life": "Leben",
+      "dental": "Zahn",
+      "vision": "Sehhilfe",
+      "accident": "Unfall"
+    },
+    "coverageTypes": {
+      "employee": "Mitarbeiter",
+      "employee_spouse": "Mitarbeiter + Partner",
+      "family": "Familie",
+      "parents": "Eltern"
+    },
+    "loanTypes": {
+      "personal_loan": "Privatdarlehen",
+      "salary_advance": "Gehaltsvorschuss",
+      "home_loan": "Immobiliendarlehen",
+      "car_loan": "Autokredit",
+      "education_loan": "Bildungskredit"
+    }
+  },
+  "benefitsPage": {
+    "title": "Leistungsverwaltung",
+    "description": "Leistungspläne und Mitarbeiteranmeldungen verwalten",
+    "enrollEmployee": "Mitarbeiter anmelden",
+    "newPlan": "Neuer Plan",
+    "stats": {
+      "activePlans": "Aktive Pläne",
+      "enrolled": "Angemeldet",
+      "pending": "Ausstehend",
+      "monthlyEmployerCost": "Monatliche Arbeitgeberkosten"
+    },
+    "tabs": {
+      "plans": "Pläne ({{count}})",
+      "enrollments": "Anmeldungen ({{count}})",
+      "pending": "Ausstehend ({{count}})"
+    },
+    "columns": {
+      "planName": "Planname",
+      "type": "Typ",
+      "provider": "Anbieter",
+      "premium": "Beitrag",
+      "employerShare": "Arbeitgeberanteil",
+      "status": "Status",
+      "employee": "Mitarbeiter",
+      "plan": "Plan",
+      "coverage": "Deckung",
+      "employeeShare": "Mitarbeiteranteil"
+    },
+    "empty": {
+      "plans": "Noch keine Leistungspläne erstellt",
+      "enrollments": "Noch keine Anmeldungen",
+      "pending": "Keine ausstehenden Anmeldungen"
+    },
+    "status": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "enrolled": "Angemeldet",
+      "pending": "Ausstehend",
+      "cancelled": "Storniert"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "deactivate": "Deaktivieren",
+      "cancel": "Stornieren"
+    },
+    "planTypes": {
+      "health": "Gesundheit",
+      "dental": "Zahnzusatz",
+      "vision": "Sehhilfe",
+      "life": "Lebensversicherung",
+      "disability": "Berufsunfähigkeit",
+      "retirement": "Altersvorsorge"
+    },
+    "coverageTypes": {
+      "individual": "Einzelperson",
+      "family": "Familie",
+      "individual_plus_spouse": "Einzelperson + Ehepartner"
+    },
+    "fallbackUser": "Benutzer Nr. {{id}}",
+    "messages": {
+      "invalidEnrollmentDates": "Das Enddatum darf nicht vor dem Startdatum liegen",
+      "planUpdated": "Leistungsplan aktualisiert",
+      "planCreated": "Leistungsplan erstellt",
+      "savePlanFailed": "Plan konnte nicht gespeichert werden",
+      "deactivateConfirm": "Diesen Leistungsplan deaktivieren? Bestehende Anmeldungen bleiben unverändert.",
+      "planDeactivated": "Leistungsplan deaktiviert",
+      "deactivateFailed": "Plan konnte nicht deaktiviert werden",
+      "employeeEnrolled": "Mitarbeiter im Leistungsplan angemeldet",
+      "enrollFailed": "Anmeldung fehlgeschlagen",
+      "enrollmentCancelled": "Anmeldung storniert",
+      "actionFailed": "Aktion fehlgeschlagen"
+    },
+    "planModal": {
+      "editTitle": "Leistungsplan bearbeiten",
+      "createTitle": "Leistungsplan erstellen",
+      "planName": "Planname",
+      "type": "Typ",
+      "provider": "Anbieter",
+      "description": "Beschreibung",
+      "monthlyPremium": "Monatlicher Beitrag",
+      "employerContribution": "Arbeitgeberbeitrag",
+      "enrollmentStart": "Anmeldebeginn",
+      "enrollmentEnd": "Anmeldeende",
+      "cancel": "Abbrechen",
+      "updatePlan": "Plan aktualisieren",
+      "createPlan": "Plan erstellen"
+    },
+    "enrollModal": {
+      "title": "Mitarbeiter für Leistungsplan anmelden",
+      "employee": "Mitarbeiter",
+      "benefitPlan": "Leistungsplan",
+      "coverageType": "Deckungsart",
+      "startDate": "Startdatum",
+      "employeePremiumShare": "Beitragsanteil des Mitarbeiters",
+      "employerPremiumShare": "Beitragsanteil des Arbeitgebers",
+      "cancel": "Abbrechen",
+      "submit": "Anmelden"
+    }
+  },
+  "benchmarksPage": {
+    "title": "Vergütungs-Benchmarking",
+    "description": "Mitarbeitervergütung mit Marktdaten vergleichen",
+    "addBenchmark": "Benchmark hinzufügen",
+    "stats": {
+      "benchmarks": "Benchmarks",
+      "avgCompaRatio": "Ø Compa-Ratio",
+      "belowMarket": "Unter Markt",
+      "aboveMarket": "Über Markt"
+    },
+    "tabs": {
+      "marketBenchmarks": "Markt-Benchmarks ({{count}})",
+      "compaRatioReport": "Compa-Ratio-Bericht",
+      "belowMarket": "Unter Markt ({{count}})",
+      "aboveMarket": "Über Markt ({{count}})"
+    },
+    "columns": {
+      "jobTitle": "Stellenbezeichnung",
+      "department": "Abteilung",
+      "location": "Standort",
+      "p50Median": "P50 (Median)",
+      "source": "Quelle",
+      "effective": "Gültig ab",
+      "employee": "Mitarbeiter",
+      "marketP50": "Markt-P50",
+      "compaRatio": "Compa-Ratio",
+      "position": "Position"
+    },
+    "empty": {
+      "benchmarks": "Noch keine Benchmarks hinzugefügt",
+      "employees": "Keine Mitarbeiterdaten verfügbar",
+      "belowMarket": "Keine Mitarbeiter unter Marktniveau",
+      "aboveMarket": "Keine Mitarbeiter über Marktniveau"
+    },
+    "summary": {
+      "employeesTotal": "Mitarbeiter insgesamt",
+      "matchedToBenchmarks": "Benchmarks zugeordnet",
+      "withoutBenchmarkData": "ohne Benchmark-Daten"
+    },
+    "labels": {
+      "noBenchmark": "Kein Benchmark",
+      "notAvailable": "k. A.",
+      "noData": "Keine Daten",
+      "below": "Darunter",
+      "above": "Darüber",
+      "atMarket": "Auf Marktniveau"
+    },
+    "actions": {
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "messages": {
+      "validPercentiles": "Bitte gültige Beträge für P25, P50 und P75 eingeben",
+      "nonNegative": "Perzentilwerte dürfen nicht negativ sein",
+      "ordered": "Perzentile müssen geordnet sein: P25 ≤ P50 ≤ P75",
+      "updated": "Benchmark aktualisiert",
+      "created": "Benchmark erstellt",
+      "deleted": "Benchmark gelöscht",
+      "failed": "Aktion fehlgeschlagen"
+    },
+    "modal": {
+      "editTitle": "Vergütungs-Benchmark bearbeiten",
+      "addTitle": "Vergütungs-Benchmark hinzufügen",
+      "jobTitle": "Stellenbezeichnung",
+      "jobTitlePlaceholder": "z. B. Softwareentwickler",
+      "department": "Abteilung",
+      "selectDepartment": "Abteilung auswählen...",
+      "noDepartments": "Keine Abteilungen konfiguriert",
+      "location": "Standort",
+      "locationPlaceholder": "z. B. Bangalore",
+      "p25Annual": "P25 (jährlich)",
+      "p50Annual": "P50-Median (jährlich)",
+      "p75Annual": "P75 (jährlich)",
+      "p25Placeholder": "z. B. 800000",
+      "p50Placeholder": "z. B. 1200000",
+      "p75Placeholder": "z. B. 1800000",
+      "source": "Quelle",
+      "sourcePlaceholder": "z. B. Glassdoor 2026",
+      "effectiveDate": "Gültigkeitsdatum",
+      "cancel": "Abbrechen",
+      "updateBenchmark": "Benchmark aktualisieren",
+      "saveBenchmark": "Benchmark speichern"
+    }
+  },
+  "payEquityPage": {
+    "title": "Analyse der Entgeltgleichheit",
+    "description": "Vergütungsfairness nach Geschlecht, Abteilung und Rolle analysieren",
+    "stats": {
+      "employeesAnalyzed": "Analysierte Mitarbeiter",
+      "medianSalary": "Medianvergütung",
+      "meanPayGap": "Mittlere Entgeltlücke",
+      "medianPayGap": "Mediane Entgeltlücke"
+    },
+    "tabs": {
+      "overview": "Analyseübersicht",
+      "compliance": "Compliance-Bericht"
+    },
+    "gender": {
+      "title": "Analyse der geschlechtsspezifischen Entgeltlücke",
+      "maleEmployees": "Männliche Mitarbeiter",
+      "femaleEmployees": "Weibliche Mitarbeiter",
+      "maleMeanSalary": "Durchschnittsgehalt Männer",
+      "femaleMeanSalary": "Durchschnittsgehalt Frauen",
+      "menPaidMore": "Männer werden im Durchschnitt höher bezahlt",
+      "womenPaidMore": "Frauen werden im Durchschnitt höher bezahlt",
+      "noGap": "Keine Lücke erkannt"
+    },
+    "department": {
+      "title": "Abteilungsanalyse",
+      "department": "Abteilung",
+      "employees": "Mitarbeiter",
+      "meanSalary": "Durchschnittsgehalt",
+      "median": "Median",
+      "min": "Min.",
+      "max": "Max.",
+      "spread": "Spanne"
+    },
+    "role": {
+      "title": "Rollen-/Positionsanalyse",
+      "designation": "Position",
+      "count": "Anzahl",
+      "mean": "Mittelwert",
+      "median": "Median"
+    },
+    "compliance": {
+      "title": "Compliance-Bericht",
+      "generated": "Erstellt",
+      "findings": "Ergebnisse",
+      "recommendations": "Empfehlungen",
+      "notAvailable": "k. A."
+    },
+    "complianceMessages": {
+      "significantMean": "Signifikante mittlere Entgeltlücke erkannt: {{value}} % ({{group}})",
+      "significantMedian": "Signifikante mediane Entgeltlücke erkannt: {{value}} %",
+      "menPaidMore": "Männer werden höher bezahlt",
+      "womenPaidMore": "Frauen werden höher bezahlt",
+      "highVariance": "Hohe Gehaltsabweichung in der Abteilung „{{department}}“ (VK: {{value}} %)",
+      "acceptableGap": "Die Entgeltlücke liegt im akzeptablen Bereich (bis 5 %)",
+      "noConcerns": "Keine wesentlichen Bedenken zur Entgeltgleichheit festgestellt",
+      "reviewDepartment": "Gehaltsbänder der Abteilung „{{department}}“ zur Sicherung interner Gleichheit überprüfen",
+      "reviewCompensation": "Vergütung für Rollen mit signifikanten Lücken detailliert überprüfen",
+      "continueMonitoring": "Entgeltgleichheit weiterhin vierteljährlich überwachen"
+    }
+  },
   "payrollRuns": {
     "title": "Abrechnungsläufe",
     "description": "Monatliche Entgeltabrechnung",

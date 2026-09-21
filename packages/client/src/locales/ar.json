@@ -532,6 +532,383 @@
     "setup": "الإعداد"
   },
   "selfService": { "employeePortal": "بوابة الموظف", "adminPanel": "لوحة الإدارة" },
+  "myProfile": {
+    "title": "ملفي الشخصي",
+    "notFound": "لم يتم العثور على الملف الشخصي",
+    "notAvailable": "غير متاح",
+    "cancel": "إلغاء",
+    "requestUpdate": "طلب تحديث",
+    "pendingBankRequest": "لديك طلب تحديث للبيانات البنكية بانتظار موافقة المسؤول.",
+    "status": { "active": "نشط", "inactive": "غير نشط" },
+    "taxRegime": { "new": "النظام الضريبي الجديد", "old": "النظام الضريبي القديم" },
+    "sections": {
+      "personalDetails": "البيانات الشخصية",
+      "employment": "بيانات التوظيف",
+      "bankDetails": "البيانات البنكية",
+      "statutoryDetails": "البيانات النظامية",
+      "security": "الأمان"
+    },
+    "fields": {
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "dateOfBirth": "تاريخ الميلاد",
+      "gender": "الجنس",
+      "employeeCode": "رمز الموظف",
+      "department": "القسم",
+      "designation": "المسمى الوظيفي",
+      "employmentType": "نوع التوظيف",
+      "dateOfJoining": "تاريخ الانضمام",
+      "bank": "البنك",
+      "accountNumber": "رقم الحساب",
+      "ifsc": "IFSC",
+      "pan": "PAN",
+      "uan": "UAN",
+      "pfNumber": "رقم PF",
+      "password": "كلمة المرور"
+    },
+    "values": {
+      "gender": { "female": "أنثى", "male": "ذكر", "non_binary": "غير ثنائي", "other": "آخر" },
+      "employmentTypes": {
+        "full_time": "دوام كامل",
+        "part_time": "دوام جزئي",
+        "contract": "عقد",
+        "intern": "متدرب",
+        "consultant": "مستشار"
+      }
+    },
+    "security": {
+      "changePasswordHelp": "غيّر كلمة مرور حسابك",
+      "changePassword": "تغيير كلمة المرور"
+    },
+    "bankModal": {
+      "title": "طلب تحديث البيانات البنكية",
+      "reviewNotice": "ستراجع الموارد البشرية أو الإدارة طلبك قبل تطبيق التغييرات.",
+      "newBankName": "اسم البنك الجديد",
+      "bankPlaceholder": "مثال: HDFC Bank",
+      "newAccountNumber": "رقم الحساب الجديد",
+      "accountPlaceholder": "مثال: 1234567890",
+      "newIfscCode": "رمز IFSC الجديد",
+      "ifscPlaceholder": "مثال: HDFC0001234",
+      "ifscValidation": "يجب أن يتكون IFSC من 11 خانة: 4 أحرف + '0' + 6 أحرف أو أرقام (مثال: HDFC0001234).",
+      "accountType": "نوع الحساب",
+      "accountTypes": { "savings": "توفير", "current": "جاري", "salary": "حساب راتب" },
+      "reason": "سبب التغيير",
+      "reasonPlaceholder": "مثال: الانتقال إلى بنك جديد",
+      "submit": "إرسال الطلب",
+      "success": "تم إرسال طلب تحديث البيانات البنكية للموافقة",
+      "failure": "تعذر إرسال الطلب"
+    },
+    "passwordModal": {
+      "title": "تغيير كلمة المرور",
+      "currentPassword": "كلمة المرور الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+      "mismatch": "كلمتا المرور غير متطابقتين",
+      "success": "تم تغيير كلمة المرور",
+      "failure": "تعذر تغيير كلمة المرور",
+      "submit": "تغيير كلمة المرور"
+    }
+  },
+  "totalRewardsPage": {
+    "title": "كشوف المكافآت الإجمالية",
+    "description": "إنشاء كشوف شاملة للتعويضات والمزايا للموظفين",
+    "printPdf": "طباعة / PDF",
+    "selectEmployee": "اختر موظفًا",
+    "chooseEmployee": "اختر موظفًا…",
+    "searchEmployee": "ابحث بالاسم أو المسمى أو الرمز…",
+    "noEmployeeMatches": "لا يوجد موظفون مطابقون للبحث",
+    "employeesAvailable_one": "موظف واحد متاح",
+    "employeesAvailable_other": "{{count}} موظفين متاحين",
+    "unnamedEmployee": "موظف بلا اسم",
+    "totalRewardsValue": "قيمة المكافآت الإجمالية",
+    "financialYear": "السنة المالية {{year}}",
+    "directCompensation": "التعويض المباشر",
+    "benefitsValue": "قيمة المزايا",
+    "ytdNetPay": "صافي الأجر منذ بداية السنة",
+    "reimbursements": "التعويضات",
+    "salaryBreakdown": "تفصيل الراتب",
+    "perMonth": "/شهر",
+    "annualCtc": "التكلفة السنوية",
+    "benefitsEnrollment": "الاشتراك في المزايا",
+    "noBenefits": "لا توجد مزايا مشتركة",
+    "perYear": "/سنة",
+    "totalEmployerContribution": "إجمالي مساهمة صاحب العمل",
+    "ytdEarnings": "أرباح السنة حتى تاريخه",
+    "monthsProcessed_one": "تمت معالجة شهر واحد",
+    "monthsProcessed_other": "تمت معالجة {{count}} أشهر",
+    "grossEarnings": "إجمالي الأرباح",
+    "totalDeductions": "إجمالي الاستقطاعات",
+    "netPay": "صافي الأجر",
+    "taxPaid": "الضريبة المدفوعة",
+    "activeLoans": "القروض النشطة",
+    "outstanding": "المتبقي",
+    "emi": "القسط",
+    "selectPrompt": "اختر موظفًا لإنشاء كشف المكافآت الإجمالية الخاص به",
+    "components": { "basic": "الراتب الأساسي", "hra": "بدل السكن", "sa": "بدل خاص" },
+    "benefitTypes": {
+      "health": "صحي",
+      "life": "حياة",
+      "dental": "أسنان",
+      "vision": "نظر",
+      "accident": "حوادث"
+    },
+    "coverageTypes": {
+      "employee": "الموظف",
+      "employee_spouse": "الموظف + الزوج/الزوجة",
+      "family": "العائلة",
+      "parents": "الوالدان"
+    },
+    "loanTypes": {
+      "personal_loan": "قرض شخصي",
+      "salary_advance": "سلفة راتب",
+      "home_loan": "قرض سكني",
+      "car_loan": "قرض سيارة",
+      "education_loan": "قرض تعليمي"
+    }
+  },
+  "benefitsPage": {
+    "title": "إدارة المزايا",
+    "description": "إدارة خطط المزايا وتسجيل الموظفين",
+    "enrollEmployee": "تسجيل موظف",
+    "newPlan": "خطة جديدة",
+    "stats": {
+      "activePlans": "الخطط النشطة",
+      "enrolled": "المسجلون",
+      "pending": "قيد الانتظار",
+      "monthlyEmployerCost": "تكلفة صاحب العمل الشهرية"
+    },
+    "tabs": {
+      "plans": "الخطط ({{count}})",
+      "enrollments": "التسجيلات ({{count}})",
+      "pending": "قيد الانتظار ({{count}})"
+    },
+    "columns": {
+      "planName": "اسم الخطة",
+      "type": "النوع",
+      "provider": "مزود الخدمة",
+      "premium": "القسط",
+      "employerShare": "حصة صاحب العمل",
+      "status": "الحالة",
+      "employee": "الموظف",
+      "plan": "الخطة",
+      "coverage": "التغطية",
+      "employeeShare": "حصة الموظف"
+    },
+    "empty": {
+      "plans": "لم يتم إنشاء خطط مزايا بعد",
+      "enrollments": "لا توجد تسجيلات بعد",
+      "pending": "لا توجد تسجيلات قيد الانتظار"
+    },
+    "status": {
+      "active": "نشطة",
+      "inactive": "غير نشطة",
+      "enrolled": "مسجل",
+      "pending": "قيد الانتظار",
+      "cancelled": "ملغى"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "deactivate": "إلغاء التفعيل",
+      "cancel": "إلغاء"
+    },
+    "planTypes": {
+      "health": "صحي",
+      "dental": "أسنان",
+      "vision": "بصر",
+      "life": "تأمين على الحياة",
+      "disability": "عجز",
+      "retirement": "تقاعد"
+    },
+    "coverageTypes": {
+      "individual": "فردي",
+      "family": "عائلي",
+      "individual_plus_spouse": "فردي + الزوج/الزوجة"
+    },
+    "fallbackUser": "المستخدم رقم {{id}}",
+    "messages": {
+      "invalidEnrollmentDates": "لا يمكن أن يكون تاريخ انتهاء التسجيل قبل تاريخ البدء",
+      "planUpdated": "تم تحديث خطة المزايا",
+      "planCreated": "تم إنشاء خطة المزايا",
+      "savePlanFailed": "تعذر حفظ الخطة",
+      "deactivateConfirm": "هل تريد إلغاء تفعيل خطة المزايا هذه؟ لن تتأثر التسجيلات الحالية.",
+      "planDeactivated": "تم إلغاء تفعيل خطة المزايا",
+      "deactivateFailed": "تعذر إلغاء تفعيل الخطة",
+      "employeeEnrolled": "تم تسجيل الموظف في خطة المزايا",
+      "enrollFailed": "تعذر إكمال التسجيل",
+      "enrollmentCancelled": "تم إلغاء التسجيل",
+      "actionFailed": "فشلت العملية"
+    },
+    "planModal": {
+      "editTitle": "تعديل خطة المزايا",
+      "createTitle": "إنشاء خطة مزايا",
+      "planName": "اسم الخطة",
+      "type": "النوع",
+      "provider": "مزود الخدمة",
+      "description": "الوصف",
+      "monthlyPremium": "القسط الشهري",
+      "employerContribution": "مساهمة صاحب العمل",
+      "enrollmentStart": "بداية التسجيل",
+      "enrollmentEnd": "نهاية التسجيل",
+      "cancel": "إلغاء",
+      "updatePlan": "تحديث الخطة",
+      "createPlan": "إنشاء الخطة"
+    },
+    "enrollModal": {
+      "title": "تسجيل موظف في خطة مزايا",
+      "employee": "الموظف",
+      "benefitPlan": "خطة المزايا",
+      "coverageType": "نوع التغطية",
+      "startDate": "تاريخ البدء",
+      "employeePremiumShare": "حصة الموظف من القسط",
+      "employerPremiumShare": "حصة صاحب العمل من القسط",
+      "cancel": "إلغاء",
+      "submit": "تسجيل"
+    }
+  },
+  "benchmarksPage": {
+    "title": "المقارنة المرجعية للتعويضات",
+    "description": "قارن أجور الموظفين ببيانات السوق",
+    "addBenchmark": "إضافة معيار",
+    "stats": {
+      "benchmarks": "المعايير",
+      "avgCompaRatio": "متوسط نسبة المقارنة",
+      "belowMarket": "أقل من السوق",
+      "aboveMarket": "أعلى من السوق"
+    },
+    "tabs": {
+      "marketBenchmarks": "معايير السوق ({{count}})",
+      "compaRatioReport": "تقرير نسبة المقارنة",
+      "belowMarket": "أقل من السوق ({{count}})",
+      "aboveMarket": "أعلى من السوق ({{count}})"
+    },
+    "columns": {
+      "jobTitle": "المسمى الوظيفي",
+      "department": "القسم",
+      "location": "الموقع",
+      "p50Median": "P50 (الوسيط)",
+      "source": "المصدر",
+      "effective": "تاريخ السريان",
+      "employee": "الموظف",
+      "marketP50": "P50 للسوق",
+      "compaRatio": "نسبة المقارنة",
+      "position": "الموضع"
+    },
+    "empty": {
+      "benchmarks": "لم تتم إضافة معايير بعد",
+      "employees": "لا تتوفر بيانات موظفين",
+      "belowMarket": "لا يوجد موظفون أقل من مستوى السوق",
+      "aboveMarket": "لا يوجد موظفون أعلى من مستوى السوق"
+    },
+    "summary": {
+      "employeesTotal": "إجمالي الموظفين",
+      "matchedToBenchmarks": "مطابقون للمعايير",
+      "withoutBenchmarkData": "من دون بيانات معيارية"
+    },
+    "labels": {
+      "noBenchmark": "لا يوجد معيار",
+      "notAvailable": "غير متاح",
+      "noData": "لا توجد بيانات",
+      "below": "أقل",
+      "above": "أعلى",
+      "atMarket": "عند مستوى السوق"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "messages": {
+      "validPercentiles": "يرجى إدخال مبالغ صحيحة لـ P25 وP50 وP75",
+      "nonNegative": "لا يمكن أن تكون قيم الشرائح المئوية سالبة",
+      "ordered": "يجب ترتيب الشرائح المئوية: P25 ≤ P50 ≤ P75",
+      "updated": "تم تحديث المعيار",
+      "created": "تم إنشاء المعيار",
+      "deleted": "تم حذف المعيار",
+      "failed": "فشلت العملية"
+    },
+    "modal": {
+      "editTitle": "تعديل معيار التعويض",
+      "addTitle": "إضافة معيار تعويض",
+      "jobTitle": "المسمى الوظيفي",
+      "jobTitlePlaceholder": "مثال: مهندس برمجيات",
+      "department": "القسم",
+      "selectDepartment": "اختر القسم...",
+      "noDepartments": "لا توجد أقسام مهيأة",
+      "location": "الموقع",
+      "locationPlaceholder": "مثال: بنغالور",
+      "p25Annual": "P25 (سنوي)",
+      "p50Annual": "وسيط P50 (سنوي)",
+      "p75Annual": "P75 (سنوي)",
+      "p25Placeholder": "مثال 800000",
+      "p50Placeholder": "مثال 1200000",
+      "p75Placeholder": "مثال 1800000",
+      "source": "المصدر",
+      "sourcePlaceholder": "مثال: Glassdoor 2026",
+      "effectiveDate": "تاريخ السريان",
+      "cancel": "إلغاء",
+      "updateBenchmark": "تحديث المعيار",
+      "saveBenchmark": "حفظ المعيار"
+    }
+  },
+  "payEquityPage": {
+    "title": "تحليل المساواة في الأجور",
+    "description": "تحليل عدالة التعويض حسب الجنس والقسم والدور",
+    "stats": {
+      "employeesAnalyzed": "الموظفون الذين تم تحليلهم",
+      "medianSalary": "متوسط الراتب الوسيط",
+      "meanPayGap": "متوسط فجوة الأجور",
+      "medianPayGap": "فجوة الأجور الوسيطة"
+    },
+    "tabs": {
+      "overview": "نظرة عامة على التحليل",
+      "compliance": "تقرير الامتثال"
+    },
+    "gender": {
+      "title": "تحليل فجوة الأجور بين الجنسين",
+      "maleEmployees": "الموظفون الذكور",
+      "femaleEmployees": "الموظفات",
+      "maleMeanSalary": "متوسط راتب الذكور",
+      "femaleMeanSalary": "متوسط راتب الإناث",
+      "menPaidMore": "يتقاضى الرجال أجراً أعلى في المتوسط",
+      "womenPaidMore": "تتقاضى النساء أجراً أعلى في المتوسط",
+      "noGap": "لم يتم اكتشاف فجوة"
+    },
+    "department": {
+      "title": "تحليل الأقسام",
+      "department": "القسم",
+      "employees": "الموظفون",
+      "meanSalary": "متوسط الراتب",
+      "median": "الوسيط",
+      "min": "الحد الأدنى",
+      "max": "الحد الأقصى",
+      "spread": "النطاق"
+    },
+    "role": {
+      "title": "تحليل الدور / المسمى",
+      "designation": "المسمى الوظيفي",
+      "count": "العدد",
+      "mean": "المتوسط",
+      "median": "الوسيط"
+    },
+    "compliance": {
+      "title": "تقرير الامتثال",
+      "generated": "تاريخ الإنشاء",
+      "findings": "النتائج",
+      "recommendations": "التوصيات",
+      "notAvailable": "غير متاح"
+    },
+    "complianceMessages": {
+      "significantMean": "تم اكتشاف فجوة كبيرة في متوسط الأجور: {{value}}% ({{group}})",
+      "significantMedian": "تم اكتشاف فجوة كبيرة في الأجر الوسيط: {{value}}%",
+      "menPaidMore": "أجور الرجال أعلى",
+      "womenPaidMore": "أجور النساء أعلى",
+      "highVariance": "تباين مرتفع في الرواتب في قسم «{{department}}» (معامل التباين: {{value}}%)",
+      "acceptableGap": "فجوة الأجور ضمن النطاق المقبول (حتى 5%)",
+      "noConcerns": "لم يتم اكتشاف مخاوف كبيرة بشأن المساواة في الأجور",
+      "reviewDepartment": "راجع نطاقات الرواتب لقسم «{{department}}» لضمان المساواة الداخلية",
+      "reviewCompensation": "أجرِ مراجعة تفصيلية لتعويضات الأدوار التي توجد بها فجوات كبيرة",
+      "continueMonitoring": "استمر في مراقبة المساواة في الأجور كل ثلاثة أشهر"
+    }
+  },
   "payrollRuns": {
     "title": "دورات الرواتب",
     "description": "معالجة الرواتب الشهرية",

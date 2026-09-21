@@ -530,6 +530,380 @@
     "setup": "设置"
   },
   "selfService": { "employeePortal": "员工门户", "adminPanel": "管理面板" },
+  "myProfile": {
+    "title": "我的资料",
+    "notFound": "未找到个人资料",
+    "notAvailable": "不可用",
+    "cancel": "取消",
+    "requestUpdate": "申请更新",
+    "pendingBankRequest": "您的银行信息更新申请正在等待管理员审批。",
+    "status": { "active": "在职", "inactive": "离职" },
+    "taxRegime": { "new": "新税制", "old": "旧税制" },
+    "sections": {
+      "personalDetails": "个人信息",
+      "employment": "任职信息",
+      "bankDetails": "银行信息",
+      "statutoryDetails": "法定信息",
+      "security": "安全"
+    },
+    "fields": {
+      "email": "电子邮箱",
+      "phone": "电话",
+      "dateOfBirth": "出生日期",
+      "gender": "性别",
+      "employeeCode": "员工编号",
+      "department": "部门",
+      "designation": "职位",
+      "employmentType": "雇佣类型",
+      "dateOfJoining": "入职日期",
+      "bank": "银行",
+      "accountNumber": "账号",
+      "ifsc": "IFSC",
+      "pan": "PAN",
+      "uan": "UAN",
+      "pfNumber": "PF编号",
+      "password": "密码"
+    },
+    "values": {
+      "gender": { "female": "女性", "male": "男性", "non_binary": "非二元性别", "other": "其他" },
+      "employmentTypes": {
+        "full_time": "全职",
+        "part_time": "兼职",
+        "contract": "合同工",
+        "intern": "实习生",
+        "consultant": "顾问"
+      }
+    },
+    "security": { "changePasswordHelp": "更改您的账户密码", "changePassword": "更改密码" },
+    "bankModal": {
+      "title": "申请更新银行信息",
+      "reviewNotice": "更改生效前，人力资源或管理员将审核您的申请。",
+      "newBankName": "新银行名称",
+      "bankPlaceholder": "例如：HDFC Bank",
+      "newAccountNumber": "新账号",
+      "accountPlaceholder": "例如：1234567890",
+      "newIfscCode": "新IFSC代码",
+      "ifscPlaceholder": "例如：HDFC0001234",
+      "ifscValidation": "IFSC必须为11个字符：4个字母 + '0' + 6个字母或数字（例如：HDFC0001234）。",
+      "accountType": "账户类型",
+      "accountTypes": { "savings": "储蓄账户", "current": "活期账户", "salary": "工资账户" },
+      "reason": "更改原因",
+      "reasonPlaceholder": "例如：更换银行",
+      "submit": "提交申请",
+      "success": "银行信息更新申请已提交审批",
+      "failure": "无法提交申请"
+    },
+    "passwordModal": {
+      "title": "更改密码",
+      "currentPassword": "当前密码",
+      "newPassword": "新密码",
+      "confirmNewPassword": "确认新密码",
+      "mismatch": "两次输入的密码不一致",
+      "success": "密码已更改",
+      "failure": "无法更改密码",
+      "submit": "更改密码"
+    }
+  },
+  "totalRewardsPage": {
+    "title": "总薪酬报告",
+    "description": "为员工生成完整的薪酬与福利报告",
+    "printPdf": "打印 / PDF",
+    "selectEmployee": "选择员工",
+    "chooseEmployee": "请选择员工…",
+    "searchEmployee": "按姓名、职位或编号搜索…",
+    "noEmployeeMatches": "没有员工符合搜索条件",
+    "employeesAvailable_one": "可选择 {{count}} 名员工",
+    "employeesAvailable_other": "可选择 {{count}} 名员工",
+    "unnamedEmployee": "未命名员工",
+    "totalRewardsValue": "总薪酬价值",
+    "financialYear": "财年 {{year}}",
+    "directCompensation": "直接薪酬",
+    "benefitsValue": "福利价值",
+    "ytdNetPay": "本年累计净薪资",
+    "reimbursements": "报销",
+    "salaryBreakdown": "薪资明细",
+    "perMonth": "/月",
+    "annualCtc": "年度CTC",
+    "benefitsEnrollment": "福利参保",
+    "noBenefits": "尚未参加福利计划",
+    "perYear": "/年",
+    "totalEmployerContribution": "雇主缴费总额",
+    "ytdEarnings": "本年累计收入",
+    "monthsProcessed_one": "已处理 {{count}} 个月",
+    "monthsProcessed_other": "已处理 {{count}} 个月",
+    "grossEarnings": "总收入",
+    "totalDeductions": "扣款总额",
+    "netPay": "净薪资",
+    "taxPaid": "已缴税款",
+    "activeLoans": "当前贷款",
+    "outstanding": "未偿余额",
+    "emi": "月供",
+    "selectPrompt": "请选择员工以生成其总薪酬报告",
+    "components": { "basic": "基本工资", "hra": "住房补贴", "sa": "特别津贴" },
+    "benefitTypes": {
+      "health": "医疗",
+      "life": "人寿",
+      "dental": "牙科",
+      "vision": "视力",
+      "accident": "意外"
+    },
+    "coverageTypes": {
+      "employee": "员工本人",
+      "employee_spouse": "员工及配偶",
+      "family": "家庭",
+      "parents": "父母"
+    },
+    "loanTypes": {
+      "personal_loan": "个人贷款",
+      "salary_advance": "预支工资",
+      "home_loan": "住房贷款",
+      "car_loan": "汽车贷款",
+      "education_loan": "教育贷款"
+    }
+  },
+  "benefitsPage": {
+    "title": "福利管理",
+    "description": "管理福利计划和员工加入情况",
+    "enrollEmployee": "为员工办理加入",
+    "newPlan": "新建计划",
+    "stats": {
+      "activePlans": "有效计划",
+      "enrolled": "已加入",
+      "pending": "待处理",
+      "monthlyEmployerCost": "雇主月度成本"
+    },
+    "tabs": {
+      "plans": "计划 ({{count}})",
+      "enrollments": "加入记录 ({{count}})",
+      "pending": "待处理 ({{count}})"
+    },
+    "columns": {
+      "planName": "计划名称",
+      "type": "类型",
+      "provider": "提供商",
+      "premium": "保费",
+      "employerShare": "雇主承担",
+      "status": "状态",
+      "employee": "员工",
+      "plan": "计划",
+      "coverage": "保障范围",
+      "employeeShare": "员工承担"
+    },
+    "empty": {
+      "plans": "尚未创建福利计划",
+      "enrollments": "尚无加入记录",
+      "pending": "没有待处理的加入记录"
+    },
+    "status": {
+      "active": "有效",
+      "inactive": "无效",
+      "enrolled": "已加入",
+      "pending": "待处理",
+      "cancelled": "已取消"
+    },
+    "actions": {
+      "edit": "编辑",
+      "deactivate": "停用",
+      "cancel": "取消"
+    },
+    "planTypes": {
+      "health": "健康",
+      "dental": "牙科",
+      "vision": "视力",
+      "life": "人寿保险",
+      "disability": "伤残保障",
+      "retirement": "退休"
+    },
+    "coverageTypes": {
+      "individual": "个人",
+      "family": "家庭",
+      "individual_plus_spouse": "个人 + 配偶"
+    },
+    "fallbackUser": "用户 #{{id}}",
+    "messages": {
+      "invalidEnrollmentDates": "加入结束日期不能早于开始日期",
+      "planUpdated": "福利计划已更新",
+      "planCreated": "福利计划已创建",
+      "savePlanFailed": "无法保存计划",
+      "deactivateConfirm": "是否停用此福利计划？现有加入记录不会受到影响。",
+      "planDeactivated": "福利计划已停用",
+      "deactivateFailed": "无法停用计划",
+      "employeeEnrolled": "员工已加入福利计划",
+      "enrollFailed": "加入失败",
+      "enrollmentCancelled": "加入已取消",
+      "actionFailed": "操作失败"
+    },
+    "planModal": {
+      "editTitle": "编辑福利计划",
+      "createTitle": "创建福利计划",
+      "planName": "计划名称",
+      "type": "类型",
+      "provider": "提供商",
+      "description": "说明",
+      "monthlyPremium": "月度保费",
+      "employerContribution": "雇主缴费",
+      "enrollmentStart": "加入开始日期",
+      "enrollmentEnd": "加入结束日期",
+      "cancel": "取消",
+      "updatePlan": "更新计划",
+      "createPlan": "创建计划"
+    },
+    "enrollModal": {
+      "title": "为员工办理福利计划加入",
+      "employee": "员工",
+      "benefitPlan": "福利计划",
+      "coverageType": "保障类型",
+      "startDate": "开始日期",
+      "employeePremiumShare": "员工保费份额",
+      "employerPremiumShare": "雇主保费份额",
+      "cancel": "取消",
+      "submit": "加入"
+    }
+  },
+  "benchmarksPage": {
+    "title": "薪酬基准分析",
+    "description": "将员工薪酬与市场数据进行比较",
+    "addBenchmark": "添加基准",
+    "stats": {
+      "benchmarks": "基准",
+      "avgCompaRatio": "平均薪酬比率",
+      "belowMarket": "低于市场",
+      "aboveMarket": "高于市场"
+    },
+    "tabs": {
+      "marketBenchmarks": "市场基准 ({{count}})",
+      "compaRatioReport": "薪酬比率报告",
+      "belowMarket": "低于市场 ({{count}})",
+      "aboveMarket": "高于市场 ({{count}})"
+    },
+    "columns": {
+      "jobTitle": "职位名称",
+      "department": "部门",
+      "location": "地点",
+      "p50Median": "P50（中位数）",
+      "source": "来源",
+      "effective": "生效日期",
+      "employee": "员工",
+      "marketP50": "市场P50",
+      "compaRatio": "薪酬比率",
+      "position": "市场位置"
+    },
+    "empty": {
+      "benchmarks": "尚未添加基准",
+      "employees": "没有可用的员工数据",
+      "belowMarket": "没有员工低于市场水平",
+      "aboveMarket": "没有员工高于市场水平"
+    },
+    "summary": {
+      "employeesTotal": "名员工",
+      "matchedToBenchmarks": "名员工已匹配基准",
+      "withoutBenchmarkData": "名员工没有基准数据"
+    },
+    "labels": {
+      "noBenchmark": "无基准",
+      "notAvailable": "不适用",
+      "noData": "无数据",
+      "below": "低于",
+      "above": "高于",
+      "atMarket": "符合市场"
+    },
+    "actions": {
+      "edit": "编辑",
+      "delete": "删除"
+    },
+    "messages": {
+      "validPercentiles": "请输入有效的P25、P50和P75金额",
+      "nonNegative": "百分位值不能为负数",
+      "ordered": "百分位必须按以下顺序：P25 ≤ P50 ≤ P75",
+      "updated": "基准已更新",
+      "created": "基准已创建",
+      "deleted": "基准已删除",
+      "failed": "操作失败"
+    },
+    "modal": {
+      "editTitle": "编辑薪酬基准",
+      "addTitle": "添加薪酬基准",
+      "jobTitle": "职位名称",
+      "jobTitlePlaceholder": "例如：软件工程师",
+      "department": "部门",
+      "selectDepartment": "选择部门...",
+      "noDepartments": "未配置部门",
+      "location": "地点",
+      "locationPlaceholder": "例如：班加罗尔",
+      "p25Annual": "P25（年薪）",
+      "p50Annual": "P50中位数（年薪）",
+      "p75Annual": "P75（年薪）",
+      "p25Placeholder": "例如 800000",
+      "p50Placeholder": "例如 1200000",
+      "p75Placeholder": "例如 1800000",
+      "source": "来源",
+      "sourcePlaceholder": "例如：Glassdoor 2026",
+      "effectiveDate": "生效日期",
+      "cancel": "取消",
+      "updateBenchmark": "更新基准",
+      "saveBenchmark": "保存基准"
+    }
+  },
+  "payEquityPage": {
+    "title": "薪酬公平性分析",
+    "description": "按性别、部门和职位分析薪酬公平性",
+    "stats": {
+      "employeesAnalyzed": "已分析员工",
+      "medianSalary": "薪资中位数",
+      "meanPayGap": "平均薪酬差距",
+      "medianPayGap": "薪酬差距中位数"
+    },
+    "tabs": {
+      "overview": "分析概览",
+      "compliance": "合规报告"
+    },
+    "gender": {
+      "title": "性别薪酬差距分析",
+      "maleEmployees": "男性员工",
+      "femaleEmployees": "女性员工",
+      "maleMeanSalary": "男性平均薪资",
+      "femaleMeanSalary": "女性平均薪资",
+      "menPaidMore": "男性平均薪资更高",
+      "womenPaidMore": "女性平均薪资更高",
+      "noGap": "未检测到差距"
+    },
+    "department": {
+      "title": "部门分析",
+      "department": "部门",
+      "employees": "员工",
+      "meanSalary": "平均薪资",
+      "median": "中位数",
+      "min": "最低",
+      "max": "最高",
+      "spread": "差幅"
+    },
+    "role": {
+      "title": "职位分析",
+      "designation": "职位",
+      "count": "人数",
+      "mean": "平均值",
+      "median": "中位数"
+    },
+    "compliance": {
+      "title": "合规报告",
+      "generated": "生成日期",
+      "findings": "发现",
+      "recommendations": "建议",
+      "notAvailable": "不适用"
+    },
+    "complianceMessages": {
+      "significantMean": "检测到显著的平均薪酬差距：{{value}}%（{{group}}）",
+      "significantMedian": "检测到显著的薪酬差距中位数：{{value}}%",
+      "menPaidMore": "男性薪资更高",
+      "womenPaidMore": "女性薪资更高",
+      "highVariance": "部门“{{department}}”的薪资差异较大（CV：{{value}}%）",
+      "acceptableGap": "薪酬差距处于可接受范围内（5%以内）",
+      "noConcerns": "未发现显著的薪酬公平性问题",
+      "reviewDepartment": "审查部门“{{department}}”的薪资区间，以确保内部公平",
+      "reviewCompensation": "详细审查存在显著差距的职位薪酬",
+      "continueMonitoring": "继续按季度监测薪酬公平性"
+    }
+  },
   "payrollRuns": {
     "title": "薪资批次",
     "description": "月度薪资处理",

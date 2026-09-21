@@ -557,6 +557,392 @@
     "adminPanel": "Admin Panel",
     "profile": "Profile"
   },
+  "myProfile": {
+    "title": "My Profile",
+    "notFound": "Profile not found",
+    "notAvailable": "N/A",
+    "cancel": "Cancel",
+    "requestUpdate": "Request Update",
+    "pendingBankRequest": "You have a pending bank update request awaiting admin approval.",
+    "status": { "active": "Active", "inactive": "Inactive" },
+    "taxRegime": { "new": "New Tax Regime", "old": "Old Tax Regime" },
+    "sections": {
+      "personalDetails": "Personal Details",
+      "employment": "Employment",
+      "bankDetails": "Bank Details",
+      "statutoryDetails": "Statutory Details",
+      "security": "Security"
+    },
+    "fields": {
+      "email": "Email",
+      "phone": "Phone",
+      "dateOfBirth": "Date of Birth",
+      "gender": "Gender",
+      "employeeCode": "Employee Code",
+      "department": "Department",
+      "designation": "Designation",
+      "employmentType": "Employment Type",
+      "dateOfJoining": "Date of Joining",
+      "bank": "Bank",
+      "accountNumber": "Account Number",
+      "ifsc": "IFSC",
+      "pan": "PAN",
+      "uan": "UAN",
+      "pfNumber": "PF Number",
+      "password": "Password"
+    },
+    "values": {
+      "gender": {
+        "female": "Female",
+        "male": "Male",
+        "non_binary": "Non-binary",
+        "other": "Other"
+      },
+      "employmentTypes": {
+        "full_time": "Full Time",
+        "part_time": "Part Time",
+        "contract": "Contract",
+        "intern": "Intern",
+        "consultant": "Consultant"
+      }
+    },
+    "security": {
+      "changePasswordHelp": "Change your account password",
+      "changePassword": "Change Password"
+    },
+    "bankModal": {
+      "title": "Request Bank Details Update",
+      "reviewNotice": "Your request will be reviewed by HR/Admin before the changes take effect.",
+      "newBankName": "New Bank Name",
+      "bankPlaceholder": "e.g. HDFC Bank",
+      "newAccountNumber": "New Account Number",
+      "accountPlaceholder": "e.g. 1234567890",
+      "newIfscCode": "New IFSC Code",
+      "ifscPlaceholder": "e.g. HDFC0001234",
+      "ifscValidation": "IFSC must be 11 characters: 4 letters + '0' + 6 letters/digits (e.g. HDFC0001234).",
+      "accountType": "Account Type",
+      "accountTypes": { "savings": "Savings", "current": "Current", "salary": "Salary Account" },
+      "reason": "Reason for Change",
+      "reasonPlaceholder": "e.g. Switched to a new bank",
+      "submit": "Submit Request",
+      "success": "Bank update request submitted for approval",
+      "failure": "Failed to submit request"
+    },
+    "passwordModal": {
+      "title": "Change Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "mismatch": "Passwords don't match",
+      "success": "Password changed",
+      "failure": "Failed to change password",
+      "submit": "Change Password"
+    }
+  },
+  "totalRewardsPage": {
+    "title": "Total Rewards Statements",
+    "description": "Generate comprehensive compensation and benefits statements for employees",
+    "printPdf": "Print / PDF",
+    "selectEmployee": "Select Employee",
+    "chooseEmployee": "Choose an employee…",
+    "searchEmployee": "Search by name, designation, or code…",
+    "noEmployeeMatches": "No employees match your search",
+    "employeesAvailable_one": "{{count}} employee available",
+    "employeesAvailable_other": "{{count}} employees available",
+    "unnamedEmployee": "Unnamed employee",
+    "totalRewardsValue": "Total Rewards Value",
+    "financialYear": "FY {{year}}",
+    "directCompensation": "Direct Compensation",
+    "benefitsValue": "Benefits Value",
+    "ytdNetPay": "YTD Net Pay",
+    "reimbursements": "Reimbursements",
+    "salaryBreakdown": "Salary Breakdown",
+    "perMonth": "/mo",
+    "annualCtc": "Annual CTC",
+    "benefitsEnrollment": "Benefits Enrollment",
+    "noBenefits": "No benefits enrolled",
+    "perYear": "/yr",
+    "totalEmployerContribution": "Total Employer Contribution",
+    "ytdEarnings": "Year-to-Date Earnings",
+    "monthsProcessed_one": "{{count}} month processed",
+    "monthsProcessed_other": "{{count}} months processed",
+    "grossEarnings": "Gross Earnings",
+    "totalDeductions": "Total Deductions",
+    "netPay": "Net Pay",
+    "taxPaid": "Tax Paid",
+    "activeLoans": "Active Loans",
+    "outstanding": "Outstanding",
+    "emi": "EMI",
+    "selectPrompt": "Select an employee to generate their Total Rewards Statement",
+    "components": {
+      "basic": "Basic Salary",
+      "hra": "House Rent Allowance",
+      "sa": "Special Allowance"
+    },
+    "benefitTypes": {
+      "health": "Health",
+      "life": "Life",
+      "dental": "Dental",
+      "vision": "Vision",
+      "accident": "Accident"
+    },
+    "coverageTypes": {
+      "employee": "Employee",
+      "employee_spouse": "Employee + Spouse",
+      "family": "Family",
+      "parents": "Parents"
+    },
+    "loanTypes": {
+      "personal_loan": "Personal Loan",
+      "salary_advance": "Salary Advance",
+      "home_loan": "Home Loan",
+      "car_loan": "Car Loan",
+      "education_loan": "Education Loan"
+    }
+  },
+  "benefitsPage": {
+    "title": "Benefits Administration",
+    "description": "Manage benefit plans and employee enrollments",
+    "enrollEmployee": "Enroll Employee",
+    "newPlan": "New Plan",
+    "stats": {
+      "activePlans": "Active Plans",
+      "enrolled": "Enrolled",
+      "pending": "Pending",
+      "monthlyEmployerCost": "Monthly Employer Cost"
+    },
+    "tabs": {
+      "plans": "Plans ({{count}})",
+      "enrollments": "Enrollments ({{count}})",
+      "pending": "Pending ({{count}})"
+    },
+    "columns": {
+      "planName": "Plan Name",
+      "type": "Type",
+      "provider": "Provider",
+      "premium": "Premium",
+      "employerShare": "Employer Share",
+      "status": "Status",
+      "employee": "Employee",
+      "plan": "Plan",
+      "coverage": "Coverage",
+      "employeeShare": "Employee Share"
+    },
+    "empty": {
+      "plans": "No benefit plans created yet",
+      "enrollments": "No enrollments yet",
+      "pending": "No pending enrollments"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "enrolled": "Enrolled",
+      "pending": "Pending",
+      "cancelled": "Cancelled"
+    },
+    "actions": {
+      "edit": "Edit",
+      "deactivate": "Deactivate",
+      "cancel": "Cancel"
+    },
+    "planTypes": {
+      "health": "Health",
+      "dental": "Dental",
+      "vision": "Vision",
+      "life": "Life Insurance",
+      "disability": "Disability",
+      "retirement": "Retirement"
+    },
+    "coverageTypes": {
+      "individual": "Individual",
+      "family": "Family",
+      "individual_plus_spouse": "Individual + Spouse"
+    },
+    "fallbackUser": "User #{{id}}",
+    "messages": {
+      "invalidEnrollmentDates": "Enrollment end date cannot be before start date",
+      "planUpdated": "Benefit plan updated",
+      "planCreated": "Benefit plan created",
+      "savePlanFailed": "Failed to save plan",
+      "deactivateConfirm": "Deactivate this benefit plan? Existing enrollments are unaffected.",
+      "planDeactivated": "Benefit plan deactivated",
+      "deactivateFailed": "Failed to deactivate plan",
+      "employeeEnrolled": "Employee enrolled in benefit plan",
+      "enrollFailed": "Failed to enroll",
+      "enrollmentCancelled": "Enrollment cancelled",
+      "actionFailed": "Action failed"
+    },
+    "planModal": {
+      "editTitle": "Edit Benefit Plan",
+      "createTitle": "Create Benefit Plan",
+      "planName": "Plan Name",
+      "type": "Type",
+      "provider": "Provider",
+      "description": "Description",
+      "monthlyPremium": "Monthly Premium",
+      "employerContribution": "Employer Contribution",
+      "enrollmentStart": "Enrollment Start",
+      "enrollmentEnd": "Enrollment End",
+      "cancel": "Cancel",
+      "updatePlan": "Update Plan",
+      "createPlan": "Create Plan"
+    },
+    "enrollModal": {
+      "title": "Enroll Employee in Benefit Plan",
+      "employee": "Employee",
+      "benefitPlan": "Benefit Plan",
+      "coverageType": "Coverage Type",
+      "startDate": "Start Date",
+      "employeePremiumShare": "Employee Premium Share",
+      "employerPremiumShare": "Employer Premium Share",
+      "cancel": "Cancel",
+      "submit": "Enroll"
+    }
+  },
+  "benchmarksPage": {
+    "title": "Compensation Benchmarking",
+    "description": "Compare employee pay against market data",
+    "addBenchmark": "Add Benchmark",
+    "stats": {
+      "benchmarks": "Benchmarks",
+      "avgCompaRatio": "Avg Compa-Ratio",
+      "belowMarket": "Below Market",
+      "aboveMarket": "Above Market"
+    },
+    "tabs": {
+      "marketBenchmarks": "Market Benchmarks ({{count}})",
+      "compaRatioReport": "Compa-Ratio Report",
+      "belowMarket": "Below Market ({{count}})",
+      "aboveMarket": "Above Market ({{count}})"
+    },
+    "columns": {
+      "jobTitle": "Job Title",
+      "department": "Department",
+      "location": "Location",
+      "p50Median": "P50 (Median)",
+      "source": "Source",
+      "effective": "Effective",
+      "employee": "Employee",
+      "marketP50": "Market P50",
+      "compaRatio": "Compa-Ratio",
+      "position": "Position"
+    },
+    "empty": {
+      "benchmarks": "No benchmarks added yet",
+      "employees": "No employee data available",
+      "belowMarket": "No employees below market",
+      "aboveMarket": "No employees above market"
+    },
+    "summary": {
+      "employeesTotal": "employees total",
+      "matchedToBenchmarks": "matched to benchmarks",
+      "withoutBenchmarkData": "without benchmark data"
+    },
+    "labels": {
+      "noBenchmark": "No benchmark",
+      "notAvailable": "N/A",
+      "noData": "No Data",
+      "below": "Below",
+      "above": "Above",
+      "atMarket": "At Market"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "messages": {
+      "validPercentiles": "Please enter valid P25, P50 and P75 amounts",
+      "nonNegative": "Percentile values cannot be negative",
+      "ordered": "Percentiles must be ordered: P25 ≤ P50 ≤ P75",
+      "updated": "Benchmark updated",
+      "created": "Benchmark created",
+      "deleted": "Benchmark deleted",
+      "failed": "Action failed"
+    },
+    "modal": {
+      "editTitle": "Edit Compensation Benchmark",
+      "addTitle": "Add Compensation Benchmark",
+      "jobTitle": "Job Title",
+      "jobTitlePlaceholder": "e.g., Software Engineer",
+      "department": "Department",
+      "selectDepartment": "Select department...",
+      "noDepartments": "No departments configured",
+      "location": "Location",
+      "locationPlaceholder": "e.g., Bangalore",
+      "p25Annual": "P25 (Annual)",
+      "p50Annual": "P50 Median (Annual)",
+      "p75Annual": "P75 (Annual)",
+      "p25Placeholder": "e.g. 800000",
+      "p50Placeholder": "e.g. 1200000",
+      "p75Placeholder": "e.g. 1800000",
+      "source": "Source",
+      "sourcePlaceholder": "e.g., Glassdoor 2026",
+      "effectiveDate": "Effective Date",
+      "cancel": "Cancel",
+      "updateBenchmark": "Update Benchmark",
+      "saveBenchmark": "Save Benchmark"
+    }
+  },
+  "payEquityPage": {
+    "title": "Pay Equity Analysis",
+    "description": "Analyze compensation fairness across gender, department, and role",
+    "stats": {
+      "employeesAnalyzed": "Employees Analyzed",
+      "medianSalary": "Median Salary",
+      "meanPayGap": "Mean Pay Gap",
+      "medianPayGap": "Median Pay Gap"
+    },
+    "tabs": {
+      "overview": "Analysis Overview",
+      "compliance": "Compliance Report"
+    },
+    "gender": {
+      "title": "Gender Pay Gap Analysis",
+      "maleEmployees": "Male Employees",
+      "femaleEmployees": "Female Employees",
+      "maleMeanSalary": "Male Mean Salary",
+      "femaleMeanSalary": "Female Mean Salary",
+      "menPaidMore": "Men are paid more on average",
+      "womenPaidMore": "Women are paid more on average",
+      "noGap": "No gap detected"
+    },
+    "department": {
+      "title": "Department Analysis",
+      "department": "Department",
+      "employees": "Employees",
+      "meanSalary": "Mean Salary",
+      "median": "Median",
+      "min": "Min",
+      "max": "Max",
+      "spread": "Spread"
+    },
+    "role": {
+      "title": "Role / Designation Analysis",
+      "designation": "Designation",
+      "count": "Count",
+      "mean": "Mean",
+      "median": "Median"
+    },
+    "compliance": {
+      "title": "Compliance Report",
+      "generated": "Generated",
+      "findings": "Findings",
+      "recommendations": "Recommendations",
+      "notAvailable": "N/A"
+    },
+    "complianceMessages": {
+      "significantMean": "Significant mean pay gap detected: {{value}}% ({{group}})",
+      "significantMedian": "Significant median pay gap detected: {{value}}%",
+      "menPaidMore": "men paid more",
+      "womenPaidMore": "women paid more",
+      "highVariance": "High salary variance in department \"{{department}}\" (CV: {{value}}%)",
+      "acceptableGap": "Pay gap is within acceptable range (within 5%)",
+      "noConcerns": "No significant pay equity concerns detected",
+      "reviewDepartment": "Review salary bands for department \"{{department}}\" to ensure internal equity",
+      "reviewCompensation": "Conduct detailed review of compensation for roles where significant gaps exist",
+      "continueMonitoring": "Continue monitoring pay equity on a quarterly basis"
+    }
+  },
   "payrollRuns": {
     "title": "Payroll Runs",
     "description": "Monthly payroll processing",

@@ -535,6 +535,388 @@
     "setup": "設定"
   },
   "selfService": { "employeePortal": "従業員ポータル", "adminPanel": "管理パネル" },
+  "myProfile": {
+    "title": "マイプロフィール",
+    "notFound": "プロフィールが見つかりません",
+    "notAvailable": "利用不可",
+    "cancel": "キャンセル",
+    "requestUpdate": "更新を申請",
+    "pendingBankRequest": "銀行情報の更新申請は管理者の承認待ちです。",
+    "status": { "active": "有効", "inactive": "無効" },
+    "taxRegime": { "new": "新税制", "old": "旧税制" },
+    "sections": {
+      "personalDetails": "個人情報",
+      "employment": "雇用情報",
+      "bankDetails": "銀行情報",
+      "statutoryDetails": "法定情報",
+      "security": "セキュリティ"
+    },
+    "fields": {
+      "email": "メール",
+      "phone": "電話",
+      "dateOfBirth": "生年月日",
+      "gender": "性別",
+      "employeeCode": "従業員コード",
+      "department": "部門",
+      "designation": "役職",
+      "employmentType": "雇用形態",
+      "dateOfJoining": "入社日",
+      "bank": "銀行",
+      "accountNumber": "口座番号",
+      "ifsc": "IFSC",
+      "pan": "PAN",
+      "uan": "UAN",
+      "pfNumber": "PF番号",
+      "password": "パスワード"
+    },
+    "values": {
+      "gender": {
+        "female": "女性",
+        "male": "男性",
+        "non_binary": "ノンバイナリー",
+        "other": "その他"
+      },
+      "employmentTypes": {
+        "full_time": "正社員",
+        "part_time": "パートタイム",
+        "contract": "契約",
+        "intern": "インターン",
+        "consultant": "コンサルタント"
+      }
+    },
+    "security": {
+      "changePasswordHelp": "アカウントのパスワードを変更します",
+      "changePassword": "パスワードを変更"
+    },
+    "bankModal": {
+      "title": "銀行情報の更新を申請",
+      "reviewNotice": "変更が反映される前に人事または管理者が申請を確認します。",
+      "newBankName": "新しい銀行名",
+      "bankPlaceholder": "例：HDFC Bank",
+      "newAccountNumber": "新しい口座番号",
+      "accountPlaceholder": "例：1234567890",
+      "newIfscCode": "新しいIFSCコード",
+      "ifscPlaceholder": "例：HDFC0001234",
+      "ifscValidation": "IFSCは11文字（英字4文字 + '0' + 英数字6文字）で入力してください（例：HDFC0001234）。",
+      "accountType": "口座種別",
+      "accountTypes": { "savings": "普通預金", "current": "当座預金", "salary": "給与口座" },
+      "reason": "変更理由",
+      "reasonPlaceholder": "例：新しい銀行へ変更",
+      "submit": "申請を送信",
+      "success": "銀行情報の更新申請を承認待ちとして送信しました",
+      "failure": "申請を送信できませんでした"
+    },
+    "passwordModal": {
+      "title": "パスワードを変更",
+      "currentPassword": "現在のパスワード",
+      "newPassword": "新しいパスワード",
+      "confirmNewPassword": "新しいパスワードを確認",
+      "mismatch": "パスワードが一致しません",
+      "success": "パスワードを変更しました",
+      "failure": "パスワードを変更できませんでした",
+      "submit": "パスワードを変更"
+    }
+  },
+  "totalRewardsPage": {
+    "title": "総報酬明細",
+    "description": "従業員の報酬と福利厚生をまとめた明細を作成します",
+    "printPdf": "印刷 / PDF",
+    "selectEmployee": "従業員を選択",
+    "chooseEmployee": "従業員を選択…",
+    "searchEmployee": "名前、役職、コードで検索…",
+    "noEmployeeMatches": "検索に一致する従業員はいません",
+    "employeesAvailable_one": "{{count}}名の従業員が利用可能",
+    "employeesAvailable_other": "{{count}}名の従業員が利用可能",
+    "unnamedEmployee": "名前のない従業員",
+    "totalRewardsValue": "総報酬額",
+    "financialYear": "会計年度 {{year}}",
+    "directCompensation": "直接報酬",
+    "benefitsValue": "福利厚生額",
+    "ytdNetPay": "年初来手取り額",
+    "reimbursements": "経費精算",
+    "salaryBreakdown": "給与内訳",
+    "perMonth": "/月",
+    "annualCtc": "年間CTC",
+    "benefitsEnrollment": "福利厚生加入",
+    "noBenefits": "加入中の福利厚生はありません",
+    "perYear": "/年",
+    "totalEmployerContribution": "会社負担額合計",
+    "ytdEarnings": "年初来収入",
+    "monthsProcessed_one": "{{count}}か月処理済み",
+    "monthsProcessed_other": "{{count}}か月処理済み",
+    "grossEarnings": "総支給額",
+    "totalDeductions": "控除合計",
+    "netPay": "手取り額",
+    "taxPaid": "納税額",
+    "activeLoans": "返済中のローン",
+    "outstanding": "残高",
+    "emi": "月額返済",
+    "selectPrompt": "従業員を選択して総報酬明細を作成してください",
+    "components": { "basic": "基本給", "hra": "住宅手当", "sa": "特別手当" },
+    "benefitTypes": {
+      "health": "医療",
+      "life": "生命",
+      "dental": "歯科",
+      "vision": "眼科",
+      "accident": "傷害"
+    },
+    "coverageTypes": {
+      "employee": "本人",
+      "employee_spouse": "本人 + 配偶者",
+      "family": "家族",
+      "parents": "両親"
+    },
+    "loanTypes": {
+      "personal_loan": "個人ローン",
+      "salary_advance": "給与前払い",
+      "home_loan": "住宅ローン",
+      "car_loan": "自動車ローン",
+      "education_loan": "教育ローン"
+    }
+  },
+  "benefitsPage": {
+    "title": "福利厚生管理",
+    "description": "福利厚生プランと従業員の加入を管理します",
+    "enrollEmployee": "従業員を加入",
+    "newPlan": "新しいプラン",
+    "stats": {
+      "activePlans": "有効なプラン",
+      "enrolled": "加入済み",
+      "pending": "保留中",
+      "monthlyEmployerCost": "月間会社負担額"
+    },
+    "tabs": {
+      "plans": "プラン ({{count}})",
+      "enrollments": "加入 ({{count}})",
+      "pending": "保留中 ({{count}})"
+    },
+    "columns": {
+      "planName": "プラン名",
+      "type": "種類",
+      "provider": "提供会社",
+      "premium": "保険料",
+      "employerShare": "会社負担",
+      "status": "ステータス",
+      "employee": "従業員",
+      "plan": "プラン",
+      "coverage": "補償範囲",
+      "employeeShare": "従業員負担"
+    },
+    "empty": {
+      "plans": "福利厚生プランはまだ作成されていません",
+      "enrollments": "加入データはまだありません",
+      "pending": "保留中の加入はありません"
+    },
+    "status": {
+      "active": "有効",
+      "inactive": "無効",
+      "enrolled": "加入済み",
+      "pending": "保留中",
+      "cancelled": "キャンセル済み"
+    },
+    "actions": {
+      "edit": "編集",
+      "deactivate": "無効化",
+      "cancel": "キャンセル"
+    },
+    "planTypes": {
+      "health": "健康保険",
+      "dental": "歯科",
+      "vision": "視力",
+      "life": "生命保険",
+      "disability": "障害保険",
+      "retirement": "退職年金"
+    },
+    "coverageTypes": {
+      "individual": "本人",
+      "family": "家族",
+      "individual_plus_spouse": "本人 + 配偶者"
+    },
+    "fallbackUser": "ユーザー #{{id}}",
+    "messages": {
+      "invalidEnrollmentDates": "加入終了日は開始日より前に設定できません",
+      "planUpdated": "福利厚生プランを更新しました",
+      "planCreated": "福利厚生プランを作成しました",
+      "savePlanFailed": "プランを保存できませんでした",
+      "deactivateConfirm": "この福利厚生プランを無効にしますか？既存の加入には影響しません。",
+      "planDeactivated": "福利厚生プランを無効にしました",
+      "deactivateFailed": "プランを無効にできませんでした",
+      "employeeEnrolled": "従業員を福利厚生プランに加入させました",
+      "enrollFailed": "加入処理に失敗しました",
+      "enrollmentCancelled": "加入をキャンセルしました",
+      "actionFailed": "操作に失敗しました"
+    },
+    "planModal": {
+      "editTitle": "福利厚生プランを編集",
+      "createTitle": "福利厚生プランを作成",
+      "planName": "プラン名",
+      "type": "種類",
+      "provider": "提供会社",
+      "description": "説明",
+      "monthlyPremium": "月額保険料",
+      "employerContribution": "会社負担額",
+      "enrollmentStart": "加入開始",
+      "enrollmentEnd": "加入終了",
+      "cancel": "キャンセル",
+      "updatePlan": "プランを更新",
+      "createPlan": "プランを作成"
+    },
+    "enrollModal": {
+      "title": "従業員を福利厚生プランに加入",
+      "employee": "従業員",
+      "benefitPlan": "福利厚生プラン",
+      "coverageType": "補償タイプ",
+      "startDate": "開始日",
+      "employeePremiumShare": "従業員の保険料負担",
+      "employerPremiumShare": "会社の保険料負担",
+      "cancel": "キャンセル",
+      "submit": "加入"
+    }
+  },
+  "benchmarksPage": {
+    "title": "報酬ベンチマーキング",
+    "description": "従業員の報酬を市場データと比較します",
+    "addBenchmark": "ベンチマークを追加",
+    "stats": {
+      "benchmarks": "ベンチマーク",
+      "avgCompaRatio": "平均コンパレシオ",
+      "belowMarket": "市場水準未満",
+      "aboveMarket": "市場水準超過"
+    },
+    "tabs": {
+      "marketBenchmarks": "市場ベンチマーク ({{count}})",
+      "compaRatioReport": "コンパレシオレポート",
+      "belowMarket": "市場水準未満 ({{count}})",
+      "aboveMarket": "市場水準超過 ({{count}})"
+    },
+    "columns": {
+      "jobTitle": "役職名",
+      "department": "部門",
+      "location": "勤務地",
+      "p50Median": "P50（中央値）",
+      "source": "情報源",
+      "effective": "発効日",
+      "employee": "従業員",
+      "marketP50": "市場P50",
+      "compaRatio": "コンパレシオ",
+      "position": "市場ポジション"
+    },
+    "empty": {
+      "benchmarks": "ベンチマークはまだ追加されていません",
+      "employees": "従業員データがありません",
+      "belowMarket": "市場水準未満の従業員はいません",
+      "aboveMarket": "市場水準を超える従業員はいません"
+    },
+    "summary": {
+      "employeesTotal": "人の従業員",
+      "matchedToBenchmarks": "人がベンチマークに一致",
+      "withoutBenchmarkData": "人にベンチマークデータなし"
+    },
+    "labels": {
+      "noBenchmark": "ベンチマークなし",
+      "notAvailable": "該当なし",
+      "noData": "データなし",
+      "below": "未満",
+      "above": "超過",
+      "atMarket": "市場水準"
+    },
+    "actions": {
+      "edit": "編集",
+      "delete": "削除"
+    },
+    "messages": {
+      "validPercentiles": "有効なP25、P50、P75の金額を入力してください",
+      "nonNegative": "パーセンタイル値を負の数にはできません",
+      "ordered": "パーセンタイルは P25 ≤ P50 ≤ P75 の順にしてください",
+      "updated": "ベンチマークを更新しました",
+      "created": "ベンチマークを作成しました",
+      "deleted": "ベンチマークを削除しました",
+      "failed": "操作に失敗しました"
+    },
+    "modal": {
+      "editTitle": "報酬ベンチマークを編集",
+      "addTitle": "報酬ベンチマークを追加",
+      "jobTitle": "役職名",
+      "jobTitlePlaceholder": "例：ソフトウェアエンジニア",
+      "department": "部門",
+      "selectDepartment": "部門を選択...",
+      "noDepartments": "部門が設定されていません",
+      "location": "勤務地",
+      "locationPlaceholder": "例：バンガロール",
+      "p25Annual": "P25（年額）",
+      "p50Annual": "P50中央値（年額）",
+      "p75Annual": "P75（年額）",
+      "p25Placeholder": "例：800000",
+      "p50Placeholder": "例：1200000",
+      "p75Placeholder": "例：1800000",
+      "source": "情報源",
+      "sourcePlaceholder": "例：Glassdoor 2026",
+      "effectiveDate": "発効日",
+      "cancel": "キャンセル",
+      "updateBenchmark": "ベンチマークを更新",
+      "saveBenchmark": "ベンチマークを保存"
+    }
+  },
+  "payEquityPage": {
+    "title": "賃金公平性分析",
+    "description": "性別、部門、役割ごとの報酬の公平性を分析します",
+    "stats": {
+      "employeesAnalyzed": "分析対象従業員",
+      "medianSalary": "給与中央値",
+      "meanPayGap": "平均賃金格差",
+      "medianPayGap": "賃金格差中央値"
+    },
+    "tabs": {
+      "overview": "分析概要",
+      "compliance": "コンプライアンスレポート"
+    },
+    "gender": {
+      "title": "男女間賃金格差分析",
+      "maleEmployees": "男性従業員",
+      "femaleEmployees": "女性従業員",
+      "maleMeanSalary": "男性の平均給与",
+      "femaleMeanSalary": "女性の平均給与",
+      "menPaidMore": "男性の平均給与が高くなっています",
+      "womenPaidMore": "女性の平均給与が高くなっています",
+      "noGap": "格差は検出されませんでした"
+    },
+    "department": {
+      "title": "部門分析",
+      "department": "部門",
+      "employees": "従業員",
+      "meanSalary": "平均給与",
+      "median": "中央値",
+      "min": "最小",
+      "max": "最大",
+      "spread": "範囲"
+    },
+    "role": {
+      "title": "役割 / 役職分析",
+      "designation": "役職",
+      "count": "人数",
+      "mean": "平均",
+      "median": "中央値"
+    },
+    "compliance": {
+      "title": "コンプライアンスレポート",
+      "generated": "生成日",
+      "findings": "所見",
+      "recommendations": "推奨事項",
+      "notAvailable": "該当なし"
+    },
+    "complianceMessages": {
+      "significantMean": "重大な平均賃金格差を検出：{{value}}%（{{group}}）",
+      "significantMedian": "重大な賃金格差中央値を検出：{{value}}%",
+      "menPaidMore": "男性の給与が高い",
+      "womenPaidMore": "女性の給与が高い",
+      "highVariance": "部門「{{department}}」で給与のばらつきが大きくなっています（CV：{{value}}%）",
+      "acceptableGap": "賃金格差は許容範囲内です（5%以内）",
+      "noConcerns": "賃金公平性に関する重大な懸念は検出されませんでした",
+      "reviewDepartment": "内部公平性を確保するため、部門「{{department}}」の給与帯を見直してください",
+      "reviewCompensation": "重大な格差がある役割の報酬を詳細に見直してください",
+      "continueMonitoring": "四半期ごとの賃金公平性の監視を継続してください"
+    }
+  },
   "payrollRuns": {
     "title": "給与処理",
     "description": "月次給与処理",

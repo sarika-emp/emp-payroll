@@ -532,6 +532,383 @@
     "setup": "सेटअप"
   },
   "selfService": { "employeePortal": "कर्मचारी पोर्टल", "adminPanel": "एडमिन पैनल" },
+  "myProfile": {
+    "title": "मेरी प्रोफ़ाइल",
+    "notFound": "प्रोफ़ाइल नहीं मिली",
+    "notAvailable": "उपलब्ध नहीं",
+    "cancel": "रद्द करें",
+    "requestUpdate": "अपडेट का अनुरोध करें",
+    "pendingBankRequest": "आपका बैंक विवरण अपडेट अनुरोध व्यवस्थापक की मंज़ूरी की प्रतीक्षा में है।",
+    "status": { "active": "सक्रिय", "inactive": "निष्क्रिय" },
+    "taxRegime": { "new": "नई कर व्यवस्था", "old": "पुरानी कर व्यवस्था" },
+    "sections": {
+      "personalDetails": "व्यक्तिगत विवरण",
+      "employment": "रोज़गार",
+      "bankDetails": "बैंक विवरण",
+      "statutoryDetails": "वैधानिक विवरण",
+      "security": "सुरक्षा"
+    },
+    "fields": {
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "dateOfBirth": "जन्म तिथि",
+      "gender": "लिंग",
+      "employeeCode": "कर्मचारी कोड",
+      "department": "विभाग",
+      "designation": "पद",
+      "employmentType": "रोज़गार का प्रकार",
+      "dateOfJoining": "कार्यग्रहण तिथि",
+      "bank": "बैंक",
+      "accountNumber": "खाता संख्या",
+      "ifsc": "IFSC",
+      "pan": "PAN",
+      "uan": "UAN",
+      "pfNumber": "PF संख्या",
+      "password": "पासवर्ड"
+    },
+    "values": {
+      "gender": { "female": "महिला", "male": "पुरुष", "non_binary": "नॉन-बाइनरी", "other": "अन्य" },
+      "employmentTypes": {
+        "full_time": "पूर्णकालिक",
+        "part_time": "अंशकालिक",
+        "contract": "अनुबंध",
+        "intern": "प्रशिक्षु",
+        "consultant": "सलाहकार"
+      }
+    },
+    "security": {
+      "changePasswordHelp": "अपने खाते का पासवर्ड बदलें",
+      "changePassword": "पासवर्ड बदलें"
+    },
+    "bankModal": {
+      "title": "बैंक विवरण अपडेट का अनुरोध",
+      "reviewNotice": "परिवर्तन लागू होने से पहले HR/व्यवस्थापक आपके अनुरोध की समीक्षा करेंगे।",
+      "newBankName": "नए बैंक का नाम",
+      "bankPlaceholder": "जैसे HDFC Bank",
+      "newAccountNumber": "नई खाता संख्या",
+      "accountPlaceholder": "जैसे 1234567890",
+      "newIfscCode": "नया IFSC कोड",
+      "ifscPlaceholder": "जैसे HDFC0001234",
+      "ifscValidation": "IFSC में 11 अक्षर होने चाहिए: 4 अक्षर + '0' + 6 अक्षर/अंक (जैसे HDFC0001234)।",
+      "accountType": "खाते का प्रकार",
+      "accountTypes": { "savings": "बचत", "current": "चालू", "salary": "वेतन खाता" },
+      "reason": "बदलाव का कारण",
+      "reasonPlaceholder": "जैसे नए बैंक में स्थानांतरण",
+      "submit": "अनुरोध भेजें",
+      "success": "बैंक अपडेट अनुरोध मंज़ूरी के लिए भेजा गया",
+      "failure": "अनुरोध भेजा नहीं जा सका"
+    },
+    "passwordModal": {
+      "title": "पासवर्ड बदलें",
+      "currentPassword": "वर्तमान पासवर्ड",
+      "newPassword": "नया पासवर्ड",
+      "confirmNewPassword": "नए पासवर्ड की पुष्टि करें",
+      "mismatch": "पासवर्ड मेल नहीं खाते",
+      "success": "पासवर्ड बदल दिया गया",
+      "failure": "पासवर्ड बदला नहीं जा सका",
+      "submit": "पासवर्ड बदलें"
+    }
+  },
+  "totalRewardsPage": {
+    "title": "कुल पुरस्कार विवरण",
+    "description": "कर्मचारियों के लिए व्यापक वेतन और लाभ विवरण तैयार करें",
+    "printPdf": "प्रिंट / PDF",
+    "selectEmployee": "कर्मचारी चुनें",
+    "chooseEmployee": "कर्मचारी चुनें…",
+    "searchEmployee": "नाम, पद या कोड से खोजें…",
+    "noEmployeeMatches": "खोज से कोई कर्मचारी मेल नहीं खाता",
+    "employeesAvailable_one": "{{count}} कर्मचारी उपलब्ध",
+    "employeesAvailable_other": "{{count}} कर्मचारी उपलब्ध",
+    "unnamedEmployee": "बिना नाम का कर्मचारी",
+    "totalRewardsValue": "कुल पुरस्कार मूल्य",
+    "financialYear": "वित्त वर्ष {{year}}",
+    "directCompensation": "प्रत्यक्ष मुआवज़ा",
+    "benefitsValue": "लाभ मूल्य",
+    "ytdNetPay": "वर्ष-से-अब-तक शुद्ध वेतन",
+    "reimbursements": "प्रतिपूर्ति",
+    "salaryBreakdown": "वेतन विवरण",
+    "perMonth": "/माह",
+    "annualCtc": "वार्षिक CTC",
+    "benefitsEnrollment": "लाभ नामांकन",
+    "noBenefits": "कोई लाभ नामांकित नहीं",
+    "perYear": "/वर्ष",
+    "totalEmployerContribution": "कुल नियोक्ता योगदान",
+    "ytdEarnings": "वर्ष-से-अब-तक आय",
+    "monthsProcessed_one": "{{count}} माह संसाधित",
+    "monthsProcessed_other": "{{count}} माह संसाधित",
+    "grossEarnings": "सकल आय",
+    "totalDeductions": "कुल कटौतियाँ",
+    "netPay": "शुद्ध वेतन",
+    "taxPaid": "भुगतान किया कर",
+    "activeLoans": "सक्रिय ऋण",
+    "outstanding": "बकाया",
+    "emi": "ईएमआई",
+    "selectPrompt": "कुल पुरस्कार विवरण तैयार करने के लिए कर्मचारी चुनें",
+    "components": { "basic": "मूल वेतन", "hra": "मकान किराया भत्ता", "sa": "विशेष भत्ता" },
+    "benefitTypes": {
+      "health": "स्वास्थ्य",
+      "life": "जीवन",
+      "dental": "दंत",
+      "vision": "दृष्टि",
+      "accident": "दुर्घटना"
+    },
+    "coverageTypes": {
+      "employee": "कर्मचारी",
+      "employee_spouse": "कर्मचारी + जीवनसाथी",
+      "family": "परिवार",
+      "parents": "माता-पिता"
+    },
+    "loanTypes": {
+      "personal_loan": "व्यक्तिगत ऋण",
+      "salary_advance": "वेतन अग्रिम",
+      "home_loan": "गृह ऋण",
+      "car_loan": "वाहन ऋण",
+      "education_loan": "शिक्षा ऋण"
+    }
+  },
+  "benefitsPage": {
+    "title": "लाभ प्रबंधन",
+    "description": "लाभ योजनाओं और कर्मचारी नामांकन का प्रबंधन करें",
+    "enrollEmployee": "कर्मचारी का नामांकन करें",
+    "newPlan": "नई योजना",
+    "stats": {
+      "activePlans": "सक्रिय योजनाएँ",
+      "enrolled": "नामांकित",
+      "pending": "लंबित",
+      "monthlyEmployerCost": "मासिक नियोक्ता लागत"
+    },
+    "tabs": {
+      "plans": "योजनाएँ ({{count}})",
+      "enrollments": "नामांकन ({{count}})",
+      "pending": "लंबित ({{count}})"
+    },
+    "columns": {
+      "planName": "योजना का नाम",
+      "type": "प्रकार",
+      "provider": "प्रदाता",
+      "premium": "प्रीमियम",
+      "employerShare": "नियोक्ता का हिस्सा",
+      "status": "स्थिति",
+      "employee": "कर्मचारी",
+      "plan": "योजना",
+      "coverage": "कवरेज",
+      "employeeShare": "कर्मचारी का हिस्सा"
+    },
+    "empty": {
+      "plans": "अभी तक कोई लाभ योजना नहीं बनाई गई",
+      "enrollments": "अभी तक कोई नामांकन नहीं है",
+      "pending": "कोई लंबित नामांकन नहीं है"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "inactive": "निष्क्रिय",
+      "enrolled": "नामांकित",
+      "pending": "लंबित",
+      "cancelled": "रद्द"
+    },
+    "actions": {
+      "edit": "संपादित करें",
+      "deactivate": "निष्क्रिय करें",
+      "cancel": "रद्द करें"
+    },
+    "planTypes": {
+      "health": "स्वास्थ्य",
+      "dental": "दंत",
+      "vision": "दृष्टि",
+      "life": "जीवन बीमा",
+      "disability": "विकलांगता",
+      "retirement": "सेवानिवृत्ति"
+    },
+    "coverageTypes": {
+      "individual": "व्यक्तिगत",
+      "family": "परिवार",
+      "individual_plus_spouse": "व्यक्तिगत + जीवनसाथी"
+    },
+    "fallbackUser": "उपयोगकर्ता #{{id}}",
+    "messages": {
+      "invalidEnrollmentDates": "नामांकन की समाप्ति तिथि प्रारंभ तिथि से पहले नहीं हो सकती",
+      "planUpdated": "लाभ योजना अपडेट हो गई",
+      "planCreated": "लाभ योजना बनाई गई",
+      "savePlanFailed": "योजना सहेजी नहीं जा सकी",
+      "deactivateConfirm": "क्या इस लाभ योजना को निष्क्रिय करें? मौजूदा नामांकन प्रभावित नहीं होंगे।",
+      "planDeactivated": "लाभ योजना निष्क्रिय कर दी गई",
+      "deactivateFailed": "योजना निष्क्रिय नहीं की जा सकी",
+      "employeeEnrolled": "कर्मचारी को लाभ योजना में नामांकित किया गया",
+      "enrollFailed": "नामांकन नहीं हो सका",
+      "enrollmentCancelled": "नामांकन रद्द किया गया",
+      "actionFailed": "कार्रवाई विफल रही"
+    },
+    "planModal": {
+      "editTitle": "लाभ योजना संपादित करें",
+      "createTitle": "लाभ योजना बनाएँ",
+      "planName": "योजना का नाम",
+      "type": "प्रकार",
+      "provider": "प्रदाता",
+      "description": "विवरण",
+      "monthlyPremium": "मासिक प्रीमियम",
+      "employerContribution": "नियोक्ता योगदान",
+      "enrollmentStart": "नामांकन प्रारंभ",
+      "enrollmentEnd": "नामांकन समाप्ति",
+      "cancel": "रद्द करें",
+      "updatePlan": "योजना अपडेट करें",
+      "createPlan": "योजना बनाएँ"
+    },
+    "enrollModal": {
+      "title": "कर्मचारी को लाभ योजना में नामांकित करें",
+      "employee": "कर्मचारी",
+      "benefitPlan": "लाभ योजना",
+      "coverageType": "कवरेज प्रकार",
+      "startDate": "प्रारंभ तिथि",
+      "employeePremiumShare": "कर्मचारी प्रीमियम हिस्सा",
+      "employerPremiumShare": "नियोक्ता प्रीमियम हिस्सा",
+      "cancel": "रद्द करें",
+      "submit": "नामांकन करें"
+    }
+  },
+  "benchmarksPage": {
+    "title": "वेतन बेंचमार्किंग",
+    "description": "कर्मचारी वेतन की बाज़ार डेटा से तुलना करें",
+    "addBenchmark": "बेंचमार्क जोड़ें",
+    "stats": {
+      "benchmarks": "बेंचमार्क",
+      "avgCompaRatio": "औसत कॉम्पा-अनुपात",
+      "belowMarket": "बाज़ार से नीचे",
+      "aboveMarket": "बाज़ार से ऊपर"
+    },
+    "tabs": {
+      "marketBenchmarks": "बाज़ार बेंचमार्क ({{count}})",
+      "compaRatioReport": "कॉम्पा-अनुपात रिपोर्ट",
+      "belowMarket": "बाज़ार से नीचे ({{count}})",
+      "aboveMarket": "बाज़ार से ऊपर ({{count}})"
+    },
+    "columns": {
+      "jobTitle": "पद का नाम",
+      "department": "विभाग",
+      "location": "स्थान",
+      "p50Median": "P50 (मध्यिका)",
+      "source": "स्रोत",
+      "effective": "प्रभावी",
+      "employee": "कर्मचारी",
+      "marketP50": "बाज़ार P50",
+      "compaRatio": "कॉम्पा-अनुपात",
+      "position": "स्थिति"
+    },
+    "empty": {
+      "benchmarks": "अभी तक कोई बेंचमार्क नहीं जोड़ा गया",
+      "employees": "कोई कर्मचारी डेटा उपलब्ध नहीं है",
+      "belowMarket": "कोई कर्मचारी बाज़ार से नीचे नहीं है",
+      "aboveMarket": "कोई कर्मचारी बाज़ार से ऊपर नहीं है"
+    },
+    "summary": {
+      "employeesTotal": "कुल कर्मचारी",
+      "matchedToBenchmarks": "बेंचमार्क से मेल खाते हैं",
+      "withoutBenchmarkData": "बेंचमार्क डेटा के बिना"
+    },
+    "labels": {
+      "noBenchmark": "कोई बेंचमार्क नहीं",
+      "notAvailable": "उपलब्ध नहीं",
+      "noData": "कोई डेटा नहीं",
+      "below": "नीचे",
+      "above": "ऊपर",
+      "atMarket": "बाज़ार स्तर पर"
+    },
+    "actions": {
+      "edit": "संपादित करें",
+      "delete": "हटाएँ"
+    },
+    "messages": {
+      "validPercentiles": "कृपया P25, P50 और P75 की मान्य राशि दर्ज करें",
+      "nonNegative": "प्रतिशतक मान ऋणात्मक नहीं हो सकते",
+      "ordered": "प्रतिशतक इस क्रम में होने चाहिए: P25 ≤ P50 ≤ P75",
+      "updated": "बेंचमार्क अपडेट हो गया",
+      "created": "बेंचमार्क बनाया गया",
+      "deleted": "बेंचमार्क हटाया गया",
+      "failed": "कार्रवाई विफल रही"
+    },
+    "modal": {
+      "editTitle": "वेतन बेंचमार्क संपादित करें",
+      "addTitle": "वेतन बेंचमार्क जोड़ें",
+      "jobTitle": "पद का नाम",
+      "jobTitlePlaceholder": "जैसे, सॉफ्टवेयर इंजीनियर",
+      "department": "विभाग",
+      "selectDepartment": "विभाग चुनें...",
+      "noDepartments": "कोई विभाग कॉन्फ़िगर नहीं है",
+      "location": "स्थान",
+      "locationPlaceholder": "जैसे, बेंगलुरु",
+      "p25Annual": "P25 (वार्षिक)",
+      "p50Annual": "P50 मध्यिका (वार्षिक)",
+      "p75Annual": "P75 (वार्षिक)",
+      "p25Placeholder": "जैसे 800000",
+      "p50Placeholder": "जैसे 1200000",
+      "p75Placeholder": "जैसे 1800000",
+      "source": "स्रोत",
+      "sourcePlaceholder": "जैसे, Glassdoor 2026",
+      "effectiveDate": "प्रभावी तिथि",
+      "cancel": "रद्द करें",
+      "updateBenchmark": "बेंचमार्क अपडेट करें",
+      "saveBenchmark": "बेंचमार्क सहेजें"
+    }
+  },
+  "payEquityPage": {
+    "title": "वेतन समानता विश्लेषण",
+    "description": "लिंग, विभाग और भूमिका के आधार पर वेतन निष्पक्षता का विश्लेषण करें",
+    "stats": {
+      "employeesAnalyzed": "विश्लेषित कर्मचारी",
+      "medianSalary": "मध्यिका वेतन",
+      "meanPayGap": "औसत वेतन अंतर",
+      "medianPayGap": "मध्यिका वेतन अंतर"
+    },
+    "tabs": {
+      "overview": "विश्लेषण अवलोकन",
+      "compliance": "अनुपालन रिपोर्ट"
+    },
+    "gender": {
+      "title": "लिंग वेतन अंतर विश्लेषण",
+      "maleEmployees": "पुरुष कर्मचारी",
+      "femaleEmployees": "महिला कर्मचारी",
+      "maleMeanSalary": "पुरुषों का औसत वेतन",
+      "femaleMeanSalary": "महिलाओं का औसत वेतन",
+      "menPaidMore": "पुरुषों को औसतन अधिक वेतन मिलता है",
+      "womenPaidMore": "महिलाओं को औसतन अधिक वेतन मिलता है",
+      "noGap": "कोई अंतर नहीं मिला"
+    },
+    "department": {
+      "title": "विभाग विश्लेषण",
+      "department": "विभाग",
+      "employees": "कर्मचारी",
+      "meanSalary": "औसत वेतन",
+      "median": "मध्यिका",
+      "min": "न्यूनतम",
+      "max": "अधिकतम",
+      "spread": "अंतर"
+    },
+    "role": {
+      "title": "भूमिका / पद विश्लेषण",
+      "designation": "पद",
+      "count": "संख्या",
+      "mean": "औसत",
+      "median": "मध्यिका"
+    },
+    "compliance": {
+      "title": "अनुपालन रिपोर्ट",
+      "generated": "तैयार की गई",
+      "findings": "निष्कर्ष",
+      "recommendations": "सिफारिशें",
+      "notAvailable": "उपलब्ध नहीं"
+    },
+    "complianceMessages": {
+      "significantMean": "महत्वपूर्ण औसत वेतन अंतर मिला: {{value}}% ({{group}})",
+      "significantMedian": "महत्वपूर्ण मध्यिका वेतन अंतर मिला: {{value}}%",
+      "menPaidMore": "पुरुषों को अधिक वेतन",
+      "womenPaidMore": "महिलाओं को अधिक वेतन",
+      "highVariance": "विभाग “{{department}}” में वेतन का अधिक अंतर (CV: {{value}}%)",
+      "acceptableGap": "वेतन अंतर स्वीकार्य सीमा में है (5% तक)",
+      "noConcerns": "वेतन समानता से जुड़ी कोई महत्वपूर्ण चिंता नहीं मिली",
+      "reviewDepartment": "आंतरिक समानता सुनिश्चित करने के लिए विभाग “{{department}}” के वेतन बैंड की समीक्षा करें",
+      "reviewCompensation": "महत्वपूर्ण अंतर वाली भूमिकाओं के वेतन की विस्तृत समीक्षा करें",
+      "continueMonitoring": "वेतन समानता की तिमाही निगरानी जारी रखें"
+    }
+  },
   "payrollRuns": {
     "title": "पेरोल रन",
     "description": "मासिक पेरोल प्रक्रिया",
