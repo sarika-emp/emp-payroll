@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 const ROUTE_LABELS: Record<string, string> = {
   dashboard: "sidebar.items.dashboard",
   employees: "sidebar.items.employees",
+  "org-chart": "sidebar.items.orgChart",
   new: "breadcrumbs.addNew",
   payroll: "sidebar.sections.payroll",
   structures: "breadcrumbs.salaryStructures",
