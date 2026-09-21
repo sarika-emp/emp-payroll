@@ -226,6 +226,104 @@
     },
     "statuses": { "paid": "مدفوع", "computed": "محسوب", "approved": "معتمد" }
   },
+  "reimbursementsPage": {
+    "title": "المصروفات المستردة",
+    "claimsShown": "{{visible}} من {{total}} طلبات",
+    "fileForEmployee": "تقديم لموظف",
+    "searchPlaceholder": "البحث باسم الموظف أو رمزه أو مسماه...",
+    "filterDepartment": "التصفية حسب القسم",
+    "allDepartments": "كل الأقسام",
+    "filterLocation": "التصفية حسب الموقع",
+    "allLocations": "كل المواقع",
+    "clearFilters": "مسح عوامل التصفية",
+    "noClaims": "لم يتم العثور على طلبات استرداد",
+    "forEmployee": "لصالح {{name}}",
+    "statuses": {
+      "pending": "قيد الانتظار",
+      "approved": "معتمد",
+      "rejected": "مرفوض",
+      "paid": "مدفوع"
+    },
+    "filters": { "all": "الكل" },
+    "cards": {
+      "totalClaims": "إجمالي الطلبات",
+      "viewAll": "عرض كل طلبات الاسترداد",
+      "viewPending": "عرض الطلبات المعلقة",
+      "viewApproved": "عرض الطلبات المعتمدة",
+      "viewRejected": "عرض الطلبات المرفوضة",
+      "viewPaid": "عرض الطلبات المدفوعة"
+    },
+    "columns": {
+      "employee": "الموظف",
+      "category": "الفئة",
+      "description": "الوصف",
+      "amount": "المبلغ",
+      "date": "التاريخ",
+      "status": "الحالة"
+    },
+    "actions": {
+      "approve": "اعتماد",
+      "reject": "رفض",
+      "awaitingPayroll": "بانتظار الرواتب",
+      "awaitingPayrollTitle": "سيتم الدفع في دورة الرواتب التالية",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "cancel": "إلغاء"
+    },
+    "fields": {
+      "category": "الفئة",
+      "amount": "المبلغ",
+      "expenseDate": "تاريخ المصروف",
+      "description": "الوصف",
+      "month": "الشهر",
+      "year": "السنة"
+    },
+    "fileModal": {
+      "title": "تقديم استرداد لموظف",
+      "description": "قدّم طلبًا نيابة عن موظف. سيظهر له كطلب قيد الانتظار في قائمة الاستردادات.",
+      "searchEmployee": "البحث عن موظف",
+      "employeePlaceholder": "الاسم أو رمز الموظف أو البريد (حرفان على الأقل)",
+      "searching": "جارٍ البحث...",
+      "typeMore": "اكتب حرفين على الأقل للبحث.",
+      "noEmployees": "لا يوجد موظفون مطابقون.",
+      "change": "تغيير",
+      "categoryPlaceholder": "سفر، طعام، إنترنت...",
+      "descriptionPlaceholder": "ما الغرض من المصروف؟",
+      "submit": "تقديم الطلب"
+    },
+    "deleteModal": {
+      "title": "حذف الاسترداد؟",
+      "paidTitle": "تم دفع هذا الطلب بالفعل.",
+      "paidWarning": "يؤدي الحذف إلى إزالة الصف من قائمة الاستردادات فقط، ولا يعيد المبلغ للموظف أو يزيل البند من قسيمة الراتب. لعكس الدفع، احذف دورة الرواتب بدلًا من ذلك؛ وسيعود الطلب تلقائيًا إلى حالة معتمد.",
+      "warning": "سيتم حذف الطلب نهائيًا ولا يمكن التراجع عن ذلك."
+    },
+    "editModal": { "title": "تعديل الاسترداد", "save": "حفظ التغييرات" },
+    "payModal": {
+      "title": "تحديد الاسترداد كمدفوع",
+      "description": "سجّل فترة الرواتب التي تم فيها صرف هذا الطلب. ستتغير حالته من معتمد إلى مدفوع.",
+      "confirm": "تأكيد الدفع"
+    },
+    "validation": {
+      "categoryRequired": "الفئة مطلوبة",
+      "descriptionRequired": "الوصف مطلوب",
+      "validAmount": "أدخل مبلغًا صالحًا",
+      "expenseDateRequired": "تاريخ المصروف مطلوب",
+      "pickEmployee": "اختر موظفًا أولًا"
+    },
+    "messages": {
+      "approved": "تم اعتماد الطلب",
+      "rejected": "تم رفض الطلب",
+      "failed": "فشل الإجراء",
+      "updated": "تم تحديث الطلب",
+      "updateFailed": "تعذر تحديث الطلب",
+      "deleted": "تم حذف الطلب",
+      "deleteFailed": "تعذر حذف الطلب",
+      "filed": "تم تقديم الطلب للموظف",
+      "fileFailed": "تعذر تقديم الطلب",
+      "markedPaid": "تم تحديد الطلب كمدفوع",
+      "markPaidFailed": "تعذر تحديد الطلب كمدفوع"
+    }
+  },
   "roles": {
     "super_admin": "مسؤول أعلى",
     "org_admin": "مسؤول المؤسسة",

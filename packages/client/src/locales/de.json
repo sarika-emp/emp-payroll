@@ -226,6 +226,104 @@
     },
     "statuses": { "paid": "Bezahlt", "computed": "Berechnet", "approved": "Genehmigt" }
   },
+  "reimbursementsPage": {
+    "title": "Erstattungen",
+    "claimsShown": "{{visible}} von {{total}} Anträgen",
+    "fileForEmployee": "Für Mitarbeitende erfassen",
+    "searchPlaceholder": "Nach Name, Personalnummer oder Position suchen...",
+    "filterDepartment": "Nach Abteilung filtern",
+    "allDepartments": "Alle Abteilungen",
+    "filterLocation": "Nach Standort filtern",
+    "allLocations": "Alle Standorte",
+    "clearFilters": "Filter löschen",
+    "noClaims": "Keine Erstattungsanträge gefunden",
+    "forEmployee": "Für {{name}}",
+    "statuses": {
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt",
+      "paid": "Bezahlt"
+    },
+    "filters": { "all": "Alle" },
+    "cards": {
+      "totalClaims": "Anträge gesamt",
+      "viewAll": "Alle Erstattungsanträge anzeigen",
+      "viewPending": "Ausstehende Erstattungsanträge anzeigen",
+      "viewApproved": "Genehmigte Erstattungsanträge anzeigen",
+      "viewRejected": "Abgelehnte Erstattungsanträge anzeigen",
+      "viewPaid": "Bezahlte Erstattungsanträge anzeigen"
+    },
+    "columns": {
+      "employee": "Mitarbeitende",
+      "category": "Kategorie",
+      "description": "Beschreibung",
+      "amount": "Betrag",
+      "date": "Datum",
+      "status": "Status"
+    },
+    "actions": {
+      "approve": "Genehmigen",
+      "reject": "Ablehnen",
+      "awaitingPayroll": "Wartet auf Abrechnung",
+      "awaitingPayrollTitle": "Wird im nächsten Abrechnungslauf bezahlt",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "cancel": "Abbrechen"
+    },
+    "fields": {
+      "category": "Kategorie",
+      "amount": "Betrag",
+      "expenseDate": "Ausgabedatum",
+      "description": "Beschreibung",
+      "month": "Monat",
+      "year": "Jahr"
+    },
+    "fileModal": {
+      "title": "Erstattung für Mitarbeitende erfassen",
+      "description": "Reichen Sie einen Antrag im Namen eines Mitarbeitenden ein. Er wird in dessen Erstattungsliste als ausstehend angezeigt.",
+      "searchEmployee": "Mitarbeitende suchen",
+      "employeePlaceholder": "Name, Personalnummer oder E-Mail (mind. 2 Zeichen)",
+      "searching": "Suche...",
+      "typeMore": "Geben Sie mindestens 2 Zeichen ein.",
+      "noEmployees": "Keine passenden Mitarbeitenden.",
+      "change": "Ändern",
+      "categoryPlaceholder": "Reise, Verpflegung, Internet...",
+      "descriptionPlaceholder": "Wofür war die Ausgabe?",
+      "submit": "Antrag erfassen"
+    },
+    "deleteModal": {
+      "title": "Erstattung löschen?",
+      "paidTitle": "Dieser Antrag wurde bereits bezahlt.",
+      "paidWarning": "Beim Löschen wird nur der Eintrag aus der Erstattungsliste entfernt. Die Zahlung wird nicht zurückgebucht und die Position nicht von der Abrechnung entfernt. Löschen Sie zum Stornieren stattdessen den Abrechnungslauf; der Antrag wird automatisch wieder genehmigt.",
+      "warning": "Der Antrag wird dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden."
+    },
+    "editModal": { "title": "Erstattung bearbeiten", "save": "Änderungen speichern" },
+    "payModal": {
+      "title": "Erstattung als bezahlt markieren",
+      "description": "Erfassen Sie den Abrechnungszeitraum, in dem dieser Antrag ausgezahlt wurde. Der Status wechselt von genehmigt zu bezahlt.",
+      "confirm": "Zahlung bestätigen"
+    },
+    "validation": {
+      "categoryRequired": "Kategorie ist erforderlich",
+      "descriptionRequired": "Beschreibung ist erforderlich",
+      "validAmount": "Geben Sie einen gültigen Betrag ein",
+      "expenseDateRequired": "Ausgabedatum ist erforderlich",
+      "pickEmployee": "Wählen Sie zuerst einen Mitarbeitenden"
+    },
+    "messages": {
+      "approved": "Antrag genehmigt",
+      "rejected": "Antrag abgelehnt",
+      "failed": "Aktion fehlgeschlagen",
+      "updated": "Antrag aktualisiert",
+      "updateFailed": "Antrag konnte nicht aktualisiert werden",
+      "deleted": "Antrag gelöscht",
+      "deleteFailed": "Antrag konnte nicht gelöscht werden",
+      "filed": "Antrag für Mitarbeitenden erfasst",
+      "fileFailed": "Antrag konnte nicht erfasst werden",
+      "markedPaid": "Antrag als bezahlt markiert",
+      "markPaidFailed": "Antrag konnte nicht als bezahlt markiert werden"
+    }
+  },
   "roles": {
     "super_admin": "Superadmin",
     "org_admin": "Organisationsadmin",

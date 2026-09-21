@@ -226,6 +226,104 @@
     },
     "statuses": { "paid": "Pagado", "computed": "Calculado", "approved": "Aprobado" }
   },
+  "reimbursementsPage": {
+    "title": "Reembolsos",
+    "claimsShown": "{{visible}} de {{total}} solicitudes",
+    "fileForEmployee": "Registrar para un empleado",
+    "searchPlaceholder": "Buscar por nombre, código o puesto del empleado...",
+    "filterDepartment": "Filtrar por departamento",
+    "allDepartments": "Todos los departamentos",
+    "filterLocation": "Filtrar por ubicación",
+    "allLocations": "Todas las ubicaciones",
+    "clearFilters": "Limpiar filtros",
+    "noClaims": "No se encontraron solicitudes de reembolso",
+    "forEmployee": "Para {{name}}",
+    "statuses": {
+      "pending": "Pendiente",
+      "approved": "Aprobado",
+      "rejected": "Rechazado",
+      "paid": "Pagado"
+    },
+    "filters": { "all": "Todos" },
+    "cards": {
+      "totalClaims": "Total de solicitudes",
+      "viewAll": "Ver todas las solicitudes de reembolso",
+      "viewPending": "Ver solicitudes de reembolso pendientes",
+      "viewApproved": "Ver solicitudes de reembolso aprobadas",
+      "viewRejected": "Ver solicitudes de reembolso rechazadas",
+      "viewPaid": "Ver solicitudes de reembolso pagadas"
+    },
+    "columns": {
+      "employee": "Empleado",
+      "category": "Categoría",
+      "description": "Descripción",
+      "amount": "Importe",
+      "date": "Fecha",
+      "status": "Estado"
+    },
+    "actions": {
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "awaitingPayroll": "Pendiente de nómina",
+      "awaitingPayrollTitle": "Se pagará en el próximo proceso de nómina",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "cancel": "Cancelar"
+    },
+    "fields": {
+      "category": "Categoría",
+      "amount": "Importe",
+      "expenseDate": "Fecha del gasto",
+      "description": "Descripción",
+      "month": "Mes",
+      "year": "Año"
+    },
+    "fileModal": {
+      "title": "Registrar reembolso para un empleado",
+      "description": "Envía una solicitud en nombre de un empleado. La verá como pendiente en su lista de reembolsos.",
+      "searchEmployee": "Buscar empleado",
+      "employeePlaceholder": "Nombre, código de empleado o correo (mín. 2 caracteres)",
+      "searching": "Buscando...",
+      "typeMore": "Escribe al menos 2 caracteres para buscar.",
+      "noEmployees": "No hay empleados coincidentes.",
+      "change": "Cambiar",
+      "categoryPlaceholder": "Viaje, comida, internet...",
+      "descriptionPlaceholder": "¿A qué correspondió el gasto?",
+      "submit": "Registrar solicitud"
+    },
+    "deleteModal": {
+      "title": "¿Eliminar reembolso?",
+      "paidTitle": "Esta solicitud ya está pagada.",
+      "paidWarning": "Eliminarla solo quita la fila de la lista de reembolsos. No devuelve el importe al empleado ni elimina la línea del recibo de sueldo. Para revertir el pago, elimina el proceso de nómina; la solicitud volverá automáticamente a aprobada.",
+      "warning": "La solicitud se eliminará permanentemente. Esta acción no se puede deshacer."
+    },
+    "editModal": { "title": "Editar reembolso", "save": "Guardar cambios" },
+    "payModal": {
+      "title": "Marcar reembolso como pagado",
+      "description": "Registra el período de nómina en el que se desembolsó esta solicitud. Su estado cambiará de aprobado a pagado.",
+      "confirm": "Confirmar pago"
+    },
+    "validation": {
+      "categoryRequired": "La categoría es obligatoria",
+      "descriptionRequired": "La descripción es obligatoria",
+      "validAmount": "Introduce un importe válido",
+      "expenseDateRequired": "La fecha del gasto es obligatoria",
+      "pickEmployee": "Selecciona primero un empleado"
+    },
+    "messages": {
+      "approved": "Solicitud aprobada",
+      "rejected": "Solicitud rechazada",
+      "failed": "La acción falló",
+      "updated": "Solicitud actualizada",
+      "updateFailed": "No se pudo actualizar la solicitud",
+      "deleted": "Solicitud eliminada",
+      "deleteFailed": "No se pudo eliminar la solicitud",
+      "filed": "Solicitud registrada para el empleado",
+      "fileFailed": "No se pudo registrar la solicitud",
+      "markedPaid": "Solicitud marcada como pagada",
+      "markPaidFailed": "No se pudo marcar la solicitud como pagada"
+    }
+  },
   "roles": {
     "super_admin": "Superadministrador",
     "org_admin": "Administrador de organización",

@@ -226,6 +226,104 @@
     },
     "statuses": { "paid": "已支付", "computed": "已计算", "approved": "已批准" }
   },
+  "reimbursementsPage": {
+    "title": "费用报销",
+    "claimsShown": "共 {{total}} 项，显示 {{visible}} 项",
+    "fileForEmployee": "为员工提交",
+    "searchPlaceholder": "按员工姓名、编号或职位搜索...",
+    "filterDepartment": "按部门筛选",
+    "allDepartments": "所有部门",
+    "filterLocation": "按地点筛选",
+    "allLocations": "所有地点",
+    "clearFilters": "清除筛选条件",
+    "noClaims": "未找到报销申请",
+    "forEmployee": "申请人：{{name}}",
+    "statuses": {
+      "pending": "待处理",
+      "approved": "已批准",
+      "rejected": "已拒绝",
+      "paid": "已支付"
+    },
+    "filters": { "all": "全部" },
+    "cards": {
+      "totalClaims": "申请总数",
+      "viewAll": "查看所有报销申请",
+      "viewPending": "查看待处理报销申请",
+      "viewApproved": "查看已批准报销申请",
+      "viewRejected": "查看已拒绝报销申请",
+      "viewPaid": "查看已支付报销申请"
+    },
+    "columns": {
+      "employee": "员工",
+      "category": "类别",
+      "description": "说明",
+      "amount": "金额",
+      "date": "日期",
+      "status": "状态"
+    },
+    "actions": {
+      "approve": "批准",
+      "reject": "拒绝",
+      "awaitingPayroll": "等待发薪",
+      "awaitingPayrollTitle": "将在下次薪资核算中支付",
+      "edit": "编辑",
+      "delete": "删除",
+      "cancel": "取消"
+    },
+    "fields": {
+      "category": "类别",
+      "amount": "金额",
+      "expenseDate": "支出日期",
+      "description": "说明",
+      "month": "月份",
+      "year": "年份"
+    },
+    "fileModal": {
+      "title": "为员工提交报销",
+      "description": "代表员工提交申请。该申请将在员工的报销列表中显示为待处理。",
+      "searchEmployee": "搜索员工",
+      "employeePlaceholder": "姓名、员工编号或邮箱（至少 2 个字符）",
+      "searching": "正在搜索...",
+      "typeMore": "请输入至少 2 个字符进行搜索。",
+      "noEmployees": "没有匹配的员工。",
+      "change": "更改",
+      "categoryPlaceholder": "差旅、餐饮、网络...",
+      "descriptionPlaceholder": "这笔支出的用途是什么？",
+      "submit": "提交申请"
+    },
+    "deleteModal": {
+      "title": "删除报销？",
+      "paidTitle": "该申请已支付。",
+      "paidWarning": "删除操作只会从报销列表中移除该行，不会向员工退款，也不会删除工资单中的对应项目。若要撤销付款，请删除该次薪资核算；申请将自动恢复为已批准。",
+      "warning": "该申请将被永久删除，且无法撤销。"
+    },
+    "editModal": { "title": "编辑报销", "save": "保存更改" },
+    "payModal": {
+      "title": "将报销标记为已支付",
+      "description": "记录支付该申请的薪资期间。其状态将从已批准变为已支付。",
+      "confirm": "确认支付"
+    },
+    "validation": {
+      "categoryRequired": "类别为必填项",
+      "descriptionRequired": "说明为必填项",
+      "validAmount": "请输入有效金额",
+      "expenseDateRequired": "支出日期为必填项",
+      "pickEmployee": "请先选择员工"
+    },
+    "messages": {
+      "approved": "申请已批准",
+      "rejected": "申请已拒绝",
+      "failed": "操作失败",
+      "updated": "申请已更新",
+      "updateFailed": "无法更新申请",
+      "deleted": "申请已删除",
+      "deleteFailed": "无法删除申请",
+      "filed": "已为员工提交申请",
+      "fileFailed": "无法提交申请",
+      "markedPaid": "申请已标记为已支付",
+      "markPaidFailed": "无法将申请标记为已支付"
+    }
+  },
   "roles": {
     "super_admin": "超级管理员",
     "org_admin": "组织管理员",

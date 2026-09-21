@@ -227,6 +227,104 @@
     },
     "statuses": { "paid": "Paid", "computed": "Computed", "approved": "Approved" }
   },
+  "reimbursementsPage": {
+    "title": "Reimbursements",
+    "claimsShown": "{{visible}} of {{total}} claims",
+    "fileForEmployee": "File for Employee",
+    "searchPlaceholder": "Search by employee name, code, or designation...",
+    "filterDepartment": "Filter by department",
+    "allDepartments": "All departments",
+    "filterLocation": "Filter by location",
+    "allLocations": "All locations",
+    "clearFilters": "Clear filters",
+    "noClaims": "No reimbursement claims found",
+    "forEmployee": "For {{name}}",
+    "statuses": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "paid": "Paid"
+    },
+    "filters": { "all": "All" },
+    "cards": {
+      "totalClaims": "Total Claims",
+      "viewAll": "View all reimbursement claims",
+      "viewPending": "View pending reimbursement claims",
+      "viewApproved": "View approved reimbursement claims",
+      "viewRejected": "View rejected reimbursement claims",
+      "viewPaid": "View paid reimbursement claims"
+    },
+    "columns": {
+      "employee": "Employee",
+      "category": "Category",
+      "description": "Description",
+      "amount": "Amount",
+      "date": "Date",
+      "status": "Status"
+    },
+    "actions": {
+      "approve": "Approve",
+      "reject": "Reject",
+      "awaitingPayroll": "Awaiting payroll",
+      "awaitingPayrollTitle": "Will be paid in the next payroll run",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel"
+    },
+    "fields": {
+      "category": "Category",
+      "amount": "Amount",
+      "expenseDate": "Expense date",
+      "description": "Description",
+      "month": "Month",
+      "year": "Year"
+    },
+    "fileModal": {
+      "title": "File reimbursement for employee",
+      "description": "Submit a claim on behalf of an employee. They will see it as pending in their reimbursement list.",
+      "searchEmployee": "Search employee",
+      "employeePlaceholder": "Name, employee code, or email (min 2 chars)",
+      "searching": "Searching...",
+      "typeMore": "Type at least 2 characters to search.",
+      "noEmployees": "No matching employees.",
+      "change": "Change",
+      "categoryPlaceholder": "Travel, Food, Internet...",
+      "descriptionPlaceholder": "What was the expense for?",
+      "submit": "File claim"
+    },
+    "deleteModal": {
+      "title": "Delete reimbursement?",
+      "paidTitle": "This claim is already paid.",
+      "paidWarning": "Deleting only removes the row from the reimbursements list. It does not refund the employee or remove the line from the payslip. To reverse the payment, delete the payroll run instead; that automatically returns the claim to approved.",
+      "warning": "This will permanently remove the claim. This cannot be undone."
+    },
+    "editModal": { "title": "Edit reimbursement", "save": "Save changes" },
+    "payModal": {
+      "title": "Mark reimbursement as paid",
+      "description": "Record the payroll period in which this claim was disbursed. Its status will change from approved to paid.",
+      "confirm": "Confirm payment"
+    },
+    "validation": {
+      "categoryRequired": "Category is required",
+      "descriptionRequired": "Description is required",
+      "validAmount": "Enter a valid amount",
+      "expenseDateRequired": "Expense date is required",
+      "pickEmployee": "Pick an employee first"
+    },
+    "messages": {
+      "approved": "Claim approved",
+      "rejected": "Claim rejected",
+      "failed": "Action failed",
+      "updated": "Claim updated",
+      "updateFailed": "Failed to update claim",
+      "deleted": "Claim deleted",
+      "deleteFailed": "Failed to delete claim",
+      "filed": "Claim filed for employee",
+      "fileFailed": "Failed to file claim",
+      "markedPaid": "Claim marked as paid",
+      "markPaidFailed": "Failed to mark claim as paid"
+    }
+  },
   "roles": {
     "super_admin": "Super Admin",
     "org_admin": "Org Admin",

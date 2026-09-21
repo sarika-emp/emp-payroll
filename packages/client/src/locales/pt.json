@@ -226,6 +226,104 @@
     },
     "statuses": { "paid": "Pago", "computed": "Calculado", "approved": "Aprovado" }
   },
+  "reimbursementsPage": {
+    "title": "Reembolsos",
+    "claimsShown": "{{visible}} de {{total}} solicitações",
+    "fileForEmployee": "Registrar para colaborador",
+    "searchPlaceholder": "Buscar por nome, código ou cargo do colaborador...",
+    "filterDepartment": "Filtrar por departamento",
+    "allDepartments": "Todos os departamentos",
+    "filterLocation": "Filtrar por local",
+    "allLocations": "Todos os locais",
+    "clearFilters": "Limpar filtros",
+    "noClaims": "Nenhuma solicitação de reembolso encontrada",
+    "forEmployee": "Para {{name}}",
+    "statuses": {
+      "pending": "Pendente",
+      "approved": "Aprovado",
+      "rejected": "Rejeitado",
+      "paid": "Pago"
+    },
+    "filters": { "all": "Todos" },
+    "cards": {
+      "totalClaims": "Total de solicitações",
+      "viewAll": "Ver todas as solicitações de reembolso",
+      "viewPending": "Ver solicitações pendentes",
+      "viewApproved": "Ver solicitações aprovadas",
+      "viewRejected": "Ver solicitações rejeitadas",
+      "viewPaid": "Ver solicitações pagas"
+    },
+    "columns": {
+      "employee": "Colaborador",
+      "category": "Categoria",
+      "description": "Descrição",
+      "amount": "Valor",
+      "date": "Data",
+      "status": "Status"
+    },
+    "actions": {
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "awaitingPayroll": "Aguardando folha",
+      "awaitingPayrollTitle": "Será pago no próximo processamento da folha",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "cancel": "Cancelar"
+    },
+    "fields": {
+      "category": "Categoria",
+      "amount": "Valor",
+      "expenseDate": "Data da despesa",
+      "description": "Descrição",
+      "month": "Mês",
+      "year": "Ano"
+    },
+    "fileModal": {
+      "title": "Registrar reembolso para colaborador",
+      "description": "Envie uma solicitação em nome de um colaborador. Ela aparecerá como pendente na lista de reembolsos dele.",
+      "searchEmployee": "Buscar colaborador",
+      "employeePlaceholder": "Nome, código ou e-mail (mín. 2 caracteres)",
+      "searching": "Buscando...",
+      "typeMore": "Digite pelo menos 2 caracteres para buscar.",
+      "noEmployees": "Nenhum colaborador correspondente.",
+      "change": "Alterar",
+      "categoryPlaceholder": "Viagem, alimentação, internet...",
+      "descriptionPlaceholder": "Qual foi o motivo da despesa?",
+      "submit": "Registrar solicitação"
+    },
+    "deleteModal": {
+      "title": "Excluir reembolso?",
+      "paidTitle": "Esta solicitação já foi paga.",
+      "paidWarning": "A exclusão remove apenas a linha da lista de reembolsos. Ela não devolve o valor ao colaborador nem remove a linha do holerite. Para reverter o pagamento, exclua o processamento da folha; a solicitação voltará automaticamente para aprovada.",
+      "warning": "A solicitação será removida permanentemente. Esta ação não pode ser desfeita."
+    },
+    "editModal": { "title": "Editar reembolso", "save": "Salvar alterações" },
+    "payModal": {
+      "title": "Marcar reembolso como pago",
+      "description": "Registre o período da folha em que esta solicitação foi paga. O status mudará de aprovado para pago.",
+      "confirm": "Confirmar pagamento"
+    },
+    "validation": {
+      "categoryRequired": "A categoria é obrigatória",
+      "descriptionRequired": "A descrição é obrigatória",
+      "validAmount": "Insira um valor válido",
+      "expenseDateRequired": "A data da despesa é obrigatória",
+      "pickEmployee": "Selecione primeiro um colaborador"
+    },
+    "messages": {
+      "approved": "Solicitação aprovada",
+      "rejected": "Solicitação rejeitada",
+      "failed": "A ação falhou",
+      "updated": "Solicitação atualizada",
+      "updateFailed": "Não foi possível atualizar a solicitação",
+      "deleted": "Solicitação excluída",
+      "deleteFailed": "Não foi possível excluir a solicitação",
+      "filed": "Solicitação registrada para o colaborador",
+      "fileFailed": "Não foi possível registrar a solicitação",
+      "markedPaid": "Solicitação marcada como paga",
+      "markPaidFailed": "Não foi possível marcar a solicitação como paga"
+    }
+  },
   "roles": {
     "super_admin": "Super administrador",
     "org_admin": "Administrador da organização",

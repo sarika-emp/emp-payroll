@@ -226,6 +226,104 @@
     },
     "statuses": { "paid": "支払済み", "computed": "計算済み", "approved": "承認済み" }
   },
+  "reimbursementsPage": {
+    "title": "経費精算",
+    "claimsShown": "{{total}}件中{{visible}}件",
+    "fileForEmployee": "従業員に代わって申請",
+    "searchPlaceholder": "従業員名、コード、役職で検索...",
+    "filterDepartment": "部署で絞り込む",
+    "allDepartments": "すべての部署",
+    "filterLocation": "勤務地で絞り込む",
+    "allLocations": "すべての勤務地",
+    "clearFilters": "フィルターをクリア",
+    "noClaims": "経費精算申請が見つかりません",
+    "forEmployee": "{{name}} の申請",
+    "statuses": {
+      "pending": "保留中",
+      "approved": "承認済み",
+      "rejected": "却下",
+      "paid": "支払済み"
+    },
+    "filters": { "all": "すべて" },
+    "cards": {
+      "totalClaims": "申請総数",
+      "viewAll": "すべての経費精算申請を表示",
+      "viewPending": "保留中の申請を表示",
+      "viewApproved": "承認済みの申請を表示",
+      "viewRejected": "却下された申請を表示",
+      "viewPaid": "支払済みの申請を表示"
+    },
+    "columns": {
+      "employee": "従業員",
+      "category": "カテゴリー",
+      "description": "説明",
+      "amount": "金額",
+      "date": "日付",
+      "status": "ステータス"
+    },
+    "actions": {
+      "approve": "承認",
+      "reject": "却下",
+      "awaitingPayroll": "給与計算待ち",
+      "awaitingPayrollTitle": "次回の給与計算で支払われます",
+      "edit": "編集",
+      "delete": "削除",
+      "cancel": "キャンセル"
+    },
+    "fields": {
+      "category": "カテゴリー",
+      "amount": "金額",
+      "expenseDate": "経費発生日",
+      "description": "説明",
+      "month": "月",
+      "year": "年"
+    },
+    "fileModal": {
+      "title": "従業員の経費精算を申請",
+      "description": "従業員に代わって申請します。従業員の経費精算一覧には保留中として表示されます。",
+      "searchEmployee": "従業員を検索",
+      "employeePlaceholder": "氏名、従業員コード、メール（2文字以上）",
+      "searching": "検索中...",
+      "typeMore": "2文字以上入力して検索してください。",
+      "noEmployees": "一致する従業員はいません。",
+      "change": "変更",
+      "categoryPlaceholder": "交通費、食費、通信費...",
+      "descriptionPlaceholder": "何のための経費ですか？",
+      "submit": "申請を登録"
+    },
+    "deleteModal": {
+      "title": "経費精算を削除しますか？",
+      "paidTitle": "この申請は支払済みです。",
+      "paidWarning": "削除しても経費精算一覧の行だけが削除され、従業員への返金や給与明細の項目削除は行われません。支払いを取り消すには給与計算を削除してください。申請は自動的に承認済みに戻ります。",
+      "warning": "申請は完全に削除されます。この操作は元に戻せません。"
+    },
+    "editModal": { "title": "経費精算を編集", "save": "変更を保存" },
+    "payModal": {
+      "title": "経費精算を支払済みにする",
+      "description": "この申請を支払った給与期間を記録します。ステータスは承認済みから支払済みに変わります。",
+      "confirm": "支払いを確定"
+    },
+    "validation": {
+      "categoryRequired": "カテゴリーは必須です",
+      "descriptionRequired": "説明は必須です",
+      "validAmount": "有効な金額を入力してください",
+      "expenseDateRequired": "経費発生日は必須です",
+      "pickEmployee": "先に従業員を選択してください"
+    },
+    "messages": {
+      "approved": "申請を承認しました",
+      "rejected": "申請を却下しました",
+      "failed": "操作に失敗しました",
+      "updated": "申請を更新しました",
+      "updateFailed": "申請を更新できませんでした",
+      "deleted": "申請を削除しました",
+      "deleteFailed": "申請を削除できませんでした",
+      "filed": "従業員の申請を登録しました",
+      "fileFailed": "申請を登録できませんでした",
+      "markedPaid": "申請を支払済みにしました",
+      "markPaidFailed": "申請を支払済みにできませんでした"
+    }
+  },
   "roles": {
     "super_admin": "スーパー管理者",
     "org_admin": "組織管理者",

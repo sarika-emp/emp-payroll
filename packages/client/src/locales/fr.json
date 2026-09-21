@@ -226,6 +226,104 @@
     },
     "statuses": { "paid": "Payé", "computed": "Calculé", "approved": "Approuvé" }
   },
+  "reimbursementsPage": {
+    "title": "Remboursements",
+    "claimsShown": "{{visible}} sur {{total}} demandes",
+    "fileForEmployee": "Déposer pour un employé",
+    "searchPlaceholder": "Rechercher par nom, matricule ou poste...",
+    "filterDepartment": "Filtrer par service",
+    "allDepartments": "Tous les services",
+    "filterLocation": "Filtrer par site",
+    "allLocations": "Tous les sites",
+    "clearFilters": "Effacer les filtres",
+    "noClaims": "Aucune demande de remboursement trouvée",
+    "forEmployee": "Pour {{name}}",
+    "statuses": {
+      "pending": "En attente",
+      "approved": "Approuvé",
+      "rejected": "Rejeté",
+      "paid": "Payé"
+    },
+    "filters": { "all": "Toutes" },
+    "cards": {
+      "totalClaims": "Total des demandes",
+      "viewAll": "Voir toutes les demandes de remboursement",
+      "viewPending": "Voir les demandes en attente",
+      "viewApproved": "Voir les demandes approuvées",
+      "viewRejected": "Voir les demandes rejetées",
+      "viewPaid": "Voir les demandes payées"
+    },
+    "columns": {
+      "employee": "Employé",
+      "category": "Catégorie",
+      "description": "Description",
+      "amount": "Montant",
+      "date": "Date",
+      "status": "Statut"
+    },
+    "actions": {
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "awaitingPayroll": "En attente de paie",
+      "awaitingPayrollTitle": "Sera payé lors du prochain cycle de paie",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "cancel": "Annuler"
+    },
+    "fields": {
+      "category": "Catégorie",
+      "amount": "Montant",
+      "expenseDate": "Date de la dépense",
+      "description": "Description",
+      "month": "Mois",
+      "year": "Année"
+    },
+    "fileModal": {
+      "title": "Déposer un remboursement pour un employé",
+      "description": "Envoyez une demande au nom d’un employé. Elle apparaîtra en attente dans sa liste de remboursements.",
+      "searchEmployee": "Rechercher un employé",
+      "employeePlaceholder": "Nom, matricule ou e-mail (2 caractères min.)",
+      "searching": "Recherche...",
+      "typeMore": "Saisissez au moins 2 caractères.",
+      "noEmployees": "Aucun employé correspondant.",
+      "change": "Changer",
+      "categoryPlaceholder": "Déplacement, repas, Internet...",
+      "descriptionPlaceholder": "Quel était l’objet de la dépense ?",
+      "submit": "Déposer la demande"
+    },
+    "deleteModal": {
+      "title": "Supprimer le remboursement ?",
+      "paidTitle": "Cette demande est déjà payée.",
+      "paidWarning": "La suppression retire uniquement la ligne de la liste. Elle ne rembourse pas l’employé et ne retire pas la ligne du bulletin. Pour annuler le paiement, supprimez plutôt le cycle de paie ; la demande redeviendra automatiquement approuvée.",
+      "warning": "La demande sera supprimée définitivement. Cette action est irréversible."
+    },
+    "editModal": { "title": "Modifier le remboursement", "save": "Enregistrer" },
+    "payModal": {
+      "title": "Marquer le remboursement comme payé",
+      "description": "Indiquez la période de paie durant laquelle cette demande a été versée. Son statut passera d’approuvé à payé.",
+      "confirm": "Confirmer le paiement"
+    },
+    "validation": {
+      "categoryRequired": "La catégorie est obligatoire",
+      "descriptionRequired": "La description est obligatoire",
+      "validAmount": "Saisissez un montant valide",
+      "expenseDateRequired": "La date de dépense est obligatoire",
+      "pickEmployee": "Sélectionnez d’abord un employé"
+    },
+    "messages": {
+      "approved": "Demande approuvée",
+      "rejected": "Demande rejetée",
+      "failed": "Échec de l’action",
+      "updated": "Demande mise à jour",
+      "updateFailed": "Impossible de mettre à jour la demande",
+      "deleted": "Demande supprimée",
+      "deleteFailed": "Impossible de supprimer la demande",
+      "filed": "Demande déposée pour l’employé",
+      "fileFailed": "Impossible de déposer la demande",
+      "markedPaid": "Demande marquée comme payée",
+      "markPaidFailed": "Impossible de marquer la demande comme payée"
+    }
+  },
   "roles": {
     "super_admin": "Super administrateur",
     "org_admin": "Administrateur de l’organisation",
