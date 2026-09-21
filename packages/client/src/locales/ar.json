@@ -184,6 +184,48 @@
     "preservedSuffix": "، وتم الاحتفاظ بـ {{count}} صفوف حالية",
     "markFailed": "تعذر تسجيل الحضور"
   },
+  "payrollAnalytics": {
+    "title": "تحليلات الرواتب",
+    "description": "اتجاهات التكلفة والمقارنات والرؤى",
+    "notice": "تعكس الأرقام أدناه الموظفين المشمولين في كل دورة رواتب. لا يتم احتساب الموظفين الذين تم تخطيهم أثناء الحساب (لعدم وجود هيكل راتب نشط، أو لتعيينهم بعد فترة الدفع، أو لمغادرتهم قبلها)، لذلك قد يتغير عدد الموظفين ومتوسطات كل موظف بين الأشهر بشكل مستقل عن نشاط التوظيف الفعلي.",
+    "noRuns": "لا توجد دورات رواتب بعد",
+    "employeeSource": "{{count}} موظف · {{source}}",
+    "headcountSuppressed": "تغير عدد الموظفين بأكثر من 25٪ — تم إخفاء المقارنة",
+    "vsPrevious": "مقارنة بالشهر السابق · {{source}}",
+    "ofGrossPay": "من إجمالي الراتب · {{source}}",
+    "avgNetPayPerEmployee": "متوسط صافي الراتب / الموظف",
+    "grossPayChange": "تغير إجمالي الراتب",
+    "netPayChange": "تغير صافي الراتب",
+    "deductionRate": "معدل الاستقطاعات",
+    "payrollCostTrend": "اتجاه تكلفة الرواتب",
+    "costBreakdownLatest": "تفصيل التكلفة (الأحدث)",
+    "headcountTrend": "اتجاه عدد الموظفين",
+    "monthComparison": "مقارنة شهرية",
+    "totalEmployerCost": "إجمالي تكلفة صاحب العمل (الإجمالي + المساهمات)",
+    "needCompletedRun": "يلزم وجود دورة رواتب مكتملة واحدة على الأقل لعرض التحليلات",
+    "noData": "لا توجد بيانات بعد",
+    "series": {
+      "gross": "الإجمالي",
+      "net": "الصافي",
+      "deductions": "الاستقطاعات",
+      "netPay": "صافي الراتب",
+      "employerContributions": "مساهمات صاحب العمل",
+      "employerCost": "تكلفة صاحب العمل",
+      "amount": "المبلغ",
+      "employees": "الموظفون"
+    },
+    "columns": {
+      "period": "الفترة",
+      "employees": "الموظفون",
+      "grossPay": "إجمالي الراتب",
+      "deductions": "الاستقطاعات",
+      "netPay": "صافي الراتب",
+      "avgPerEmployee": "المتوسط/الموظف",
+      "grossPercent": "الإجمالي %",
+      "netPercent": "الصافي %"
+    },
+    "statuses": { "paid": "مدفوع", "computed": "محسوب", "approved": "معتمد" }
+  },
   "roles": {
     "super_admin": "مسؤول أعلى",
     "org_admin": "مسؤول المؤسسة",

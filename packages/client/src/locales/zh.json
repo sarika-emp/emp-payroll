@@ -184,6 +184,48 @@
     "preservedSuffix": "，保留了现有 {{count}} 行",
     "markFailed": "无法登记考勤"
   },
+  "payrollAnalytics": {
+    "title": "薪资分析",
+    "description": "成本趋势、对比与洞察",
+    "notice": "以下数据仅反映每次薪资核算中包含的员工。计算时跳过的员工（没有有效薪资结构、在发薪周期后入职或在周期开始前离职）不会计入，因此各月员工人数和人均值可能在与实际招聘活动无关的情况下发生变化。",
+    "noRuns": "暂无薪资核算",
+    "employeeSource": "{{count}} 名员工 · {{source}}",
+    "headcountSuppressed": "员工人数变化超过 25% — 已隐藏对比",
+    "vsPrevious": "较上月 · {{source}}",
+    "ofGrossPay": "占总薪资 · {{source}}",
+    "avgNetPayPerEmployee": "员工平均实发薪资",
+    "grossPayChange": "总薪资变化",
+    "netPayChange": "实发薪资变化",
+    "deductionRate": "扣款率",
+    "payrollCostTrend": "薪资成本趋势",
+    "costBreakdownLatest": "成本明细（最新）",
+    "headcountTrend": "员工人数趋势",
+    "monthComparison": "月度环比",
+    "totalEmployerCost": "雇主总成本（总薪资 + 缴费）",
+    "needCompletedRun": "至少需要 1 次已完成的薪资核算才能显示分析",
+    "noData": "暂无数据",
+    "series": {
+      "gross": "总薪资",
+      "net": "实发薪资",
+      "deductions": "扣款",
+      "netPay": "实发薪资",
+      "employerContributions": "雇主缴费",
+      "employerCost": "雇主成本",
+      "amount": "金额",
+      "employees": "员工"
+    },
+    "columns": {
+      "period": "期间",
+      "employees": "员工",
+      "grossPay": "总薪资",
+      "deductions": "扣款",
+      "netPay": "实发薪资",
+      "avgPerEmployee": "人均",
+      "grossPercent": "总薪资 %",
+      "netPercent": "实发 %"
+    },
+    "statuses": { "paid": "已支付", "computed": "已计算", "approved": "已批准" }
+  },
   "roles": {
     "super_admin": "超级管理员",
     "org_admin": "组织管理员",

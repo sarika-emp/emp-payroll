@@ -184,6 +184,48 @@
     "preservedSuffix": ", {{count}} vorhandene Zeilen beibehalten",
     "markFailed": "Anwesenheit konnte nicht erfasst werden"
   },
+  "payrollAnalytics": {
+    "title": "Gehaltsabrechnungsanalyse",
+    "description": "Kostentrends, Vergleiche und Einblicke",
+    "notice": "Die folgenden Zahlen beziehen sich auf die Mitarbeitenden, die in jedem Abrechnungslauf enthalten sind. Bei der Berechnung übersprungene Mitarbeitende (keine aktive Gehaltsstruktur, Einstellung nach dem Abrechnungszeitraum oder Austritt davor) werden nicht gezählt. Daher können sich Mitarbeiterzahl und Durchschnittswerte pro Person unabhängig von der tatsächlichen Einstellungstätigkeit zwischen den Monaten verändern.",
+    "noRuns": "noch keine Abrechnungsläufe",
+    "employeeSource": "{{count}} Mitarbeitende · {{source}}",
+    "headcountSuppressed": "Mitarbeiterzahl um mehr als 25 % verändert — Vergleich ausgeblendet",
+    "vsPrevious": "gegenüber dem Vormonat · {{source}}",
+    "ofGrossPay": "des Bruttogehalts · {{source}}",
+    "avgNetPayPerEmployee": "Durchschn. Nettogehalt / Person",
+    "grossPayChange": "Änderung des Bruttogehalts",
+    "netPayChange": "Änderung des Nettogehalts",
+    "deductionRate": "Abzugssatz",
+    "payrollCostTrend": "Trend der Abrechnungskosten",
+    "costBreakdownLatest": "Kostenaufschlüsselung (aktuell)",
+    "headcountTrend": "Trend der Mitarbeiterzahl",
+    "monthComparison": "Monatsvergleich",
+    "totalEmployerCost": "Gesamte Arbeitgeberkosten (Brutto + Beiträge)",
+    "needCompletedRun": "Für die Analyse ist mindestens ein abgeschlossener Abrechnungslauf erforderlich",
+    "noData": "Noch keine Daten",
+    "series": {
+      "gross": "Brutto",
+      "net": "Netto",
+      "deductions": "Abzüge",
+      "netPay": "Nettogehalt",
+      "employerContributions": "Arbeitgeberbeiträge",
+      "employerCost": "Arbeitgeberkosten",
+      "amount": "Betrag",
+      "employees": "Mitarbeitende"
+    },
+    "columns": {
+      "period": "Zeitraum",
+      "employees": "Mitarbeitende",
+      "grossPay": "Bruttogehalt",
+      "deductions": "Abzüge",
+      "netPay": "Nettogehalt",
+      "avgPerEmployee": "Durchschn./Person",
+      "grossPercent": "Brutto %",
+      "netPercent": "Netto %"
+    },
+    "statuses": { "paid": "Bezahlt", "computed": "Berechnet", "approved": "Genehmigt" }
+  },
   "roles": {
     "super_admin": "Superadmin",
     "org_admin": "Organisationsadmin",

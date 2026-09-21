@@ -184,6 +184,48 @@
     "preservedSuffix": "、既存の{{count}}行を保持しました",
     "markFailed": "勤怠を登録できませんでした"
   },
+  "payrollAnalytics": {
+    "title": "給与分析",
+    "description": "コスト推移、比較、インサイト",
+    "notice": "以下の数値は、各給与計算に含まれる従業員を反映しています。計算時に除外された従業員（有効な給与体系がない、支給期間後に入社した、または期間前に退職した従業員）は集計されません。そのため、実際の採用状況とは関係なく、月ごとの従業員数や1人当たり平均が変動する場合があります。",
+    "noRuns": "給与計算はまだありません",
+    "employeeSource": "{{count}}人 · {{source}}",
+    "headcountSuppressed": "従業員数が25%以上変動したため、比較を非表示にしました",
+    "vsPrevious": "前月比 · {{source}}",
+    "ofGrossPay": "総支給額に対する割合 · {{source}}",
+    "avgNetPayPerEmployee": "従業員1人当たり平均手取り額",
+    "grossPayChange": "総支給額の変化",
+    "netPayChange": "手取り額の変化",
+    "deductionRate": "控除率",
+    "payrollCostTrend": "給与コスト推移",
+    "costBreakdownLatest": "コスト内訳（最新）",
+    "headcountTrend": "従業員数の推移",
+    "monthComparison": "前月比較",
+    "totalEmployerCost": "雇用主の総コスト（総支給額 + 負担金）",
+    "needCompletedRun": "分析を表示するには、完了した給与計算が1件以上必要です",
+    "noData": "データはまだありません",
+    "series": {
+      "gross": "総支給額",
+      "net": "手取り額",
+      "deductions": "控除",
+      "netPay": "手取り額",
+      "employerContributions": "雇用主負担金",
+      "employerCost": "雇用主コスト",
+      "amount": "金額",
+      "employees": "従業員"
+    },
+    "columns": {
+      "period": "期間",
+      "employees": "従業員",
+      "grossPay": "総支給額",
+      "deductions": "控除",
+      "netPay": "手取り額",
+      "avgPerEmployee": "1人当たり平均",
+      "grossPercent": "総支給額 %",
+      "netPercent": "手取り額 %"
+    },
+    "statuses": { "paid": "支払済み", "computed": "計算済み", "approved": "承認済み" }
+  },
   "roles": {
     "super_admin": "スーパー管理者",
     "org_admin": "組織管理者",

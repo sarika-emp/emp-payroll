@@ -184,6 +184,48 @@
     "preservedSuffix": ", se conservaron {{count}} filas existentes",
     "markFailed": "No se pudo registrar la asistencia"
   },
+  "payrollAnalytics": {
+    "title": "Analítica de nómina",
+    "description": "Tendencias de costes, comparaciones e información",
+    "notice": "Las cifras siguientes reflejan a los empleados incluidos en cada proceso de nómina. Los empleados omitidos durante el cálculo (sin estructura salarial activa, contratados después del período de pago o dados de baja antes de este) no se cuentan; por eso, la plantilla y los promedios por empleado pueden variar entre meses independientemente de la contratación real.",
+    "noRuns": "aún no hay procesos",
+    "employeeSource": "{{count}} empleados · {{source}}",
+    "headcountSuppressed": "la plantilla cambió más del 25 % — comparación omitida",
+    "vsPrevious": "frente al mes anterior · {{source}}",
+    "ofGrossPay": "del salario bruto · {{source}}",
+    "avgNetPayPerEmployee": "Pago neto medio / empleado",
+    "grossPayChange": "Cambio del salario bruto",
+    "netPayChange": "Cambio del salario neto",
+    "deductionRate": "Tasa de deducciones",
+    "payrollCostTrend": "Tendencia del coste de nómina",
+    "costBreakdownLatest": "Desglose de costes (último)",
+    "headcountTrend": "Tendencia de plantilla",
+    "monthComparison": "Comparación intermensual",
+    "totalEmployerCost": "Coste total del empleador (bruto + contribuciones)",
+    "needCompletedRun": "Se necesita al menos un proceso de nómina completado para mostrar el análisis",
+    "noData": "Aún no hay datos",
+    "series": {
+      "gross": "Bruto",
+      "net": "Neto",
+      "deductions": "Deducciones",
+      "netPay": "Pago neto",
+      "employerContributions": "Contribuciones del empleador",
+      "employerCost": "Coste del empleador",
+      "amount": "Importe",
+      "employees": "Empleados"
+    },
+    "columns": {
+      "period": "Período",
+      "employees": "Empleados",
+      "grossPay": "Salario bruto",
+      "deductions": "Deducciones",
+      "netPay": "Salario neto",
+      "avgPerEmployee": "Media/empleado",
+      "grossPercent": "Bruto %",
+      "netPercent": "Neto %"
+    },
+    "statuses": { "paid": "Pagado", "computed": "Calculado", "approved": "Aprobado" }
+  },
   "roles": {
     "super_admin": "Superadministrador",
     "org_admin": "Administrador de organización",

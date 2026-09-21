@@ -184,6 +184,48 @@
     "preservedSuffix": ", {{count}} lignes existantes conservées",
     "markFailed": "Impossible d’enregistrer la présence"
   },
+  "payrollAnalytics": {
+    "title": "Analyse de la paie",
+    "description": "Tendances des coûts, comparaisons et indicateurs",
+    "notice": "Les chiffres ci-dessous reflètent les employés inclus dans chaque cycle de paie. Les employés ignorés lors du calcul (aucune structure salariale active, embauche après la période de paie ou départ avant celle-ci) ne sont pas comptés. L’effectif et les moyennes par employé peuvent donc varier d’un mois à l’autre indépendamment des recrutements réels.",
+    "noRuns": "aucun cycle pour le moment",
+    "employeeSource": "{{count}} employés · {{source}}",
+    "headcountSuppressed": "variation de l’effectif supérieure à 25 % — comparaison masquée",
+    "vsPrevious": "par rapport au mois précédent · {{source}}",
+    "ofGrossPay": "du salaire brut · {{source}}",
+    "avgNetPayPerEmployee": "Salaire net moyen / employé",
+    "grossPayChange": "Variation du salaire brut",
+    "netPayChange": "Variation du salaire net",
+    "deductionRate": "Taux de retenues",
+    "payrollCostTrend": "Évolution du coût de la paie",
+    "costBreakdownLatest": "Répartition des coûts (dernière période)",
+    "headcountTrend": "Évolution de l’effectif",
+    "monthComparison": "Comparaison mensuelle",
+    "totalEmployerCost": "Coût employeur total (brut + cotisations)",
+    "needCompletedRun": "Au moins un cycle de paie terminé est nécessaire pour afficher l’analyse",
+    "noData": "Aucune donnée pour le moment",
+    "series": {
+      "gross": "Brut",
+      "net": "Net",
+      "deductions": "Retenues",
+      "netPay": "Salaire net",
+      "employerContributions": "Cotisations employeur",
+      "employerCost": "Coût employeur",
+      "amount": "Montant",
+      "employees": "Employés"
+    },
+    "columns": {
+      "period": "Période",
+      "employees": "Employés",
+      "grossPay": "Salaire brut",
+      "deductions": "Retenues",
+      "netPay": "Salaire net",
+      "avgPerEmployee": "Moyenne/employé",
+      "grossPercent": "Brut %",
+      "netPercent": "Net %"
+    },
+    "statuses": { "paid": "Payé", "computed": "Calculé", "approved": "Approuvé" }
+  },
   "roles": {
     "super_admin": "Super administrateur",
     "org_admin": "Administrateur de l’organisation",

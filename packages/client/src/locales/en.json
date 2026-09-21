@@ -185,6 +185,48 @@
     "preservedSuffix": ", {{count}} existing rows preserved",
     "markFailed": "Failed to mark attendance"
   },
+  "payrollAnalytics": {
+    "title": "Payroll Analytics",
+    "description": "Cost trends, comparisons, and insights",
+    "notice": "Numbers below reflect employees included in each payroll run. Employees skipped during compute (no active salary structure, hired after the pay period, exited before it) are not counted, so headcount and per-employee averages can shift between months independently of actual hiring activity.",
+    "noRuns": "no runs yet",
+    "employeeSource": "{{count}} employees · {{source}}",
+    "headcountSuppressed": "headcount changed >25% — comparison suppressed",
+    "vsPrevious": "vs previous month · {{source}}",
+    "ofGrossPay": "of gross pay · {{source}}",
+    "avgNetPayPerEmployee": "Avg Net Pay / Employee",
+    "grossPayChange": "Gross Pay Change",
+    "netPayChange": "Net Pay Change",
+    "deductionRate": "Deduction Rate",
+    "payrollCostTrend": "Payroll Cost Trend",
+    "costBreakdownLatest": "Cost Breakdown (Latest)",
+    "headcountTrend": "Headcount Trend",
+    "monthComparison": "Month-over-Month Comparison",
+    "totalEmployerCost": "Total Employer Cost (Gross + Contributions)",
+    "needCompletedRun": "Need at least 1 completed payroll run for analytics",
+    "noData": "No data yet",
+    "series": {
+      "gross": "Gross",
+      "net": "Net",
+      "deductions": "Deductions",
+      "netPay": "Net Pay",
+      "employerContributions": "Employer Contributions",
+      "employerCost": "Employer Cost",
+      "amount": "Amount",
+      "employees": "Employees"
+    },
+    "columns": {
+      "period": "Period",
+      "employees": "Employees",
+      "grossPay": "Gross Pay",
+      "deductions": "Deductions",
+      "netPay": "Net Pay",
+      "avgPerEmployee": "Avg/Employee",
+      "grossPercent": "Gross %",
+      "netPercent": "Net %"
+    },
+    "statuses": { "paid": "Paid", "computed": "Computed", "approved": "Approved" }
+  },
   "roles": {
     "super_admin": "Super Admin",
     "org_admin": "Org Admin",

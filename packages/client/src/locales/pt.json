@@ -184,6 +184,48 @@
     "preservedSuffix": ", {{count}} linhas existentes preservadas",
     "markFailed": "Não foi possível registrar a frequência"
   },
+  "payrollAnalytics": {
+    "title": "Análise da folha de pagamento",
+    "description": "Tendências de custos, comparações e informações",
+    "notice": "Os números abaixo refletem os colaboradores incluídos em cada processamento da folha. Os colaboradores ignorados durante o cálculo (sem estrutura salarial ativa, contratados após o período de pagamento ou desligados antes dele) não são contabilizados. Por isso, o quadro de pessoal e as médias por colaborador podem variar entre os meses independentemente das contratações reais.",
+    "noRuns": "ainda não há processamentos",
+    "employeeSource": "{{count}} colaboradores · {{source}}",
+    "headcountSuppressed": "o quadro de pessoal mudou mais de 25% — comparação ocultada",
+    "vsPrevious": "em relação ao mês anterior · {{source}}",
+    "ofGrossPay": "do salário bruto · {{source}}",
+    "avgNetPayPerEmployee": "Salário líquido médio / colaborador",
+    "grossPayChange": "Variação do salário bruto",
+    "netPayChange": "Variação do salário líquido",
+    "deductionRate": "Taxa de deduções",
+    "payrollCostTrend": "Tendência do custo da folha",
+    "costBreakdownLatest": "Detalhamento de custos (mais recente)",
+    "headcountTrend": "Tendência do quadro de pessoal",
+    "monthComparison": "Comparação mês a mês",
+    "totalEmployerCost": "Custo total do empregador (bruto + contribuições)",
+    "needCompletedRun": "É necessário pelo menos 1 processamento concluído para exibir a análise",
+    "noData": "Ainda não há dados",
+    "series": {
+      "gross": "Bruto",
+      "net": "Líquido",
+      "deductions": "Deduções",
+      "netPay": "Salário líquido",
+      "employerContributions": "Contribuições do empregador",
+      "employerCost": "Custo do empregador",
+      "amount": "Valor",
+      "employees": "Colaboradores"
+    },
+    "columns": {
+      "period": "Período",
+      "employees": "Colaboradores",
+      "grossPay": "Salário bruto",
+      "deductions": "Deduções",
+      "netPay": "Salário líquido",
+      "avgPerEmployee": "Média/colaborador",
+      "grossPercent": "Bruto %",
+      "netPercent": "Líquido %"
+    },
+    "statuses": { "paid": "Pago", "computed": "Calculado", "approved": "Aprovado" }
+  },
   "roles": {
     "super_admin": "Super administrador",
     "org_admin": "Administrador da organização",

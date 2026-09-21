@@ -184,6 +184,48 @@
     "preservedSuffix": ", {{count}} मौजूदा पंक्तियाँ सुरक्षित रहीं",
     "markFailed": "उपस्थिति दर्ज नहीं की जा सकी"
   },
+  "payrollAnalytics": {
+    "title": "पेरोल विश्लेषण",
+    "description": "लागत के रुझान, तुलनाएँ और जानकारियाँ",
+    "notice": "नीचे दिए गए आँकड़े प्रत्येक पेरोल रन में शामिल कर्मचारियों को दर्शाते हैं। गणना के दौरान छोड़े गए कर्मचारी (सक्रिय वेतन संरचना न होना, वेतन अवधि के बाद नियुक्त होना या उससे पहले सेवा छोड़ना) गिने नहीं जाते, इसलिए वास्तविक भर्ती गतिविधि से अलग भी महीनों के बीच कर्मचारियों की संख्या और प्रति-कर्मचारी औसत बदल सकते हैं।",
+    "noRuns": "अभी कोई पेरोल रन नहीं है",
+    "employeeSource": "{{count}} कर्मचारी · {{source}}",
+    "headcountSuppressed": "कर्मचारियों की संख्या में 25% से अधिक बदलाव — तुलना नहीं दिखाई गई",
+    "vsPrevious": "पिछले महीने की तुलना में · {{source}}",
+    "ofGrossPay": "सकल वेतन का · {{source}}",
+    "avgNetPayPerEmployee": "औसत शुद्ध वेतन / कर्मचारी",
+    "grossPayChange": "सकल वेतन में बदलाव",
+    "netPayChange": "शुद्ध वेतन में बदलाव",
+    "deductionRate": "कटौती दर",
+    "payrollCostTrend": "पेरोल लागत का रुझान",
+    "costBreakdownLatest": "लागत विवरण (नवीनतम)",
+    "headcountTrend": "कर्मचारी संख्या का रुझान",
+    "monthComparison": "माह-दर-माह तुलना",
+    "totalEmployerCost": "कुल नियोक्ता लागत (सकल + योगदान)",
+    "needCompletedRun": "विश्लेषण के लिए कम से कम 1 पूर्ण पेरोल रन आवश्यक है",
+    "noData": "अभी कोई डेटा नहीं है",
+    "series": {
+      "gross": "सकल",
+      "net": "शुद्ध",
+      "deductions": "कटौतियाँ",
+      "netPay": "शुद्ध वेतन",
+      "employerContributions": "नियोक्ता योगदान",
+      "employerCost": "नियोक्ता लागत",
+      "amount": "राशि",
+      "employees": "कर्मचारी"
+    },
+    "columns": {
+      "period": "अवधि",
+      "employees": "कर्मचारी",
+      "grossPay": "सकल वेतन",
+      "deductions": "कटौतियाँ",
+      "netPay": "शुद्ध वेतन",
+      "avgPerEmployee": "औसत/कर्मचारी",
+      "grossPercent": "सकल %",
+      "netPercent": "शुद्ध %"
+    },
+    "statuses": { "paid": "भुगतान किया गया", "computed": "गणना की गई", "approved": "स्वीकृत" }
+  },
   "roles": {
     "super_admin": "सुपर एडमिन",
     "org_admin": "संगठन एडमिन",
