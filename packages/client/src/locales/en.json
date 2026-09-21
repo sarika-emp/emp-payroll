@@ -325,6 +325,106 @@
       "markPaidFailed": "Failed to mark claim as paid"
     }
   },
+  "loansPage": {
+    "title": "Loans & Advances",
+    "recordsShown": "{{visible}} of {{total}} loan and advance records",
+    "addAdvance": "Add Advance",
+    "addLoan": "Add Loan",
+    "searchPlaceholder": "Search by employee name, code, or designation...",
+    "filterDepartment": "Filter by department",
+    "allDepartments": "All departments",
+    "filterLocation": "Filter by location",
+    "allLocations": "All locations",
+    "clearFilters": "Clear filters",
+    "noRecords": "No loans or advances found",
+    "cards": {
+      "active": "Active Loans & Advances",
+      "outstanding": "Outstanding",
+      "monthlyDeductions": "Monthly Deductions",
+      "totalAcrossAll": "total across all",
+      "completed": "Completed"
+    },
+    "filters": { "all": "All" },
+    "statuses": { "active": "Active", "completed": "Completed", "cancelled": "Cancelled" },
+    "types": {
+      "loan": "Loan",
+      "salary_advance": "Salary Advance",
+      "emergency": "Emergency Advance"
+    },
+    "columns": {
+      "employee": "Employee",
+      "type": "Type",
+      "description": "Description",
+      "principal": "Principal",
+      "outstanding": "Outstanding",
+      "deduction": "Deduction",
+      "progress": "Progress",
+      "status": "Status"
+    },
+    "deduction": { "customDefault": "Custom (default {{amount}})", "oneTime": "One-time" },
+    "progress": { "recovered": "Recovered", "pendingRecovery": "Pending recovery" },
+    "actions": {
+      "recordEmiPayment": "Record EMI payment",
+      "recordAdvanceRecovery": "Record advance recovery",
+      "pay": "Pay",
+      "recover": "Recover",
+      "edit": "Edit loan or advance",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "saveChanges": "Save Changes"
+    },
+    "fields": {
+      "employee": "Employee",
+      "description": "Description",
+      "amount": "Amount (₹)",
+      "tenure": "Tenure (months)",
+      "interestRate": "Interest Rate (%)",
+      "startDate": "Start Date",
+      "customMonthlyEmi": "Custom Monthly EMI (₹) — optional",
+      "notes": "Notes (optional)",
+      "advanceType": "Advance Type",
+      "reason": "Reason",
+      "advanceAmount": "Advance Amount (₹)",
+      "recoveryDate": "Recovery Date"
+    },
+    "form": {
+      "noEmployee": "There is no employee",
+      "descriptionPlaceholder": "e.g. Medical emergency",
+      "customEmiPlaceholder": "Leave blank to use tenure-based EMI",
+      "customEmiHelpCreate": "Override the monthly deduction. The last instalment automatically settles the remaining amount.",
+      "customEmiHelpEdit": "Override the monthly deduction. The last instalment automatically settles the remaining amount. Clear the field to use the tenure-based EMI.",
+      "notesPlaceholder": "Any additional notes",
+      "paidInstallmentsNotice": "{{count}} EMI(s) already paid — outstanding will be recalculated from the new amount while keeping the amount already repaid."
+    },
+    "advanceModal": {
+      "description": "Add a one-time salary advance. The full amount will be recovered in one payroll period."
+    },
+    "editModal": { "loanTitle": "Edit Loan", "advanceTitle": "Edit Advance" },
+    "deleteModal": {
+      "title": "Delete loan or advance?",
+      "outstandingTitle": "{{amount}} still outstanding.",
+      "outstandingWarning": "Deleting removes the record and stops future deductions. Amounts already deducted on past payslips are unaffected. This cannot be undone.",
+      "warning": "This permanently removes the record. Amounts already deducted on past payslips are unaffected. This cannot be undone."
+    },
+    "validation": {
+      "amountNonNegative": "Amount must be zero or greater",
+      "tenureMinimum": "Tenure must be at least 1 month",
+      "interestNonNegative": "Interest rate must be zero or greater",
+      "customEmiPositive": "Custom monthly EMI must be greater than zero",
+      "customEmiMaximum": "Custom monthly EMI cannot exceed the loan amount"
+    },
+    "messages": {
+      "advanceCreated": "Advance created",
+      "loanCreated": "Loan created",
+      "failed": "Action failed",
+      "paymentRecorded": "Payment recorded",
+      "advanceUpdated": "Advance updated",
+      "loanUpdated": "Loan updated",
+      "updateFailed": "Failed to update loan or advance",
+      "deleted": "Loan or advance deleted",
+      "deleteFailed": "Failed to delete loan or advance"
+    }
+  },
   "roles": {
     "super_admin": "Super Admin",
     "org_admin": "Org Admin",

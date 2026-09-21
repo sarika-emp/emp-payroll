@@ -324,6 +324,102 @@
       "markPaidFailed": "تعذر تحديد الطلب كمدفوع"
     }
   },
+  "loansPage": {
+    "title": "القروض والسلف",
+    "recordsShown": "{{visible}} من {{total}} سجلات قروض وسلف",
+    "addAdvance": "إضافة سلفة",
+    "addLoan": "إضافة قرض",
+    "searchPlaceholder": "البحث باسم الموظف أو رمزه أو مسماه...",
+    "filterDepartment": "التصفية حسب القسم",
+    "allDepartments": "كل الأقسام",
+    "filterLocation": "التصفية حسب الموقع",
+    "allLocations": "كل المواقع",
+    "clearFilters": "مسح عوامل التصفية",
+    "noRecords": "لم يتم العثور على قروض أو سلف",
+    "cards": {
+      "active": "القروض والسلف النشطة",
+      "outstanding": "المبلغ المتبقي",
+      "monthlyDeductions": "الاستقطاعات الشهرية",
+      "totalAcrossAll": "الإجمالي للكل",
+      "completed": "مكتمل"
+    },
+    "filters": { "all": "الكل" },
+    "statuses": { "active": "نشط", "completed": "مكتمل", "cancelled": "ملغى" },
+    "types": { "loan": "قرض", "salary_advance": "سلفة راتب", "emergency": "سلفة طارئة" },
+    "columns": {
+      "employee": "الموظف",
+      "type": "النوع",
+      "description": "الوصف",
+      "principal": "أصل المبلغ",
+      "outstanding": "المتبقي",
+      "deduction": "الاستقطاع",
+      "progress": "التقدم",
+      "status": "الحالة"
+    },
+    "deduction": { "customDefault": "مخصص (الافتراضي {{amount}})", "oneTime": "مرة واحدة" },
+    "progress": { "recovered": "تم الاسترداد", "pendingRecovery": "الاسترداد معلق" },
+    "actions": {
+      "recordEmiPayment": "تسجيل دفعة القسط",
+      "recordAdvanceRecovery": "تسجيل استرداد السلفة",
+      "pay": "دفع",
+      "recover": "استرداد",
+      "edit": "تعديل القرض أو السلفة",
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "fields": {
+      "employee": "الموظف",
+      "description": "الوصف",
+      "amount": "المبلغ (₹)",
+      "tenure": "المدة (أشهر)",
+      "interestRate": "معدل الفائدة (%)",
+      "startDate": "تاريخ البدء",
+      "customMonthlyEmi": "قسط شهري مخصص (₹) — اختياري",
+      "notes": "ملاحظات (اختياري)",
+      "advanceType": "نوع السلفة",
+      "reason": "السبب",
+      "advanceAmount": "مبلغ السلفة (₹)",
+      "recoveryDate": "تاريخ الاسترداد"
+    },
+    "form": {
+      "noEmployee": "لا يوجد موظفون",
+      "descriptionPlaceholder": "مثال: حالة طبية طارئة",
+      "customEmiPlaceholder": "اتركه فارغًا لاستخدام القسط المحسوب حسب المدة",
+      "customEmiHelpCreate": "يستبدل الاستقطاع الشهري. تسدد الدفعة الأخيرة الرصيد المتبقي تلقائيًا.",
+      "customEmiHelpEdit": "يستبدل الاستقطاع الشهري. تسدد الدفعة الأخيرة الرصيد المتبقي تلقائيًا. امسح الحقل لاستخدام القسط المحسوب حسب المدة.",
+      "notesPlaceholder": "ملاحظات إضافية",
+      "paidInstallmentsNotice": "تم دفع {{count}} قسط — سيعاد حساب المتبقي مع الاحتفاظ بالمبلغ المسدد."
+    },
+    "advanceModal": {
+      "description": "أضف سلفة راتب لمرة واحدة. سيتم استرداد المبلغ كاملًا في فترة رواتب واحدة."
+    },
+    "editModal": { "loanTitle": "تعديل القرض", "advanceTitle": "تعديل السلفة" },
+    "deleteModal": {
+      "title": "حذف القرض أو السلفة؟",
+      "outstandingTitle": "لا يزال {{amount}} متبقيًا.",
+      "outstandingWarning": "يؤدي الحذف إلى إيقاف الاستقطاعات المستقبلية. المبالغ المستقطعة في قسائم الرواتب السابقة لا تتأثر. لا يمكن التراجع عن ذلك.",
+      "warning": "سيتم حذف السجل نهائيًا. المبالغ المستقطعة سابقًا لا تتأثر. لا يمكن التراجع عن ذلك."
+    },
+    "validation": {
+      "amountNonNegative": "يجب أن يكون المبلغ صفرًا أو أكثر",
+      "tenureMinimum": "يجب ألا تقل المدة عن شهر واحد",
+      "interestNonNegative": "يجب أن يكون معدل الفائدة صفرًا أو أكثر",
+      "customEmiPositive": "يجب أن يكون القسط الشهري المخصص أكبر من صفر",
+      "customEmiMaximum": "لا يمكن أن يتجاوز القسط الشهري المخصص مبلغ القرض"
+    },
+    "messages": {
+      "advanceCreated": "تم إنشاء السلفة",
+      "loanCreated": "تم إنشاء القرض",
+      "failed": "فشل الإجراء",
+      "paymentRecorded": "تم تسجيل الدفع",
+      "advanceUpdated": "تم تحديث السلفة",
+      "loanUpdated": "تم تحديث القرض",
+      "updateFailed": "تعذر تحديث القرض أو السلفة",
+      "deleted": "تم حذف القرض أو السلفة",
+      "deleteFailed": "تعذر حذف القرض أو السلفة"
+    }
+  },
   "roles": {
     "super_admin": "مسؤول أعلى",
     "org_admin": "مسؤول المؤسسة",

@@ -324,6 +324,109 @@
       "markPaidFailed": "No se pudo marcar la solicitud como pagada"
     }
   },
+  "loansPage": {
+    "title": "Préstamos y anticipos",
+    "recordsShown": "{{visible}} de {{total}} registros de préstamos y anticipos",
+    "addAdvance": "Añadir anticipo",
+    "addLoan": "Añadir préstamo",
+    "searchPlaceholder": "Buscar por nombre, código o puesto del empleado...",
+    "filterDepartment": "Filtrar por departamento",
+    "allDepartments": "Todos los departamentos",
+    "filterLocation": "Filtrar por ubicación",
+    "allLocations": "Todas las ubicaciones",
+    "clearFilters": "Limpiar filtros",
+    "noRecords": "No se encontraron préstamos ni anticipos",
+    "cards": {
+      "active": "Préstamos y anticipos activos",
+      "outstanding": "Saldo pendiente",
+      "monthlyDeductions": "Deducciones mensuales",
+      "totalAcrossAll": "total de todos",
+      "completed": "Completados"
+    },
+    "filters": { "all": "Todos" },
+    "statuses": { "active": "Activo", "completed": "Completado", "cancelled": "Cancelado" },
+    "types": {
+      "loan": "Préstamo",
+      "salary_advance": "Anticipo salarial",
+      "emergency": "Anticipo de emergencia"
+    },
+    "columns": {
+      "employee": "Empleado",
+      "type": "Tipo",
+      "description": "Descripción",
+      "principal": "Capital",
+      "outstanding": "Pendiente",
+      "deduction": "Deducción",
+      "progress": "Progreso",
+      "status": "Estado"
+    },
+    "deduction": {
+      "customDefault": "Personalizada (predeterminada {{amount}})",
+      "oneTime": "Una sola vez"
+    },
+    "progress": { "recovered": "Recuperado", "pendingRecovery": "Recuperación pendiente" },
+    "actions": {
+      "recordEmiPayment": "Registrar pago de cuota",
+      "recordAdvanceRecovery": "Registrar recuperación del anticipo",
+      "pay": "Pagar",
+      "recover": "Recuperar",
+      "edit": "Editar préstamo o anticipo",
+      "delete": "Eliminar",
+      "cancel": "Cancelar",
+      "saveChanges": "Guardar cambios"
+    },
+    "fields": {
+      "employee": "Empleado",
+      "description": "Descripción",
+      "amount": "Importe (₹)",
+      "tenure": "Plazo (meses)",
+      "interestRate": "Tipo de interés (%)",
+      "startDate": "Fecha de inicio",
+      "customMonthlyEmi": "Cuota mensual personalizada (₹) — opcional",
+      "notes": "Notas (opcional)",
+      "advanceType": "Tipo de anticipo",
+      "reason": "Motivo",
+      "advanceAmount": "Importe del anticipo (₹)",
+      "recoveryDate": "Fecha de recuperación"
+    },
+    "form": {
+      "noEmployee": "No hay empleados",
+      "descriptionPlaceholder": "p. ej., emergencia médica",
+      "customEmiPlaceholder": "Déjalo vacío para usar la cuota basada en el plazo",
+      "customEmiHelpCreate": "Sustituye la deducción mensual. La última cuota liquida automáticamente el importe restante.",
+      "customEmiHelpEdit": "Sustituye la deducción mensual. La última cuota liquida automáticamente el importe restante. Borra el campo para usar la cuota basada en el plazo.",
+      "notesPlaceholder": "Notas adicionales",
+      "paidInstallmentsNotice": "Ya se pagaron {{count}} cuotas; el saldo se recalculará con el nuevo importe conservando lo ya pagado."
+    },
+    "advanceModal": {
+      "description": "Añade un anticipo salarial único. El importe completo se recuperará en un período de nómina."
+    },
+    "editModal": { "loanTitle": "Editar préstamo", "advanceTitle": "Editar anticipo" },
+    "deleteModal": {
+      "title": "¿Eliminar préstamo o anticipo?",
+      "outstandingTitle": "Quedan {{amount}} pendientes.",
+      "outstandingWarning": "Al eliminar el registro se detienen las deducciones futuras. Los importes ya deducidos en recibos anteriores no cambian. Esta acción no se puede deshacer.",
+      "warning": "El registro se eliminará permanentemente. Los importes ya deducidos en recibos anteriores no cambian. Esta acción no se puede deshacer."
+    },
+    "validation": {
+      "amountNonNegative": "El importe debe ser cero o mayor",
+      "tenureMinimum": "El plazo debe ser de al menos 1 mes",
+      "interestNonNegative": "El tipo de interés debe ser cero o mayor",
+      "customEmiPositive": "La cuota mensual personalizada debe ser mayor que cero",
+      "customEmiMaximum": "La cuota mensual personalizada no puede superar el importe del préstamo"
+    },
+    "messages": {
+      "advanceCreated": "Anticipo creado",
+      "loanCreated": "Préstamo creado",
+      "failed": "La acción falló",
+      "paymentRecorded": "Pago registrado",
+      "advanceUpdated": "Anticipo actualizado",
+      "loanUpdated": "Préstamo actualizado",
+      "updateFailed": "No se pudo actualizar el préstamo o anticipo",
+      "deleted": "Préstamo o anticipo eliminado",
+      "deleteFailed": "No se pudo eliminar el préstamo o anticipo"
+    }
+  },
   "roles": {
     "super_admin": "Superadministrador",
     "org_admin": "Administrador de organización",

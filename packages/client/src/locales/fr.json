@@ -324,6 +324,106 @@
       "markPaidFailed": "Impossible de marquer la demande comme payée"
     }
   },
+  "loansPage": {
+    "title": "Prêts et avances",
+    "recordsShown": "{{visible}} sur {{total}} dossiers de prêts et avances",
+    "addAdvance": "Ajouter une avance",
+    "addLoan": "Ajouter un prêt",
+    "searchPlaceholder": "Rechercher par nom, matricule ou poste...",
+    "filterDepartment": "Filtrer par service",
+    "allDepartments": "Tous les services",
+    "filterLocation": "Filtrer par site",
+    "allLocations": "Tous les sites",
+    "clearFilters": "Effacer les filtres",
+    "noRecords": "Aucun prêt ni avance trouvé",
+    "cards": {
+      "active": "Prêts et avances actifs",
+      "outstanding": "Solde restant",
+      "monthlyDeductions": "Retenues mensuelles",
+      "totalAcrossAll": "total global",
+      "completed": "Terminés"
+    },
+    "filters": { "all": "Tous" },
+    "statuses": { "active": "Actif", "completed": "Terminé", "cancelled": "Annulé" },
+    "types": {
+      "loan": "Prêt",
+      "salary_advance": "Avance sur salaire",
+      "emergency": "Avance d’urgence"
+    },
+    "columns": {
+      "employee": "Employé",
+      "type": "Type",
+      "description": "Description",
+      "principal": "Capital",
+      "outstanding": "Restant",
+      "deduction": "Retenue",
+      "progress": "Progression",
+      "status": "Statut"
+    },
+    "deduction": { "customDefault": "Personnalisée (défaut {{amount}})", "oneTime": "Unique" },
+    "progress": { "recovered": "Récupéré", "pendingRecovery": "Récupération en attente" },
+    "actions": {
+      "recordEmiPayment": "Enregistrer le paiement de l’échéance",
+      "recordAdvanceRecovery": "Enregistrer la récupération de l’avance",
+      "pay": "Payer",
+      "recover": "Récupérer",
+      "edit": "Modifier le prêt ou l’avance",
+      "delete": "Supprimer",
+      "cancel": "Annuler",
+      "saveChanges": "Enregistrer"
+    },
+    "fields": {
+      "employee": "Employé",
+      "description": "Description",
+      "amount": "Montant (₹)",
+      "tenure": "Durée (mois)",
+      "interestRate": "Taux d’intérêt (%)",
+      "startDate": "Date de début",
+      "customMonthlyEmi": "Échéance mensuelle personnalisée (₹) — facultatif",
+      "notes": "Notes (facultatif)",
+      "advanceType": "Type d’avance",
+      "reason": "Motif",
+      "advanceAmount": "Montant de l’avance (₹)",
+      "recoveryDate": "Date de récupération"
+    },
+    "form": {
+      "noEmployee": "Aucun employé",
+      "descriptionPlaceholder": "ex. urgence médicale",
+      "customEmiPlaceholder": "Laisser vide pour utiliser l’échéance calculée selon la durée",
+      "customEmiHelpCreate": "Remplace la retenue mensuelle. La dernière échéance règle automatiquement le solde restant.",
+      "customEmiHelpEdit": "Remplace la retenue mensuelle. La dernière échéance règle automatiquement le solde restant. Effacez le champ pour utiliser l’échéance calculée selon la durée.",
+      "notesPlaceholder": "Notes supplémentaires",
+      "paidInstallmentsNotice": "{{count}} échéance(s) déjà payée(s) — le solde sera recalculé en conservant le montant déjà remboursé."
+    },
+    "advanceModal": {
+      "description": "Ajoutez une avance sur salaire unique. Le montant total sera récupéré sur une période de paie."
+    },
+    "editModal": { "loanTitle": "Modifier le prêt", "advanceTitle": "Modifier l’avance" },
+    "deleteModal": {
+      "title": "Supprimer le prêt ou l’avance ?",
+      "outstandingTitle": "Il reste {{amount}} à rembourser.",
+      "outstandingWarning": "La suppression arrête les retenues futures. Les montants déjà retenus sur les bulletins précédents ne changent pas. Cette action est irréversible.",
+      "warning": "Le dossier sera supprimé définitivement. Les montants déjà retenus ne changent pas. Cette action est irréversible."
+    },
+    "validation": {
+      "amountNonNegative": "Le montant doit être supérieur ou égal à zéro",
+      "tenureMinimum": "La durée doit être d’au moins 1 mois",
+      "interestNonNegative": "Le taux d’intérêt doit être supérieur ou égal à zéro",
+      "customEmiPositive": "L’échéance personnalisée doit être supérieure à zéro",
+      "customEmiMaximum": "L’échéance personnalisée ne peut pas dépasser le montant du prêt"
+    },
+    "messages": {
+      "advanceCreated": "Avance créée",
+      "loanCreated": "Prêt créé",
+      "failed": "Échec de l’action",
+      "paymentRecorded": "Paiement enregistré",
+      "advanceUpdated": "Avance mise à jour",
+      "loanUpdated": "Prêt mis à jour",
+      "updateFailed": "Impossible de mettre à jour le prêt ou l’avance",
+      "deleted": "Prêt ou avance supprimé",
+      "deleteFailed": "Impossible de supprimer le prêt ou l’avance"
+    }
+  },
   "roles": {
     "super_admin": "Super administrateur",
     "org_admin": "Administrateur de l’organisation",

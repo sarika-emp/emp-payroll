@@ -324,6 +324,102 @@
       "markPaidFailed": "दावे को भुगतान किया हुआ चिह्नित नहीं किया जा सका"
     }
   },
+  "loansPage": {
+    "title": "ऋण और अग्रिम",
+    "recordsShown": "{{total}} में से {{visible}} ऋण और अग्रिम रिकॉर्ड",
+    "addAdvance": "अग्रिम जोड़ें",
+    "addLoan": "ऋण जोड़ें",
+    "searchPlaceholder": "कर्मचारी के नाम, कोड या पद से खोजें...",
+    "filterDepartment": "विभाग के अनुसार फ़िल्टर करें",
+    "allDepartments": "सभी विभाग",
+    "filterLocation": "स्थान के अनुसार फ़िल्टर करें",
+    "allLocations": "सभी स्थान",
+    "clearFilters": "फ़िल्टर हटाएँ",
+    "noRecords": "कोई ऋण या अग्रिम नहीं मिला",
+    "cards": {
+      "active": "सक्रिय ऋण और अग्रिम",
+      "outstanding": "बकाया",
+      "monthlyDeductions": "मासिक कटौतियाँ",
+      "totalAcrossAll": "सभी का कुल",
+      "completed": "पूर्ण"
+    },
+    "filters": { "all": "सभी" },
+    "statuses": { "active": "सक्रिय", "completed": "पूर्ण", "cancelled": "रद्द" },
+    "types": { "loan": "ऋण", "salary_advance": "वेतन अग्रिम", "emergency": "आपातकालीन अग्रिम" },
+    "columns": {
+      "employee": "कर्मचारी",
+      "type": "प्रकार",
+      "description": "विवरण",
+      "principal": "मूलधन",
+      "outstanding": "बकाया",
+      "deduction": "कटौती",
+      "progress": "प्रगति",
+      "status": "स्थिति"
+    },
+    "deduction": { "customDefault": "कस्टम (डिफ़ॉल्ट {{amount}})", "oneTime": "एक बार" },
+    "progress": { "recovered": "वसूल हुआ", "pendingRecovery": "वसूली लंबित" },
+    "actions": {
+      "recordEmiPayment": "ईएमआई भुगतान दर्ज करें",
+      "recordAdvanceRecovery": "अग्रिम वसूली दर्ज करें",
+      "pay": "भुगतान करें",
+      "recover": "वसूल करें",
+      "edit": "ऋण या अग्रिम संपादित करें",
+      "delete": "हटाएँ",
+      "cancel": "रद्द करें",
+      "saveChanges": "बदलाव सहेजें"
+    },
+    "fields": {
+      "employee": "कर्मचारी",
+      "description": "विवरण",
+      "amount": "राशि (₹)",
+      "tenure": "अवधि (महीने)",
+      "interestRate": "ब्याज दर (%)",
+      "startDate": "आरंभ तारीख",
+      "customMonthlyEmi": "कस्टम मासिक ईएमआई (₹) — वैकल्पिक",
+      "notes": "नोट्स (वैकल्पिक)",
+      "advanceType": "अग्रिम प्रकार",
+      "reason": "कारण",
+      "advanceAmount": "अग्रिम राशि (₹)",
+      "recoveryDate": "वसूली तारीख"
+    },
+    "form": {
+      "noEmployee": "कोई कर्मचारी नहीं है",
+      "descriptionPlaceholder": "जैसे चिकित्सा आपातकाल",
+      "customEmiPlaceholder": "अवधि-आधारित ईएमआई के लिए खाली छोड़ें",
+      "customEmiHelpCreate": "मासिक कटौती को बदलता है। अंतिम किस्त शेष राशि का स्वतः निपटान करती है।",
+      "customEmiHelpEdit": "मासिक कटौती को बदलता है। अंतिम किस्त शेष राशि का स्वतः निपटान करती है। अवधि-आधारित ईएमआई के लिए फ़ील्ड खाली करें।",
+      "notesPlaceholder": "अतिरिक्त नोट्स",
+      "paidInstallmentsNotice": "{{count}} ईएमआई पहले ही भुगतान की गई — पहले चुकाई राशि रखते हुए बकाया नई राशि से फिर गणना होगा।"
+    },
+    "advanceModal": {
+      "description": "एकमुश्त वेतन अग्रिम जोड़ें। पूरी राशि एक पेरोल अवधि में वसूल की जाएगी।"
+    },
+    "editModal": { "loanTitle": "ऋण संपादित करें", "advanceTitle": "अग्रिम संपादित करें" },
+    "deleteModal": {
+      "title": "ऋण या अग्रिम हटाएँ?",
+      "outstandingTitle": "{{amount}} अभी बकाया है।",
+      "outstandingWarning": "हटाने से भविष्य की कटौतियाँ रुक जाएँगी। पिछली पेस्लिप से काटी गई राशि प्रभावित नहीं होगी। इसे वापस नहीं किया जा सकता।",
+      "warning": "रिकॉर्ड स्थायी रूप से हट जाएगा। पहले काटी गई राशि प्रभावित नहीं होगी। इसे वापस नहीं किया जा सकता।"
+    },
+    "validation": {
+      "amountNonNegative": "राशि शून्य या अधिक होनी चाहिए",
+      "tenureMinimum": "अवधि कम से कम 1 महीना होनी चाहिए",
+      "interestNonNegative": "ब्याज दर शून्य या अधिक होनी चाहिए",
+      "customEmiPositive": "कस्टम मासिक ईएमआई शून्य से अधिक होनी चाहिए",
+      "customEmiMaximum": "कस्टम मासिक ईएमआई ऋण राशि से अधिक नहीं हो सकती"
+    },
+    "messages": {
+      "advanceCreated": "अग्रिम बनाया गया",
+      "loanCreated": "ऋण बनाया गया",
+      "failed": "कार्रवाई विफल रही",
+      "paymentRecorded": "भुगतान दर्ज हुआ",
+      "advanceUpdated": "अग्रिम अपडेट हुआ",
+      "loanUpdated": "ऋण अपडेट हुआ",
+      "updateFailed": "ऋण या अग्रिम अपडेट नहीं हो सका",
+      "deleted": "ऋण या अग्रिम हटाया गया",
+      "deleteFailed": "ऋण या अग्रिम हटाया नहीं जा सका"
+    }
+  },
   "roles": {
     "super_admin": "सुपर एडमिन",
     "org_admin": "संगठन एडमिन",

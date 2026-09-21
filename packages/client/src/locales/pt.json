@@ -324,6 +324,106 @@
       "markPaidFailed": "Não foi possível marcar a solicitação como paga"
     }
   },
+  "loansPage": {
+    "title": "Empréstimos e adiantamentos",
+    "recordsShown": "{{visible}} de {{total}} registros de empréstimos e adiantamentos",
+    "addAdvance": "Adicionar adiantamento",
+    "addLoan": "Adicionar empréstimo",
+    "searchPlaceholder": "Buscar por nome, código ou cargo do colaborador...",
+    "filterDepartment": "Filtrar por departamento",
+    "allDepartments": "Todos os departamentos",
+    "filterLocation": "Filtrar por local",
+    "allLocations": "Todos os locais",
+    "clearFilters": "Limpar filtros",
+    "noRecords": "Nenhum empréstimo ou adiantamento encontrado",
+    "cards": {
+      "active": "Empréstimos e adiantamentos ativos",
+      "outstanding": "Saldo pendente",
+      "monthlyDeductions": "Descontos mensais",
+      "totalAcrossAll": "total geral",
+      "completed": "Concluídos"
+    },
+    "filters": { "all": "Todos" },
+    "statuses": { "active": "Ativo", "completed": "Concluído", "cancelled": "Cancelado" },
+    "types": {
+      "loan": "Empréstimo",
+      "salary_advance": "Adiantamento salarial",
+      "emergency": "Adiantamento emergencial"
+    },
+    "columns": {
+      "employee": "Colaborador",
+      "type": "Tipo",
+      "description": "Descrição",
+      "principal": "Principal",
+      "outstanding": "Pendente",
+      "deduction": "Desconto",
+      "progress": "Progresso",
+      "status": "Status"
+    },
+    "deduction": { "customDefault": "Personalizado (padrão {{amount}})", "oneTime": "Único" },
+    "progress": { "recovered": "Recuperado", "pendingRecovery": "Recuperação pendente" },
+    "actions": {
+      "recordEmiPayment": "Registrar pagamento da parcela",
+      "recordAdvanceRecovery": "Registrar recuperação do adiantamento",
+      "pay": "Pagar",
+      "recover": "Recuperar",
+      "edit": "Editar empréstimo ou adiantamento",
+      "delete": "Excluir",
+      "cancel": "Cancelar",
+      "saveChanges": "Salvar alterações"
+    },
+    "fields": {
+      "employee": "Colaborador",
+      "description": "Descrição",
+      "amount": "Valor (₹)",
+      "tenure": "Prazo (meses)",
+      "interestRate": "Taxa de juros (%)",
+      "startDate": "Data de início",
+      "customMonthlyEmi": "Parcela mensal personalizada (₹) — opcional",
+      "notes": "Observações (opcional)",
+      "advanceType": "Tipo de adiantamento",
+      "reason": "Motivo",
+      "advanceAmount": "Valor do adiantamento (₹)",
+      "recoveryDate": "Data de recuperação"
+    },
+    "form": {
+      "noEmployee": "Não há colaboradores",
+      "descriptionPlaceholder": "ex.: emergência médica",
+      "customEmiPlaceholder": "Deixe em branco para usar a parcela baseada no prazo",
+      "customEmiHelpCreate": "Substitui o desconto mensal. A última parcela quita automaticamente o saldo restante.",
+      "customEmiHelpEdit": "Substitui o desconto mensal. A última parcela quita automaticamente o saldo restante. Limpe o campo para usar a parcela baseada no prazo.",
+      "notesPlaceholder": "Observações adicionais",
+      "paidInstallmentsNotice": "{{count}} parcela(s) já paga(s) — o saldo será recalculado mantendo o valor já quitado."
+    },
+    "advanceModal": {
+      "description": "Adicione um adiantamento salarial único. O valor integral será recuperado em um período da folha."
+    },
+    "editModal": { "loanTitle": "Editar empréstimo", "advanceTitle": "Editar adiantamento" },
+    "deleteModal": {
+      "title": "Excluir empréstimo ou adiantamento?",
+      "outstandingTitle": "Ainda há {{amount}} pendentes.",
+      "outstandingWarning": "A exclusão interrompe descontos futuros. Valores já descontados em holerites anteriores não mudam. Esta ação não pode ser desfeita.",
+      "warning": "O registro será excluído permanentemente. Valores já descontados não mudam. Esta ação não pode ser desfeita."
+    },
+    "validation": {
+      "amountNonNegative": "O valor deve ser zero ou maior",
+      "tenureMinimum": "O prazo deve ser de pelo menos 1 mês",
+      "interestNonNegative": "A taxa de juros deve ser zero ou maior",
+      "customEmiPositive": "A parcela mensal personalizada deve ser maior que zero",
+      "customEmiMaximum": "A parcela mensal personalizada não pode exceder o valor do empréstimo"
+    },
+    "messages": {
+      "advanceCreated": "Adiantamento criado",
+      "loanCreated": "Empréstimo criado",
+      "failed": "A ação falhou",
+      "paymentRecorded": "Pagamento registrado",
+      "advanceUpdated": "Adiantamento atualizado",
+      "loanUpdated": "Empréstimo atualizado",
+      "updateFailed": "Não foi possível atualizar o empréstimo ou adiantamento",
+      "deleted": "Empréstimo ou adiantamento excluído",
+      "deleteFailed": "Não foi possível excluir o empréstimo ou adiantamento"
+    }
+  },
   "roles": {
     "super_admin": "Super administrador",
     "org_admin": "Administrador da organização",

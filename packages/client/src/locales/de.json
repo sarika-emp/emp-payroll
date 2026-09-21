@@ -324,6 +324,109 @@
       "markPaidFailed": "Antrag konnte nicht als bezahlt markiert werden"
     }
   },
+  "loansPage": {
+    "title": "Darlehen und Vorschüsse",
+    "recordsShown": "{{visible}} von {{total}} Darlehens- und Vorschussdatensätzen",
+    "addAdvance": "Vorschuss hinzufügen",
+    "addLoan": "Darlehen hinzufügen",
+    "searchPlaceholder": "Nach Name, Personalnummer oder Position suchen...",
+    "filterDepartment": "Nach Abteilung filtern",
+    "allDepartments": "Alle Abteilungen",
+    "filterLocation": "Nach Standort filtern",
+    "allLocations": "Alle Standorte",
+    "clearFilters": "Filter löschen",
+    "noRecords": "Keine Darlehen oder Vorschüsse gefunden",
+    "cards": {
+      "active": "Aktive Darlehen und Vorschüsse",
+      "outstanding": "Offener Betrag",
+      "monthlyDeductions": "Monatliche Abzüge",
+      "totalAcrossAll": "Gesamtsumme",
+      "completed": "Abgeschlossen"
+    },
+    "filters": { "all": "Alle" },
+    "statuses": { "active": "Aktiv", "completed": "Abgeschlossen", "cancelled": "Storniert" },
+    "types": {
+      "loan": "Darlehen",
+      "salary_advance": "Gehaltsvorschuss",
+      "emergency": "Notfallvorschuss"
+    },
+    "columns": {
+      "employee": "Mitarbeitende",
+      "type": "Typ",
+      "description": "Beschreibung",
+      "principal": "Kapital",
+      "outstanding": "Offen",
+      "deduction": "Abzug",
+      "progress": "Fortschritt",
+      "status": "Status"
+    },
+    "deduction": {
+      "customDefault": "Benutzerdefiniert (Standard {{amount}})",
+      "oneTime": "Einmalig"
+    },
+    "progress": { "recovered": "Eingezogen", "pendingRecovery": "Einzug ausstehend" },
+    "actions": {
+      "recordEmiPayment": "Ratenzahlung erfassen",
+      "recordAdvanceRecovery": "Vorschusseinzug erfassen",
+      "pay": "Zahlen",
+      "recover": "Einziehen",
+      "edit": "Darlehen oder Vorschuss bearbeiten",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "saveChanges": "Änderungen speichern"
+    },
+    "fields": {
+      "employee": "Mitarbeitende",
+      "description": "Beschreibung",
+      "amount": "Betrag (₹)",
+      "tenure": "Laufzeit (Monate)",
+      "interestRate": "Zinssatz (%)",
+      "startDate": "Startdatum",
+      "customMonthlyEmi": "Benutzerdefinierte Monatsrate (₹) — optional",
+      "notes": "Notizen (optional)",
+      "advanceType": "Vorschussart",
+      "reason": "Grund",
+      "advanceAmount": "Vorschussbetrag (₹)",
+      "recoveryDate": "Einzugsdatum"
+    },
+    "form": {
+      "noEmployee": "Keine Mitarbeitenden vorhanden",
+      "descriptionPlaceholder": "z. B. medizinischer Notfall",
+      "customEmiPlaceholder": "Leer lassen, um die laufzeitbasierte Rate zu verwenden",
+      "customEmiHelpCreate": "Überschreibt den monatlichen Abzug. Die letzte Rate gleicht den Restbetrag automatisch aus.",
+      "customEmiHelpEdit": "Überschreibt den monatlichen Abzug. Die letzte Rate gleicht den Restbetrag automatisch aus. Leeren Sie das Feld für die laufzeitbasierte Rate.",
+      "notesPlaceholder": "Zusätzliche Notizen",
+      "paidInstallmentsNotice": "{{count}} Rate(n) bereits bezahlt — der offene Betrag wird neu berechnet, bereits zurückgezahlte Beträge bleiben erhalten."
+    },
+    "advanceModal": {
+      "description": "Fügen Sie einen einmaligen Gehaltsvorschuss hinzu. Der Gesamtbetrag wird in einem Abrechnungszeitraum eingezogen."
+    },
+    "editModal": { "loanTitle": "Darlehen bearbeiten", "advanceTitle": "Vorschuss bearbeiten" },
+    "deleteModal": {
+      "title": "Darlehen oder Vorschuss löschen?",
+      "outstandingTitle": "{{amount}} sind noch offen.",
+      "outstandingWarning": "Das Löschen beendet zukünftige Abzüge. Bereits auf früheren Abrechnungen abgezogene Beträge bleiben unverändert. Dies kann nicht rückgängig gemacht werden.",
+      "warning": "Der Datensatz wird dauerhaft gelöscht. Bereits abgezogene Beträge bleiben unverändert. Dies kann nicht rückgängig gemacht werden."
+    },
+    "validation": {
+      "amountNonNegative": "Der Betrag muss null oder größer sein",
+      "tenureMinimum": "Die Laufzeit muss mindestens 1 Monat betragen",
+      "interestNonNegative": "Der Zinssatz muss null oder größer sein",
+      "customEmiPositive": "Die benutzerdefinierte Monatsrate muss größer als null sein",
+      "customEmiMaximum": "Die benutzerdefinierte Monatsrate darf den Darlehensbetrag nicht überschreiten"
+    },
+    "messages": {
+      "advanceCreated": "Vorschuss erstellt",
+      "loanCreated": "Darlehen erstellt",
+      "failed": "Aktion fehlgeschlagen",
+      "paymentRecorded": "Zahlung erfasst",
+      "advanceUpdated": "Vorschuss aktualisiert",
+      "loanUpdated": "Darlehen aktualisiert",
+      "updateFailed": "Darlehen oder Vorschuss konnte nicht aktualisiert werden",
+      "deleted": "Darlehen oder Vorschuss gelöscht",
+      "deleteFailed": "Darlehen oder Vorschuss konnte nicht gelöscht werden"
+    }
+  },
   "roles": {
     "super_admin": "Superadmin",
     "org_admin": "Organisationsadmin",

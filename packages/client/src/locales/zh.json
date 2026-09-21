@@ -324,6 +324,100 @@
       "markPaidFailed": "无法将申请标记为已支付"
     }
   },
+  "loansPage": {
+    "title": "贷款与预支",
+    "recordsShown": "共 {{total}} 条，显示 {{visible}} 条贷款和预支记录",
+    "addAdvance": "添加预支",
+    "addLoan": "添加贷款",
+    "searchPlaceholder": "按员工姓名、编号或职位搜索...",
+    "filterDepartment": "按部门筛选",
+    "allDepartments": "所有部门",
+    "filterLocation": "按地点筛选",
+    "allLocations": "所有地点",
+    "clearFilters": "清除筛选条件",
+    "noRecords": "未找到贷款或预支记录",
+    "cards": {
+      "active": "有效贷款与预支",
+      "outstanding": "未偿金额",
+      "monthlyDeductions": "每月扣款",
+      "totalAcrossAll": "全部合计",
+      "completed": "已完成"
+    },
+    "filters": { "all": "全部" },
+    "statuses": { "active": "有效", "completed": "已完成", "cancelled": "已取消" },
+    "types": { "loan": "贷款", "salary_advance": "工资预支", "emergency": "紧急预支" },
+    "columns": {
+      "employee": "员工",
+      "type": "类型",
+      "description": "说明",
+      "principal": "本金",
+      "outstanding": "未偿",
+      "deduction": "扣款",
+      "progress": "进度",
+      "status": "状态"
+    },
+    "deduction": { "customDefault": "自定义（默认 {{amount}}）", "oneTime": "一次性" },
+    "progress": { "recovered": "已收回", "pendingRecovery": "待收回" },
+    "actions": {
+      "recordEmiPayment": "记录分期付款",
+      "recordAdvanceRecovery": "记录预支收回",
+      "pay": "付款",
+      "recover": "收回",
+      "edit": "编辑贷款或预支",
+      "delete": "删除",
+      "cancel": "取消",
+      "saveChanges": "保存更改"
+    },
+    "fields": {
+      "employee": "员工",
+      "description": "说明",
+      "amount": "金额 (₹)",
+      "tenure": "期限（月）",
+      "interestRate": "利率 (%)",
+      "startDate": "开始日期",
+      "customMonthlyEmi": "自定义月供 (₹) — 可选",
+      "notes": "备注（可选）",
+      "advanceType": "预支类型",
+      "reason": "原因",
+      "advanceAmount": "预支金额 (₹)",
+      "recoveryDate": "收回日期"
+    },
+    "form": {
+      "noEmployee": "暂无员工",
+      "descriptionPlaceholder": "例如：医疗紧急情况",
+      "customEmiPlaceholder": "留空以使用按期限计算的月供",
+      "customEmiHelpCreate": "覆盖每月扣款。最后一期将自动结清剩余金额。",
+      "customEmiHelpEdit": "覆盖每月扣款。最后一期将自动结清剩余金额。清空此字段可恢复按期限计算的月供。",
+      "notesPlaceholder": "其他备注",
+      "paidInstallmentsNotice": "已支付 {{count}} 期；系统将在保留已还金额的同时，根据新金额重新计算未偿余额。"
+    },
+    "advanceModal": { "description": "添加一次性工资预支。全部金额将在一个薪资周期内收回。" },
+    "editModal": { "loanTitle": "编辑贷款", "advanceTitle": "编辑预支" },
+    "deleteModal": {
+      "title": "删除贷款或预支？",
+      "outstandingTitle": "仍有 {{amount}} 未偿。",
+      "outstandingWarning": "删除后将停止今后的扣款。过去工资单中已扣除的金额不受影响。此操作无法撤销。",
+      "warning": "该记录将被永久删除。过去已扣除的金额不受影响。此操作无法撤销。"
+    },
+    "validation": {
+      "amountNonNegative": "金额必须大于或等于零",
+      "tenureMinimum": "期限必须至少为1个月",
+      "interestNonNegative": "利率必须大于或等于零",
+      "customEmiPositive": "自定义月供必须大于零",
+      "customEmiMaximum": "自定义月供不能超过贷款金额"
+    },
+    "messages": {
+      "advanceCreated": "预支已创建",
+      "loanCreated": "贷款已创建",
+      "failed": "操作失败",
+      "paymentRecorded": "付款已记录",
+      "advanceUpdated": "预支已更新",
+      "loanUpdated": "贷款已更新",
+      "updateFailed": "无法更新贷款或预支",
+      "deleted": "贷款或预支已删除",
+      "deleteFailed": "无法删除贷款或预支"
+    }
+  },
   "roles": {
     "super_admin": "超级管理员",
     "org_admin": "组织管理员",

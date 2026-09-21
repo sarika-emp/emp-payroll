@@ -324,6 +324,102 @@
       "markPaidFailed": "申請を支払済みにできませんでした"
     }
   },
+  "loansPage": {
+    "title": "ローンと前払い",
+    "recordsShown": "全{{total}}件中{{visible}}件",
+    "addAdvance": "前払いを追加",
+    "addLoan": "ローンを追加",
+    "searchPlaceholder": "従業員名、コード、役職で検索...",
+    "filterDepartment": "部署で絞り込む",
+    "allDepartments": "すべての部署",
+    "filterLocation": "勤務地で絞り込む",
+    "allLocations": "すべての勤務地",
+    "clearFilters": "フィルターをクリア",
+    "noRecords": "ローンまたは前払いが見つかりません",
+    "cards": {
+      "active": "有効なローンと前払い",
+      "outstanding": "未返済額",
+      "monthlyDeductions": "月次控除",
+      "totalAcrossAll": "全件合計",
+      "completed": "完了"
+    },
+    "filters": { "all": "すべて" },
+    "statuses": { "active": "有効", "completed": "完了", "cancelled": "キャンセル" },
+    "types": { "loan": "ローン", "salary_advance": "給与前払い", "emergency": "緊急前払い" },
+    "columns": {
+      "employee": "従業員",
+      "type": "種類",
+      "description": "説明",
+      "principal": "元金",
+      "outstanding": "未返済",
+      "deduction": "控除",
+      "progress": "進捗",
+      "status": "ステータス"
+    },
+    "deduction": { "customDefault": "カスタム（標準 {{amount}}）", "oneTime": "一括" },
+    "progress": { "recovered": "回収済み", "pendingRecovery": "回収待ち" },
+    "actions": {
+      "recordEmiPayment": "分割払いを記録",
+      "recordAdvanceRecovery": "前払い回収を記録",
+      "pay": "支払う",
+      "recover": "回収",
+      "edit": "ローンまたは前払いを編集",
+      "delete": "削除",
+      "cancel": "キャンセル",
+      "saveChanges": "変更を保存"
+    },
+    "fields": {
+      "employee": "従業員",
+      "description": "説明",
+      "amount": "金額 (₹)",
+      "tenure": "期間（月）",
+      "interestRate": "金利 (%)",
+      "startDate": "開始日",
+      "customMonthlyEmi": "カスタム月次返済額 (₹) — 任意",
+      "notes": "メモ（任意）",
+      "advanceType": "前払いの種類",
+      "reason": "理由",
+      "advanceAmount": "前払い額 (₹)",
+      "recoveryDate": "回収日"
+    },
+    "form": {
+      "noEmployee": "従業員がいません",
+      "descriptionPlaceholder": "例：医療上の緊急事態",
+      "customEmiPlaceholder": "期間に基づく返済額を使用する場合は空欄",
+      "customEmiHelpCreate": "月次控除額を上書きします。最終回で残額が自動的に精算されます。",
+      "customEmiHelpEdit": "月次控除額を上書きします。最終回で残額が自動的に精算されます。空欄にすると期間に基づく返済額に戻ります。",
+      "notesPlaceholder": "追加メモ",
+      "paidInstallmentsNotice": "{{count}}回分は支払済みです。返済済み額を維持したまま、新しい金額から未返済額を再計算します。"
+    },
+    "advanceModal": {
+      "description": "一括の給与前払いを追加します。全額が1回の給与期間で回収されます。"
+    },
+    "editModal": { "loanTitle": "ローンを編集", "advanceTitle": "前払いを編集" },
+    "deleteModal": {
+      "title": "ローンまたは前払いを削除しますか？",
+      "outstandingTitle": "未返済額は {{amount}} です。",
+      "outstandingWarning": "削除すると今後の控除が停止します。過去の給与明細で控除済みの金額は変わりません。この操作は元に戻せません。",
+      "warning": "記録は完全に削除されます。過去に控除済みの金額は変わりません。この操作は元に戻せません。"
+    },
+    "validation": {
+      "amountNonNegative": "金額は0以上である必要があります",
+      "tenureMinimum": "期間は1か月以上である必要があります",
+      "interestNonNegative": "金利は0以上である必要があります",
+      "customEmiPositive": "カスタム月次返済額は0より大きい必要があります",
+      "customEmiMaximum": "カスタム月次返済額はローン金額を超えることができません"
+    },
+    "messages": {
+      "advanceCreated": "前払いを作成しました",
+      "loanCreated": "ローンを作成しました",
+      "failed": "操作に失敗しました",
+      "paymentRecorded": "支払いを記録しました",
+      "advanceUpdated": "前払いを更新しました",
+      "loanUpdated": "ローンを更新しました",
+      "updateFailed": "ローンまたは前払いを更新できませんでした",
+      "deleted": "ローンまたは前払いを削除しました",
+      "deleteFailed": "ローンまたは前払いを削除できませんでした"
+    }
+  },
   "roles": {
     "super_admin": "スーパー管理者",
     "org_admin": "組織管理者",
