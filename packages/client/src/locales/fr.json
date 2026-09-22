@@ -1152,6 +1152,100 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "globalEmployeesPage": {
+    "title": "Salariés internationaux",
+    "description": "Gérez les salariés EOR, prestataires et embauches directes dans le monde entier",
+    "actions": {
+      "addEmployee": "Ajouter un salarié",
+      "editEmployee": "Modifier le salarié",
+      "terminateEmployee": "Mettre fin au contrat",
+      "alreadyTerminated": "Contrat déjà terminé",
+      "cancel": "Annuler",
+      "saveChanges": "Enregistrer les modifications"
+    },
+    "filters": {
+      "searchPlaceholder": "Rechercher par nom, e-mail ou pays...",
+      "allCountries": "Tous les pays",
+      "allTypes": "Tous les types",
+      "allStatuses": "Tous les statuts"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "Prestataire",
+      "direct_hire": "Embauche directe"
+    },
+    "contractTypes": {
+      "fullTime": "Temps plein",
+      "partTime": "Temps partiel",
+      "fixedTerm": "Durée déterminée"
+    },
+    "statuses": {
+      "active": "Actif",
+      "onboarding": "Intégration",
+      "offboarding": "Départ",
+      "terminated": "Terminé"
+    },
+    "salaryFrequencies": {
+      "monthly": "Mensuelle",
+      "biweekly": "Toutes les deux semaines",
+      "weekly": "Hebdomadaire",
+      "annual": "Annuelle"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "mois",
+      "biweekly": "2 sem.",
+      "weekly": "sem.",
+      "annual": "an"
+    },
+    "table": {
+      "name": "Nom",
+      "country": "Pays",
+      "type": "Type",
+      "status": "Statut",
+      "salary": "Salaire",
+      "jobTitle": "Poste",
+      "startDate": "Date de début",
+      "actions": "Actions"
+    },
+    "empty": "Aucun salarié international trouvé. Cliquez sur « Ajouter un salarié » pour recruter votre premier membre d’équipe international.",
+    "modal": {
+      "addTitle": "Ajouter un salarié international",
+      "editTitle": "Modifier le salarié international",
+      "firstName": "Prénom *",
+      "lastName": "Nom *",
+      "email": "E-mail *",
+      "country": "Pays *",
+      "employmentType": "Type d’emploi *",
+      "contractType": "Type de contrat",
+      "jobTitle": "Poste *",
+      "department": "Département",
+      "selectDepartment": "Sélectionner un département...",
+      "noDepartments": "Aucun département configuré — ajoutez-en dans Paramètres > Départements",
+      "startDate": "Date de début *",
+      "salaryAmount": "Montant du salaire * (dans l’unité monétaire principale)",
+      "payFrequency": "Fréquence de paiement",
+      "bankingTax": "Données bancaires et fiscales (facultatif)",
+      "taxId": "Identifiant fiscal",
+      "bankName": "Nom de la banque",
+      "bankNamePlaceholder": "p. ex. HDFC Bank",
+      "bankAccount": "Numéro de compte bancaire",
+      "bankAccountPlaceholder": "p. ex. 12345678901234",
+      "bankRouting": "Code bancaire / IFSC",
+      "bankRoutingPlaceholder": "p. ex. HDFC0001234"
+    },
+    "validation": {
+      "required": "Veuillez remplir tous les champs obligatoires"
+    },
+    "messages": {
+      "added": "Salarié international ajouté",
+      "updated": "Salarié international mis à jour",
+      "addFailed": "Impossible d’ajouter le salarié",
+      "updateFailed": "Impossible de mettre à jour le salarié",
+      "terminatePrompt": "Mettre fin au contrat de {{name}} ? Saisissez un motif (obligatoire) :",
+      "terminated": "Contrat du salarié terminé",
+      "terminateFailed": "Impossible de mettre fin au contrat du salarié"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "Factures des prestataires",
     "description": "Gérez et payez les factures des prestataires",

@@ -1136,6 +1136,100 @@
       "submit": "दावा जमा करें"
     }
   },
+  "globalEmployeesPage": {
+    "title": "वैश्विक कर्मचारी",
+    "description": "दुनिया भर के EOR, ठेकेदार और सीधे नियुक्त कर्मचारियों का प्रबंधन करें",
+    "actions": {
+      "addEmployee": "कर्मचारी जोड़ें",
+      "editEmployee": "कर्मचारी संपादित करें",
+      "terminateEmployee": "कर्मचारी को सेवा से हटाएँ",
+      "alreadyTerminated": "कर्मचारी पहले ही सेवा से हटाया जा चुका है",
+      "cancel": "रद्द करें",
+      "saveChanges": "बदलाव सहेजें"
+    },
+    "filters": {
+      "searchPlaceholder": "नाम, ईमेल या देश से खोजें...",
+      "allCountries": "सभी देश",
+      "allTypes": "सभी प्रकार",
+      "allStatuses": "सभी स्थितियाँ"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "ठेकेदार",
+      "direct_hire": "सीधी नियुक्ति"
+    },
+    "contractTypes": {
+      "fullTime": "पूर्णकालिक",
+      "partTime": "अंशकालिक",
+      "fixedTerm": "निश्चित अवधि"
+    },
+    "statuses": {
+      "active": "सक्रिय",
+      "onboarding": "ऑनबोर्डिंग",
+      "offboarding": "ऑफबोर्डिंग",
+      "terminated": "सेवा समाप्त"
+    },
+    "salaryFrequencies": {
+      "monthly": "मासिक",
+      "biweekly": "हर दो सप्ताह",
+      "weekly": "साप्ताहिक",
+      "annual": "वार्षिक"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "माह",
+      "biweekly": "2 सप्ताह",
+      "weekly": "सप्ताह",
+      "annual": "वर्ष"
+    },
+    "table": {
+      "name": "नाम",
+      "country": "देश",
+      "type": "प्रकार",
+      "status": "स्थिति",
+      "salary": "वेतन",
+      "jobTitle": "पद",
+      "startDate": "प्रारंभ तिथि",
+      "actions": "कार्रवाइयाँ"
+    },
+    "empty": "कोई वैश्विक कर्मचारी नहीं मिला। अपना पहला अंतरराष्ट्रीय टीम सदस्य नियुक्त करने के लिए “कर्मचारी जोड़ें” पर क्लिक करें।",
+    "modal": {
+      "addTitle": "वैश्विक कर्मचारी जोड़ें",
+      "editTitle": "वैश्विक कर्मचारी संपादित करें",
+      "firstName": "पहला नाम *",
+      "lastName": "अंतिम नाम *",
+      "email": "ईमेल *",
+      "country": "देश *",
+      "employmentType": "रोजगार प्रकार *",
+      "contractType": "अनुबंध प्रकार",
+      "jobTitle": "पद *",
+      "department": "विभाग",
+      "selectDepartment": "विभाग चुनें...",
+      "noDepartments": "अभी कोई विभाग कॉन्फ़िगर नहीं है — सेटिंग्स > विभाग में जोड़ें",
+      "startDate": "प्रारंभ तिथि *",
+      "salaryAmount": "वेतन राशि * (मुख्य मुद्रा इकाई में)",
+      "payFrequency": "भुगतान आवृत्ति",
+      "bankingTax": "बैंकिंग और कर (वैकल्पिक)",
+      "taxId": "कर आईडी",
+      "bankName": "बैंक का नाम",
+      "bankNamePlaceholder": "जैसे HDFC Bank",
+      "bankAccount": "बैंक खाता संख्या",
+      "bankAccountPlaceholder": "जैसे 12345678901234",
+      "bankRouting": "बैंक रूटिंग / IFSC",
+      "bankRoutingPlaceholder": "जैसे HDFC0001234"
+    },
+    "validation": {
+      "required": "कृपया सभी आवश्यक फ़ील्ड भरें"
+    },
+    "messages": {
+      "added": "वैश्विक कर्मचारी जोड़ा गया",
+      "updated": "वैश्विक कर्मचारी अपडेट किया गया",
+      "addFailed": "कर्मचारी नहीं जोड़ा जा सका",
+      "updateFailed": "कर्मचारी अपडेट नहीं किया जा सका",
+      "terminatePrompt": "{{name}} को सेवा से हटाएँ? कारण दर्ज करें (आवश्यक):",
+      "terminated": "कर्मचारी की सेवा समाप्त की गई",
+      "terminateFailed": "कर्मचारी की सेवा समाप्त नहीं की जा सकी"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "ठेकेदार चालान",
     "description": "ठेकेदार चालानों का प्रबंधन और भुगतान करें",

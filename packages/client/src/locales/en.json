@@ -1170,6 +1170,100 @@
       "submit": "Submit Claim"
     }
   },
+  "globalEmployeesPage": {
+    "title": "Global Employees",
+    "description": "Manage EOR, contractor, and direct-hire employees worldwide",
+    "actions": {
+      "addEmployee": "Add Employee",
+      "editEmployee": "Edit employee",
+      "terminateEmployee": "Terminate employee",
+      "alreadyTerminated": "Employee already terminated",
+      "cancel": "Cancel",
+      "saveChanges": "Save Changes"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by name, email, or country...",
+      "allCountries": "All Countries",
+      "allTypes": "All Types",
+      "allStatuses": "All Statuses"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "Contractor",
+      "direct_hire": "Direct Hire"
+    },
+    "contractTypes": {
+      "fullTime": "Full-time",
+      "partTime": "Part-time",
+      "fixedTerm": "Fixed-term"
+    },
+    "statuses": {
+      "active": "Active",
+      "onboarding": "Onboarding",
+      "offboarding": "Offboarding",
+      "terminated": "Terminated"
+    },
+    "salaryFrequencies": {
+      "monthly": "Monthly",
+      "biweekly": "Bi-weekly",
+      "weekly": "Weekly",
+      "annual": "Annual"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "mo",
+      "biweekly": "2 wk",
+      "weekly": "wk",
+      "annual": "yr"
+    },
+    "table": {
+      "name": "Name",
+      "country": "Country",
+      "type": "Type",
+      "status": "Status",
+      "salary": "Salary",
+      "jobTitle": "Job Title",
+      "startDate": "Start Date",
+      "actions": "Actions"
+    },
+    "empty": "No global employees found. Click 'Add Employee' to hire your first international team member.",
+    "modal": {
+      "addTitle": "Add Global Employee",
+      "editTitle": "Edit Global Employee",
+      "firstName": "First Name *",
+      "lastName": "Last Name *",
+      "email": "Email *",
+      "country": "Country *",
+      "employmentType": "Employment Type *",
+      "contractType": "Contract Type",
+      "jobTitle": "Job Title *",
+      "department": "Department",
+      "selectDepartment": "Select department...",
+      "noDepartments": "No departments configured yet — add some from Settings > Departments",
+      "startDate": "Start Date *",
+      "salaryAmount": "Salary Amount * (in major currency unit)",
+      "payFrequency": "Pay Frequency",
+      "bankingTax": "Banking & Tax (Optional)",
+      "taxId": "Tax ID",
+      "bankName": "Bank Name",
+      "bankNamePlaceholder": "e.g. HDFC Bank",
+      "bankAccount": "Bank Account Number",
+      "bankAccountPlaceholder": "e.g. 12345678901234",
+      "bankRouting": "Bank Routing / IFSC",
+      "bankRoutingPlaceholder": "e.g. HDFC0001234"
+    },
+    "validation": {
+      "required": "Please fill all required fields"
+    },
+    "messages": {
+      "added": "Global employee added",
+      "updated": "Global employee updated",
+      "addFailed": "Failed to add employee",
+      "updateFailed": "Failed to update employee",
+      "terminatePrompt": "Terminate {{name}}? Enter a reason (required):",
+      "terminated": "Employee terminated",
+      "terminateFailed": "Failed to terminate employee"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "Contractor Invoices",
     "description": "Manage and pay contractor invoices",

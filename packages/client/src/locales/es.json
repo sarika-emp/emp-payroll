@@ -1162,6 +1162,100 @@
       "submit": "Enviar reclamación"
     }
   },
+  "globalEmployeesPage": {
+    "title": "Empleados globales",
+    "description": "Gestiona empleados EOR, contratistas y contrataciones directas en todo el mundo",
+    "actions": {
+      "addEmployee": "Añadir empleado",
+      "editEmployee": "Editar empleado",
+      "terminateEmployee": "Finalizar relación laboral",
+      "alreadyTerminated": "Relación laboral ya finalizada",
+      "cancel": "Cancelar",
+      "saveChanges": "Guardar cambios"
+    },
+    "filters": {
+      "searchPlaceholder": "Buscar por nombre, correo o país...",
+      "allCountries": "Todos los países",
+      "allTypes": "Todos los tipos",
+      "allStatuses": "Todos los estados"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "Contratista",
+      "direct_hire": "Contratación directa"
+    },
+    "contractTypes": {
+      "fullTime": "Tiempo completo",
+      "partTime": "Tiempo parcial",
+      "fixedTerm": "Plazo fijo"
+    },
+    "statuses": {
+      "active": "Activo",
+      "onboarding": "Incorporación",
+      "offboarding": "Desvinculación",
+      "terminated": "Finalizado"
+    },
+    "salaryFrequencies": {
+      "monthly": "Mensual",
+      "biweekly": "Quincenal",
+      "weekly": "Semanal",
+      "annual": "Anual"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "mes",
+      "biweekly": "quinc.",
+      "weekly": "sem.",
+      "annual": "año"
+    },
+    "table": {
+      "name": "Nombre",
+      "country": "País",
+      "type": "Tipo",
+      "status": "Estado",
+      "salary": "Salario",
+      "jobTitle": "Puesto",
+      "startDate": "Fecha de inicio",
+      "actions": "Acciones"
+    },
+    "empty": "No se encontraron empleados globales. Haz clic en «Añadir empleado» para contratar a tu primer integrante internacional.",
+    "modal": {
+      "addTitle": "Añadir empleado global",
+      "editTitle": "Editar empleado global",
+      "firstName": "Nombre *",
+      "lastName": "Apellidos *",
+      "email": "Correo electrónico *",
+      "country": "País *",
+      "employmentType": "Tipo de empleo *",
+      "contractType": "Tipo de contrato",
+      "jobTitle": "Puesto *",
+      "department": "Departamento",
+      "selectDepartment": "Seleccionar departamento...",
+      "noDepartments": "Aún no hay departamentos configurados — añádelos en Configuración > Departamentos",
+      "startDate": "Fecha de inicio *",
+      "salaryAmount": "Importe salarial * (en la unidad monetaria principal)",
+      "payFrequency": "Frecuencia de pago",
+      "bankingTax": "Datos bancarios y fiscales (opcional)",
+      "taxId": "Identificación fiscal",
+      "bankName": "Nombre del banco",
+      "bankNamePlaceholder": "p. ej., HDFC Bank",
+      "bankAccount": "Número de cuenta bancaria",
+      "bankAccountPlaceholder": "p. ej., 12345678901234",
+      "bankRouting": "Código bancario / IFSC",
+      "bankRoutingPlaceholder": "p. ej., HDFC0001234"
+    },
+    "validation": {
+      "required": "Completa todos los campos obligatorios"
+    },
+    "messages": {
+      "added": "Empleado global añadido",
+      "updated": "Empleado global actualizado",
+      "addFailed": "No se pudo añadir el empleado",
+      "updateFailed": "No se pudo actualizar el empleado",
+      "terminatePrompt": "¿Finalizar la relación laboral de {{name}}? Introduce un motivo (obligatorio):",
+      "terminated": "Relación laboral finalizada",
+      "terminateFailed": "No se pudo finalizar la relación laboral"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "Facturas de contratistas",
     "description": "Gestiona y paga las facturas de contratistas",

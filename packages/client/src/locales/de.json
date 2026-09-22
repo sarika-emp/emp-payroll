@@ -1151,6 +1151,100 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "globalEmployeesPage": {
+    "title": "Globale Mitarbeiter",
+    "description": "EOR-, Auftragnehmer- und direkt angestellte Mitarbeiter weltweit verwalten",
+    "actions": {
+      "addEmployee": "Mitarbeiter hinzufügen",
+      "editEmployee": "Mitarbeiter bearbeiten",
+      "terminateEmployee": "Mitarbeiter kündigen",
+      "alreadyTerminated": "Mitarbeiter bereits gekündigt",
+      "cancel": "Abbrechen",
+      "saveChanges": "Änderungen speichern"
+    },
+    "filters": {
+      "searchPlaceholder": "Nach Name, E-Mail oder Land suchen...",
+      "allCountries": "Alle Länder",
+      "allTypes": "Alle Typen",
+      "allStatuses": "Alle Status"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "Auftragnehmer",
+      "direct_hire": "Direkteinstellung"
+    },
+    "contractTypes": {
+      "fullTime": "Vollzeit",
+      "partTime": "Teilzeit",
+      "fixedTerm": "Befristet"
+    },
+    "statuses": {
+      "active": "Aktiv",
+      "onboarding": "Onboarding",
+      "offboarding": "Offboarding",
+      "terminated": "Gekündigt"
+    },
+    "salaryFrequencies": {
+      "monthly": "Monatlich",
+      "biweekly": "Zweiwöchentlich",
+      "weekly": "Wöchentlich",
+      "annual": "Jährlich"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "Mon.",
+      "biweekly": "2 Wo.",
+      "weekly": "Wo.",
+      "annual": "Jahr"
+    },
+    "table": {
+      "name": "Name",
+      "country": "Land",
+      "type": "Typ",
+      "status": "Status",
+      "salary": "Gehalt",
+      "jobTitle": "Berufsbezeichnung",
+      "startDate": "Startdatum",
+      "actions": "Aktionen"
+    },
+    "empty": "Keine globalen Mitarbeiter gefunden. Klicken Sie auf „Mitarbeiter hinzufügen“, um Ihr erstes internationales Teammitglied einzustellen.",
+    "modal": {
+      "addTitle": "Globalen Mitarbeiter hinzufügen",
+      "editTitle": "Globalen Mitarbeiter bearbeiten",
+      "firstName": "Vorname *",
+      "lastName": "Nachname *",
+      "email": "E-Mail *",
+      "country": "Land *",
+      "employmentType": "Beschäftigungsart *",
+      "contractType": "Vertragsart",
+      "jobTitle": "Berufsbezeichnung *",
+      "department": "Abteilung",
+      "selectDepartment": "Abteilung auswählen...",
+      "noDepartments": "Noch keine Abteilungen konfiguriert — fügen Sie unter Einstellungen > Abteilungen welche hinzu",
+      "startDate": "Startdatum *",
+      "salaryAmount": "Gehaltsbetrag * (in der Hauptwährungseinheit)",
+      "payFrequency": "Zahlungsfrequenz",
+      "bankingTax": "Bank- und Steuerdaten (optional)",
+      "taxId": "Steuer-ID",
+      "bankName": "Bankname",
+      "bankNamePlaceholder": "z. B. HDFC Bank",
+      "bankAccount": "Bankkontonummer",
+      "bankAccountPlaceholder": "z. B. 12345678901234",
+      "bankRouting": "Bankleitzahl / IFSC",
+      "bankRoutingPlaceholder": "z. B. HDFC0001234"
+    },
+    "validation": {
+      "required": "Bitte füllen Sie alle Pflichtfelder aus"
+    },
+    "messages": {
+      "added": "Globaler Mitarbeiter hinzugefügt",
+      "updated": "Globaler Mitarbeiter aktualisiert",
+      "addFailed": "Mitarbeiter konnte nicht hinzugefügt werden",
+      "updateFailed": "Mitarbeiter konnte nicht aktualisiert werden",
+      "terminatePrompt": "{{name}} kündigen? Geben Sie einen Grund ein (erforderlich):",
+      "terminated": "Mitarbeiter gekündigt",
+      "terminateFailed": "Mitarbeiter konnte nicht gekündigt werden"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "Auftragnehmerrechnungen",
     "description": "Auftragnehmerrechnungen verwalten und bezahlen",

@@ -1131,6 +1131,100 @@
       "submit": "提交理赔"
     }
   },
+  "globalEmployeesPage": {
+    "title": "全球员工",
+    "description": "管理全球EOR员工、承包商和直接雇用员工",
+    "actions": {
+      "addEmployee": "添加员工",
+      "editEmployee": "编辑员工",
+      "terminateEmployee": "终止员工雇佣",
+      "alreadyTerminated": "员工雇佣已终止",
+      "cancel": "取消",
+      "saveChanges": "保存更改"
+    },
+    "filters": {
+      "searchPlaceholder": "按姓名、邮箱或国家/地区搜索...",
+      "allCountries": "全部国家/地区",
+      "allTypes": "全部类型",
+      "allStatuses": "全部状态"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "承包商",
+      "direct_hire": "直接雇用"
+    },
+    "contractTypes": {
+      "fullTime": "全职",
+      "partTime": "兼职",
+      "fixedTerm": "固定期限"
+    },
+    "statuses": {
+      "active": "有效",
+      "onboarding": "入职中",
+      "offboarding": "离职中",
+      "terminated": "已终止"
+    },
+    "salaryFrequencies": {
+      "monthly": "每月",
+      "biweekly": "每两周",
+      "weekly": "每周",
+      "annual": "每年"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "月",
+      "biweekly": "两周",
+      "weekly": "周",
+      "annual": "年"
+    },
+    "table": {
+      "name": "姓名",
+      "country": "国家/地区",
+      "type": "类型",
+      "status": "状态",
+      "salary": "工资",
+      "jobTitle": "职位",
+      "startDate": "开始日期",
+      "actions": "操作"
+    },
+    "empty": "未找到全球员工。点击“添加员工”以雇用首位国际团队成员。",
+    "modal": {
+      "addTitle": "添加全球员工",
+      "editTitle": "编辑全球员工",
+      "firstName": "名字 *",
+      "lastName": "姓氏 *",
+      "email": "邮箱 *",
+      "country": "国家/地区 *",
+      "employmentType": "雇佣类型 *",
+      "contractType": "合同类型",
+      "jobTitle": "职位 *",
+      "department": "部门",
+      "selectDepartment": "选择部门...",
+      "noDepartments": "尚未配置部门 — 请在设置 > 部门中添加",
+      "startDate": "开始日期 *",
+      "salaryAmount": "工资金额 *（主要货币单位）",
+      "payFrequency": "支付频率",
+      "bankingTax": "银行与税务信息（可选）",
+      "taxId": "税务编号",
+      "bankName": "银行名称",
+      "bankNamePlaceholder": "例如：HDFC Bank",
+      "bankAccount": "银行账号",
+      "bankAccountPlaceholder": "例如：12345678901234",
+      "bankRouting": "银行路由代码 / IFSC",
+      "bankRoutingPlaceholder": "例如：HDFC0001234"
+    },
+    "validation": {
+      "required": "请填写所有必填字段"
+    },
+    "messages": {
+      "added": "全球员工已添加",
+      "updated": "全球员工已更新",
+      "addFailed": "员工添加失败",
+      "updateFailed": "员工更新失败",
+      "terminatePrompt": "终止{{name}}的雇佣？请输入原因（必填）：",
+      "terminated": "员工雇佣已终止",
+      "terminateFailed": "无法终止员工雇佣"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "承包商发票",
     "description": "管理并支付承包商发票",

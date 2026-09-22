@@ -1144,6 +1144,100 @@
       "submit": "請求を申請"
     }
   },
+  "globalEmployeesPage": {
+    "title": "グローバル従業員",
+    "description": "世界中のEOR従業員、業務委託者、直接雇用者を管理します",
+    "actions": {
+      "addEmployee": "従業員を追加",
+      "editEmployee": "従業員を編集",
+      "terminateEmployee": "雇用を終了",
+      "alreadyTerminated": "雇用はすでに終了しています",
+      "cancel": "キャンセル",
+      "saveChanges": "変更を保存"
+    },
+    "filters": {
+      "searchPlaceholder": "名前、メールアドレス、国で検索...",
+      "allCountries": "すべての国",
+      "allTypes": "すべての種類",
+      "allStatuses": "すべてのステータス"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "業務委託",
+      "direct_hire": "直接雇用"
+    },
+    "contractTypes": {
+      "fullTime": "フルタイム",
+      "partTime": "パートタイム",
+      "fixedTerm": "有期雇用"
+    },
+    "statuses": {
+      "active": "有効",
+      "onboarding": "オンボーディング",
+      "offboarding": "オフボーディング",
+      "terminated": "終了"
+    },
+    "salaryFrequencies": {
+      "monthly": "月払い",
+      "biweekly": "隔週払い",
+      "weekly": "週払い",
+      "annual": "年払い"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "月",
+      "biweekly": "2週",
+      "weekly": "週",
+      "annual": "年"
+    },
+    "table": {
+      "name": "氏名",
+      "country": "国",
+      "type": "種類",
+      "status": "ステータス",
+      "salary": "給与",
+      "jobTitle": "役職",
+      "startDate": "開始日",
+      "actions": "操作"
+    },
+    "empty": "グローバル従業員が見つかりません。「従業員を追加」をクリックして、最初の海外チームメンバーを採用してください。",
+    "modal": {
+      "addTitle": "グローバル従業員を追加",
+      "editTitle": "グローバル従業員を編集",
+      "firstName": "名 *",
+      "lastName": "姓 *",
+      "email": "メールアドレス *",
+      "country": "国 *",
+      "employmentType": "雇用形態 *",
+      "contractType": "契約形態",
+      "jobTitle": "役職 *",
+      "department": "部門",
+      "selectDepartment": "部門を選択...",
+      "noDepartments": "部門がまだ設定されていません — 設定 > 部門から追加してください",
+      "startDate": "開始日 *",
+      "salaryAmount": "給与額 *（主要通貨単位）",
+      "payFrequency": "支払頻度",
+      "bankingTax": "銀行・税務情報（任意）",
+      "taxId": "納税者番号",
+      "bankName": "銀行名",
+      "bankNamePlaceholder": "例：HDFC Bank",
+      "bankAccount": "銀行口座番号",
+      "bankAccountPlaceholder": "例：12345678901234",
+      "bankRouting": "銀行ルーティング / IFSC",
+      "bankRoutingPlaceholder": "例：HDFC0001234"
+    },
+    "validation": {
+      "required": "必須項目をすべて入力してください"
+    },
+    "messages": {
+      "added": "グローバル従業員を追加しました",
+      "updated": "グローバル従業員を更新しました",
+      "addFailed": "従業員を追加できませんでした",
+      "updateFailed": "従業員を更新できませんでした",
+      "terminatePrompt": "{{name}}の雇用を終了しますか？理由を入力してください（必須）：",
+      "terminated": "従業員の雇用を終了しました",
+      "terminateFailed": "従業員の雇用を終了できませんでした"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "業務委託者請求書",
     "description": "業務委託者の請求書を管理・支払いします",

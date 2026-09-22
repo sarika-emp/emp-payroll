@@ -1151,6 +1151,100 @@
       "submit": "Enviar sinistro"
     }
   },
+  "globalEmployeesPage": {
+    "title": "Trabalhadores globais",
+    "description": "Gerir trabalhadores EOR, prestadores e contratações diretas em todo o mundo",
+    "actions": {
+      "addEmployee": "Adicionar trabalhador",
+      "editEmployee": "Editar trabalhador",
+      "terminateEmployee": "Terminar contrato",
+      "alreadyTerminated": "Contrato já terminado",
+      "cancel": "Cancelar",
+      "saveChanges": "Guardar alterações"
+    },
+    "filters": {
+      "searchPlaceholder": "Pesquisar por nome, e-mail ou país...",
+      "allCountries": "Todos os países",
+      "allTypes": "Todos os tipos",
+      "allStatuses": "Todos os estados"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "Prestador",
+      "direct_hire": "Contratação direta"
+    },
+    "contractTypes": {
+      "fullTime": "Tempo inteiro",
+      "partTime": "Tempo parcial",
+      "fixedTerm": "Prazo fixo"
+    },
+    "statuses": {
+      "active": "Ativo",
+      "onboarding": "Integração",
+      "offboarding": "Desligamento",
+      "terminated": "Terminado"
+    },
+    "salaryFrequencies": {
+      "monthly": "Mensal",
+      "biweekly": "Quinzenal",
+      "weekly": "Semanal",
+      "annual": "Anual"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "mês",
+      "biweekly": "quinz.",
+      "weekly": "sem.",
+      "annual": "ano"
+    },
+    "table": {
+      "name": "Nome",
+      "country": "País",
+      "type": "Tipo",
+      "status": "Estado",
+      "salary": "Salário",
+      "jobTitle": "Cargo",
+      "startDate": "Data de início",
+      "actions": "Ações"
+    },
+    "empty": "Não foram encontrados trabalhadores globais. Clique em «Adicionar trabalhador» para contratar o primeiro membro internacional da equipa.",
+    "modal": {
+      "addTitle": "Adicionar trabalhador global",
+      "editTitle": "Editar trabalhador global",
+      "firstName": "Nome *",
+      "lastName": "Apelido *",
+      "email": "E-mail *",
+      "country": "País *",
+      "employmentType": "Tipo de emprego *",
+      "contractType": "Tipo de contrato",
+      "jobTitle": "Cargo *",
+      "department": "Departamento",
+      "selectDepartment": "Selecionar departamento...",
+      "noDepartments": "Ainda não existem departamentos configurados — adicione-os em Definições > Departamentos",
+      "startDate": "Data de início *",
+      "salaryAmount": "Valor salarial * (na unidade monetária principal)",
+      "payFrequency": "Frequência de pagamento",
+      "bankingTax": "Dados bancários e fiscais (opcional)",
+      "taxId": "Identificação fiscal",
+      "bankName": "Nome do banco",
+      "bankNamePlaceholder": "por ex., HDFC Bank",
+      "bankAccount": "Número da conta bancária",
+      "bankAccountPlaceholder": "por ex., 12345678901234",
+      "bankRouting": "Código bancário / IFSC",
+      "bankRoutingPlaceholder": "por ex., HDFC0001234"
+    },
+    "validation": {
+      "required": "Preencha todos os campos obrigatórios"
+    },
+    "messages": {
+      "added": "Trabalhador global adicionado",
+      "updated": "Trabalhador global atualizado",
+      "addFailed": "Não foi possível adicionar o trabalhador",
+      "updateFailed": "Não foi possível atualizar o trabalhador",
+      "terminatePrompt": "Terminar o contrato de {{name}}? Introduza um motivo (obrigatório):",
+      "terminated": "Contrato do trabalhador terminado",
+      "terminateFailed": "Não foi possível terminar o contrato do trabalhador"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "Faturas de prestadores",
     "description": "Gerir e pagar faturas de prestadores",

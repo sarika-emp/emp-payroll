@@ -1136,6 +1136,100 @@
       "submit": "تقديم المطالبة"
     }
   },
+  "globalEmployeesPage": {
+    "title": "الموظفون العالميون",
+    "description": "إدارة موظفي EOR والمتعاقدين والتعيينات المباشرة حول العالم",
+    "actions": {
+      "addEmployee": "إضافة موظف",
+      "editEmployee": "تعديل الموظف",
+      "terminateEmployee": "إنهاء خدمة الموظف",
+      "alreadyTerminated": "تم إنهاء خدمة الموظف بالفعل",
+      "cancel": "إلغاء",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "filters": {
+      "searchPlaceholder": "البحث بالاسم أو البريد الإلكتروني أو البلد...",
+      "allCountries": "كل البلدان",
+      "allTypes": "كل الأنواع",
+      "allStatuses": "كل الحالات"
+    },
+    "employmentTypes": {
+      "eor": "EOR",
+      "contractor": "متعاقد",
+      "direct_hire": "توظيف مباشر"
+    },
+    "contractTypes": {
+      "fullTime": "دوام كامل",
+      "partTime": "دوام جزئي",
+      "fixedTerm": "مدة محددة"
+    },
+    "statuses": {
+      "active": "نشط",
+      "onboarding": "التهيئة",
+      "offboarding": "إنهاء الإجراءات",
+      "terminated": "منتهي الخدمة"
+    },
+    "salaryFrequencies": {
+      "monthly": "شهري",
+      "biweekly": "كل أسبوعين",
+      "weekly": "أسبوعي",
+      "annual": "سنوي"
+    },
+    "salaryFrequencyShort": {
+      "monthly": "شهر",
+      "biweekly": "أسبوعان",
+      "weekly": "أسبوع",
+      "annual": "سنة"
+    },
+    "table": {
+      "name": "الاسم",
+      "country": "البلد",
+      "type": "النوع",
+      "status": "الحالة",
+      "salary": "الراتب",
+      "jobTitle": "المسمى الوظيفي",
+      "startDate": "تاريخ البدء",
+      "actions": "الإجراءات"
+    },
+    "empty": "لم يتم العثور على موظفين عالميين. انقر على «إضافة موظف» لتعيين أول عضو دولي في فريقك.",
+    "modal": {
+      "addTitle": "إضافة موظف عالمي",
+      "editTitle": "تعديل موظف عالمي",
+      "firstName": "الاسم الأول *",
+      "lastName": "اسم العائلة *",
+      "email": "البريد الإلكتروني *",
+      "country": "البلد *",
+      "employmentType": "نوع التوظيف *",
+      "contractType": "نوع العقد",
+      "jobTitle": "المسمى الوظيفي *",
+      "department": "القسم",
+      "selectDepartment": "اختر القسم...",
+      "noDepartments": "لا توجد أقسام مهيأة بعد — أضفها من الإعدادات > الأقسام",
+      "startDate": "تاريخ البدء *",
+      "salaryAmount": "مبلغ الراتب * (بوحدة العملة الرئيسية)",
+      "payFrequency": "دورية الدفع",
+      "bankingTax": "البيانات البنكية والضريبية (اختياري)",
+      "taxId": "الرقم الضريبي",
+      "bankName": "اسم البنك",
+      "bankNamePlaceholder": "مثال: HDFC Bank",
+      "bankAccount": "رقم الحساب البنكي",
+      "bankAccountPlaceholder": "مثال: 12345678901234",
+      "bankRouting": "رمز التوجيه البنكي / IFSC",
+      "bankRoutingPlaceholder": "مثال: HDFC0001234"
+    },
+    "validation": {
+      "required": "يرجى ملء جميع الحقول المطلوبة"
+    },
+    "messages": {
+      "added": "تمت إضافة الموظف العالمي",
+      "updated": "تم تحديث الموظف العالمي",
+      "addFailed": "تعذرت إضافة الموظف",
+      "updateFailed": "تعذر تحديث الموظف",
+      "terminatePrompt": "إنهاء خدمة {{name}}؟ أدخل السبب (مطلوب):",
+      "terminated": "تم إنهاء خدمة الموظف",
+      "terminateFailed": "تعذر إنهاء خدمة الموظف"
+    }
+  },
   "contractorInvoicesPage": {
     "title": "فواتير المتعاقدين",
     "description": "إدارة فواتير المتعاقدين ودفعها",
