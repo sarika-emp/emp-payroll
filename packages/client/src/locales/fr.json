@@ -1,6 +1,7 @@
 {
   "language": { "change": "Changer de langue", "menuLabel": "Sélectionner la langue" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "Utilisateur",
     "employees": "Employés",
     "employee_one": "{{count}} employé",
@@ -510,6 +511,7 @@
     "lastPayrollNet": "Dernière paie (net)",
     "noPayrollYet": "Aucune paie pour le moment",
     "totalDeductions": "Total des retenues",
+    "viewDeductions": "Afficher le détail des retenues totales de la dernière paie",
     "monthOverMonth": "{{value}} % mensuel",
     "monthlyTrend": "Tendance mensuelle de la paie",
     "trendPeriods_one": "Brut et net sur le dernier mois",
@@ -524,10 +526,22 @@
     "complianceStatus": "État de conformité",
     "providentFund": "Fonds de prévoyance",
     "professionalTax": "Taxe professionnelle",
+    "tdsForm": "TDS (Formulaire 24Q)",
     "filed": "Déposé",
     "pending": "En attente",
     "recentActivity": "Activité récente",
-    "noRecentActivity": "Aucune activité récente."
+    "noRecentActivity": "Aucune activité récente.",
+    "activity": "Activité",
+    "actions": {
+      "created": "Traitement de paie créé",
+      "computed": "Paie calculée",
+      "approved": "Paie approuvée",
+      "paid": "Paie marquée comme payée",
+      "cancelled": "Paie annulée",
+      "reverted": "Paie rétablie en brouillon",
+      "rerun": "Paie recalculée",
+      "deleted": "Traitement de paie supprimé"
+    }
   },
   "breadcrumbs": {
     "home": "Accueil",
@@ -538,7 +552,11 @@
     "profile": "Profil",
     "setup": "Configuration"
   },
-  "selfService": { "employeePortal": "Portail employé", "adminPanel": "Panneau d’administration" },
+  "selfService": {
+    "employeePortal": "Portail employé",
+    "adminPanel": "Panneau d’administration",
+    "profile": "Profil"
+  },
   "myProfile": {
     "title": "Mon profil",
     "notFound": "Profil introuvable",
@@ -1150,6 +1168,85 @@
       "notes": "Notes",
       "cancel": "Annuler",
       "submit": "Déclarer le sinistre"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "Conformité par pays",
+    "description": "Consultez les lois du travail, les taux fiscaux et les obligations légales par pays",
+    "filters": {
+      "searchPlaceholder": "Rechercher des pays...",
+      "configuredOnly": "Uniquement mes pays configurés ({{count}})"
+    },
+    "regions": {
+      "all": "Toutes les régions",
+      "asia": "Asie",
+      "europe": "Europe",
+      "americas": "Amériques",
+      "africa": "Afrique",
+      "oceania": "Océanie",
+      "middle_east": "Moyen-Orient"
+    },
+    "metrics": {
+      "maxHours": "Durée maximale de travail/semaine",
+      "annualLeave": "Congés annuels",
+      "publicHolidays": "Jours fériés",
+      "noticePeriod": "Préavis",
+      "probation": "Période d’essai",
+      "payFrequency": "Fréquence de paie"
+    },
+    "units": {
+      "hours": "{{value}} h",
+      "days": "{{value}} jours",
+      "months": "{{value}} mois"
+    },
+    "payFrequencies": {
+      "monthly": "Mensuelle",
+      "biweekly": "Toutes les deux semaines",
+      "weekly": "Hebdomadaire",
+      "annual": "Annuelle"
+    },
+    "benefits": {
+      "title": "Avantages légaux",
+      "socialSecurity": "Sécurité sociale",
+      "pension": "Retraite",
+      "healthInsurance": "Assurance santé",
+      "required": "Obligatoire",
+      "notRequired": "Non obligatoire"
+    },
+    "ratesTitle": "Taux fiscaux et de cotisations sociales",
+    "additional": {
+      "title": "Informations supplémentaires",
+      "taxYearStart": "Début de l’année fiscale",
+      "minimumWage": "Salaire minimum (mensuel)",
+      "notSet": "Non défini / Variable",
+      "countryCode": "Code pays",
+      "region": "Région"
+    },
+    "empty": {
+      "title": "Sélectionnez un pays pour afficher les détails de conformité",
+      "description": "Consultez les lois du travail, les taux fiscaux et les obligations légales"
+    },
+    "complianceKeys": {
+      "income_tax": "Impôt sur le revenu",
+      "solidarity_surcharge": "Contribution de solidarité",
+      "health_insurance_employer": "Assurance santé employeur",
+      "health_insurance_employee": "Assurance santé salarié",
+      "pension_employer": "Retraite employeur",
+      "pension_employee": "Retraite salarié",
+      "unemployment_employer": "Assurance chômage employeur",
+      "unemployment_employee": "Assurance chômage salarié",
+      "care_insurance_employer": "Assurance dépendance employeur",
+      "care_insurance_employee": "Assurance dépendance salarié",
+      "employer_social_charges": "Cotisations sociales employeur",
+      "employee_social_charges": "Cotisations sociales salarié",
+      "social_security_rate": "Taux de sécurité sociale",
+      "social_security_cap": "Plafond de sécurité sociale",
+      "federal_tax": "Impôt fédéral",
+      "state_tax": "Impôt régional",
+      "epf_employer": "EPF employeur",
+      "epf_employee": "EPF salarié",
+      "esi_employer": "ESI employeur",
+      "esi_employee": "ESI salarié"
     }
   },
   "glAccountingPage": {

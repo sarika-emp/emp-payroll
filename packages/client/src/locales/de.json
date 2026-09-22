@@ -1,6 +1,7 @@
 {
   "language": { "change": "Sprache ändern", "menuLabel": "Sprache auswählen" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "Benutzer",
     "employees": "Mitarbeiter",
     "employee_one": "{{count}} Mitarbeiter",
@@ -513,6 +514,7 @@
     "lastPayrollNet": "Letzte Abrechnung (Netto)",
     "noPayrollYet": "Noch keine Abrechnung",
     "totalDeductions": "Gesamtabzüge",
+    "viewDeductions": "Aufschlüsselung der Gesamtabzüge für die letzte Abrechnung anzeigen",
     "monthOverMonth": "{{value}} % zum Vormonat",
     "monthlyTrend": "Monatlicher Abrechnungstrend",
     "trendPeriods_one": "Brutto und Netto im letzten Monat",
@@ -527,10 +529,22 @@
     "complianceStatus": "Compliance-Status",
     "providentFund": "Vorsorgefonds",
     "professionalTax": "Berufssteuer",
+    "tdsForm": "TDS (Formular 24Q)",
     "filed": "Eingereicht",
     "pending": "Ausstehend",
     "recentActivity": "Letzte Aktivitäten",
-    "noRecentActivity": "Noch keine aktuellen Aktivitäten."
+    "noRecentActivity": "Noch keine aktuellen Aktivitäten.",
+    "activity": "Aktivität",
+    "actions": {
+      "created": "Abrechnungslauf erstellt",
+      "computed": "Abrechnung berechnet",
+      "approved": "Abrechnung genehmigt",
+      "paid": "Abrechnung als bezahlt markiert",
+      "cancelled": "Abrechnung storniert",
+      "reverted": "Abrechnung auf Entwurf zurückgesetzt",
+      "rerun": "Abrechnung erneut ausgeführt",
+      "deleted": "Abrechnungslauf gelöscht"
+    }
   },
   "breadcrumbs": {
     "home": "Startseite",
@@ -541,7 +555,11 @@
     "profile": "Profil",
     "setup": "Einrichtung"
   },
-  "selfService": { "employeePortal": "Mitarbeiterportal", "adminPanel": "Adminbereich" },
+  "selfService": {
+    "employeePortal": "Mitarbeiterportal",
+    "adminPanel": "Adminbereich",
+    "profile": "Profil"
+  },
   "myProfile": {
     "title": "Mein Profil",
     "notFound": "Profil nicht gefunden",
@@ -1149,6 +1167,85 @@
       "notes": "Notizen",
       "cancel": "Abbrechen",
       "submit": "Anspruch einreichen"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "Länder-Compliance",
+    "description": "Arbeitsgesetze, Steuersätze und gesetzliche Anforderungen nach Land durchsuchen",
+    "filters": {
+      "searchPlaceholder": "Länder suchen...",
+      "configuredOnly": "Nur meine konfigurierten Länder ({{count}})"
+    },
+    "regions": {
+      "all": "Alle Regionen",
+      "asia": "Asien",
+      "europe": "Europa",
+      "americas": "Amerika",
+      "africa": "Afrika",
+      "oceania": "Ozeanien",
+      "middle_east": "Naher Osten"
+    },
+    "metrics": {
+      "maxHours": "Max. Wochenarbeitszeit",
+      "annualLeave": "Jahresurlaub",
+      "publicHolidays": "Feiertage",
+      "noticePeriod": "Kündigungsfrist",
+      "probation": "Probezeit",
+      "payFrequency": "Zahlungsfrequenz"
+    },
+    "units": {
+      "hours": "{{value}} Std.",
+      "days": "{{value}} Tage",
+      "months": "{{value}} Monate"
+    },
+    "payFrequencies": {
+      "monthly": "Monatlich",
+      "biweekly": "Zweiwöchentlich",
+      "weekly": "Wöchentlich",
+      "annual": "Jährlich"
+    },
+    "benefits": {
+      "title": "Gesetzliche Leistungen",
+      "socialSecurity": "Sozialversicherung",
+      "pension": "Rente",
+      "healthInsurance": "Krankenversicherung",
+      "required": "Erforderlich",
+      "notRequired": "Nicht erforderlich"
+    },
+    "ratesTitle": "Steuer- und Sozialversicherungssätze",
+    "additional": {
+      "title": "Zusätzliche Informationen",
+      "taxYearStart": "Beginn des Steuerjahres",
+      "minimumWage": "Mindestlohn (monatlich)",
+      "notSet": "Nicht festgelegt / Variiert",
+      "countryCode": "Ländercode",
+      "region": "Region"
+    },
+    "empty": {
+      "title": "Wählen Sie ein Land aus, um Compliance-Details anzuzeigen",
+      "description": "Arbeitsgesetze, Steuersätze und gesetzliche Anforderungen durchsuchen"
+    },
+    "complianceKeys": {
+      "income_tax": "Einkommensteuer",
+      "solidarity_surcharge": "Solidaritätszuschlag",
+      "health_insurance_employer": "Krankenversicherung Arbeitgeber",
+      "health_insurance_employee": "Krankenversicherung Arbeitnehmer",
+      "pension_employer": "Rente Arbeitgeber",
+      "pension_employee": "Rente Arbeitnehmer",
+      "unemployment_employer": "Arbeitslosenversicherung Arbeitgeber",
+      "unemployment_employee": "Arbeitslosenversicherung Arbeitnehmer",
+      "care_insurance_employer": "Pflegeversicherung Arbeitgeber",
+      "care_insurance_employee": "Pflegeversicherung Arbeitnehmer",
+      "employer_social_charges": "Sozialabgaben Arbeitgeber",
+      "employee_social_charges": "Sozialabgaben Arbeitnehmer",
+      "social_security_rate": "Sozialversicherungssatz",
+      "social_security_cap": "Beitragsbemessungsgrenze",
+      "federal_tax": "Bundessteuer",
+      "state_tax": "Landessteuer",
+      "epf_employer": "EPF Arbeitgeber",
+      "epf_employee": "EPF Arbeitnehmer",
+      "esi_employer": "ESI Arbeitgeber",
+      "esi_employee": "ESI Arbeitnehmer"
     }
   },
   "glAccountingPage": {

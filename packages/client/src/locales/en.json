@@ -1170,6 +1170,85 @@
       "submit": "Submit Claim"
     }
   },
+  "countryCompliancePage": {
+    "title": "Country Compliance",
+    "description": "Browse labor laws, tax rates, and statutory requirements by country",
+    "filters": {
+      "searchPlaceholder": "Search countries...",
+      "configuredOnly": "Only my configured countries ({{count}})"
+    },
+    "regions": {
+      "all": "All Regions",
+      "asia": "Asia",
+      "europe": "Europe",
+      "americas": "Americas",
+      "africa": "Africa",
+      "oceania": "Oceania",
+      "middle_east": "Middle East"
+    },
+    "metrics": {
+      "maxHours": "Max Work Hours/Week",
+      "annualLeave": "Annual Leave",
+      "publicHolidays": "Public Holidays",
+      "noticePeriod": "Notice Period",
+      "probation": "Probation",
+      "payFrequency": "Pay Frequency"
+    },
+    "units": {
+      "hours": "{{value}} hrs",
+      "days": "{{value}} days",
+      "months": "{{value}} months"
+    },
+    "payFrequencies": {
+      "monthly": "Monthly",
+      "biweekly": "Bi-weekly",
+      "weekly": "Weekly",
+      "annual": "Annual"
+    },
+    "benefits": {
+      "title": "Statutory Benefits",
+      "socialSecurity": "Social Security",
+      "pension": "Pension",
+      "healthInsurance": "Health Insurance",
+      "required": "Required",
+      "notRequired": "Not Required"
+    },
+    "ratesTitle": "Tax & Social Security Rates",
+    "additional": {
+      "title": "Additional Information",
+      "taxYearStart": "Tax Year Start",
+      "minimumWage": "Minimum Wage (Monthly)",
+      "notSet": "Not set / Varies",
+      "countryCode": "Country Code",
+      "region": "Region"
+    },
+    "empty": {
+      "title": "Select a country to view compliance details",
+      "description": "Browse labor laws, tax rates, and statutory requirements"
+    },
+    "complianceKeys": {
+      "income_tax": "Income tax",
+      "solidarity_surcharge": "Solidarity surcharge",
+      "health_insurance_employer": "Employer health insurance",
+      "health_insurance_employee": "Employee health insurance",
+      "pension_employer": "Employer pension",
+      "pension_employee": "Employee pension",
+      "unemployment_employer": "Employer unemployment insurance",
+      "unemployment_employee": "Employee unemployment insurance",
+      "care_insurance_employer": "Employer care insurance",
+      "care_insurance_employee": "Employee care insurance",
+      "employer_social_charges": "Employer social charges",
+      "employee_social_charges": "Employee social charges",
+      "social_security_rate": "Social security rate",
+      "social_security_cap": "Social security cap",
+      "federal_tax": "Federal tax",
+      "state_tax": "State tax",
+      "epf_employer": "Employer EPF",
+      "epf_employee": "Employee EPF",
+      "esi_employer": "Employer ESI",
+      "esi_employee": "Employee ESI"
+    }
+  },
   "glAccountingPage": {
     "title": "GL / Accounting",
     "description": "Map payroll components to GL accounts and generate journal entries",

@@ -1,6 +1,7 @@
 {
   "language": { "change": "تغيير اللغة", "menuLabel": "اختر اللغة" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "المستخدم",
     "employees": "الموظفون",
     "employee_one": "موظف واحد",
@@ -503,6 +504,7 @@
     "lastPayrollNet": "آخر راتب (صافي)",
     "noPayrollYet": "لا توجد رواتب بعد",
     "totalDeductions": "إجمالي الاستقطاعات",
+    "viewDeductions": "عرض تفاصيل إجمالي الاستقطاعات لآخر مسير رواتب",
     "monthOverMonth": "{{value}}% شهريًا",
     "monthlyTrend": "اتجاه الرواتب الشهري",
     "trendPeriods_one": "الإجمالي مقابل الصافي للشهر الماضي",
@@ -517,10 +519,22 @@
     "complianceStatus": "حالة الامتثال",
     "providentFund": "صندوق الادخار",
     "professionalTax": "الضريبة المهنية",
+    "tdsForm": "TDS (النموذج 24Q)",
     "filed": "تم التقديم",
     "pending": "قيد الانتظار",
     "recentActivity": "النشاط الأخير",
-    "noRecentActivity": "لا يوجد نشاط حديث بعد."
+    "noRecentActivity": "لا يوجد نشاط حديث بعد.",
+    "activity": "النشاط",
+    "actions": {
+      "created": "تم إنشاء مسير الرواتب",
+      "computed": "تم احتساب الرواتب",
+      "approved": "تمت الموافقة على الرواتب",
+      "paid": "تم تحديد الرواتب كمدفوعة",
+      "cancelled": "تم إلغاء الرواتب",
+      "reverted": "تمت إعادة الرواتب إلى المسودة",
+      "rerun": "أعيد تشغيل الرواتب",
+      "deleted": "تم حذف مسير الرواتب"
+    }
   },
   "breadcrumbs": {
     "home": "الرئيسية",
@@ -531,7 +545,11 @@
     "profile": "الملف الشخصي",
     "setup": "الإعداد"
   },
-  "selfService": { "employeePortal": "بوابة الموظف", "adminPanel": "لوحة الإدارة" },
+  "selfService": {
+    "employeePortal": "بوابة الموظف",
+    "adminPanel": "لوحة الإدارة",
+    "profile": "الملف الشخصي"
+  },
   "myProfile": {
     "title": "ملفي الشخصي",
     "notFound": "لم يتم العثور على الملف الشخصي",
@@ -1134,6 +1152,85 @@
       "notes": "ملاحظات",
       "cancel": "إلغاء",
       "submit": "تقديم المطالبة"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "الامتثال حسب البلد",
+    "description": "استعرض قوانين العمل ومعدلات الضرائب والمتطلبات القانونية حسب البلد",
+    "filters": {
+      "searchPlaceholder": "البحث عن البلدان...",
+      "configuredOnly": "البلدان المهيأة لدي فقط ({{count}})"
+    },
+    "regions": {
+      "all": "كل المناطق",
+      "asia": "آسيا",
+      "europe": "أوروبا",
+      "americas": "الأمريكتان",
+      "africa": "أفريقيا",
+      "oceania": "أوقيانوسيا",
+      "middle_east": "الشرق الأوسط"
+    },
+    "metrics": {
+      "maxHours": "الحد الأقصى لساعات العمل/الأسبوع",
+      "annualLeave": "الإجازة السنوية",
+      "publicHolidays": "العطلات الرسمية",
+      "noticePeriod": "فترة الإشعار",
+      "probation": "فترة الاختبار",
+      "payFrequency": "دورية الدفع"
+    },
+    "units": {
+      "hours": "{{value}} ساعة",
+      "days": "{{value}} يومًا",
+      "months": "{{value}} شهرًا"
+    },
+    "payFrequencies": {
+      "monthly": "شهري",
+      "biweekly": "كل أسبوعين",
+      "weekly": "أسبوعي",
+      "annual": "سنوي"
+    },
+    "benefits": {
+      "title": "المزايا القانونية",
+      "socialSecurity": "الضمان الاجتماعي",
+      "pension": "التقاعد",
+      "healthInsurance": "التأمين الصحي",
+      "required": "مطلوب",
+      "notRequired": "غير مطلوب"
+    },
+    "ratesTitle": "معدلات الضرائب والضمان الاجتماعي",
+    "additional": {
+      "title": "معلومات إضافية",
+      "taxYearStart": "بداية السنة الضريبية",
+      "minimumWage": "الحد الأدنى للأجور (شهريًا)",
+      "notSet": "غير محدد / متغير",
+      "countryCode": "رمز البلد",
+      "region": "المنطقة"
+    },
+    "empty": {
+      "title": "حدد بلدًا لعرض تفاصيل الامتثال",
+      "description": "استعرض قوانين العمل ومعدلات الضرائب والمتطلبات القانونية"
+    },
+    "complianceKeys": {
+      "income_tax": "ضريبة الدخل",
+      "solidarity_surcharge": "رسم التضامن",
+      "health_insurance_employer": "تأمين صحي على صاحب العمل",
+      "health_insurance_employee": "تأمين صحي على الموظف",
+      "pension_employer": "معاش صاحب العمل",
+      "pension_employee": "معاش الموظف",
+      "unemployment_employer": "تأمين بطالة على صاحب العمل",
+      "unemployment_employee": "تأمين بطالة على الموظف",
+      "care_insurance_employer": "تأمين رعاية على صاحب العمل",
+      "care_insurance_employee": "تأمين رعاية على الموظف",
+      "employer_social_charges": "رسوم اجتماعية على صاحب العمل",
+      "employee_social_charges": "رسوم اجتماعية على الموظف",
+      "social_security_rate": "معدل الضمان الاجتماعي",
+      "social_security_cap": "حد الضمان الاجتماعي",
+      "federal_tax": "ضريبة اتحادية",
+      "state_tax": "ضريبة الولاية",
+      "epf_employer": "EPF صاحب العمل",
+      "epf_employee": "EPF الموظف",
+      "esi_employer": "ESI صاحب العمل",
+      "esi_employee": "ESI الموظف"
     }
   },
   "glAccountingPage": {

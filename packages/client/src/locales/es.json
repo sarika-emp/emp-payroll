@@ -1,6 +1,7 @@
 {
   "language": { "change": "Cambiar idioma", "menuLabel": "Seleccionar idioma" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "Usuario",
     "employees": "Empleados",
     "employee_one": "{{count}} empleado",
@@ -513,6 +514,7 @@
     "lastPayrollNet": "Última nómina (neto)",
     "noPayrollYet": "Aún no hay nómina",
     "totalDeductions": "Deducciones totales",
+    "viewDeductions": "Ver el desglose de deducciones totales de la última nómina",
     "monthOverMonth": "{{value}}% mensual",
     "monthlyTrend": "Tendencia mensual de nómina",
     "trendPeriods_one": "Bruto frente a neto del último mes",
@@ -527,10 +529,22 @@
     "complianceStatus": "Estado de cumplimiento",
     "providentFund": "Fondo de previsión",
     "professionalTax": "Impuesto profesional",
+    "tdsForm": "TDS (Formulario 24Q)",
     "filed": "Presentado",
     "pending": "Pendiente",
     "recentActivity": "Actividad reciente",
-    "noRecentActivity": "Aún no hay actividad reciente."
+    "noRecentActivity": "Aún no hay actividad reciente.",
+    "activity": "Actividad",
+    "actions": {
+      "created": "Ejecución de nómina creada",
+      "computed": "Nómina calculada",
+      "approved": "Nómina aprobada",
+      "paid": "Nómina marcada como pagada",
+      "cancelled": "Nómina cancelada",
+      "reverted": "Nómina devuelta a borrador",
+      "rerun": "Nómina recalculada",
+      "deleted": "Ejecución de nómina eliminada"
+    }
   },
   "breadcrumbs": {
     "home": "Inicio",
@@ -543,7 +557,8 @@
   },
   "selfService": {
     "employeePortal": "Portal del empleado",
-    "adminPanel": "Panel de administración"
+    "adminPanel": "Panel de administración",
+    "profile": "Perfil"
   },
   "myProfile": {
     "title": "Mi perfil",
@@ -1160,6 +1175,85 @@
       "notes": "Notas",
       "cancel": "Cancelar",
       "submit": "Enviar reclamación"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "Cumplimiento por país",
+    "description": "Consulta leyes laborales, tipos impositivos y requisitos legales por país",
+    "filters": {
+      "searchPlaceholder": "Buscar países...",
+      "configuredOnly": "Solo mis países configurados ({{count}})"
+    },
+    "regions": {
+      "all": "Todas las regiones",
+      "asia": "Asia",
+      "europe": "Europa",
+      "americas": "América",
+      "africa": "África",
+      "oceania": "Oceanía",
+      "middle_east": "Oriente Medio"
+    },
+    "metrics": {
+      "maxHours": "Horas máximas de trabajo/semana",
+      "annualLeave": "Vacaciones anuales",
+      "publicHolidays": "Festivos",
+      "noticePeriod": "Periodo de preaviso",
+      "probation": "Periodo de prueba",
+      "payFrequency": "Frecuencia de pago"
+    },
+    "units": {
+      "hours": "{{value}} h",
+      "days": "{{value}} días",
+      "months": "{{value}} meses"
+    },
+    "payFrequencies": {
+      "monthly": "Mensual",
+      "biweekly": "Quincenal",
+      "weekly": "Semanal",
+      "annual": "Anual"
+    },
+    "benefits": {
+      "title": "Prestaciones legales",
+      "socialSecurity": "Seguridad social",
+      "pension": "Pensión",
+      "healthInsurance": "Seguro médico",
+      "required": "Obligatorio",
+      "notRequired": "No obligatorio"
+    },
+    "ratesTitle": "Tipos impositivos y de seguridad social",
+    "additional": {
+      "title": "Información adicional",
+      "taxYearStart": "Inicio del año fiscal",
+      "minimumWage": "Salario mínimo (mensual)",
+      "notSet": "No definido / Variable",
+      "countryCode": "Código de país",
+      "region": "Región"
+    },
+    "empty": {
+      "title": "Selecciona un país para ver los detalles de cumplimiento",
+      "description": "Consulta leyes laborales, tipos impositivos y requisitos legales"
+    },
+    "complianceKeys": {
+      "income_tax": "Impuesto sobre la renta",
+      "solidarity_surcharge": "Recargo de solidaridad",
+      "health_insurance_employer": "Seguro médico del empleador",
+      "health_insurance_employee": "Seguro médico del empleado",
+      "pension_employer": "Pensión del empleador",
+      "pension_employee": "Pensión del empleado",
+      "unemployment_employer": "Seguro de desempleo del empleador",
+      "unemployment_employee": "Seguro de desempleo del empleado",
+      "care_insurance_employer": "Seguro de dependencia del empleador",
+      "care_insurance_employee": "Seguro de dependencia del empleado",
+      "employer_social_charges": "Cargas sociales del empleador",
+      "employee_social_charges": "Cargas sociales del empleado",
+      "social_security_rate": "Tipo de seguridad social",
+      "social_security_cap": "Tope de seguridad social",
+      "federal_tax": "Impuesto federal",
+      "state_tax": "Impuesto estatal",
+      "epf_employer": "EPF del empleador",
+      "epf_employee": "EPF del empleado",
+      "esi_employer": "ESI del empleador",
+      "esi_employee": "ESI del empleado"
     }
   },
   "glAccountingPage": {

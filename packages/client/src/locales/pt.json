@@ -1,6 +1,7 @@
 {
   "language": { "change": "Alterar idioma", "menuLabel": "Selecionar idioma" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "Usuário",
     "employees": "Funcionários",
     "employee_one": "{{count}} funcionário",
@@ -510,6 +511,7 @@
     "lastPayrollNet": "Última folha (líquido)",
     "noPayrollYet": "Ainda não há folha",
     "totalDeductions": "Deduções totais",
+    "viewDeductions": "Ver a discriminação das deduções totais da última folha",
     "monthOverMonth": "{{value}}% mensal",
     "monthlyTrend": "Tendência mensal da folha",
     "trendPeriods_one": "Bruto versus líquido no último mês",
@@ -524,10 +526,22 @@
     "complianceStatus": "Status de conformidade",
     "providentFund": "Fundo de previdência",
     "professionalTax": "Imposto profissional",
+    "tdsForm": "TDS (Formulário 24Q)",
     "filed": "Entregue",
     "pending": "Pendente",
     "recentActivity": "Atividade recente",
-    "noRecentActivity": "Ainda não há atividade recente."
+    "noRecentActivity": "Ainda não há atividade recente.",
+    "activity": "Atividade",
+    "actions": {
+      "created": "Processamento da folha criado",
+      "computed": "Folha calculada",
+      "approved": "Folha aprovada",
+      "paid": "Folha marcada como paga",
+      "cancelled": "Folha cancelada",
+      "reverted": "Folha revertida para rascunho",
+      "rerun": "Folha recalculada",
+      "deleted": "Processamento da folha eliminado"
+    }
   },
   "breadcrumbs": {
     "home": "Início",
@@ -540,7 +554,8 @@
   },
   "selfService": {
     "employeePortal": "Portal do funcionário",
-    "adminPanel": "Painel administrativo"
+    "adminPanel": "Painel administrativo",
+    "profile": "Perfil"
   },
   "myProfile": {
     "title": "Meu perfil",
@@ -1149,6 +1164,85 @@
       "notes": "Notas",
       "cancel": "Cancelar",
       "submit": "Enviar sinistro"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "Conformidade por país",
+    "description": "Consulte leis laborais, taxas fiscais e requisitos legais por país",
+    "filters": {
+      "searchPlaceholder": "Pesquisar países...",
+      "configuredOnly": "Apenas os meus países configurados ({{count}})"
+    },
+    "regions": {
+      "all": "Todas as regiões",
+      "asia": "Ásia",
+      "europe": "Europa",
+      "americas": "Américas",
+      "africa": "África",
+      "oceania": "Oceânia",
+      "middle_east": "Médio Oriente"
+    },
+    "metrics": {
+      "maxHours": "Máximo de horas de trabalho/semana",
+      "annualLeave": "Férias anuais",
+      "publicHolidays": "Feriados",
+      "noticePeriod": "Período de aviso",
+      "probation": "Período experimental",
+      "payFrequency": "Frequência de pagamento"
+    },
+    "units": {
+      "hours": "{{value}} h",
+      "days": "{{value}} dias",
+      "months": "{{value}} meses"
+    },
+    "payFrequencies": {
+      "monthly": "Mensal",
+      "biweekly": "Quinzenal",
+      "weekly": "Semanal",
+      "annual": "Anual"
+    },
+    "benefits": {
+      "title": "Benefícios legais",
+      "socialSecurity": "Segurança social",
+      "pension": "Pensão",
+      "healthInsurance": "Seguro de saúde",
+      "required": "Obrigatório",
+      "notRequired": "Não obrigatório"
+    },
+    "ratesTitle": "Taxas fiscais e de segurança social",
+    "additional": {
+      "title": "Informação adicional",
+      "taxYearStart": "Início do ano fiscal",
+      "minimumWage": "Salário mínimo (mensal)",
+      "notSet": "Não definido / Variável",
+      "countryCode": "Código do país",
+      "region": "Região"
+    },
+    "empty": {
+      "title": "Selecione um país para ver os detalhes de conformidade",
+      "description": "Consulte leis laborais, taxas fiscais e requisitos legais"
+    },
+    "complianceKeys": {
+      "income_tax": "Imposto sobre o rendimento",
+      "solidarity_surcharge": "Sobretaxa de solidariedade",
+      "health_insurance_employer": "Seguro de saúde do empregador",
+      "health_insurance_employee": "Seguro de saúde do empregado",
+      "pension_employer": "Pensão do empregador",
+      "pension_employee": "Pensão do empregado",
+      "unemployment_employer": "Seguro-desemprego do empregador",
+      "unemployment_employee": "Seguro-desemprego do empregado",
+      "care_insurance_employer": "Seguro de cuidados do empregador",
+      "care_insurance_employee": "Seguro de cuidados do empregado",
+      "employer_social_charges": "Encargos sociais do empregador",
+      "employee_social_charges": "Encargos sociais do empregado",
+      "social_security_rate": "Taxa de segurança social",
+      "social_security_cap": "Teto da segurança social",
+      "federal_tax": "Imposto federal",
+      "state_tax": "Imposto estadual",
+      "epf_employer": "EPF do empregador",
+      "epf_employee": "EPF do empregado",
+      "esi_employer": "ESI do empregador",
+      "esi_employee": "ESI do empregado"
     }
   },
   "glAccountingPage": {

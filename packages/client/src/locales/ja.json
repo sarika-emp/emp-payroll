@@ -1,6 +1,7 @@
 {
   "language": { "change": "言語を変更", "menuLabel": "言語を選択" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "ユーザー",
     "employees": "従業員",
     "employee_one": "従業員{{count}}名",
@@ -506,6 +507,7 @@
     "lastPayrollNet": "直近給与（手取り）",
     "noPayrollYet": "給与処理はまだありません",
     "totalDeductions": "控除合計",
+    "viewDeductions": "最新の給与処理の控除合計内訳を表示",
     "monthOverMonth": "前月比{{value}}%",
     "monthlyTrend": "月次給与推移",
     "trendPeriods_one": "直近1か月の総額と手取り",
@@ -520,10 +522,22 @@
     "complianceStatus": "コンプライアンス状況",
     "providentFund": "積立基金",
     "professionalTax": "職業税",
+    "tdsForm": "TDS（フォーム24Q）",
     "filed": "提出済み",
     "pending": "保留中",
     "recentActivity": "最近のアクティビティ",
-    "noRecentActivity": "最近のアクティビティはありません。"
+    "noRecentActivity": "最近のアクティビティはありません。",
+    "activity": "アクティビティ",
+    "actions": {
+      "created": "給与処理を作成しました",
+      "computed": "給与を計算しました",
+      "approved": "給与を承認しました",
+      "paid": "給与を支払済みにしました",
+      "cancelled": "給与をキャンセルしました",
+      "reverted": "給与を下書きに戻しました",
+      "rerun": "給与を再計算しました",
+      "deleted": "給与処理を削除しました"
+    }
   },
   "breadcrumbs": {
     "home": "ホーム",
@@ -534,7 +548,11 @@
     "profile": "プロフィール",
     "setup": "設定"
   },
-  "selfService": { "employeePortal": "従業員ポータル", "adminPanel": "管理パネル" },
+  "selfService": {
+    "employeePortal": "従業員ポータル",
+    "adminPanel": "管理パネル",
+    "profile": "プロフィール"
+  },
   "myProfile": {
     "title": "マイプロフィール",
     "notFound": "プロフィールが見つかりません",
@@ -1142,6 +1160,85 @@
       "notes": "メモ",
       "cancel": "キャンセル",
       "submit": "請求を申請"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "国別コンプライアンス",
+    "description": "国別の労働法、税率、法定要件を確認します",
+    "filters": {
+      "searchPlaceholder": "国を検索...",
+      "configuredOnly": "設定済みの国のみ ({{count}})"
+    },
+    "regions": {
+      "all": "すべての地域",
+      "asia": "アジア",
+      "europe": "ヨーロッパ",
+      "americas": "南北アメリカ",
+      "africa": "アフリカ",
+      "oceania": "オセアニア",
+      "middle_east": "中東"
+    },
+    "metrics": {
+      "maxHours": "週の最大労働時間",
+      "annualLeave": "年次休暇",
+      "publicHolidays": "祝日",
+      "noticePeriod": "通知期間",
+      "probation": "試用期間",
+      "payFrequency": "給与支払頻度"
+    },
+    "units": {
+      "hours": "{{value}}時間",
+      "days": "{{value}}日",
+      "months": "{{value}}か月"
+    },
+    "payFrequencies": {
+      "monthly": "月払い",
+      "biweekly": "隔週払い",
+      "weekly": "週払い",
+      "annual": "年払い"
+    },
+    "benefits": {
+      "title": "法定福利厚生",
+      "socialSecurity": "社会保障",
+      "pension": "年金",
+      "healthInsurance": "健康保険",
+      "required": "必須",
+      "notRequired": "不要"
+    },
+    "ratesTitle": "税・社会保障料率",
+    "additional": {
+      "title": "追加情報",
+      "taxYearStart": "課税年度開始",
+      "minimumWage": "最低賃金（月額）",
+      "notSet": "未設定 / 変動",
+      "countryCode": "国コード",
+      "region": "地域"
+    },
+    "empty": {
+      "title": "国を選択してコンプライアンス詳細を表示",
+      "description": "労働法、税率、法定要件を確認します"
+    },
+    "complianceKeys": {
+      "income_tax": "所得税",
+      "solidarity_surcharge": "連帯付加税",
+      "health_insurance_employer": "雇用主健康保険",
+      "health_insurance_employee": "従業員健康保険",
+      "pension_employer": "雇用主年金",
+      "pension_employee": "従業員年金",
+      "unemployment_employer": "雇用主失業保険",
+      "unemployment_employee": "従業員失業保険",
+      "care_insurance_employer": "雇用主介護保険",
+      "care_insurance_employee": "従業員介護保険",
+      "employer_social_charges": "雇用主社会保険料",
+      "employee_social_charges": "従業員社会保険料",
+      "social_security_rate": "社会保障料率",
+      "social_security_cap": "社会保障上限",
+      "federal_tax": "連邦税",
+      "state_tax": "州税",
+      "epf_employer": "雇用主EPF",
+      "epf_employee": "従業員EPF",
+      "esi_employer": "雇用主ESI",
+      "esi_employee": "従業員ESI"
     }
   },
   "glAccountingPage": {

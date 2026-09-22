@@ -1,6 +1,7 @@
 {
   "language": { "change": "切换语言", "menuLabel": "选择语言" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "用户",
     "employees": "员工",
     "employee_one": "{{count}} 名员工",
@@ -501,6 +502,7 @@
     "lastPayrollNet": "最近薪资（实发）",
     "noPayrollYet": "暂无薪资记录",
     "totalDeductions": "扣款总额",
+    "viewDeductions": "查看最新薪资处理的扣款总额明细",
     "monthOverMonth": "环比 {{value}}%",
     "monthlyTrend": "月度薪资趋势",
     "trendPeriods_one": "最近 1 个月税前与实发对比",
@@ -515,10 +517,22 @@
     "complianceStatus": "合规状态",
     "providentFund": "公积金",
     "professionalTax": "职业税",
+    "tdsForm": "TDS（表格24Q）",
     "filed": "已申报",
     "pending": "待处理",
     "recentActivity": "最近活动",
-    "noRecentActivity": "暂无最近活动。"
+    "noRecentActivity": "暂无最近活动。",
+    "activity": "活动",
+    "actions": {
+      "created": "已创建薪资处理",
+      "computed": "已计算薪资",
+      "approved": "已批准薪资",
+      "paid": "已将薪资标记为已支付",
+      "cancelled": "已取消薪资",
+      "reverted": "已将薪资恢复为草稿",
+      "rerun": "已重新运行薪资",
+      "deleted": "已删除薪资处理"
+    }
   },
   "breadcrumbs": {
     "home": "首页",
@@ -529,7 +543,7 @@
     "profile": "个人资料",
     "setup": "设置"
   },
-  "selfService": { "employeePortal": "员工门户", "adminPanel": "管理面板" },
+  "selfService": { "employeePortal": "员工门户", "adminPanel": "管理面板", "profile": "个人资料" },
   "myProfile": {
     "title": "我的资料",
     "notFound": "未找到个人资料",
@@ -1129,6 +1143,85 @@
       "notes": "备注",
       "cancel": "取消",
       "submit": "提交理赔"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "国家/地区合规",
+    "description": "按国家/地区查看劳动法、税率和法定要求",
+    "filters": {
+      "searchPlaceholder": "搜索国家/地区...",
+      "configuredOnly": "仅显示我已配置的国家/地区 ({{count}})"
+    },
+    "regions": {
+      "all": "全部地区",
+      "asia": "亚洲",
+      "europe": "欧洲",
+      "americas": "美洲",
+      "africa": "非洲",
+      "oceania": "大洋洲",
+      "middle_east": "中东"
+    },
+    "metrics": {
+      "maxHours": "每周最长工作时间",
+      "annualLeave": "年假",
+      "publicHolidays": "公共假日",
+      "noticePeriod": "通知期",
+      "probation": "试用期",
+      "payFrequency": "支付频率"
+    },
+    "units": {
+      "hours": "{{value}}小时",
+      "days": "{{value}}天",
+      "months": "{{value}}个月"
+    },
+    "payFrequencies": {
+      "monthly": "每月",
+      "biweekly": "每两周",
+      "weekly": "每周",
+      "annual": "每年"
+    },
+    "benefits": {
+      "title": "法定福利",
+      "socialSecurity": "社会保障",
+      "pension": "养老金",
+      "healthInsurance": "医疗保险",
+      "required": "必需",
+      "notRequired": "非必需"
+    },
+    "ratesTitle": "税率与社会保障费率",
+    "additional": {
+      "title": "其他信息",
+      "taxYearStart": "税务年度开始",
+      "minimumWage": "最低工资（每月）",
+      "notSet": "未设置 / 因地而异",
+      "countryCode": "国家/地区代码",
+      "region": "地区"
+    },
+    "empty": {
+      "title": "选择一个国家/地区以查看合规详情",
+      "description": "查看劳动法、税率和法定要求"
+    },
+    "complianceKeys": {
+      "income_tax": "所得税",
+      "solidarity_surcharge": "团结附加税",
+      "health_insurance_employer": "雇主医疗保险",
+      "health_insurance_employee": "员工医疗保险",
+      "pension_employer": "雇主养老金",
+      "pension_employee": "员工养老金",
+      "unemployment_employer": "雇主失业保险",
+      "unemployment_employee": "员工失业保险",
+      "care_insurance_employer": "雇主护理保险",
+      "care_insurance_employee": "员工护理保险",
+      "employer_social_charges": "雇主社会费用",
+      "employee_social_charges": "员工社会费用",
+      "social_security_rate": "社会保障费率",
+      "social_security_cap": "社会保障上限",
+      "federal_tax": "联邦税",
+      "state_tax": "州税",
+      "epf_employer": "雇主EPF",
+      "epf_employee": "员工EPF",
+      "esi_employer": "雇主ESI",
+      "esi_employee": "员工ESI"
     }
   },
   "glAccountingPage": {

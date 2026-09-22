@@ -1,6 +1,7 @@
 {
   "language": { "change": "भाषा बदलें", "menuLabel": "भाषा चुनें" },
   "common": {
+    "appName": "EMP Payroll",
     "user": "उपयोगकर्ता",
     "employees": "कर्मचारी",
     "employee_one": "{{count}} कर्मचारी",
@@ -503,6 +504,7 @@
     "lastPayrollNet": "पिछला पेरोल (शुद्ध)",
     "noPayrollYet": "अभी कोई पेरोल नहीं",
     "totalDeductions": "कुल कटौतियाँ",
+    "viewDeductions": "नवीनतम पेरोल की कुल कटौतियों का विवरण देखें",
     "monthOverMonth": "{{value}}% मासिक",
     "monthlyTrend": "मासिक पेरोल रुझान",
     "trendPeriods_one": "पिछले {{count}} महीने में सकल बनाम शुद्ध",
@@ -517,10 +519,22 @@
     "complianceStatus": "अनुपालन स्थिति",
     "providentFund": "भविष्य निधि",
     "professionalTax": "व्यावसायिक कर",
+    "tdsForm": "TDS (फॉर्म 24Q)",
     "filed": "दाखिल",
     "pending": "लंबित",
     "recentActivity": "हाल की गतिविधि",
-    "noRecentActivity": "अभी कोई हाल की गतिविधि नहीं।"
+    "noRecentActivity": "अभी कोई हाल की गतिविधि नहीं।",
+    "activity": "गतिविधि",
+    "actions": {
+      "created": "पेरोल रन बनाया गया",
+      "computed": "पेरोल की गणना हुई",
+      "approved": "पेरोल स्वीकृत हुआ",
+      "paid": "पेरोल भुगतान किया गया",
+      "cancelled": "पेरोल रद्द हुआ",
+      "reverted": "पेरोल ड्राफ्ट में वापस किया गया",
+      "rerun": "पेरोल फिर से चलाया गया",
+      "deleted": "पेरोल रन हटाया गया"
+    }
   },
   "breadcrumbs": {
     "home": "होम",
@@ -531,7 +545,11 @@
     "profile": "प्रोफ़ाइल",
     "setup": "सेटअप"
   },
-  "selfService": { "employeePortal": "कर्मचारी पोर्टल", "adminPanel": "एडमिन पैनल" },
+  "selfService": {
+    "employeePortal": "कर्मचारी पोर्टल",
+    "adminPanel": "एडमिन पैनल",
+    "profile": "प्रोफ़ाइल"
+  },
   "myProfile": {
     "title": "मेरी प्रोफ़ाइल",
     "notFound": "प्रोफ़ाइल नहीं मिली",
@@ -1134,6 +1152,85 @@
       "notes": "नोट्स",
       "cancel": "रद्द करें",
       "submit": "दावा जमा करें"
+    }
+  },
+  "countryCompliancePage": {
+    "title": "देश अनुपालन",
+    "description": "देश के अनुसार श्रम कानून, कर दरें और वैधानिक आवश्यकताएँ देखें",
+    "filters": {
+      "searchPlaceholder": "देश खोजें...",
+      "configuredOnly": "केवल मेरे कॉन्फ़िगर किए गए देश ({{count}})"
+    },
+    "regions": {
+      "all": "सभी क्षेत्र",
+      "asia": "एशिया",
+      "europe": "यूरोप",
+      "americas": "अमेरिका",
+      "africa": "अफ्रीका",
+      "oceania": "ओशिनिया",
+      "middle_east": "मध्य पूर्व"
+    },
+    "metrics": {
+      "maxHours": "अधिकतम कार्य घंटे/सप्ताह",
+      "annualLeave": "वार्षिक अवकाश",
+      "publicHolidays": "सार्वजनिक अवकाश",
+      "noticePeriod": "नोटिस अवधि",
+      "probation": "परिवीक्षा",
+      "payFrequency": "भुगतान आवृत्ति"
+    },
+    "units": {
+      "hours": "{{value}} घंटे",
+      "days": "{{value}} दिन",
+      "months": "{{value}} महीने"
+    },
+    "payFrequencies": {
+      "monthly": "मासिक",
+      "biweekly": "हर दो सप्ताह",
+      "weekly": "साप्ताहिक",
+      "annual": "वार्षिक"
+    },
+    "benefits": {
+      "title": "वैधानिक लाभ",
+      "socialSecurity": "सामाजिक सुरक्षा",
+      "pension": "पेंशन",
+      "healthInsurance": "स्वास्थ्य बीमा",
+      "required": "आवश्यक",
+      "notRequired": "आवश्यक नहीं"
+    },
+    "ratesTitle": "कर और सामाजिक सुरक्षा दरें",
+    "additional": {
+      "title": "अतिरिक्त जानकारी",
+      "taxYearStart": "कर वर्ष प्रारंभ",
+      "minimumWage": "न्यूनतम वेतन (मासिक)",
+      "notSet": "निर्धारित नहीं / परिवर्तनीय",
+      "countryCode": "देश कोड",
+      "region": "क्षेत्र"
+    },
+    "empty": {
+      "title": "अनुपालन विवरण देखने के लिए देश चुनें",
+      "description": "श्रम कानून, कर दरें और वैधानिक आवश्यकताएँ देखें"
+    },
+    "complianceKeys": {
+      "income_tax": "आयकर",
+      "solidarity_surcharge": "एकजुटता अधिभार",
+      "health_insurance_employer": "नियोक्ता स्वास्थ्य बीमा",
+      "health_insurance_employee": "कर्मचारी स्वास्थ्य बीमा",
+      "pension_employer": "नियोक्ता पेंशन",
+      "pension_employee": "कर्मचारी पेंशन",
+      "unemployment_employer": "नियोक्ता बेरोजगारी बीमा",
+      "unemployment_employee": "कर्मचारी बेरोजगारी बीमा",
+      "care_insurance_employer": "नियोक्ता देखभाल बीमा",
+      "care_insurance_employee": "कर्मचारी देखभाल बीमा",
+      "employer_social_charges": "नियोक्ता सामाजिक शुल्क",
+      "employee_social_charges": "कर्मचारी सामाजिक शुल्क",
+      "social_security_rate": "सामाजिक सुरक्षा दर",
+      "social_security_cap": "सामाजिक सुरक्षा सीमा",
+      "federal_tax": "संघीय कर",
+      "state_tax": "राज्य कर",
+      "epf_employer": "नियोक्ता EPF",
+      "epf_employee": "कर्मचारी EPF",
+      "esi_employer": "नियोक्ता ESI",
+      "esi_employee": "कर्मचारी ESI"
     }
   },
   "glAccountingPage": {
