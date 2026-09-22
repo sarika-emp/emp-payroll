@@ -1152,6 +1152,45 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "myPayslipsPage": {
+    "title": "Mes bulletins de paie",
+    "description": "Consultez et téléchargez vos bulletins de paie",
+    "financialYear": "Exercice {{start}}-{{end}}",
+    "financialYearFilter": "Filtrer par exercice fiscal",
+    "empty": "Aucun bulletin de paie disponible pour le moment",
+    "gross": "Brut",
+    "net": "Net",
+    "actions": {
+      "hide": "Masquer",
+      "details": "Détails",
+      "downloadPdf": "Télécharger le PDF",
+      "dispute": "Contester le bulletin de paie"
+    },
+    "earnings": "Rémunération",
+    "totalEarnings": "Rémunération totale",
+    "deductions": "Retenues",
+    "totalDeductions": "Total des retenues",
+    "components": {
+      "EPF": "Fonds de prévoyance salarié",
+      "PF": "Fonds de prévoyance",
+      "PF_EE": "Cotisation salariale au fonds de prévoyance",
+      "ESI": "Assurance sociale des salariés",
+      "PT": "Taxe professionnelle",
+      "TDS": "Impôt sur le revenu (TDS)",
+      "INCOME_TAX": "Impôt sur le revenu",
+      "LOP": "Retenue pour absence"
+    },
+    "dispute": {
+      "title": "Contester le bulletin de paie",
+      "reasonRequired": "Veuillez indiquer un motif",
+      "success": "La contestation a été envoyée. Les RH vont l’examiner.",
+      "failed": "Échec de l’envoi de la contestation",
+      "description": "Si vous pensez que ce bulletin comporte une erreur, décrivez le problème ci-dessous. Les RH l’examineront et vous répondront.",
+      "placeholder": "Décrivez le problème (p. ex. retenue incorrecte ou indemnité manquante)",
+      "cancel": "Annuler",
+      "submit": "Envoyer la contestation"
+    }
+  },
   "mySalaryPage": {
     "title": "Mon salaire",
     "description": "Détail de votre CTC et de votre structure salariale",

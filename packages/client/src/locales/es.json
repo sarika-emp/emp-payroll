@@ -1162,6 +1162,45 @@
       "submit": "Enviar reclamación"
     }
   },
+  "myPayslipsPage": {
+    "title": "Mis recibos de sueldo",
+    "description": "Consulta y descarga tus recibos de sueldo",
+    "financialYear": "Ejercicio {{start}}-{{end}}",
+    "financialYearFilter": "Filtrar por ejercicio fiscal",
+    "empty": "Aún no hay recibos de sueldo disponibles",
+    "gross": "Bruto",
+    "net": "Neto",
+    "actions": {
+      "hide": "Ocultar",
+      "details": "Detalles",
+      "downloadPdf": "Descargar PDF",
+      "dispute": "Impugnar el recibo de sueldo"
+    },
+    "earnings": "Ingresos",
+    "totalEarnings": "Ingresos totales",
+    "deductions": "Deducciones",
+    "totalDeductions": "Deducciones totales",
+    "components": {
+      "EPF": "Fondo de previsión del empleado",
+      "PF": "Fondo de previsión",
+      "PF_EE": "Aportación del empleado al fondo de previsión",
+      "ESI": "Seguro estatal del empleado",
+      "PT": "Impuesto profesional",
+      "TDS": "Impuesto sobre la renta (TDS)",
+      "INCOME_TAX": "Impuesto sobre la renta",
+      "LOP": "Pérdida de salario"
+    },
+    "dispute": {
+      "title": "Impugnar recibo de sueldo",
+      "reasonRequired": "Indica un motivo",
+      "success": "La impugnación se ha enviado. RR. HH. la revisará.",
+      "failed": "No se pudo enviar la impugnación",
+      "description": "Si crees que este recibo contiene un error, describe el problema. RR. HH. lo revisará y responderá.",
+      "placeholder": "Describe el problema (p. ej., deducción incorrecta o complemento ausente)",
+      "cancel": "Cancelar",
+      "submit": "Enviar impugnación"
+    }
+  },
   "mySalaryPage": {
     "title": "Mi salario",
     "description": "Desglose de tu CTC y estructura salarial",

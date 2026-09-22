@@ -1131,6 +1131,45 @@
       "submit": "提交理赔"
     }
   },
+  "myPayslipsPage": {
+    "title": "我的工资单",
+    "description": "查看并下载您的工资单",
+    "financialYear": "{{start}}-{{end}}财年",
+    "financialYearFilter": "按财年筛选",
+    "empty": "暂无工资单",
+    "gross": "税前",
+    "net": "实发",
+    "actions": {
+      "hide": "收起",
+      "details": "详情",
+      "downloadPdf": "下载PDF",
+      "dispute": "对工资单提出异议"
+    },
+    "earnings": "收入项",
+    "totalEarnings": "收入合计",
+    "deductions": "扣除项",
+    "totalDeductions": "扣除合计",
+    "components": {
+      "EPF": "员工公积金",
+      "PF": "公积金",
+      "PF_EE": "员工公积金缴款",
+      "ESI": "员工国家保险",
+      "PT": "职业税",
+      "TDS": "所得税（TDS）",
+      "INCOME_TAX": "所得税",
+      "LOP": "无薪扣款"
+    },
+    "dispute": {
+      "title": "对工资单提出异议",
+      "reasonRequired": "请填写异议原因",
+      "success": "异议已提交，人力资源部门将进行审核。",
+      "failed": "异议提交失败",
+      "description": "如果您认为此工资单有误，请在下方描述问题。人力资源部门将审核并回复。",
+      "placeholder": "描述问题（例如扣除有误或津贴缺失）",
+      "cancel": "取消",
+      "submit": "提交异议"
+    }
+  },
   "mySalaryPage": {
     "title": "我的薪资",
     "description": "您的CTC明细和薪资结构",

@@ -1170,6 +1170,45 @@
       "submit": "Submit Claim"
     }
   },
+  "myPayslipsPage": {
+    "title": "My Payslips",
+    "description": "View and download your payslips",
+    "financialYear": "FY {{start}}-{{end}}",
+    "financialYearFilter": "Filter by financial year",
+    "empty": "No payslips available yet",
+    "gross": "Gross",
+    "net": "Net",
+    "actions": {
+      "hide": "Hide",
+      "details": "Details",
+      "downloadPdf": "Download PDF",
+      "dispute": "Raise a payslip dispute"
+    },
+    "earnings": "Earnings",
+    "totalEarnings": "Total Earnings",
+    "deductions": "Deductions",
+    "totalDeductions": "Total Deductions",
+    "components": {
+      "EPF": "Employee Provident Fund",
+      "PF": "Provident Fund",
+      "PF_EE": "Employee Provident Fund",
+      "ESI": "Employee State Insurance",
+      "PT": "Professional Tax",
+      "TDS": "Income Tax (TDS)",
+      "INCOME_TAX": "Income Tax",
+      "LOP": "Loss of Pay"
+    },
+    "dispute": {
+      "title": "Raise Payslip Dispute",
+      "reasonRequired": "Please provide a reason",
+      "success": "Dispute raised. HR will review it.",
+      "failed": "Failed to raise dispute",
+      "description": "If you believe there is an error in this payslip, describe the issue below. HR will review and respond.",
+      "placeholder": "Describe the issue (e.g. incorrect deduction or missing allowance)",
+      "cancel": "Cancel",
+      "submit": "Raise Dispute"
+    }
+  },
   "mySalaryPage": {
     "title": "My Salary",
     "description": "Your CTC breakdown and salary structure",

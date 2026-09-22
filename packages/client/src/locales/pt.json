@@ -1151,6 +1151,45 @@
       "submit": "Enviar sinistro"
     }
   },
+  "myPayslipsPage": {
+    "title": "Os meus recibos de vencimento",
+    "description": "Consulte e transfira os seus recibos de vencimento",
+    "financialYear": "Exercício {{start}}-{{end}}",
+    "financialYearFilter": "Filtrar por exercício fiscal",
+    "empty": "Ainda não há recibos de vencimento disponíveis",
+    "gross": "Bruto",
+    "net": "Líquido",
+    "actions": {
+      "hide": "Ocultar",
+      "details": "Detalhes",
+      "downloadPdf": "Transferir PDF",
+      "dispute": "Contestar recibo de vencimento"
+    },
+    "earnings": "Rendimentos",
+    "totalEarnings": "Total de rendimentos",
+    "deductions": "Deduções",
+    "totalDeductions": "Total de deduções",
+    "components": {
+      "EPF": "Fundo de previdência do trabalhador",
+      "PF": "Fundo de previdência",
+      "PF_EE": "Contribuição do trabalhador para o fundo de previdência",
+      "ESI": "Seguro estatal dos trabalhadores",
+      "PT": "Imposto profissional",
+      "TDS": "Imposto sobre o rendimento (TDS)",
+      "INCOME_TAX": "Imposto sobre o rendimento",
+      "LOP": "Perda de remuneração"
+    },
+    "dispute": {
+      "title": "Contestar recibo de vencimento",
+      "reasonRequired": "Indique um motivo",
+      "success": "A contestação foi enviada. Os RH irão analisá-la.",
+      "failed": "Não foi possível enviar a contestação",
+      "description": "Se considera que existe um erro neste recibo, descreva o problema abaixo. Os RH irão analisar e responder.",
+      "placeholder": "Descreva o problema (por exemplo, dedução incorreta ou subsídio em falta)",
+      "cancel": "Cancelar",
+      "submit": "Enviar contestação"
+    }
+  },
   "mySalaryPage": {
     "title": "O meu salário",
     "description": "Detalhamento do seu CTC e da estrutura salarial",

@@ -1144,6 +1144,45 @@
       "submit": "請求を申請"
     }
   },
+  "myPayslipsPage": {
+    "title": "給与明細",
+    "description": "給与明細の表示とダウンロード",
+    "financialYear": "{{start}}-{{end}}年度",
+    "financialYearFilter": "会計年度で絞り込む",
+    "empty": "給与明細はまだありません",
+    "gross": "総支給額",
+    "net": "手取り額",
+    "actions": {
+      "hide": "閉じる",
+      "details": "詳細",
+      "downloadPdf": "PDFをダウンロード",
+      "dispute": "給与明細に異議を申し立てる"
+    },
+    "earnings": "支給項目",
+    "totalEarnings": "支給額合計",
+    "deductions": "控除項目",
+    "totalDeductions": "控除額合計",
+    "components": {
+      "EPF": "従業員積立基金",
+      "PF": "積立基金",
+      "PF_EE": "従業員積立基金拠出",
+      "ESI": "従業員州保険",
+      "PT": "職業税",
+      "TDS": "所得税（TDS）",
+      "INCOME_TAX": "所得税",
+      "LOP": "無給控除"
+    },
+    "dispute": {
+      "title": "給与明細への異議申し立て",
+      "reasonRequired": "理由を入力してください",
+      "success": "異議申し立てを送信しました。人事部が確認します。",
+      "failed": "異議申し立てを送信できませんでした",
+      "description": "この給与明細に誤りがあると思われる場合は、下記に問題を記載してください。人事部が確認して回答します。",
+      "placeholder": "問題を記載してください（例：誤った控除、手当の不足）",
+      "cancel": "キャンセル",
+      "submit": "異議を申し立てる"
+    }
+  },
   "mySalaryPage": {
     "title": "給与",
     "description": "CTCの内訳と給与体系",

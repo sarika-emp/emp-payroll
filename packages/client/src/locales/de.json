@@ -1151,6 +1151,45 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "myPayslipsPage": {
+    "title": "Meine Gehaltsabrechnungen",
+    "description": "Gehaltsabrechnungen ansehen und herunterladen",
+    "financialYear": "GJ {{start}}-{{end}}",
+    "financialYearFilter": "Nach Geschäftsjahr filtern",
+    "empty": "Noch keine Gehaltsabrechnungen verfügbar",
+    "gross": "Brutto",
+    "net": "Netto",
+    "actions": {
+      "hide": "Ausblenden",
+      "details": "Details",
+      "downloadPdf": "PDF herunterladen",
+      "dispute": "Gehaltsabrechnung beanstanden"
+    },
+    "earnings": "Bezüge",
+    "totalEarnings": "Gesamtbezüge",
+    "deductions": "Abzüge",
+    "totalDeductions": "Gesamtabzüge",
+    "components": {
+      "EPF": "Arbeitnehmer-Vorsorgefonds",
+      "PF": "Vorsorgefonds",
+      "PF_EE": "Arbeitnehmerbeitrag zum Vorsorgefonds",
+      "ESI": "Arbeitnehmerversicherung",
+      "PT": "Berufssteuer",
+      "TDS": "Einkommensteuer (TDS)",
+      "INCOME_TAX": "Einkommensteuer",
+      "LOP": "Lohnabzug wegen Fehlzeit"
+    },
+    "dispute": {
+      "title": "Gehaltsabrechnung beanstanden",
+      "reasonRequired": "Bitte geben Sie einen Grund an",
+      "success": "Die Beanstandung wurde eingereicht. Die Personalabteilung prüft sie.",
+      "failed": "Beanstandung konnte nicht eingereicht werden",
+      "description": "Wenn Sie einen Fehler in dieser Gehaltsabrechnung vermuten, beschreiben Sie das Problem. Die Personalabteilung wird es prüfen und antworten.",
+      "placeholder": "Problem beschreiben (z. B. falscher Abzug oder fehlende Zulage)",
+      "cancel": "Abbrechen",
+      "submit": "Beanstandung einreichen"
+    }
+  },
   "mySalaryPage": {
     "title": "Mein Gehalt",
     "description": "Aufschlüsselung Ihres CTC und Ihrer Gehaltsstruktur",
