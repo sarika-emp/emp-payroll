@@ -1136,6 +1136,47 @@
       "submit": "تقديم المطالبة"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "مرحبًا، {{name}}!",
+    "userFallback": "المستخدم",
+    "description": "إليك ملخص راتبك",
+    "stats": {
+      "monthlyCtc": "التكلفة الشهرية على الشركة",
+      "latestNetPay": "أحدث صافي راتب",
+      "taxRegime": "النظام الضريبي",
+      "daysAtCompany": "أيام العمل في الشركة"
+    },
+    "regimes": {
+      "old": "النظام القديم",
+      "new": "النظام الجديد"
+    },
+    "latestPayslip": "أحدث قسيمة راتب — {{period}}",
+    "payslip": {
+      "grossPay": "الراتب الإجمالي",
+      "deductions": "الاستقطاعات",
+      "netPay": "صافي الراتب",
+      "viewAll": "عرض الكل"
+    },
+    "actions": {
+      "salaryBreakdown": "عرض تفاصيل الراتب",
+      "taxComputation": "حساب الضريبة",
+      "submitDeclarations": "إرسال الإقرارات",
+      "reimbursements": "المصروفات المستردة",
+      "profile": "ملفي الشخصي"
+    },
+    "announcements": {
+      "title": "إعلانات الشركة",
+      "readMore": "قراءة المزيد",
+      "fallbackTitle": "إعلان",
+      "priorityLabel": "أولوية {{priority}}",
+      "priorities": {
+        "low": "منخفضة",
+        "normal": "عادية",
+        "high": "مرتفعة",
+        "urgent": "عاجلة"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "قسائم راتبي",
     "description": "عرض قسائم راتبك وتنزيلها",

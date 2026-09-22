@@ -1151,6 +1151,47 @@
       "submit": "Enviar sinistro"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "Olá, {{name}}!",
+    "userFallback": "Utilizador",
+    "description": "Aqui está o seu resumo de processamento salarial",
+    "stats": {
+      "monthlyCtc": "CTC mensal",
+      "latestNetPay": "Salário líquido (mais recente)",
+      "taxRegime": "Regime fiscal",
+      "daysAtCompany": "Dias na empresa"
+    },
+    "regimes": {
+      "old": "Regime antigo",
+      "new": "Novo regime"
+    },
+    "latestPayslip": "Recibo de vencimento mais recente — {{period}}",
+    "payslip": {
+      "grossPay": "Salário bruto",
+      "deductions": "Deduções",
+      "netPay": "Salário líquido",
+      "viewAll": "Ver todos"
+    },
+    "actions": {
+      "salaryBreakdown": "Ver detalhamento salarial",
+      "taxComputation": "Cálculo fiscal",
+      "submitDeclarations": "Enviar declarações",
+      "reimbursements": "Reembolsos",
+      "profile": "O meu perfil"
+    },
+    "announcements": {
+      "title": "Anúncios da empresa",
+      "readMore": "Ler mais",
+      "fallbackTitle": "Anúncio",
+      "priorityLabel": "Prioridade {{priority}}",
+      "priorities": {
+        "low": "baixa",
+        "normal": "normal",
+        "high": "alta",
+        "urgent": "urgente"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "Os meus recibos de vencimento",
     "description": "Consulte e transfira os seus recibos de vencimento",

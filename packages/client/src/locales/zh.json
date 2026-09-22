@@ -1131,6 +1131,47 @@
       "submit": "提交理赔"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "欢迎，{{name}}！",
+    "userFallback": "用户",
+    "description": "这是您的薪资摘要",
+    "stats": {
+      "monthlyCtc": "月度CTC",
+      "latestNetPay": "最新实发工资",
+      "taxRegime": "税制",
+      "daysAtCompany": "入职天数"
+    },
+    "regimes": {
+      "old": "旧税制",
+      "new": "新税制"
+    },
+    "latestPayslip": "最新工资单 — {{period}}",
+    "payslip": {
+      "grossPay": "税前工资",
+      "deductions": "扣除额",
+      "netPay": "实发工资",
+      "viewAll": "查看全部"
+    },
+    "actions": {
+      "salaryBreakdown": "查看薪资明细",
+      "taxComputation": "税额计算",
+      "submitDeclarations": "提交申报",
+      "reimbursements": "费用报销",
+      "profile": "我的资料"
+    },
+    "announcements": {
+      "title": "公司公告",
+      "readMore": "阅读更多",
+      "fallbackTitle": "公告",
+      "priorityLabel": "{{priority}}优先级",
+      "priorities": {
+        "low": "低",
+        "normal": "普通",
+        "high": "高",
+        "urgent": "紧急"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "我的工资单",
     "description": "查看并下载您的工资单",

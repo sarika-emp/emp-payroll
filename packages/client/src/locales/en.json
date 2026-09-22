@@ -1170,6 +1170,47 @@
       "submit": "Submit Claim"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "Welcome, {{name}}!",
+    "userFallback": "User",
+    "description": "Here's your payroll summary",
+    "stats": {
+      "monthlyCtc": "Monthly CTC",
+      "latestNetPay": "Net Pay (Latest)",
+      "taxRegime": "Tax Regime",
+      "daysAtCompany": "Days at Company"
+    },
+    "regimes": {
+      "old": "Old Regime",
+      "new": "New Regime"
+    },
+    "latestPayslip": "Latest Payslip — {{period}}",
+    "payslip": {
+      "grossPay": "Gross Pay",
+      "deductions": "Deductions",
+      "netPay": "Net Pay",
+      "viewAll": "View All"
+    },
+    "actions": {
+      "salaryBreakdown": "View Salary Breakdown",
+      "taxComputation": "Tax Computation",
+      "submitDeclarations": "Submit Declarations",
+      "reimbursements": "Reimbursements",
+      "profile": "My Profile"
+    },
+    "announcements": {
+      "title": "Company Announcements",
+      "readMore": "Read more",
+      "fallbackTitle": "Announcement",
+      "priorityLabel": "{{priority}} priority",
+      "priorities": {
+        "low": "Low",
+        "normal": "Normal",
+        "high": "High",
+        "urgent": "Urgent"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "My Payslips",
     "description": "View and download your payslips",

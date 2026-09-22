@@ -1162,6 +1162,47 @@
       "submit": "Enviar reclamación"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "¡Hola, {{name}}!",
+    "userFallback": "Usuario",
+    "description": "Aquí tienes tu resumen de nómina",
+    "stats": {
+      "monthlyCtc": "CTC mensual",
+      "latestNetPay": "Pago neto (último)",
+      "taxRegime": "Régimen fiscal",
+      "daysAtCompany": "Días en la empresa"
+    },
+    "regimes": {
+      "old": "Antiguo régimen",
+      "new": "Nuevo régimen"
+    },
+    "latestPayslip": "Último recibo de sueldo — {{period}}",
+    "payslip": {
+      "grossPay": "Pago bruto",
+      "deductions": "Deducciones",
+      "netPay": "Pago neto",
+      "viewAll": "Ver todos"
+    },
+    "actions": {
+      "salaryBreakdown": "Ver desglose salarial",
+      "taxComputation": "Cálculo fiscal",
+      "submitDeclarations": "Enviar declaraciones",
+      "reimbursements": "Reembolsos",
+      "profile": "Mi perfil"
+    },
+    "announcements": {
+      "title": "Anuncios de la empresa",
+      "readMore": "Leer más",
+      "fallbackTitle": "Anuncio",
+      "priorityLabel": "Prioridad {{priority}}",
+      "priorities": {
+        "low": "baja",
+        "normal": "normal",
+        "high": "alta",
+        "urgent": "urgente"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "Mis recibos de sueldo",
     "description": "Consulta y descarga tus recibos de sueldo",

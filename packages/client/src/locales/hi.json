@@ -1136,6 +1136,47 @@
       "submit": "दावा जमा करें"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "स्वागत है, {{name}}!",
+    "userFallback": "उपयोगकर्ता",
+    "description": "यह रहा आपका वेतन सारांश",
+    "stats": {
+      "monthlyCtc": "मासिक CTC",
+      "latestNetPay": "नवीनतम शुद्ध वेतन",
+      "taxRegime": "कर व्यवस्था",
+      "daysAtCompany": "कंपनी में दिन"
+    },
+    "regimes": {
+      "old": "पुरानी व्यवस्था",
+      "new": "नई व्यवस्था"
+    },
+    "latestPayslip": "नवीनतम वेतन पर्ची — {{period}}",
+    "payslip": {
+      "grossPay": "सकल वेतन",
+      "deductions": "कटौतियां",
+      "netPay": "शुद्ध वेतन",
+      "viewAll": "सभी देखें"
+    },
+    "actions": {
+      "salaryBreakdown": "वेतन विवरण देखें",
+      "taxComputation": "कर गणना",
+      "submitDeclarations": "घोषणाएं जमा करें",
+      "reimbursements": "प्रतिपूर्ति",
+      "profile": "मेरी प्रोफ़ाइल"
+    },
+    "announcements": {
+      "title": "कंपनी की घोषणाएं",
+      "readMore": "और पढ़ें",
+      "fallbackTitle": "घोषणा",
+      "priorityLabel": "{{priority}} प्राथमिकता",
+      "priorities": {
+        "low": "कम",
+        "normal": "सामान्य",
+        "high": "उच्च",
+        "urgent": "अत्यावश्यक"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "मेरी वेतन पर्चियां",
     "description": "अपनी वेतन पर्चियां देखें और डाउनलोड करें",

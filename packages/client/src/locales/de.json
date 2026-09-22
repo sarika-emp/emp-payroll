@@ -1151,6 +1151,47 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "Willkommen, {{name}}!",
+    "userFallback": "Benutzer",
+    "description": "Hier ist Ihre Gehaltsübersicht",
+    "stats": {
+      "monthlyCtc": "Monatlicher CTC",
+      "latestNetPay": "Nettogehalt (zuletzt)",
+      "taxRegime": "Steuermodell",
+      "daysAtCompany": "Tage im Unternehmen"
+    },
+    "regimes": {
+      "old": "Altes Steuermodell",
+      "new": "Neues Steuermodell"
+    },
+    "latestPayslip": "Neueste Gehaltsabrechnung — {{period}}",
+    "payslip": {
+      "grossPay": "Bruttogehalt",
+      "deductions": "Abzüge",
+      "netPay": "Nettogehalt",
+      "viewAll": "Alle anzeigen"
+    },
+    "actions": {
+      "salaryBreakdown": "Gehaltsaufteilung anzeigen",
+      "taxComputation": "Steuerberechnung",
+      "submitDeclarations": "Erklärungen einreichen",
+      "reimbursements": "Erstattungen",
+      "profile": "Mein Profil"
+    },
+    "announcements": {
+      "title": "Unternehmensmitteilungen",
+      "readMore": "Weiterlesen",
+      "fallbackTitle": "Mitteilung",
+      "priorityLabel": "Priorität: {{priority}}",
+      "priorities": {
+        "low": "niedrig",
+        "normal": "normal",
+        "high": "hoch",
+        "urgent": "dringend"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "Meine Gehaltsabrechnungen",
     "description": "Gehaltsabrechnungen ansehen und herunterladen",

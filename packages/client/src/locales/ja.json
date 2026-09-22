@@ -1144,6 +1144,47 @@
       "submit": "請求を申請"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "{{name}}さん、ようこそ！",
+    "userFallback": "ユーザー",
+    "description": "給与の概要です",
+    "stats": {
+      "monthlyCtc": "月間CTC",
+      "latestNetPay": "最新の手取り額",
+      "taxRegime": "税制",
+      "daysAtCompany": "在籍日数"
+    },
+    "regimes": {
+      "old": "旧制度",
+      "new": "新制度"
+    },
+    "latestPayslip": "最新の給与明細 — {{period}}",
+    "payslip": {
+      "grossPay": "総支給額",
+      "deductions": "控除額",
+      "netPay": "手取り額",
+      "viewAll": "すべて表示"
+    },
+    "actions": {
+      "salaryBreakdown": "給与の内訳を見る",
+      "taxComputation": "税額計算",
+      "submitDeclarations": "申告を提出",
+      "reimbursements": "経費精算",
+      "profile": "プロフィール"
+    },
+    "announcements": {
+      "title": "社内のお知らせ",
+      "readMore": "続きを読む",
+      "fallbackTitle": "お知らせ",
+      "priorityLabel": "優先度：{{priority}}",
+      "priorities": {
+        "low": "低",
+        "normal": "通常",
+        "high": "高",
+        "urgent": "緊急"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "給与明細",
     "description": "給与明細の表示とダウンロード",

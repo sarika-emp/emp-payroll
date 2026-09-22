@@ -1152,6 +1152,47 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "selfServiceDashboard": {
+    "greeting": "Bonjour, {{name}} !",
+    "userFallback": "Utilisateur",
+    "description": "Voici votre récapitulatif de paie",
+    "stats": {
+      "monthlyCtc": "CTC mensuel",
+      "latestNetPay": "Salaire net (dernier)",
+      "taxRegime": "Régime fiscal",
+      "daysAtCompany": "Jours dans l’entreprise"
+    },
+    "regimes": {
+      "old": "Ancien régime",
+      "new": "Nouveau régime"
+    },
+    "latestPayslip": "Dernier bulletin de paie — {{period}}",
+    "payslip": {
+      "grossPay": "Salaire brut",
+      "deductions": "Retenues",
+      "netPay": "Salaire net",
+      "viewAll": "Tout afficher"
+    },
+    "actions": {
+      "salaryBreakdown": "Voir le détail du salaire",
+      "taxComputation": "Calcul fiscal",
+      "submitDeclarations": "Envoyer les déclarations",
+      "reimbursements": "Remboursements",
+      "profile": "Mon profil"
+    },
+    "announcements": {
+      "title": "Annonces de l’entreprise",
+      "readMore": "Lire la suite",
+      "fallbackTitle": "Annonce",
+      "priorityLabel": "Priorité {{priority}}",
+      "priorities": {
+        "low": "faible",
+        "normal": "normale",
+        "high": "élevée",
+        "urgent": "urgente"
+      }
+    }
+  },
   "myPayslipsPage": {
     "title": "Mes bulletins de paie",
     "description": "Consultez et téléchargez vos bulletins de paie",
