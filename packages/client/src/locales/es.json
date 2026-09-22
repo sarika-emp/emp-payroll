@@ -1162,6 +1162,32 @@
       "submit": "Enviar reclamación"
     }
   },
+  "announcementsPage": {
+    "title": "Anuncios",
+    "description": "Avisos para toda la empresa publicados desde EmpCloud",
+    "manageInEmpCloud": "Gestionar en EmpCloud",
+    "empty": "Aún no hay anuncios",
+    "postFromEmpCloud": "Publicar desde EmpCloud",
+    "pinned": "Fijado",
+    "archived": "Archivado",
+    "byAuthor": "Por {{author}}",
+    "unknownAuthor": "Desconocido",
+    "expires": "Caduca el {{date}}",
+    "priorities": {
+      "low": "Baja",
+      "normal": "Normal",
+      "high": "Alta",
+      "urgent": "Urgente"
+    },
+    "categories": {
+      "general": "General",
+      "hr": "Recursos humanos",
+      "policy": "Política",
+      "event": "Evento",
+      "holiday": "Festivo",
+      "maintenance": "Mantenimiento"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "¡Hola, {{name}}!",
     "userFallback": "Usuario",

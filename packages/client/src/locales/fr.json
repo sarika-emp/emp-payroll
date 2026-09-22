@@ -1152,6 +1152,32 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "announcementsPage": {
+    "title": "Annonces",
+    "description": "Avis destinés à toute l’entreprise, publiés depuis EmpCloud",
+    "manageInEmpCloud": "Gérer dans EmpCloud",
+    "empty": "Aucune annonce pour le moment",
+    "postFromEmpCloud": "Publier depuis EmpCloud",
+    "pinned": "Épinglée",
+    "archived": "Archivée",
+    "byAuthor": "Par {{author}}",
+    "unknownAuthor": "Inconnu",
+    "expires": "Expire le {{date}}",
+    "priorities": {
+      "low": "Faible",
+      "normal": "Normale",
+      "high": "Élevée",
+      "urgent": "Urgente"
+    },
+    "categories": {
+      "general": "Général",
+      "hr": "Ressources humaines",
+      "policy": "Politique",
+      "event": "Événement",
+      "holiday": "Jour férié",
+      "maintenance": "Maintenance"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Bonjour, {{name}} !",
     "userFallback": "Utilisateur",

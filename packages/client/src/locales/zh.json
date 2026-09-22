@@ -1131,6 +1131,32 @@
       "submit": "提交理赔"
     }
   },
+  "announcementsPage": {
+    "title": "公告",
+    "description": "通过EmpCloud发布的全公司通知",
+    "manageInEmpCloud": "在EmpCloud中管理",
+    "empty": "暂无公告",
+    "postFromEmpCloud": "通过EmpCloud发布",
+    "pinned": "已置顶",
+    "archived": "已归档",
+    "byAuthor": "由{{author}}发布",
+    "unknownAuthor": "未知",
+    "expires": "于{{date}}到期",
+    "priorities": {
+      "low": "低",
+      "normal": "普通",
+      "high": "高",
+      "urgent": "紧急"
+    },
+    "categories": {
+      "general": "常规",
+      "hr": "人力资源",
+      "policy": "政策",
+      "event": "活动",
+      "holiday": "节假日",
+      "maintenance": "维护"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "欢迎，{{name}}！",
     "userFallback": "用户",

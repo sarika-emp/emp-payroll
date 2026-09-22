@@ -1170,6 +1170,32 @@
       "submit": "Submit Claim"
     }
   },
+  "announcementsPage": {
+    "title": "Announcements",
+    "description": "Company-wide notices, posted from EmpCloud",
+    "manageInEmpCloud": "Manage in EmpCloud",
+    "empty": "No announcements yet",
+    "postFromEmpCloud": "Post one from EmpCloud",
+    "pinned": "Pinned",
+    "archived": "Archived",
+    "byAuthor": "By {{author}}",
+    "unknownAuthor": "Unknown",
+    "expires": "Expires {{date}}",
+    "priorities": {
+      "low": "Low",
+      "normal": "Normal",
+      "high": "High",
+      "urgent": "Urgent"
+    },
+    "categories": {
+      "general": "General",
+      "hr": "HR",
+      "policy": "Policy",
+      "event": "Event",
+      "holiday": "Holiday",
+      "maintenance": "Maintenance"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Welcome, {{name}}!",
     "userFallback": "User",

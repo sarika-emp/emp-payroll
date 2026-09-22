@@ -1151,6 +1151,32 @@
       "submit": "Enviar sinistro"
     }
   },
+  "announcementsPage": {
+    "title": "Anúncios",
+    "description": "Avisos para toda a empresa publicados a partir do EmpCloud",
+    "manageInEmpCloud": "Gerir no EmpCloud",
+    "empty": "Ainda não existem anúncios",
+    "postFromEmpCloud": "Publicar a partir do EmpCloud",
+    "pinned": "Fixado",
+    "archived": "Arquivado",
+    "byAuthor": "Por {{author}}",
+    "unknownAuthor": "Desconhecido",
+    "expires": "Expira em {{date}}",
+    "priorities": {
+      "low": "Baixa",
+      "normal": "Normal",
+      "high": "Alta",
+      "urgent": "Urgente"
+    },
+    "categories": {
+      "general": "Geral",
+      "hr": "Recursos humanos",
+      "policy": "Política",
+      "event": "Evento",
+      "holiday": "Feriado",
+      "maintenance": "Manutenção"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Olá, {{name}}!",
     "userFallback": "Utilizador",

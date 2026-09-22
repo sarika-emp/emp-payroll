@@ -1144,6 +1144,32 @@
       "submit": "請求を申請"
     }
   },
+  "announcementsPage": {
+    "title": "お知らせ",
+    "description": "EmpCloudから投稿された全社向けのお知らせ",
+    "manageInEmpCloud": "EmpCloudで管理",
+    "empty": "お知らせはまだありません",
+    "postFromEmpCloud": "EmpCloudから投稿",
+    "pinned": "固定済み",
+    "archived": "アーカイブ済み",
+    "byAuthor": "投稿者：{{author}}",
+    "unknownAuthor": "不明",
+    "expires": "{{date}}に期限切れ",
+    "priorities": {
+      "low": "低",
+      "normal": "通常",
+      "high": "高",
+      "urgent": "緊急"
+    },
+    "categories": {
+      "general": "一般",
+      "hr": "人事",
+      "policy": "規程",
+      "event": "イベント",
+      "holiday": "休日",
+      "maintenance": "メンテナンス"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "{{name}}さん、ようこそ！",
     "userFallback": "ユーザー",

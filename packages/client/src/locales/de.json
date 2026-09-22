@@ -1151,6 +1151,32 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "announcementsPage": {
+    "title": "Mitteilungen",
+    "description": "Unternehmensweite Hinweise aus EmpCloud",
+    "manageInEmpCloud": "In EmpCloud verwalten",
+    "empty": "Noch keine Mitteilungen vorhanden",
+    "postFromEmpCloud": "In EmpCloud veröffentlichen",
+    "pinned": "Angeheftet",
+    "archived": "Archiviert",
+    "byAuthor": "Von {{author}}",
+    "unknownAuthor": "Unbekannt",
+    "expires": "Läuft am {{date}} ab",
+    "priorities": {
+      "low": "Niedrig",
+      "normal": "Normal",
+      "high": "Hoch",
+      "urgent": "Dringend"
+    },
+    "categories": {
+      "general": "Allgemein",
+      "hr": "Personal",
+      "policy": "Richtlinie",
+      "event": "Veranstaltung",
+      "holiday": "Feiertag",
+      "maintenance": "Wartung"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Willkommen, {{name}}!",
     "userFallback": "Benutzer",

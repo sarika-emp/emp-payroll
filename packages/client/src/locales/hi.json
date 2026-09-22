@@ -1136,6 +1136,32 @@
       "submit": "दावा जमा करें"
     }
   },
+  "announcementsPage": {
+    "title": "घोषणाएं",
+    "description": "EmpCloud से प्रकाशित कंपनी-व्यापी सूचनाएं",
+    "manageInEmpCloud": "EmpCloud में प्रबंधित करें",
+    "empty": "अभी कोई घोषणा नहीं है",
+    "postFromEmpCloud": "EmpCloud से प्रकाशित करें",
+    "pinned": "पिन किया गया",
+    "archived": "संग्रहित",
+    "byAuthor": "{{author}} द्वारा",
+    "unknownAuthor": "अज्ञात",
+    "expires": "{{date}} को समाप्त होगा",
+    "priorities": {
+      "low": "कम",
+      "normal": "सामान्य",
+      "high": "उच्च",
+      "urgent": "अत्यावश्यक"
+    },
+    "categories": {
+      "general": "सामान्य",
+      "hr": "मानव संसाधन",
+      "policy": "नीति",
+      "event": "कार्यक्रम",
+      "holiday": "अवकाश",
+      "maintenance": "रखरखाव"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "स्वागत है, {{name}}!",
     "userFallback": "उपयोगकर्ता",

@@ -1136,6 +1136,32 @@
       "submit": "تقديم المطالبة"
     }
   },
+  "announcementsPage": {
+    "title": "الإعلانات",
+    "description": "إشعارات لجميع موظفي الشركة منشورة من EmpCloud",
+    "manageInEmpCloud": "الإدارة في EmpCloud",
+    "empty": "لا توجد إعلانات حتى الآن",
+    "postFromEmpCloud": "النشر من EmpCloud",
+    "pinned": "مثبّت",
+    "archived": "مؤرشف",
+    "byAuthor": "بواسطة {{author}}",
+    "unknownAuthor": "غير معروف",
+    "expires": "ينتهي في {{date}}",
+    "priorities": {
+      "low": "منخفضة",
+      "normal": "عادية",
+      "high": "مرتفعة",
+      "urgent": "عاجلة"
+    },
+    "categories": {
+      "general": "عام",
+      "hr": "الموارد البشرية",
+      "policy": "سياسة",
+      "event": "فعالية",
+      "holiday": "عطلة",
+      "maintenance": "صيانة"
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "مرحبًا، {{name}}!",
     "userFallback": "المستخدم",
