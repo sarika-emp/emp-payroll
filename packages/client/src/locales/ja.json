@@ -1144,6 +1144,50 @@
       "submit": "請求を申請"
     }
   },
+  "globalPayrollRuns": {
+    "title": "グローバル給与計算",
+    "description": "国ごとに毎月の給与計算を実行し、確認、承認、支払済み処理を行います",
+    "statusFilter": "ステータスで給与計算を絞り込む",
+    "allStatuses": "すべてのステータス",
+    "empty": "給与計算はまだありません。最初のグローバル給与計算を作成してください。",
+    "columns": {
+      "country": "国",
+      "period": "期間",
+      "status": "ステータス",
+      "gross": "総支給額",
+      "net": "手取り額",
+      "deductions": "控除額",
+      "employerCost": "雇用主負担額",
+      "actions": "操作"
+    },
+    "actions": {
+      "view": "給与計算を表示",
+      "approve": "承認",
+      "markPaid": "支払済みにする"
+    },
+    "createModal": {
+      "title": "グローバル給与計算を作成",
+      "country": "国 *",
+      "selectCountry": "国を選択...",
+      "noCountries": "有効なEORまたは直接雇用の従業員がいる国はありません",
+      "calculationNotice": "選択した国の有効なEORおよび直接雇用の全従業員について、控除額が自動計算されます。"
+    },
+    "detailModal": {
+      "title": "給与計算 — {{country}}",
+      "netPay": "手取り額",
+      "employee": "従業員",
+      "tax": "税金",
+      "socialSecurityEmployee": "社会保険（従業員）",
+      "pensionEmployee": "年金（従業員）"
+    },
+    "messages": {
+      "selectCountry": "国を選択してください",
+      "approved": "給与計算を承認しました",
+      "approveFailed": "給与計算を承認できませんでした",
+      "markedPaid": "給与計算を支払済みにしました",
+      "markPaidFailed": "給与計算を支払済みにできませんでした"
+    }
+  },
   "announcementsPage": {
     "title": "お知らせ",
     "description": "EmpCloudから投稿された全社向けのお知らせ",

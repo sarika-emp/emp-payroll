@@ -1151,6 +1151,50 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "globalPayrollRuns": {
+    "title": "Globale Abrechnungsläufe",
+    "description": "Gehaltsabrechnung monatlich pro Land durchführen, prüfen, genehmigen und als bezahlt markieren",
+    "statusFilter": "Abrechnungsläufe nach Status filtern",
+    "allStatuses": "Alle Statuswerte",
+    "empty": "Noch keine Abrechnungsläufe vorhanden. Erstellen Sie Ihren ersten globalen Abrechnungslauf.",
+    "columns": {
+      "country": "Land",
+      "period": "Zeitraum",
+      "status": "Status",
+      "gross": "Brutto",
+      "net": "Netto",
+      "deductions": "Abzüge",
+      "employerCost": "Arbeitgeberkosten",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "view": "Abrechnungslauf anzeigen",
+      "approve": "Genehmigen",
+      "markPaid": "Als bezahlt markieren"
+    },
+    "createModal": {
+      "title": "Globalen Abrechnungslauf erstellen",
+      "country": "Land *",
+      "selectCountry": "Land auswählen...",
+      "noCountries": "Keine Länder mit aktiven EOR- oder direkt angestellten Mitarbeitern",
+      "calculationNotice": "Dadurch werden die Abzüge für alle aktiven EOR- und direkt angestellten Mitarbeiter im ausgewählten Land automatisch berechnet."
+    },
+    "detailModal": {
+      "title": "Abrechnungslauf — {{country}}",
+      "netPay": "Nettogehalt",
+      "employee": "Mitarbeiter",
+      "tax": "Steuer",
+      "socialSecurityEmployee": "Sozialversicherung (AN)",
+      "pensionEmployee": "Rente (AN)"
+    },
+    "messages": {
+      "selectCountry": "Bitte wählen Sie ein Land aus",
+      "approved": "Abrechnungslauf genehmigt",
+      "approveFailed": "Abrechnungslauf konnte nicht genehmigt werden",
+      "markedPaid": "Abrechnungslauf als bezahlt markiert",
+      "markPaidFailed": "Abrechnungslauf konnte nicht als bezahlt markiert werden"
+    }
+  },
   "announcementsPage": {
     "title": "Mitteilungen",
     "description": "Unternehmensweite Hinweise aus EmpCloud",

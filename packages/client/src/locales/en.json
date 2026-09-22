@@ -1170,6 +1170,50 @@
       "submit": "Submit Claim"
     }
   },
+  "globalPayrollRuns": {
+    "title": "Global Payroll Runs",
+    "description": "Run payroll per country per month, review, approve, and mark paid",
+    "statusFilter": "Filter payroll runs by status",
+    "allStatuses": "All Statuses",
+    "empty": "No payroll runs yet. Create your first global payroll run.",
+    "columns": {
+      "country": "Country",
+      "period": "Period",
+      "status": "Status",
+      "gross": "Gross",
+      "net": "Net",
+      "deductions": "Deductions",
+      "employerCost": "Employer Cost",
+      "actions": "Actions"
+    },
+    "actions": {
+      "view": "View payroll run",
+      "approve": "Approve",
+      "markPaid": "Mark Paid"
+    },
+    "createModal": {
+      "title": "Create Global Payroll Run",
+      "country": "Country *",
+      "selectCountry": "Select a country...",
+      "noCountries": "No countries with active EOR/direct-hire employees",
+      "calculationNotice": "This will automatically calculate deductions for all active EOR and direct-hire employees in the selected country."
+    },
+    "detailModal": {
+      "title": "Payroll Run — {{country}}",
+      "netPay": "Net Pay",
+      "employee": "Employee",
+      "tax": "Tax",
+      "socialSecurityEmployee": "SS (Employee)",
+      "pensionEmployee": "Pension (Employee)"
+    },
+    "messages": {
+      "selectCountry": "Please select a country",
+      "approved": "Payroll run approved",
+      "approveFailed": "Failed to approve payroll run",
+      "markedPaid": "Payroll run marked as paid",
+      "markPaidFailed": "Failed to mark payroll run as paid"
+    }
+  },
   "announcementsPage": {
     "title": "Announcements",
     "description": "Company-wide notices, posted from EmpCloud",

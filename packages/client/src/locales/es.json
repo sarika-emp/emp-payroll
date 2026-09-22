@@ -1162,6 +1162,50 @@
       "submit": "Enviar reclamación"
     }
   },
+  "globalPayrollRuns": {
+    "title": "Procesos de nómina global",
+    "description": "Procesa la nómina mensual por país, revísala, apruébala y márcala como pagada",
+    "statusFilter": "Filtrar procesos de nómina por estado",
+    "allStatuses": "Todos los estados",
+    "empty": "Aún no hay procesos de nómina. Crea tu primer proceso de nómina global.",
+    "columns": {
+      "country": "País",
+      "period": "Período",
+      "status": "Estado",
+      "gross": "Bruto",
+      "net": "Neto",
+      "deductions": "Deducciones",
+      "employerCost": "Coste del empleador",
+      "actions": "Acciones"
+    },
+    "actions": {
+      "view": "Ver proceso de nómina",
+      "approve": "Aprobar",
+      "markPaid": "Marcar como pagado"
+    },
+    "createModal": {
+      "title": "Crear proceso de nómina global",
+      "country": "País *",
+      "selectCountry": "Selecciona un país...",
+      "noCountries": "No hay países con empleados EOR o contratados directamente activos",
+      "calculationNotice": "Se calcularán automáticamente las deducciones de todos los empleados EOR y contratados directamente activos del país seleccionado."
+    },
+    "detailModal": {
+      "title": "Proceso de nómina — {{country}}",
+      "netPay": "Pago neto",
+      "employee": "Empleado",
+      "tax": "Impuesto",
+      "socialSecurityEmployee": "Seguridad social (empleado)",
+      "pensionEmployee": "Pensión (empleado)"
+    },
+    "messages": {
+      "selectCountry": "Selecciona un país",
+      "approved": "Proceso de nómina aprobado",
+      "approveFailed": "No se pudo aprobar el proceso de nómina",
+      "markedPaid": "Proceso de nómina marcado como pagado",
+      "markPaidFailed": "No se pudo marcar el proceso de nómina como pagado"
+    }
+  },
   "announcementsPage": {
     "title": "Anuncios",
     "description": "Avisos para toda la empresa publicados desde EmpCloud",

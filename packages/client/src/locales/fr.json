@@ -1152,6 +1152,50 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "globalPayrollRuns": {
+    "title": "Cycles de paie internationaux",
+    "description": "Exécutez la paie mensuelle par pays, vérifiez-la, approuvez-la et marquez-la comme payée",
+    "statusFilter": "Filtrer les cycles de paie par statut",
+    "allStatuses": "Tous les statuts",
+    "empty": "Aucun cycle de paie pour le moment. Créez votre premier cycle de paie international.",
+    "columns": {
+      "country": "Pays",
+      "period": "Période",
+      "status": "Statut",
+      "gross": "Brut",
+      "net": "Net",
+      "deductions": "Retenues",
+      "employerCost": "Coût employeur",
+      "actions": "Actions"
+    },
+    "actions": {
+      "view": "Afficher le cycle de paie",
+      "approve": "Approuver",
+      "markPaid": "Marquer comme payé"
+    },
+    "createModal": {
+      "title": "Créer un cycle de paie international",
+      "country": "Pays *",
+      "selectCountry": "Sélectionnez un pays...",
+      "noCountries": "Aucun pays avec des salariés EOR ou recrutés directement actifs",
+      "calculationNotice": "Les retenues seront calculées automatiquement pour tous les salariés EOR et recrutés directement actifs du pays sélectionné."
+    },
+    "detailModal": {
+      "title": "Cycle de paie — {{country}}",
+      "netPay": "Salaire net",
+      "employee": "Salarié",
+      "tax": "Impôt",
+      "socialSecurityEmployee": "Sécurité sociale (salarié)",
+      "pensionEmployee": "Retraite (salarié)"
+    },
+    "messages": {
+      "selectCountry": "Veuillez sélectionner un pays",
+      "approved": "Cycle de paie approuvé",
+      "approveFailed": "Échec de l’approbation du cycle de paie",
+      "markedPaid": "Cycle de paie marqué comme payé",
+      "markPaidFailed": "Impossible de marquer le cycle de paie comme payé"
+    }
+  },
   "announcementsPage": {
     "title": "Annonces",
     "description": "Avis destinés à toute l’entreprise, publiés depuis EmpCloud",

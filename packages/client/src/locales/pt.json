@@ -1151,6 +1151,50 @@
       "submit": "Enviar sinistro"
     }
   },
+  "globalPayrollRuns": {
+    "title": "Processamentos salariais globais",
+    "description": "Processe mensalmente os salários por país, reveja, aprove e marque como pago",
+    "statusFilter": "Filtrar processamentos salariais por estado",
+    "allStatuses": "Todos os estados",
+    "empty": "Ainda não existem processamentos salariais. Crie o primeiro processamento global.",
+    "columns": {
+      "country": "País",
+      "period": "Período",
+      "status": "Estado",
+      "gross": "Bruto",
+      "net": "Líquido",
+      "deductions": "Deduções",
+      "employerCost": "Custo do empregador",
+      "actions": "Ações"
+    },
+    "actions": {
+      "view": "Ver processamento salarial",
+      "approve": "Aprovar",
+      "markPaid": "Marcar como pago"
+    },
+    "createModal": {
+      "title": "Criar processamento salarial global",
+      "country": "País *",
+      "selectCountry": "Selecione um país...",
+      "noCountries": "Nenhum país com trabalhadores EOR ou contratados diretamente ativos",
+      "calculationNotice": "As deduções serão calculadas automaticamente para todos os trabalhadores EOR e contratados diretamente ativos do país selecionado."
+    },
+    "detailModal": {
+      "title": "Processamento salarial — {{country}}",
+      "netPay": "Salário líquido",
+      "employee": "Trabalhador",
+      "tax": "Imposto",
+      "socialSecurityEmployee": "Segurança social (trabalhador)",
+      "pensionEmployee": "Pensão (trabalhador)"
+    },
+    "messages": {
+      "selectCountry": "Selecione um país",
+      "approved": "Processamento salarial aprovado",
+      "approveFailed": "Não foi possível aprovar o processamento salarial",
+      "markedPaid": "Processamento salarial marcado como pago",
+      "markPaidFailed": "Não foi possível marcar o processamento salarial como pago"
+    }
+  },
   "announcementsPage": {
     "title": "Anúncios",
     "description": "Avisos para toda a empresa publicados a partir do EmpCloud",
