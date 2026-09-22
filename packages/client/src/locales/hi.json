@@ -1136,6 +1136,30 @@
       "submit": "दावा जमा करें"
     }
   },
+  "mySalaryPage": {
+    "title": "मेरा वेतन",
+    "description": "आपके CTC का विवरण और वेतन संरचना",
+    "unavailable": "वेतन की जानकारी उपलब्ध नहीं है",
+    "annualSummary": "वार्षिक सारांश",
+    "annualCtcConfigured": "वार्षिक CTC (कॉन्फ़िगर किया गया)",
+    "annualGrossComponents": "घटकों से वार्षिक सकल वेतन",
+    "roundingNotice": "कॉन्फ़िगर किए गए CTC और घटकों के योग में मामूली अंतर सामान्य है: वार्षिक गणना से पहले मासिक राशियों को निकटतम पूर्ण रुपये में पूर्णांकित किया जाता है।",
+    "grossSalaryAnnual": "सकल वेतन (वार्षिक)",
+    "monthlyComponent": "मासिक {{component}}",
+    "monthlyBreakdown": "मासिक वेतन विवरण",
+    "salaryComponents": "वेतन घटक",
+    "effectiveFrom": "{{date}} से प्रभावी",
+    "columns": {
+      "component": "घटक",
+      "monthly": "मासिक",
+      "annual": "वार्षिक"
+    },
+    "components": {
+      "BASIC": "मूल वेतन",
+      "HRA": "मकान किराया भत्ता (HRA)",
+      "SA": "विशेष भत्ता"
+    }
+  },
   "myTaxPage": {
     "title": "मेरा कर",
     "description": "वित्त वर्ष {{financialYear}} की कर गणना",

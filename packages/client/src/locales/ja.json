@@ -1144,6 +1144,30 @@
       "submit": "請求を申請"
     }
   },
+  "mySalaryPage": {
+    "title": "給与",
+    "description": "CTCの内訳と給与体系",
+    "unavailable": "給与情報はありません",
+    "annualSummary": "年間概要",
+    "annualCtcConfigured": "年間CTC（設定値）",
+    "annualGrossComponents": "構成項目から算出した年間総支給額",
+    "roundingNotice": "設定されたCTCと構成項目の合計にはわずかな差が生じる場合があります。月額を1ルピー単位に丸めてから年額を算出するためです。",
+    "grossSalaryAnnual": "総支給額（年額）",
+    "monthlyComponent": "月額{{component}}",
+    "monthlyBreakdown": "月間給与の内訳",
+    "salaryComponents": "給与構成項目",
+    "effectiveFrom": "{{date}}から有効",
+    "columns": {
+      "component": "項目",
+      "monthly": "月額",
+      "annual": "年額"
+    },
+    "components": {
+      "BASIC": "基本給",
+      "HRA": "住宅手当（HRA）",
+      "SA": "特別手当"
+    }
+  },
   "myTaxPage": {
     "title": "税金",
     "description": "年度 {{financialYear}} の税額計算",

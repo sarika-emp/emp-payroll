@@ -1170,6 +1170,30 @@
       "submit": "Submit Claim"
     }
   },
+  "mySalaryPage": {
+    "title": "My Salary",
+    "description": "Your CTC breakdown and salary structure",
+    "unavailable": "No salary information available",
+    "annualSummary": "Annual Summary",
+    "annualCtcConfigured": "Annual CTC (configured)",
+    "annualGrossComponents": "Annual gross from components",
+    "roundingNotice": "Small differences between configured CTC and the sum of components are expected — components are rounded to whole rupees per month before being annualised.",
+    "grossSalaryAnnual": "Gross Salary (Annual)",
+    "monthlyComponent": "Monthly {{component}}",
+    "monthlyBreakdown": "Monthly Salary Breakdown",
+    "salaryComponents": "Salary Components",
+    "effectiveFrom": "Effective from {{date}}",
+    "columns": {
+      "component": "Component",
+      "monthly": "Monthly",
+      "annual": "Annual"
+    },
+    "components": {
+      "BASIC": "Basic Salary",
+      "HRA": "HRA",
+      "SA": "Special Allowance"
+    }
+  },
   "myTaxPage": {
     "title": "My Tax",
     "description": "FY {{financialYear}} tax computation",

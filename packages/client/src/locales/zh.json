@@ -1131,6 +1131,30 @@
       "submit": "提交理赔"
     }
   },
+  "mySalaryPage": {
+    "title": "我的薪资",
+    "description": "您的CTC明细和薪资结构",
+    "unavailable": "暂无薪资信息",
+    "annualSummary": "年度摘要",
+    "annualCtcConfigured": "年度CTC（配置值）",
+    "annualGrossComponents": "根据薪资组成计算的年度总额",
+    "roundingNotice": "配置的CTC与各薪资组成之和出现细微差异属于正常情况：月度金额会先四舍五入到整数卢比，再换算为年度金额。",
+    "grossSalaryAnnual": "年度税前工资",
+    "monthlyComponent": "每月{{component}}",
+    "monthlyBreakdown": "月度薪资明细",
+    "salaryComponents": "薪资组成",
+    "effectiveFrom": "自{{date}}起生效",
+    "columns": {
+      "component": "组成项",
+      "monthly": "月度",
+      "annual": "年度"
+    },
+    "components": {
+      "BASIC": "基本工资",
+      "HRA": "住房补贴（HRA）",
+      "SA": "特别津贴"
+    }
+  },
   "myTaxPage": {
     "title": "我的税务",
     "description": "财年 {{financialYear}} 税额计算",

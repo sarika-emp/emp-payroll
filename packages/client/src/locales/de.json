@@ -1151,6 +1151,30 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "mySalaryPage": {
+    "title": "Mein Gehalt",
+    "description": "Aufschlüsselung Ihres CTC und Ihrer Gehaltsstruktur",
+    "unavailable": "Keine Gehaltsinformationen verfügbar",
+    "annualSummary": "Jahresübersicht",
+    "annualCtcConfigured": "Jährlicher CTC (konfiguriert)",
+    "annualGrossComponents": "Jährliches Brutto aus Komponenten",
+    "roundingNotice": "Kleine Abweichungen zwischen dem konfigurierten CTC und der Summe der Komponenten sind normal: Monatliche Beträge werden vor der Hochrechnung auf ganze Rupien gerundet.",
+    "grossSalaryAnnual": "Bruttojahresgehalt",
+    "monthlyComponent": "{{component}} (monatlich)",
+    "monthlyBreakdown": "Monatliche Gehaltsaufteilung",
+    "salaryComponents": "Gehaltsbestandteile",
+    "effectiveFrom": "Gültig ab {{date}}",
+    "columns": {
+      "component": "Bestandteil",
+      "monthly": "Monatlich",
+      "annual": "Jährlich"
+    },
+    "components": {
+      "BASIC": "Grundgehalt",
+      "HRA": "HRA",
+      "SA": "Sonderzulage"
+    }
+  },
   "myTaxPage": {
     "title": "Meine Steuern",
     "description": "Steuerberechnung für das Geschäftsjahr {{financialYear}}",

@@ -1136,6 +1136,30 @@
       "submit": "تقديم المطالبة"
     }
   },
+  "mySalaryPage": {
+    "title": "راتبي",
+    "description": "تفاصيل التكلفة على الشركة وهيكل راتبك",
+    "unavailable": "لا تتوفر معلومات عن الراتب",
+    "annualSummary": "الملخص السنوي",
+    "annualCtcConfigured": "التكلفة السنوية على الشركة (المعتمدة)",
+    "annualGrossComponents": "الإجمالي السنوي من المكونات",
+    "roundingNotice": "من الطبيعي وجود فروق طفيفة بين التكلفة المعتمدة على الشركة ومجموع المكونات، إذ تُقرَّب المبالغ الشهرية إلى أقرب روبية صحيحة قبل احتسابها سنويًا.",
+    "grossSalaryAnnual": "الراتب الإجمالي (سنوي)",
+    "monthlyComponent": "{{component}} الشهري",
+    "monthlyBreakdown": "تفاصيل الراتب الشهري",
+    "salaryComponents": "مكونات الراتب",
+    "effectiveFrom": "ساري من {{date}}",
+    "columns": {
+      "component": "المكوّن",
+      "monthly": "شهري",
+      "annual": "سنوي"
+    },
+    "components": {
+      "BASIC": "الراتب الأساسي",
+      "HRA": "بدل السكن (HRA)",
+      "SA": "البدل الخاص"
+    }
+  },
   "myTaxPage": {
     "title": "ضرائبي",
     "description": "حساب الضريبة للسنة المالية {{financialYear}}",

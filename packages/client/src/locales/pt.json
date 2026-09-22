@@ -1151,6 +1151,30 @@
       "submit": "Enviar sinistro"
     }
   },
+  "mySalaryPage": {
+    "title": "O meu salário",
+    "description": "Detalhamento do seu CTC e da estrutura salarial",
+    "unavailable": "Nenhuma informação salarial disponível",
+    "annualSummary": "Resumo anual",
+    "annualCtcConfigured": "CTC anual (configurado)",
+    "annualGrossComponents": "Bruto anual dos componentes",
+    "roundingNotice": "Pequenas diferenças entre o CTC configurado e a soma dos componentes são normais: os valores mensais são arredondados para rupias inteiras antes da anualização.",
+    "grossSalaryAnnual": "Salário bruto (anual)",
+    "monthlyComponent": "{{component}} mensal",
+    "monthlyBreakdown": "Detalhamento salarial mensal",
+    "salaryComponents": "Componentes salariais",
+    "effectiveFrom": "Em vigor desde {{date}}",
+    "columns": {
+      "component": "Componente",
+      "monthly": "Mensal",
+      "annual": "Anual"
+    },
+    "components": {
+      "BASIC": "Salário-base",
+      "HRA": "HRA",
+      "SA": "Subsídio especial"
+    }
+  },
   "myTaxPage": {
     "title": "Meus impostos",
     "description": "Cálculo fiscal do ano {{financialYear}}",

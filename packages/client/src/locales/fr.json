@@ -1152,6 +1152,30 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "mySalaryPage": {
+    "title": "Mon salaire",
+    "description": "Détail de votre CTC et de votre structure salariale",
+    "unavailable": "Aucune information salariale disponible",
+    "annualSummary": "Récapitulatif annuel",
+    "annualCtcConfigured": "CTC annuel (configuré)",
+    "annualGrossComponents": "Brut annuel issu des composants",
+    "roundingNotice": "De légers écarts entre le CTC configuré et la somme des composants sont normaux : les montants mensuels sont arrondis à la roupie entière avant leur annualisation.",
+    "grossSalaryAnnual": "Salaire brut (annuel)",
+    "monthlyComponent": "{{component}} (mensuel)",
+    "monthlyBreakdown": "Répartition mensuelle du salaire",
+    "salaryComponents": "Composants du salaire",
+    "effectiveFrom": "En vigueur depuis le {{date}}",
+    "columns": {
+      "component": "Composant",
+      "monthly": "Mensuel",
+      "annual": "Annuel"
+    },
+    "components": {
+      "BASIC": "Salaire de base",
+      "HRA": "HRA",
+      "SA": "Allocation spéciale"
+    }
+  },
   "myTaxPage": {
     "title": "Mes impôts",
     "description": "Calcul fiscal de l’exercice {{financialYear}}",
