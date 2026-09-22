@@ -1574,6 +1574,65 @@
       "maintenance": "メンテナンス"
     }
   },
+  "notificationsPage": {
+    "title": "通知",
+    "description": "最近のアラートと更新をまとめて確認できます",
+    "markAllRead": "すべて既読にする",
+    "bellAria": "通知、未読{{count}}件",
+    "newCount": "新着{{count}}件 — 既読にする",
+    "viewAll": "すべての通知を表示",
+    "tabs": {
+      "all": "すべて（{{count}}）",
+      "unread": "未読（{{count}}）"
+    },
+    "empty": {
+      "noUnread": "未読の通知はありません",
+      "none": "通知はありません",
+      "caughtUp": "すべて確認済みです！",
+      "updatesHere": "新しい更新はここに表示されます。"
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "TDS申告期限",
+          "description": "2025–26年度第4四半期のフォーム24Qの期限が近づいています",
+          "time": "対応が必要"
+        },
+        "payrollPending": {
+          "title": "{{month}}の給与処理が保留中",
+          "description": "今月の給与処理を作成して実行してください",
+          "time": "今月"
+        },
+        "payrollCompleted": {
+          "title": "前回の給与処理が完了",
+          "description": "すべての給与明細を作成し、支払い済みです",
+          "time": "先月"
+        },
+        "activeEmployees": {
+          "title": "有効な従業員{{count}}名",
+          "description": "すべての法定登録が最新です",
+          "time": "システム"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "給与明細が利用可能",
+          "description": "最新の給与明細を確認できます",
+          "time": "最近"
+        },
+        "taxReminder": {
+          "title": "税申告のリマインダー",
+          "description": "期限までに投資証明書を提出してください",
+          "time": "今四半期"
+        },
+        "salaryCredited": {
+          "title": "給与を入金しました",
+          "description": "給与が銀行口座に入金されました",
+          "time": "先月"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "{{name}}さん、ようこそ！",
     "userFallback": "ユーザー",

@@ -1566,6 +1566,65 @@
       "maintenance": "صيانة"
     }
   },
+  "notificationsPage": {
+    "title": "الإشعارات",
+    "description": "كل التنبيهات والتحديثات الأخيرة في مكان واحد",
+    "markAllRead": "تحديد الكل كمقروء",
+    "bellAria": "الإشعارات، {{count}} غير مقروء",
+    "newCount": "{{count}} جديدة — تحديد كمقروء",
+    "viewAll": "عرض كل الإشعارات",
+    "tabs": {
+      "all": "الكل ({{count}})",
+      "unread": "غير المقروءة ({{count}})"
+    },
+    "empty": {
+      "noUnread": "لا توجد إشعارات غير مقروءة",
+      "none": "لا توجد إشعارات",
+      "caughtUp": "أنت على اطلاع بكل جديد!",
+      "updatesHere": "ستظهر التحديثات الجديدة هنا."
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "موعد تقديم TDS",
+          "description": "يستحق النموذج 24Q للربع الرابع من السنة المالية 2025–26 قريبًا",
+          "time": "يلزم اتخاذ إجراء"
+        },
+        "payrollPending": {
+          "title": "رواتب {{month}} معلقة",
+          "description": "أنشئ وشغّل رواتب هذا الشهر",
+          "time": "هذا الشهر"
+        },
+        "payrollCompleted": {
+          "title": "اكتملت آخر رواتب",
+          "description": "تم إنشاء جميع قسائم الرواتب ودفعها",
+          "time": "الشهر الماضي"
+        },
+        "activeEmployees": {
+          "title": "{{count}} موظفين نشطين",
+          "description": "جميع التسجيلات القانونية محدثة",
+          "time": "النظام"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "قسيمة الراتب متاحة",
+          "description": "أحدث قسيمة راتب جاهزة للعرض",
+          "time": "مؤخرًا"
+        },
+        "taxReminder": {
+          "title": "تذكير بالإقرار الضريبي",
+          "description": "أرسل إثباتات الاستثمار قبل الموعد النهائي",
+          "time": "هذا الربع"
+        },
+        "salaryCredited": {
+          "title": "تم إيداع الراتب",
+          "description": "تم إيداع راتبك في حسابك البنكي",
+          "time": "الشهر الماضي"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "مرحبًا، {{name}}!",
     "userFallback": "المستخدم",

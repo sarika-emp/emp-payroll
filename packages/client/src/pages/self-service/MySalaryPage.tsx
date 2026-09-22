@@ -10,7 +10,8 @@ import { useTranslation } from "react-i18next";
 const COLORS = ["#6366F1", "#818CF8", "#A5B4FC", "#C7D2FE", "#E0E7FF"];
 
 export function MySalaryPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.resolvedLanguage || i18n.language;
   const { data: res, isLoading } = useMySalary();
 
   if (isLoading) {
@@ -171,7 +172,11 @@ export function MySalaryPage() {
             <CardTitle>{t("mySalaryPage.salaryComponents")}</CardTitle>
             <Badge variant="active">
               {t("mySalaryPage.effectiveFrom", {
-                date: salary.effective_from?.slice(0, 10) || "—",
+                date: salary.effective_from
+                  ? new Intl.DateTimeFormat(language, { dateStyle: "medium" }).format(
+                      new Date(salary.effective_from),
+                    )
+                  : "—",
               })}
             </Badge>
           </div>

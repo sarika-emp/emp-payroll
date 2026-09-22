@@ -1557,6 +1557,65 @@
       "maintenance": "维护"
     }
   },
+  "notificationsPage": {
+    "title": "通知",
+    "description": "集中查看最近的提醒和更新",
+    "markAllRead": "全部标为已读",
+    "bellAria": "通知，{{count}}条未读",
+    "newCount": "{{count}}条新通知 — 标为已读",
+    "viewAll": "查看全部通知",
+    "tabs": {
+      "all": "全部（{{count}}）",
+      "unread": "未读（{{count}}）"
+    },
+    "empty": {
+      "noUnread": "没有未读通知",
+      "none": "没有通知",
+      "caughtUp": "您已查看全部通知！",
+      "updatesHere": "新的更新将显示在这里。"
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "TDS申报即将到期",
+          "description": "2025–26财年第4季度的24Q表即将到期",
+          "time": "需要处理"
+        },
+        "payrollPending": {
+          "title": "{{month}}薪资待处理",
+          "description": "创建并运行本月薪资",
+          "time": "本月"
+        },
+        "payrollCompleted": {
+          "title": "上次薪资处理已完成",
+          "description": "所有工资单均已生成并支付",
+          "time": "上个月"
+        },
+        "activeEmployees": {
+          "title": "{{count}}名在职员工",
+          "description": "所有法定登记均为最新状态",
+          "time": "系统"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "工资单可查看",
+          "description": "您的最新工资单已可查看",
+          "time": "最近"
+        },
+        "taxReminder": {
+          "title": "税务申报提醒",
+          "description": "请在截止日期前提交投资证明",
+          "time": "本季度"
+        },
+        "salaryCredited": {
+          "title": "工资已到账",
+          "description": "您的工资已存入银行账户",
+          "time": "上个月"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "欢迎，{{name}}！",
     "userFallback": "用户",

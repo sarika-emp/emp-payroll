@@ -1582,6 +1582,65 @@
       "maintenance": "Maintenance"
     }
   },
+  "notificationsPage": {
+    "title": "Notifications",
+    "description": "Toutes vos alertes et mises à jour récentes au même endroit",
+    "markAllRead": "Tout marquer comme lu",
+    "bellAria": "Notifications, {{count}} non lues",
+    "newCount": "{{count}} nouvelles — Marquer comme lues",
+    "viewAll": "Afficher toutes les notifications",
+    "tabs": {
+      "all": "Toutes ({{count}})",
+      "unread": "Non lues ({{count}})"
+    },
+    "empty": {
+      "noUnread": "Aucune notification non lue",
+      "none": "Aucune notification",
+      "caughtUp": "Vous êtes à jour !",
+      "updatesHere": "Les nouvelles mises à jour apparaîtront ici."
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "Échéance de déclaration TDS",
+          "description": "Le formulaire 24Q du T4 de l’exercice 2025–26 arrive à échéance",
+          "time": "Action requise"
+        },
+        "payrollPending": {
+          "title": "Paie de {{month}} en attente",
+          "description": "Créez et lancez la paie de ce mois",
+          "time": "Ce mois-ci"
+        },
+        "payrollCompleted": {
+          "title": "Dernière paie terminée",
+          "description": "Tous les bulletins ont été générés et payés",
+          "time": "Le mois dernier"
+        },
+        "activeEmployees": {
+          "title": "{{count}} employés actifs",
+          "description": "Toutes les inscriptions légales sont à jour",
+          "time": "Système"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "Bulletin de paie disponible",
+          "description": "Votre dernier bulletin de paie est prêt à être consulté",
+          "time": "Récemment"
+        },
+        "taxReminder": {
+          "title": "Rappel de déclaration fiscale",
+          "description": "Soumettez vos justificatifs d’investissement avant la date limite",
+          "time": "Ce trimestre"
+        },
+        "salaryCredited": {
+          "title": "Salaire crédité",
+          "description": "Votre salaire a été crédité sur votre compte bancaire",
+          "time": "Le mois dernier"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Bonjour, {{name}} !",
     "userFallback": "Utilisateur",

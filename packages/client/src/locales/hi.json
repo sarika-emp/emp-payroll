@@ -1566,6 +1566,65 @@
       "maintenance": "रखरखाव"
     }
   },
+  "notificationsPage": {
+    "title": "सूचनाएँ",
+    "description": "आपकी सभी हाल की सूचनाएँ और अपडेट एक ही स्थान पर",
+    "markAllRead": "सभी को पढ़ा हुआ चिह्नित करें",
+    "bellAria": "सूचनाएँ, {{count}} अपठित",
+    "newCount": "{{count}} नई — पढ़ा हुआ चिह्नित करें",
+    "viewAll": "सभी सूचनाएँ देखें",
+    "tabs": {
+      "all": "सभी ({{count}})",
+      "unread": "अपठित ({{count}})"
+    },
+    "empty": {
+      "noUnread": "कोई अपठित सूचना नहीं",
+      "none": "कोई सूचना नहीं",
+      "caughtUp": "आप पूरी तरह अपडेट हैं!",
+      "updatesHere": "नए अपडेट यहाँ दिखाई देंगे।"
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "TDS फाइलिंग की समय सीमा",
+          "description": "वित्त वर्ष 2025–26 की चौथी तिमाही का फॉर्म 24Q जल्द देय है",
+          "time": "कार्रवाई आवश्यक"
+        },
+        "payrollPending": {
+          "title": "{{month}} का पेरोल लंबित",
+          "description": "इस महीने का पेरोल बनाएँ और चलाएँ",
+          "time": "इस महीने"
+        },
+        "payrollCompleted": {
+          "title": "पिछला पेरोल पूरा हुआ",
+          "description": "सभी वेतन पर्चियाँ तैयार और भुगतान की गईं",
+          "time": "पिछले महीने"
+        },
+        "activeEmployees": {
+          "title": "{{count}} सक्रिय कर्मचारी",
+          "description": "सभी वैधानिक पंजीकरण अद्यतन हैं",
+          "time": "सिस्टम"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "वेतन पर्ची उपलब्ध",
+          "description": "आपकी नवीनतम वेतन पर्ची देखने के लिए तैयार है",
+          "time": "हाल ही में"
+        },
+        "taxReminder": {
+          "title": "कर घोषणा अनुस्मारक",
+          "description": "समय सीमा से पहले निवेश प्रमाण जमा करें",
+          "time": "इस तिमाही"
+        },
+        "salaryCredited": {
+          "title": "वेतन जमा हुआ",
+          "description": "आपका वेतन आपके बैंक खाते में जमा हो गया है",
+          "time": "पिछले महीने"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "स्वागत है, {{name}}!",
     "userFallback": "उपयोगकर्ता",

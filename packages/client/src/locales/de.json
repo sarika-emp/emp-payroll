@@ -1581,6 +1581,65 @@
       "maintenance": "Wartung"
     }
   },
+  "notificationsPage": {
+    "title": "Benachrichtigungen",
+    "description": "Alle aktuellen Hinweise und Aktualisierungen an einem Ort",
+    "markAllRead": "Alle als gelesen markieren",
+    "bellAria": "Benachrichtigungen, {{count}} ungelesen",
+    "newCount": "{{count}} neu — Als gelesen markieren",
+    "viewAll": "Alle Benachrichtigungen anzeigen",
+    "tabs": {
+      "all": "Alle ({{count}})",
+      "unread": "Ungelesen ({{count}})"
+    },
+    "empty": {
+      "noUnread": "Keine ungelesenen Benachrichtigungen",
+      "none": "Keine Benachrichtigungen",
+      "caughtUp": "Sie sind auf dem neuesten Stand!",
+      "updatesHere": "Neue Aktualisierungen werden hier angezeigt."
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "TDS-Einreichung fällig",
+          "description": "Formular 24Q für Q4 des GJ 2025–26 ist bald fällig",
+          "time": "Handlungsbedarf"
+        },
+        "payrollPending": {
+          "title": "Abrechnung für {{month}} ausstehend",
+          "description": "Abrechnung für diesen Monat erstellen und ausführen",
+          "time": "Diesen Monat"
+        },
+        "payrollCompleted": {
+          "title": "Letzte Abrechnung abgeschlossen",
+          "description": "Alle Gehaltsabrechnungen wurden erstellt und bezahlt",
+          "time": "Letzten Monat"
+        },
+        "activeEmployees": {
+          "title": "{{count}} aktive Mitarbeiter",
+          "description": "Alle gesetzlichen Registrierungen sind aktuell",
+          "time": "System"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "Gehaltsabrechnung verfügbar",
+          "description": "Ihre neueste Gehaltsabrechnung kann angezeigt werden",
+          "time": "Kürzlich"
+        },
+        "taxReminder": {
+          "title": "Erinnerung an die Steuererklärung",
+          "description": "Reichen Sie Ihre Investitionsnachweise vor Ablauf der Frist ein",
+          "time": "Dieses Quartal"
+        },
+        "salaryCredited": {
+          "title": "Gehalt gutgeschrieben",
+          "description": "Ihr Gehalt wurde Ihrem Bankkonto gutgeschrieben",
+          "time": "Letzten Monat"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Willkommen, {{name}}!",
     "userFallback": "Benutzer",

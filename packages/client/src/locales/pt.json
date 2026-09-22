@@ -1578,6 +1578,65 @@
       "maintenance": "Manutenção"
     }
   },
+  "notificationsPage": {
+    "title": "Notificações",
+    "description": "Todos os seus alertas e atualizações recentes num só lugar",
+    "markAllRead": "Marcar tudo como lido",
+    "bellAria": "Notificações, {{count}} não lidas",
+    "newCount": "{{count}} novas — Marcar como lidas",
+    "viewAll": "Ver todas as notificações",
+    "tabs": {
+      "all": "Todas ({{count}})",
+      "unread": "Não lidas ({{count}})"
+    },
+    "empty": {
+      "noUnread": "Não há notificações não lidas",
+      "none": "Não há notificações",
+      "caughtUp": "Está tudo em dia!",
+      "updatesHere": "As novas atualizações aparecerão aqui."
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "Prazo da declaração TDS",
+          "description": "O formulário 24Q do T4 do exercício 2025–26 vence em breve",
+          "time": "Ação necessária"
+        },
+        "payrollPending": {
+          "title": "Folha de {{month}} pendente",
+          "description": "Crie e processe a folha deste mês",
+          "time": "Este mês"
+        },
+        "payrollCompleted": {
+          "title": "Última folha concluída",
+          "description": "Todos os recibos foram gerados e pagos",
+          "time": "No mês passado"
+        },
+        "activeEmployees": {
+          "title": "{{count}} funcionários ativos",
+          "description": "Todos os registos legais estão atualizados",
+          "time": "Sistema"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "Recibo de vencimento disponível",
+          "description": "O seu último recibo está pronto para consulta",
+          "time": "Recentemente"
+        },
+        "taxReminder": {
+          "title": "Lembrete de declaração fiscal",
+          "description": "Envie os comprovativos de investimento antes do prazo",
+          "time": "Este trimestre"
+        },
+        "salaryCredited": {
+          "title": "Salário creditado",
+          "description": "O seu salário foi creditado na sua conta bancária",
+          "time": "No mês passado"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Olá, {{name}}!",
     "userFallback": "Utilizador",

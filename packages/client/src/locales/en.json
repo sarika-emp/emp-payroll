@@ -1582,6 +1582,65 @@
       "maintenance": "Maintenance"
     }
   },
+  "notificationsPage": {
+    "title": "Notifications",
+    "description": "All your recent alerts and updates in one place",
+    "markAllRead": "Mark all as read",
+    "bellAria": "Notifications, {{count}} unread",
+    "newCount": "{{count}} new — Mark read",
+    "viewAll": "View all notifications",
+    "tabs": {
+      "all": "All ({{count}})",
+      "unread": "Unread ({{count}})"
+    },
+    "empty": {
+      "noUnread": "No unread notifications",
+      "none": "No notifications",
+      "caughtUp": "You're all caught up!",
+      "updatesHere": "You'll see updates here as they come in."
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "TDS Filing Due",
+          "description": "Form 24Q for Q4 FY 2025-26 is due soon",
+          "time": "Action needed"
+        },
+        "payrollPending": {
+          "title": "{{month}} Payroll Pending",
+          "description": "Create and run this month's payroll",
+          "time": "This month"
+        },
+        "payrollCompleted": {
+          "title": "Last Payroll Completed",
+          "description": "All payslips generated and paid",
+          "time": "Last month"
+        },
+        "activeEmployees": {
+          "title": "{{count}} Active Employees",
+          "description": "All statutory registrations up to date",
+          "time": "System"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "Payslip Available",
+          "description": "Your latest payslip is ready to view",
+          "time": "Recently"
+        },
+        "taxReminder": {
+          "title": "Tax Declaration Reminder",
+          "description": "Submit your investment proofs before the deadline",
+          "time": "This quarter"
+        },
+        "salaryCredited": {
+          "title": "Salary Credited",
+          "description": "Your salary has been credited to your bank account",
+          "time": "Last month"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "Welcome, {{name}}!",
     "userFallback": "User",

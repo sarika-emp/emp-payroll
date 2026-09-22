@@ -18,7 +18,7 @@ import { isLoggedIn, getUser, logout } from "@/api/auth";
 import { useTranslation } from "react-i18next";
 
 const navItems = [
-  { to: "/my", labelKey: "dashboard", icon: LayoutDashboard, end: true },
+  { to: "/my", labelKey: "myDashboard", icon: LayoutDashboard, end: true },
   { to: "/my/payslips", labelKey: "myPayslips", icon: FileText },
   { to: "/my/salary", labelKey: "mySalary", icon: Wallet },
   { to: "/my/tax", labelKey: "myTax", icon: Calculator },

@@ -1589,6 +1589,65 @@
       "maintenance": "Mantenimiento"
     }
   },
+  "notificationsPage": {
+    "title": "Notificaciones",
+    "description": "Todos tus avisos y actualizaciones recientes en un solo lugar",
+    "markAllRead": "Marcar todo como leído",
+    "bellAria": "Notificaciones, {{count}} sin leer",
+    "newCount": "{{count}} nuevas — Marcar como leídas",
+    "viewAll": "Ver todas las notificaciones",
+    "tabs": {
+      "all": "Todas ({{count}})",
+      "unread": "Sin leer ({{count}})"
+    },
+    "empty": {
+      "noUnread": "No hay notificaciones sin leer",
+      "none": "No hay notificaciones",
+      "caughtUp": "¡Estás al día!",
+      "updatesHere": "Las nuevas actualizaciones aparecerán aquí."
+    },
+    "items": {
+      "admin": {
+        "tdsDue": {
+          "title": "Vence la presentación de TDS",
+          "description": "El formulario 24Q del T4 del ejercicio 2025–26 vence pronto",
+          "time": "Acción necesaria"
+        },
+        "payrollPending": {
+          "title": "Nómina de {{month}} pendiente",
+          "description": "Crea y ejecuta la nómina de este mes",
+          "time": "Este mes"
+        },
+        "payrollCompleted": {
+          "title": "Última nómina completada",
+          "description": "Todos los recibos se generaron y pagaron",
+          "time": "El mes pasado"
+        },
+        "activeEmployees": {
+          "title": "{{count}} empleados activos",
+          "description": "Todos los registros legales están actualizados",
+          "time": "Sistema"
+        }
+      },
+      "employee": {
+        "payslipAvailable": {
+          "title": "Recibo de sueldo disponible",
+          "description": "Tu último recibo de sueldo está listo para ver",
+          "time": "Recientemente"
+        },
+        "taxReminder": {
+          "title": "Recordatorio de declaración fiscal",
+          "description": "Presenta tus justificantes de inversión antes de la fecha límite",
+          "time": "Este trimestre"
+        },
+        "salaryCredited": {
+          "title": "Salario abonado",
+          "description": "Tu salario se ha abonado en tu cuenta bancaria",
+          "time": "El mes pasado"
+        }
+      }
+    }
+  },
   "selfServiceDashboard": {
     "greeting": "¡Hola, {{name}}!",
     "userFallback": "Usuario",
