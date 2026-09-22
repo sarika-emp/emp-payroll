@@ -1162,6 +1162,63 @@
       "submit": "Enviar reclamación"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "Facturas de contratistas",
+    "description": "Gestiona y paga las facturas de contratistas",
+    "actions": {
+      "submitInvoice": "Enviar factura",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "markPaid": "Marcar como pagada",
+      "cancel": "Cancelar"
+    },
+    "filters": {
+      "allStatuses": "Todos los estados"
+    },
+    "statuses": {
+      "pending": "Pendiente",
+      "approved": "Aprobada",
+      "paid": "Pagada",
+      "rejected": "Rechazada"
+    },
+    "table": {
+      "invoiceNumber": "Número de factura",
+      "contractor": "Contratista",
+      "period": "Periodo",
+      "amount": "Importe",
+      "status": "Estado",
+      "submitted": "Enviada",
+      "actions": "Acciones"
+    },
+    "empty": "Aún no hay facturas de contratistas.",
+    "modal": {
+      "title": "Enviar factura de contratista",
+      "contractorLabel": "Contratista *",
+      "selectContractor": "Selecciona un contratista...",
+      "noContractors": "Aún no hay contratistas — añade uno en Empleados globales",
+      "amountLabel": "Importe",
+      "amountUnitHint": "unidad monetaria principal",
+      "periodStart": "Inicio del periodo *",
+      "periodEnd": "Fin del periodo *",
+      "description": "Descripción"
+    },
+    "validation": {
+      "required": "Completa todos los campos obligatorios",
+      "positiveAmount": "El importe debe ser un número positivo",
+      "invalidPeriod": "La fecha de fin debe ser igual o posterior a la fecha de inicio"
+    },
+    "messages": {
+      "submitted": "Factura enviada",
+      "submitFailed": "No se pudo enviar la factura",
+      "approved": "Factura aprobada",
+      "approveFailed": "No se pudo aprobar la factura",
+      "rejectConfirm": "¿Rechazar esta factura?",
+      "rejected": "Factura rechazada",
+      "rejectFailed": "No se pudo rechazar la factura",
+      "paid": "Factura marcada como pagada",
+      "paidFailed": "No se pudo marcar la factura como pagada"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "Nómina global",
     "description": "Gestiona tu plantilla mundial en distintos países, divisas y requisitos de cumplimiento",

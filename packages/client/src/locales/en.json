@@ -1170,6 +1170,63 @@
       "submit": "Submit Claim"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "Contractor Invoices",
+    "description": "Manage and pay contractor invoices",
+    "actions": {
+      "submitInvoice": "Submit Invoice",
+      "approve": "Approve",
+      "reject": "Reject",
+      "markPaid": "Mark Paid",
+      "cancel": "Cancel"
+    },
+    "filters": {
+      "allStatuses": "All Statuses"
+    },
+    "statuses": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "paid": "Paid",
+      "rejected": "Rejected"
+    },
+    "table": {
+      "invoiceNumber": "Invoice #",
+      "contractor": "Contractor",
+      "period": "Period",
+      "amount": "Amount",
+      "status": "Status",
+      "submitted": "Submitted",
+      "actions": "Actions"
+    },
+    "empty": "No contractor invoices yet.",
+    "modal": {
+      "title": "Submit Contractor Invoice",
+      "contractorLabel": "Contractor *",
+      "selectContractor": "Select a contractor...",
+      "noContractors": "No contractors yet — add one under Global Employees",
+      "amountLabel": "Amount",
+      "amountUnitHint": "major currency unit",
+      "periodStart": "Period Start *",
+      "periodEnd": "Period End *",
+      "description": "Description"
+    },
+    "validation": {
+      "required": "Please fill all required fields",
+      "positiveAmount": "Amount must be a positive number",
+      "invalidPeriod": "End date must be on or after start date"
+    },
+    "messages": {
+      "submitted": "Invoice submitted",
+      "submitFailed": "Failed to submit invoice",
+      "approved": "Invoice approved",
+      "approveFailed": "Failed to approve invoice",
+      "rejectConfirm": "Reject this invoice?",
+      "rejected": "Invoice rejected",
+      "rejectFailed": "Failed to reject invoice",
+      "paid": "Invoice marked as paid",
+      "paidFailed": "Failed to mark invoice as paid"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "Global Payroll",
     "description": "Manage your worldwide workforce across countries, currencies, and compliance requirements",

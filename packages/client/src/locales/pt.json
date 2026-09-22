@@ -1151,6 +1151,63 @@
       "submit": "Enviar sinistro"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "Faturas de prestadores",
+    "description": "Gerir e pagar faturas de prestadores",
+    "actions": {
+      "submitInvoice": "Enviar fatura",
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "markPaid": "Marcar como paga",
+      "cancel": "Cancelar"
+    },
+    "filters": {
+      "allStatuses": "Todos os estados"
+    },
+    "statuses": {
+      "pending": "Pendente",
+      "approved": "Aprovada",
+      "paid": "Paga",
+      "rejected": "Rejeitada"
+    },
+    "table": {
+      "invoiceNumber": "N.º da fatura",
+      "contractor": "Prestador",
+      "period": "Período",
+      "amount": "Valor",
+      "status": "Estado",
+      "submitted": "Enviada",
+      "actions": "Ações"
+    },
+    "empty": "Ainda não existem faturas de prestadores.",
+    "modal": {
+      "title": "Enviar fatura de prestador",
+      "contractorLabel": "Prestador *",
+      "selectContractor": "Selecione um prestador...",
+      "noContractors": "Ainda não existem prestadores — adicione um em Trabalhadores globais",
+      "amountLabel": "Valor",
+      "amountUnitHint": "unidade monetária principal",
+      "periodStart": "Início do período *",
+      "periodEnd": "Fim do período *",
+      "description": "Descrição"
+    },
+    "validation": {
+      "required": "Preencha todos os campos obrigatórios",
+      "positiveAmount": "O valor deve ser um número positivo",
+      "invalidPeriod": "A data de fim deve ser igual ou posterior à data de início"
+    },
+    "messages": {
+      "submitted": "Fatura enviada",
+      "submitFailed": "Não foi possível enviar a fatura",
+      "approved": "Fatura aprovada",
+      "approveFailed": "Não foi possível aprovar a fatura",
+      "rejectConfirm": "Rejeitar esta fatura?",
+      "rejected": "Fatura rejeitada",
+      "rejectFailed": "Não foi possível rejeitar a fatura",
+      "paid": "Fatura marcada como paga",
+      "paidFailed": "Não foi possível marcar a fatura como paga"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "Processamento salarial global",
     "description": "Faça a gestão da sua força de trabalho mundial em vários países, moedas e requisitos de conformidade",

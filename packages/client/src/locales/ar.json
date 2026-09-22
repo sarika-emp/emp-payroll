@@ -1136,6 +1136,63 @@
       "submit": "تقديم المطالبة"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "فواتير المتعاقدين",
+    "description": "إدارة فواتير المتعاقدين ودفعها",
+    "actions": {
+      "submitInvoice": "إرسال الفاتورة",
+      "approve": "موافقة",
+      "reject": "رفض",
+      "markPaid": "وضع علامة مدفوعة",
+      "cancel": "إلغاء"
+    },
+    "filters": {
+      "allStatuses": "كل الحالات"
+    },
+    "statuses": {
+      "pending": "قيد الانتظار",
+      "approved": "معتمدة",
+      "paid": "مدفوعة",
+      "rejected": "مرفوضة"
+    },
+    "table": {
+      "invoiceNumber": "رقم الفاتورة",
+      "contractor": "المتعاقد",
+      "period": "الفترة",
+      "amount": "المبلغ",
+      "status": "الحالة",
+      "submitted": "تاريخ الإرسال",
+      "actions": "الإجراءات"
+    },
+    "empty": "لا توجد فواتير متعاقدين حتى الآن.",
+    "modal": {
+      "title": "إرسال فاتورة متعاقد",
+      "contractorLabel": "المتعاقد *",
+      "selectContractor": "اختر متعاقدًا...",
+      "noContractors": "لا يوجد متعاقدون بعد — أضف متعاقدًا ضمن الموظفين العالميين",
+      "amountLabel": "المبلغ",
+      "amountUnitHint": "وحدة العملة الرئيسية",
+      "periodStart": "بداية الفترة *",
+      "periodEnd": "نهاية الفترة *",
+      "description": "الوصف"
+    },
+    "validation": {
+      "required": "يرجى ملء جميع الحقول المطلوبة",
+      "positiveAmount": "يجب أن يكون المبلغ رقمًا موجبًا",
+      "invalidPeriod": "يجب أن يكون تاريخ النهاية في تاريخ البداية أو بعده"
+    },
+    "messages": {
+      "submitted": "تم إرسال الفاتورة",
+      "submitFailed": "تعذر إرسال الفاتورة",
+      "approved": "تمت الموافقة على الفاتورة",
+      "approveFailed": "تعذرت الموافقة على الفاتورة",
+      "rejectConfirm": "هل تريد رفض هذه الفاتورة؟",
+      "rejected": "تم رفض الفاتورة",
+      "rejectFailed": "تعذر رفض الفاتورة",
+      "paid": "تم وضع علامة مدفوعة على الفاتورة",
+      "paidFailed": "تعذر وضع علامة مدفوعة على الفاتورة"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "الرواتب العالمية",
     "description": "إدارة القوى العاملة العالمية عبر البلدان والعملات ومتطلبات الامتثال",

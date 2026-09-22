@@ -1144,6 +1144,63 @@
       "submit": "請求を申請"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "業務委託者請求書",
+    "description": "業務委託者の請求書を管理・支払いします",
+    "actions": {
+      "submitInvoice": "請求書を提出",
+      "approve": "承認",
+      "reject": "却下",
+      "markPaid": "支払済みにする",
+      "cancel": "キャンセル"
+    },
+    "filters": {
+      "allStatuses": "すべてのステータス"
+    },
+    "statuses": {
+      "pending": "保留中",
+      "approved": "承認済み",
+      "paid": "支払済み",
+      "rejected": "却下済み"
+    },
+    "table": {
+      "invoiceNumber": "請求書番号",
+      "contractor": "業務委託者",
+      "period": "期間",
+      "amount": "金額",
+      "status": "ステータス",
+      "submitted": "提出日",
+      "actions": "操作"
+    },
+    "empty": "業務委託者の請求書はまだありません。",
+    "modal": {
+      "title": "業務委託者請求書を提出",
+      "contractorLabel": "業務委託者 *",
+      "selectContractor": "業務委託者を選択...",
+      "noContractors": "業務委託者はまだいません — グローバル従業員で追加してください",
+      "amountLabel": "金額",
+      "amountUnitHint": "主要通貨単位",
+      "periodStart": "期間開始 *",
+      "periodEnd": "期間終了 *",
+      "description": "説明"
+    },
+    "validation": {
+      "required": "必須項目をすべて入力してください",
+      "positiveAmount": "金額は正の数である必要があります",
+      "invalidPeriod": "終了日は開始日以降にしてください"
+    },
+    "messages": {
+      "submitted": "請求書を提出しました",
+      "submitFailed": "請求書を提出できませんでした",
+      "approved": "請求書を承認しました",
+      "approveFailed": "請求書を承認できませんでした",
+      "rejectConfirm": "この請求書を却下しますか？",
+      "rejected": "請求書を却下しました",
+      "rejectFailed": "請求書を却下できませんでした",
+      "paid": "請求書を支払済みにしました",
+      "paidFailed": "請求書を支払済みにできませんでした"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "グローバル給与",
     "description": "国、通貨、コンプライアンス要件をまたいでグローバル人材を管理します",

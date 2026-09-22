@@ -1136,6 +1136,63 @@
       "submit": "दावा जमा करें"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "ठेकेदार चालान",
+    "description": "ठेकेदार चालानों का प्रबंधन और भुगतान करें",
+    "actions": {
+      "submitInvoice": "चालान जमा करें",
+      "approve": "स्वीकृत करें",
+      "reject": "अस्वीकार करें",
+      "markPaid": "भुगतान किया हुआ चिह्नित करें",
+      "cancel": "रद्द करें"
+    },
+    "filters": {
+      "allStatuses": "सभी स्थितियाँ"
+    },
+    "statuses": {
+      "pending": "लंबित",
+      "approved": "स्वीकृत",
+      "paid": "भुगतान किया गया",
+      "rejected": "अस्वीकृत"
+    },
+    "table": {
+      "invoiceNumber": "चालान संख्या",
+      "contractor": "ठेकेदार",
+      "period": "अवधि",
+      "amount": "राशि",
+      "status": "स्थिति",
+      "submitted": "जमा किया गया",
+      "actions": "कार्रवाइयाँ"
+    },
+    "empty": "अभी कोई ठेकेदार चालान नहीं है।",
+    "modal": {
+      "title": "ठेकेदार चालान जमा करें",
+      "contractorLabel": "ठेकेदार *",
+      "selectContractor": "ठेकेदार चुनें...",
+      "noContractors": "अभी कोई ठेकेदार नहीं है — वैश्विक कर्मचारी में एक जोड़ें",
+      "amountLabel": "राशि",
+      "amountUnitHint": "मुख्य मुद्रा इकाई",
+      "periodStart": "अवधि प्रारंभ *",
+      "periodEnd": "अवधि समाप्ति *",
+      "description": "विवरण"
+    },
+    "validation": {
+      "required": "कृपया सभी आवश्यक फ़ील्ड भरें",
+      "positiveAmount": "राशि एक धनात्मक संख्या होनी चाहिए",
+      "invalidPeriod": "समाप्ति तिथि प्रारंभ तिथि के समान या उसके बाद होनी चाहिए"
+    },
+    "messages": {
+      "submitted": "चालान जमा किया गया",
+      "submitFailed": "चालान जमा नहीं हो सका",
+      "approved": "चालान स्वीकृत किया गया",
+      "approveFailed": "चालान स्वीकृत नहीं हो सका",
+      "rejectConfirm": "इस चालान को अस्वीकार करें?",
+      "rejected": "चालान अस्वीकृत किया गया",
+      "rejectFailed": "चालान अस्वीकार नहीं हो सका",
+      "paid": "चालान को भुगतान किया हुआ चिह्नित किया गया",
+      "paidFailed": "चालान को भुगतान किया हुआ चिह्नित नहीं किया जा सका"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "वैश्विक पेरोल",
     "description": "देशों, मुद्राओं और अनुपालन आवश्यकताओं में अपने वैश्विक कार्यबल का प्रबंधन करें",

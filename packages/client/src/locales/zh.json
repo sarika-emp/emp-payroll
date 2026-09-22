@@ -1131,6 +1131,63 @@
       "submit": "提交理赔"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "承包商发票",
+    "description": "管理并支付承包商发票",
+    "actions": {
+      "submitInvoice": "提交发票",
+      "approve": "批准",
+      "reject": "拒绝",
+      "markPaid": "标记为已支付",
+      "cancel": "取消"
+    },
+    "filters": {
+      "allStatuses": "全部状态"
+    },
+    "statuses": {
+      "pending": "待处理",
+      "approved": "已批准",
+      "paid": "已支付",
+      "rejected": "已拒绝"
+    },
+    "table": {
+      "invoiceNumber": "发票编号",
+      "contractor": "承包商",
+      "period": "期间",
+      "amount": "金额",
+      "status": "状态",
+      "submitted": "提交日期",
+      "actions": "操作"
+    },
+    "empty": "暂无承包商发票。",
+    "modal": {
+      "title": "提交承包商发票",
+      "contractorLabel": "承包商 *",
+      "selectContractor": "选择承包商...",
+      "noContractors": "暂无承包商 — 请在全球员工中添加",
+      "amountLabel": "金额",
+      "amountUnitHint": "主要货币单位",
+      "periodStart": "期间开始 *",
+      "periodEnd": "期间结束 *",
+      "description": "说明"
+    },
+    "validation": {
+      "required": "请填写所有必填字段",
+      "positiveAmount": "金额必须为正数",
+      "invalidPeriod": "结束日期必须等于或晚于开始日期"
+    },
+    "messages": {
+      "submitted": "发票已提交",
+      "submitFailed": "发票提交失败",
+      "approved": "发票已批准",
+      "approveFailed": "发票批准失败",
+      "rejectConfirm": "拒绝此发票？",
+      "rejected": "发票已拒绝",
+      "rejectFailed": "发票拒绝失败",
+      "paid": "发票已标记为已支付",
+      "paidFailed": "无法将发票标记为已支付"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "全球薪资",
     "description": "跨国家/地区、货币和合规要求管理您的全球员工",

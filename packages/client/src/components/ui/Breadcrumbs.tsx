@@ -24,6 +24,8 @@ const ROUTE_LABELS: Record<string, string> = {
   declarations: "sidebar.items.declarations",
   profile: "breadcrumbs.profile",
   onboarding: "breadcrumbs.setup",
+  "global-payroll": "sidebar.sections.globalPayroll",
+  invoices: "sidebar.items.contractorInvoices",
 };
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;

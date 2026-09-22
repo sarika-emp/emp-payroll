@@ -1152,6 +1152,63 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "Factures des prestataires",
+    "description": "Gérez et payez les factures des prestataires",
+    "actions": {
+      "submitInvoice": "Soumettre une facture",
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "markPaid": "Marquer comme payée",
+      "cancel": "Annuler"
+    },
+    "filters": {
+      "allStatuses": "Tous les statuts"
+    },
+    "statuses": {
+      "pending": "En attente",
+      "approved": "Approuvée",
+      "paid": "Payée",
+      "rejected": "Rejetée"
+    },
+    "table": {
+      "invoiceNumber": "N° de facture",
+      "contractor": "Prestataire",
+      "period": "Période",
+      "amount": "Montant",
+      "status": "Statut",
+      "submitted": "Soumise le",
+      "actions": "Actions"
+    },
+    "empty": "Aucune facture de prestataire pour le moment.",
+    "modal": {
+      "title": "Soumettre une facture de prestataire",
+      "contractorLabel": "Prestataire *",
+      "selectContractor": "Sélectionnez un prestataire...",
+      "noContractors": "Aucun prestataire pour le moment — ajoutez-en un dans Salariés internationaux",
+      "amountLabel": "Montant",
+      "amountUnitHint": "unité monétaire principale",
+      "periodStart": "Début de période *",
+      "periodEnd": "Fin de période *",
+      "description": "Description"
+    },
+    "validation": {
+      "required": "Veuillez remplir tous les champs obligatoires",
+      "positiveAmount": "Le montant doit être un nombre positif",
+      "invalidPeriod": "La date de fin doit être égale ou postérieure à la date de début"
+    },
+    "messages": {
+      "submitted": "Facture soumise",
+      "submitFailed": "Échec de l’envoi de la facture",
+      "approved": "Facture approuvée",
+      "approveFailed": "Échec de l’approbation de la facture",
+      "rejectConfirm": "Rejeter cette facture ?",
+      "rejected": "Facture rejetée",
+      "rejectFailed": "Échec du rejet de la facture",
+      "paid": "Facture marquée comme payée",
+      "paidFailed": "Échec du marquage de la facture comme payée"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "Paie internationale",
     "description": "Gérez vos effectifs mondiaux dans différents pays, devises et cadres de conformité",

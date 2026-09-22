@@ -1151,6 +1151,63 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "contractorInvoicesPage": {
+    "title": "Auftragnehmerrechnungen",
+    "description": "Auftragnehmerrechnungen verwalten und bezahlen",
+    "actions": {
+      "submitInvoice": "Rechnung einreichen",
+      "approve": "Genehmigen",
+      "reject": "Ablehnen",
+      "markPaid": "Als bezahlt markieren",
+      "cancel": "Abbrechen"
+    },
+    "filters": {
+      "allStatuses": "Alle Status"
+    },
+    "statuses": {
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "paid": "Bezahlt",
+      "rejected": "Abgelehnt"
+    },
+    "table": {
+      "invoiceNumber": "Rechnungsnr.",
+      "contractor": "Auftragnehmer",
+      "period": "Zeitraum",
+      "amount": "Betrag",
+      "status": "Status",
+      "submitted": "Eingereicht",
+      "actions": "Aktionen"
+    },
+    "empty": "Noch keine Auftragnehmerrechnungen vorhanden.",
+    "modal": {
+      "title": "Auftragnehmerrechnung einreichen",
+      "contractorLabel": "Auftragnehmer *",
+      "selectContractor": "Auftragnehmer auswählen...",
+      "noContractors": "Noch keine Auftragnehmer — fügen Sie einen unter „Globale Mitarbeiter“ hinzu",
+      "amountLabel": "Betrag",
+      "amountUnitHint": "Hauptwährungseinheit",
+      "periodStart": "Zeitraum von *",
+      "periodEnd": "Zeitraum bis *",
+      "description": "Beschreibung"
+    },
+    "validation": {
+      "required": "Bitte füllen Sie alle Pflichtfelder aus",
+      "positiveAmount": "Der Betrag muss eine positive Zahl sein",
+      "invalidPeriod": "Das Enddatum muss am oder nach dem Startdatum liegen"
+    },
+    "messages": {
+      "submitted": "Rechnung eingereicht",
+      "submitFailed": "Rechnung konnte nicht eingereicht werden",
+      "approved": "Rechnung genehmigt",
+      "approveFailed": "Rechnung konnte nicht genehmigt werden",
+      "rejectConfirm": "Diese Rechnung ablehnen?",
+      "rejected": "Rechnung abgelehnt",
+      "rejectFailed": "Rechnung konnte nicht abgelehnt werden",
+      "paid": "Rechnung als bezahlt markiert",
+      "paidFailed": "Rechnung konnte nicht als bezahlt markiert werden"
+    }
+  },
   "globalPayrollDashboard": {
     "title": "Globale Gehaltsabrechnung",
     "description": "Verwalten Sie Ihre weltweite Belegschaft über Länder, Währungen und Compliance-Anforderungen hinweg",
