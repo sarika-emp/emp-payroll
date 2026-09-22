@@ -909,6 +909,422 @@
       "continueMonitoring": "वेतन समानता की तिमाही निगरानी जारी रखें"
     }
   },
+  "earnedWagePage": {
+    "title": "अर्जित वेतन एक्सेस",
+    "description": "मांग पर भुगतान — कर्मचारियों को वेतन दिवस से पहले अर्जित वेतन लेने दें",
+    "actions": {
+      "approve": "स्वीकृत करें",
+      "reject": "अस्वीकार करें",
+      "settings": "सेटिंग्स",
+      "requestAdvance": "अग्रिम का अनुरोध करें"
+    },
+    "stats": {
+      "pendingRequests": "लंबित अनुरोध",
+      "totalDisbursed": "कुल वितरित",
+      "avgRequest": "औसत अनुरोध",
+      "totalRequests": "कुल अनुरोध"
+    },
+    "filter": {
+      "showing": "दिखाए जा रहे हैं",
+      "requests": "अनुरोध",
+      "clear": "फ़िल्टर हटाएँ"
+    },
+    "balance": {
+      "title": "आपकी उपलब्ध शेष राशि",
+      "details": "अब तक अर्जित: {{earned}} | पहले ही निकाला: {{withdrawn}} | दिन {{day}}/{{days}}",
+      "maxPercentage": "अर्जित वेतन का अधिकतम {{value}}%"
+    },
+    "status": {
+      "pending": "लंबित",
+      "approved": "स्वीकृत",
+      "disbursed": "वितरित",
+      "rejected": "अस्वीकृत",
+      "repaid": "चुकाया गया",
+      "enabled": "सक्रिय",
+      "disabled": "निष्क्रिय"
+    },
+    "columns": {
+      "employee": "कर्मचारी",
+      "amount": "राशि",
+      "fee": "शुल्क",
+      "status": "स्थिति",
+      "requested": "अनुरोध तिथि",
+      "reason": "कारण"
+    },
+    "emptyRequests": "अभी तक कोई अग्रिम अनुरोध नहीं है",
+    "messages": {
+      "showingAll": "सभी अनुरोध नीचे दिखाए जा रहे हैं",
+      "requestSubmitted": "अग्रिम अनुरोध जमा किया गया",
+      "submitFailed": "अनुरोध जमा नहीं हो सका",
+      "requestApproved": "अनुरोध स्वीकृत किया गया",
+      "approveFailed": "स्वीकृति विफल रही",
+      "rejectionReason": "अस्वीकृति का कारण (वैकल्पिक):",
+      "requestRejected": "अनुरोध अस्वीकार किया गया",
+      "rejectFailed": "अस्वीकृति विफल रही",
+      "settingsSaved": "सेटिंग्स सहेजी गईं",
+      "settingsSaveFailed": "सेटिंग्स सहेजी नहीं जा सकीं"
+    },
+    "requestModal": {
+      "title": "वेतन अग्रिम का अनुरोध करें",
+      "available": "उपलब्ध: {{amount}}",
+      "salaryDetails": "मासिक वेतन: {{salary}} | दिन {{day}}/{{days}}",
+      "unavailable": "अभी कोई अग्रिम उपलब्ध नहीं है। वेतन कॉन्फ़िगरेशन या प्रतीक्षा अवधि जाँचें।",
+      "amount": "राशि",
+      "amountPlaceholder": "राशि दर्ज करें",
+      "reason": "कारण (वैकल्पिक)",
+      "reasonPlaceholder": "आपको इस अग्रिम की आवश्यकता क्यों है?",
+      "cancel": "रद्द करें",
+      "submit": "अनुरोध जमा करें"
+    },
+    "settingsModal": {
+      "title": "अर्जित वेतन एक्सेस सेटिंग्स",
+      "enable": "अर्जित वेतन एक्सेस सक्रिय करें",
+      "maxPercentage": "अर्जित वेतन का अधिकतम %",
+      "cooldownDays": "प्रतीक्षा अवधि के दिन",
+      "minAmount": "न्यूनतम राशि",
+      "maxAmount": "अधिकतम राशि (0 = कोई सीमा नहीं)",
+      "feePercentage": "शुल्क %",
+      "flatFee": "निश्चित शुल्क",
+      "autoApproveBelow": "इससे कम पर स्वतः स्वीकृत करें (0 = निष्क्रिय)",
+      "requiresApproval": "प्रबंधक की स्वीकृति आवश्यक",
+      "cancel": "रद्द करें",
+      "save": "सेटिंग्स सहेजें"
+    }
+  },
+  "insurancePage": {
+    "title": "बीमा प्रबंधन",
+    "description": "समूह बीमा पॉलिसियों, नामांकन और दावों का प्रबंधन करें",
+    "actions": {
+      "edit": "संपादित करें",
+      "deactivate": "निष्क्रिय करें",
+      "cancel": "रद्द करें",
+      "settle": "निपटाएँ",
+      "approve": "स्वीकृत करें",
+      "reject": "अस्वीकार करें",
+      "submitClaim": "दावा जमा करें",
+      "enrollEmployee": "कर्मचारी का नामांकन करें",
+      "newPolicy": "नई पॉलिसी"
+    },
+    "stats": {
+      "activePolicies": "सक्रिय पॉलिसियाँ",
+      "activeEnrollments": "सक्रिय नामांकन",
+      "pendingClaims": "लंबित दावे",
+      "totalApproved": "कुल स्वीकृत"
+    },
+    "tabs": {
+      "policies": "पॉलिसियाँ ({{count}})",
+      "enrollments": "नामांकन ({{count}})",
+      "claims": "दावे ({{count}})"
+    },
+    "empty": {
+      "policies": "अभी तक कोई बीमा पॉलिसी नहीं बनाई गई",
+      "enrollments": "अभी तक कोई नामांकन नहीं है",
+      "claims": "अभी तक कोई दावा जमा नहीं किया गया"
+    },
+    "columns": {
+      "policyName": "पॉलिसी का नाम",
+      "number": "संख्या",
+      "provider": "प्रदाता",
+      "type": "प्रकार",
+      "coverage": "कवरेज",
+      "premiumPerEmployee": "प्रति कर्मचारी प्रीमियम",
+      "status": "स्थिति",
+      "employee": "कर्मचारी",
+      "policy": "पॉलिसी",
+      "sumInsured": "बीमित राशि",
+      "premiumShare": "प्रीमियम हिस्सा",
+      "nominee": "नामित व्यक्ति",
+      "claimNumber": "दावा संख्या",
+      "claimed": "दावा राशि",
+      "approved": "स्वीकृत",
+      "submitted": "जमा किया गया"
+    },
+    "policyTypes": {
+      "group_health": "समूह स्वास्थ्य",
+      "group_life": "समूह जीवन",
+      "disability": "विकलांगता",
+      "accidental": "दुर्घटना",
+      "travel": "यात्रा"
+    },
+    "claimTypes": {
+      "hospitalization": "अस्पताल में भर्ती",
+      "outpatient": "बाह्य रोगी",
+      "dental": "दंत",
+      "vision": "दृष्टि",
+      "life": "जीवन",
+      "disability": "विकलांगता",
+      "accidental": "दुर्घटना",
+      "travel": "यात्रा",
+      "group_health": "समूह स्वास्थ्य",
+      "group_life": "समूह जीवन"
+    },
+    "status": {
+      "active": "सक्रिय",
+      "expired": "समाप्त",
+      "cancelled": "रद्द",
+      "submitted": "जमा किया गया",
+      "under_review": "समीक्षाधीन",
+      "approved": "स्वीकृत",
+      "rejected": "अस्वीकृत",
+      "settled": "निपटाया गया",
+      "inactive": "निष्क्रिय",
+      "claimed": "दावा किया गया"
+    },
+    "messages": {
+      "invalidEndDate": "पॉलिसी की समाप्ति तिथि प्रारंभ तिथि से पहले नहीं हो सकती",
+      "renewalInPast": "नवीनीकरण तिथि बीती हुई नहीं हो सकती",
+      "invalidRenewalDate": "नवीनीकरण तिथि पॉलिसी की समाप्ति तिथि को या उसके बाद होनी चाहिए",
+      "invalidPolicyNumber": "पॉलिसी संख्या ऋण चिह्न से शुरू नहीं हो सकती",
+      "policyUpdated": "बीमा पॉलिसी अपडेट हो गई",
+      "policyCreated": "बीमा पॉलिसी बनाई गई",
+      "saveFailed": "पॉलिसी सहेजी नहीं जा सकी",
+      "deactivateConfirm": "क्या इस बीमा पॉलिसी को निष्क्रिय करें? मौजूदा नामांकन प्रभावित नहीं होंगे।",
+      "policyDeactivated": "बीमा पॉलिसी निष्क्रिय कर दी गई",
+      "deactivateFailed": "पॉलिसी निष्क्रिय नहीं की जा सकी",
+      "employeeEnrolled": "कर्मचारी का बीमा में नामांकन किया गया",
+      "enrollFailed": "नामांकन नहीं हो सका",
+      "claimSubmitted": "दावा जमा किया गया",
+      "claimSubmitFailed": "दावा जमा नहीं हो सका",
+      "approvedAmountPrompt": "स्वीकृत राशि (पूरी राशि के लिए खाली छोड़ें):",
+      "claimApproved": "दावा स्वीकृत किया गया",
+      "actionFailed": "कार्रवाई विफल रही",
+      "rejectionReason": "अस्वीकृति का कारण:",
+      "claimRejected": "दावा अस्वीकार किया गया",
+      "claimSettled": "दावा निपटाया गया",
+      "enrollmentCancelled": "नामांकन रद्द किया गया"
+    },
+    "policyModal": {
+      "editTitle": "बीमा पॉलिसी संपादित करें",
+      "createTitle": "बीमा पॉलिसी बनाएँ",
+      "policyName": "पॉलिसी का नाम",
+      "policyNumber": "पॉलिसी संख्या",
+      "policyNumberPlaceholder": "जैसे POL-2024-001",
+      "provider": "प्रदाता",
+      "type": "प्रकार",
+      "totalPremium": "कुल प्रीमियम",
+      "premiumPerEmployee": "प्रति कर्मचारी प्रीमियम",
+      "coverageAmount": "कवरेज राशि",
+      "startDate": "प्रारंभ तिथि",
+      "endDate": "समाप्ति तिथि",
+      "renewalDate": "नवीनीकरण तिथि",
+      "terms": "नियम और शर्तें",
+      "cancel": "रद्द करें",
+      "updatePolicy": "पॉलिसी अपडेट करें",
+      "createPolicy": "पॉलिसी बनाएँ"
+    },
+    "enrollModal": {
+      "title": "कर्मचारी का बीमा में नामांकन करें",
+      "employee": "कर्मचारी",
+      "policy": "बीमा पॉलिसी",
+      "sumInsured": "बीमित राशि",
+      "premiumShare": "कर्मचारी प्रीमियम हिस्सा",
+      "nomineeName": "नामित व्यक्ति का नाम",
+      "nomineeRelationship": "नामित व्यक्ति से संबंध",
+      "relationshipPlaceholder": "जैसे जीवनसाथी, माता-पिता",
+      "cancel": "रद्द करें",
+      "submit": "नामांकन करें"
+    },
+    "claimModal": {
+      "title": "बीमा दावा जमा करें",
+      "policy": "बीमा पॉलिसी",
+      "claimType": "दावे का प्रकार",
+      "amountClaimed": "दावा राशि",
+      "description": "विवरण",
+      "descriptionPlaceholder": "दावे का विवरण दें",
+      "notes": "नोट्स",
+      "cancel": "रद्द करें",
+      "submit": "दावा जमा करें"
+    }
+  },
+  "myTaxPage": {
+    "title": "मेरा कर",
+    "description": "वित्त वर्ष {{financialYear}} की कर गणना",
+    "form16": "फ़ॉर्म 16",
+    "stats": {
+      "annualIncome": "वार्षिक आय",
+      "taxableIncome": "कर योग्य आय",
+      "estimatedTax": "अनुमानित कर",
+      "tdsDeductedYtd": "इस वर्ष अब तक काटा गया TDS"
+    },
+    "computationTitle": "कर गणना",
+    "regimes": {
+      "new": "नई कर व्यवस्था",
+      "old": "पुरानी कर व्यवस्था"
+    },
+    "rows": {
+      "grossAnnualIncome": "सकल वार्षिक आय",
+      "standardDeduction": "घटाएँ: मानक कटौती",
+      "chapterDeductions": "घटाएँ: अध्याय VI-A की कटौतियाँ",
+      "taxableIncome": "कर योग्य आय",
+      "taxOnIncome": "आय पर कर",
+      "cess": "स्वास्थ्य और शिक्षा उपकर (4%)",
+      "totalLiability": "कुल कर देयता",
+      "monthlyTds": "मासिक TDS"
+    },
+    "tracker": {
+      "title": "TDS कटौती ट्रैकर",
+      "totalTax": "वित्त वर्ष का कुल कर",
+      "tdsDeductedYtd": "इस वर्ष अब तक काटा गया TDS",
+      "remaining": "शेष",
+      "progress": "प्रगति",
+      "monthlyMessage": "हर महीने आपके वेतन से <strong>{{amount}}</strong> का TDS काटा जाएगा।"
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "वित्त वर्ष {{financialYear}} — निवेश प्रमाण और दावे जमा करें",
+    "actions": {
+      "quickDeclare": "सभी की त्वरित घोषणा करें",
+      "newDeclaration": "नई घोषणा",
+      "cancel": "रद्द करें",
+      "submitAll": "सभी घोषणाएँ जमा करें",
+      "submit": "घोषणा जमा करें"
+    },
+    "stats": {
+      "totalDeclared": "कुल घोषित",
+      "totalApproved": "कुल स्वीकृत",
+      "pendingApproval": "स्वीकृति के लिए लंबित"
+    },
+    "declarations": "घोषणाएँ",
+    "empty": "अभी कोई घोषणा नहीं है। अपना पहला निवेश प्रमाण जमा करने के लिए नई घोषणा चुनें।",
+    "proof": {
+      "submitted": "प्रमाण जमा किया गया",
+      "upload": "अपलोड करें"
+    },
+    "quick": {
+      "title": "त्वरित कर घोषणा",
+      "description": "अपने सभी निवेश एक साथ घोषित करें",
+      "tip": "सुझाव: धारा 80C के अंतर्गत PPF, ELSS, LIC आदि के लिए ₹1,50,000 तक का दावा किया जा सकता है। 80CCD(1B) के अंतर्गत NPS पर ₹50,000 की अतिरिक्त कटौती मिलती है।",
+      "defaultDescription": "धारा {{section}} के अंतर्गत कर घोषणा"
+    },
+    "sections": {
+      "80C": "80C — PPF, ELSS, LIC आदि",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — चिकित्सा बीमा",
+      "80E": "80E — शिक्षा ऋण ब्याज",
+      "80G": "80G — दान",
+      "80TTA": "80TTA — बचत ब्याज",
+      "HRA": "HRA — मकान किराया"
+    },
+    "validation": {
+      "sectionRequired": "कृपया एक धारा चुनें",
+      "fieldRequired": "कृपया यह फ़ील्ड भरें",
+      "validAmount": "कृपया मान्य राशि दर्ज करें",
+      "nonnegativeAmount": "राशि ऋणात्मक नहीं हो सकती",
+      "fileTooLarge": "फ़ाइल 5 MB से बड़ी है",
+      "fileType": "केवल PDF, JPG या PNG फ़ाइलें स्वीकार्य हैं",
+      "oneAmount": "कम से कम एक राशि दर्ज करें"
+    },
+    "messages": {
+      "proofUploaded": "प्रमाण अपलोड किया गया",
+      "proofUploadFailed": "प्रमाण अपलोड नहीं किया जा सका",
+      "submitted": "घोषणा जमा की गई",
+      "submitFailed": "घोषणा जमा नहीं की जा सकी",
+      "submittedCount_one": "{{count}} घोषणा जमा की गई",
+      "submittedCount_other": "{{count}} घोषणाएँ जमा की गईं",
+      "submitAllFailed": "घोषणाएँ जमा नहीं की जा सकीं"
+    },
+    "form": {
+      "descriptionPlaceholder": "जैसे, PPF योगदान",
+      "amount": "राशि",
+      "proofDocument": "प्रमाण दस्तावेज़",
+      "optional": "वैकल्पिक",
+      "uploadProof": "प्रमाण दस्तावेज़ अपलोड करें",
+      "fileSelected": "{{size}} KB — बदलने के लिए चुनें",
+      "dropzone": "अपलोड करने के लिए चुनें या खींचकर छोड़ें",
+      "fileHelp": "PDF, JPG या PNG, अधिकतम 5 MB"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "मेरी प्रतिपूर्तियाँ",
+    "description": "खर्च के दावे जमा करें और उनकी स्थिति देखें",
+    "newClaim": "नया दावा",
+    "stats": {
+      "total": "कुल दावे",
+      "pending": "लंबित",
+      "approvedPaid": "स्वीकृत / भुगतान किए गए"
+    },
+    "empty": {
+      "title": "कोई प्रतिपूर्ति दावा नहीं है",
+      "description": "खर्च जमा करने के लिए नया दावा चुनें"
+    },
+    "columns": {
+      "category": "श्रेणी",
+      "description": "विवरण",
+      "amount": "राशि",
+      "date": "तारीख",
+      "status": "स्थिति"
+    },
+    "categories": {
+      "medical": "चिकित्सा",
+      "travel": "यात्रा",
+      "food": "भोजन",
+      "equipment": "उपकरण",
+      "internet": "इंटरनेट / फ़ोन",
+      "books": "किताबें और प्रशिक्षण",
+      "other": "अन्य"
+    },
+    "status": {
+      "pending": "लंबित",
+      "approved": "स्वीकृत",
+      "paid": "भुगतान किया गया",
+      "rejected": "अस्वीकृत"
+    },
+    "messages": {
+      "invalidAmount": "राशि शून्य या धनात्मक होनी चाहिए",
+      "submitted": "दावा स्वीकृति के लिए जमा किया गया",
+      "failed": "दावा जमा नहीं किया जा सका"
+    },
+    "modal": {
+      "title": "खर्च का दावा जमा करें",
+      "category": "श्रेणी",
+      "description": "विवरण",
+      "descriptionPlaceholder": "जैसे, ग्राहक बैठक के लिए टैक्सी",
+      "amount": "राशि (₹)",
+      "expenseDate": "खर्च की तारीख",
+      "cancel": "रद्द करें",
+      "submit": "दावा जमा करें"
+    }
+  },
+  "holidaysPage": {
+    "title": "अवकाश कैलेंडर",
+    "configured_one": "{{year}} — {{count}} अवकाश कॉन्फ़िगर किया गया",
+    "configured_other": "{{year}} — {{count}} अवकाश कॉन्फ़िगर किए गए",
+    "noHolidays": "कोई अवकाश नहीं",
+    "upcoming": "आगामी अवकाश",
+    "past": "पिछले अवकाश",
+    "actions": {
+      "add": "अवकाश जोड़ें",
+      "remove": "अवकाश हटाएँ",
+      "cancel": "रद्द करें"
+    },
+    "columns": {
+      "holiday": "अवकाश",
+      "date": "तारीख",
+      "day": "दिन",
+      "type": "प्रकार"
+    },
+    "types": {
+      "national": "राष्ट्रीय",
+      "regional": "क्षेत्रीय",
+      "optional": "वैकल्पिक / प्रतिबंधित"
+    },
+    "messages": {
+      "nameRequired": "अवकाश का नाम आवश्यक है",
+      "nameLetter": "अवकाश के नाम में कम से कम एक अक्षर होना चाहिए",
+      "added": "अवकाश जोड़ा गया",
+      "addFailed": "अवकाश नहीं जोड़ा जा सका",
+      "removed": "अवकाश हटाया गया",
+      "removeFailed": "अवकाश नहीं हटाया जा सका"
+    },
+    "modal": {
+      "title": "अवकाश जोड़ें",
+      "name": "अवकाश का नाम",
+      "namePlaceholder": "जैसे, दिवाली",
+      "nameTitle": "कम से कम एक अक्षर होना चाहिए",
+      "date": "तारीख",
+      "type": "प्रकार"
+    }
+  },
   "payrollRuns": {
     "title": "पेरोल रन",
     "description": "मासिक पेरोल प्रक्रिया",

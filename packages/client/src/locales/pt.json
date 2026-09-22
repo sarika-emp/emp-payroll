@@ -924,6 +924,422 @@
       "continueMonitoring": "Continue monitorando a equidade salarial trimestralmente"
     }
   },
+  "earnedWagePage": {
+    "title": "Acesso ao salário adquirido",
+    "description": "Pagamento sob demanda — permita que os funcionários acessem o salário adquirido antes do pagamento",
+    "actions": {
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "settings": "Configurações",
+      "requestAdvance": "Solicitar adiantamento"
+    },
+    "stats": {
+      "pendingRequests": "Solicitações pendentes",
+      "totalDisbursed": "Total desembolsado",
+      "avgRequest": "Solicitação média",
+      "totalRequests": "Total de solicitações"
+    },
+    "filter": {
+      "showing": "Exibindo solicitações",
+      "requests": "",
+      "clear": "Limpar filtro"
+    },
+    "balance": {
+      "title": "Seu saldo disponível",
+      "details": "Adquirido até agora: {{earned}} | Já retirado: {{withdrawn}} | Dia {{day}}/{{days}}",
+      "maxPercentage": "Máximo de {{value}}% do salário adquirido"
+    },
+    "status": {
+      "pending": "Pendente",
+      "approved": "Aprovada",
+      "disbursed": "Desembolsada",
+      "rejected": "Rejeitada",
+      "repaid": "Reembolsada",
+      "enabled": "Ativado",
+      "disabled": "Desativado"
+    },
+    "columns": {
+      "employee": "Funcionário",
+      "amount": "Valor",
+      "fee": "Taxa",
+      "status": "Status",
+      "requested": "Solicitado",
+      "reason": "Motivo"
+    },
+    "emptyRequests": "Ainda não há solicitações de adiantamento",
+    "messages": {
+      "showingAll": "Todas as solicitações são exibidas abaixo",
+      "requestSubmitted": "Solicitação de adiantamento enviada",
+      "submitFailed": "Não foi possível enviar a solicitação",
+      "requestApproved": "Solicitação aprovada",
+      "approveFailed": "Não foi possível aprovar",
+      "rejectionReason": "Motivo da rejeição (opcional):",
+      "requestRejected": "Solicitação rejeitada",
+      "rejectFailed": "Não foi possível rejeitar",
+      "settingsSaved": "Configurações salvas",
+      "settingsSaveFailed": "Não foi possível salvar as configurações"
+    },
+    "requestModal": {
+      "title": "Solicitar adiantamento salarial",
+      "available": "Disponível: {{amount}}",
+      "salaryDetails": "Salário mensal: {{salary}} | Dia {{day}}/{{days}}",
+      "unavailable": "Nenhum adiantamento disponível ainda. Verifique a configuração salarial ou o período de espera.",
+      "amount": "Valor",
+      "amountPlaceholder": "Insira o valor",
+      "reason": "Motivo (opcional)",
+      "reasonPlaceholder": "Por que você precisa deste adiantamento?",
+      "cancel": "Cancelar",
+      "submit": "Enviar solicitação"
+    },
+    "settingsModal": {
+      "title": "Configurações de acesso ao salário adquirido",
+      "enable": "Ativar acesso ao salário adquirido",
+      "maxPercentage": "% máximo do salário adquirido",
+      "cooldownDays": "Dias de espera",
+      "minAmount": "Valor mínimo",
+      "maxAmount": "Valor máximo (0 = sem limite)",
+      "feePercentage": "Taxa %",
+      "flatFee": "Taxa fixa",
+      "autoApproveBelow": "Aprovar automaticamente abaixo de (0 = desativado)",
+      "requiresApproval": "Requer aprovação do gestor",
+      "cancel": "Cancelar",
+      "save": "Salvar configurações"
+    }
+  },
+  "insurancePage": {
+    "title": "Gestão de seguros",
+    "description": "Gerencie apólices de seguro coletivo, inscrições e sinistros",
+    "actions": {
+      "edit": "Editar",
+      "deactivate": "Desativar",
+      "cancel": "Cancelar",
+      "settle": "Liquidar",
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "submitClaim": "Enviar sinistro",
+      "enrollEmployee": "Inscrever funcionário",
+      "newPolicy": "Nova apólice"
+    },
+    "stats": {
+      "activePolicies": "Apólices ativas",
+      "activeEnrollments": "Inscrições ativas",
+      "pendingClaims": "Sinistros pendentes",
+      "totalApproved": "Total aprovado"
+    },
+    "tabs": {
+      "policies": "Apólices ({{count}})",
+      "enrollments": "Inscrições ({{count}})",
+      "claims": "Sinistros ({{count}})"
+    },
+    "empty": {
+      "policies": "Nenhuma apólice de seguro criada",
+      "enrollments": "Nenhuma inscrição",
+      "claims": "Nenhum sinistro enviado"
+    },
+    "columns": {
+      "policyName": "Nome da apólice",
+      "number": "Número",
+      "provider": "Seguradora",
+      "type": "Tipo",
+      "coverage": "Cobertura",
+      "premiumPerEmployee": "Prêmio/funcionário",
+      "status": "Status",
+      "employee": "Funcionário",
+      "policy": "Apólice",
+      "sumInsured": "Capital segurado",
+      "premiumShare": "Parte do prêmio",
+      "nominee": "Beneficiário",
+      "claimNumber": "Sinistro nº",
+      "claimed": "Reclamado",
+      "approved": "Aprovado",
+      "submitted": "Enviado"
+    },
+    "policyTypes": {
+      "group_health": "Saúde coletiva",
+      "group_life": "Vida coletiva",
+      "disability": "Invalidez",
+      "accidental": "Acidental",
+      "travel": "Viagem"
+    },
+    "claimTypes": {
+      "hospitalization": "Hospitalização",
+      "outpatient": "Ambulatorial",
+      "dental": "Odontológico",
+      "vision": "Visão",
+      "life": "Vida",
+      "disability": "Invalidez",
+      "accidental": "Acidental",
+      "travel": "Viagem",
+      "group_health": "Saúde coletiva",
+      "group_life": "Vida coletiva"
+    },
+    "status": {
+      "active": "Ativa",
+      "expired": "Expirada",
+      "cancelled": "Cancelada",
+      "submitted": "Enviada",
+      "under_review": "Em análise",
+      "approved": "Aprovada",
+      "rejected": "Rejeitada",
+      "settled": "Liquidada",
+      "inactive": "Inativa",
+      "claimed": "Reclamada"
+    },
+    "messages": {
+      "invalidEndDate": "A data final da apólice não pode ser anterior à data inicial",
+      "renewalInPast": "A data de renovação não pode estar no passado",
+      "invalidRenewalDate": "A data de renovação deve ser igual ou posterior à data final da apólice",
+      "invalidPolicyNumber": "O número da apólice não pode começar com um sinal de menos",
+      "policyUpdated": "Apólice de seguro atualizada",
+      "policyCreated": "Apólice de seguro criada",
+      "saveFailed": "Não foi possível salvar a apólice",
+      "deactivateConfirm": "Desativar esta apólice de seguro? As inscrições existentes não serão afetadas.",
+      "policyDeactivated": "Apólice de seguro desativada",
+      "deactivateFailed": "Não foi possível desativar a apólice",
+      "employeeEnrolled": "Funcionário inscrito no seguro",
+      "enrollFailed": "Não foi possível realizar a inscrição",
+      "claimSubmitted": "Sinistro enviado",
+      "claimSubmitFailed": "Não foi possível enviar o sinistro",
+      "approvedAmountPrompt": "Valor aprovado (deixe em branco para o valor total):",
+      "claimApproved": "Sinistro aprovado",
+      "actionFailed": "A ação falhou",
+      "rejectionReason": "Motivo da rejeição:",
+      "claimRejected": "Sinistro rejeitado",
+      "claimSettled": "Sinistro liquidado",
+      "enrollmentCancelled": "Inscrição cancelada"
+    },
+    "policyModal": {
+      "editTitle": "Editar apólice de seguro",
+      "createTitle": "Criar apólice de seguro",
+      "policyName": "Nome da apólice",
+      "policyNumber": "Número da apólice",
+      "policyNumberPlaceholder": "ex.: POL-2024-001",
+      "provider": "Seguradora",
+      "type": "Tipo",
+      "totalPremium": "Prêmio total",
+      "premiumPerEmployee": "Prêmio / funcionário",
+      "coverageAmount": "Valor da cobertura",
+      "startDate": "Data inicial",
+      "endDate": "Data final",
+      "renewalDate": "Data de renovação",
+      "terms": "Termos e condições",
+      "cancel": "Cancelar",
+      "updatePolicy": "Atualizar apólice",
+      "createPolicy": "Criar apólice"
+    },
+    "enrollModal": {
+      "title": "Inscrever funcionário no seguro",
+      "employee": "Funcionário",
+      "policy": "Apólice de seguro",
+      "sumInsured": "Capital segurado",
+      "premiumShare": "Parte do prêmio do funcionário",
+      "nomineeName": "Nome do beneficiário",
+      "nomineeRelationship": "Relação com o beneficiário",
+      "relationshipPlaceholder": "ex.: cônjuge, pai ou mãe",
+      "cancel": "Cancelar",
+      "submit": "Inscrever"
+    },
+    "claimModal": {
+      "title": "Enviar sinistro de seguro",
+      "policy": "Apólice de seguro",
+      "claimType": "Tipo de sinistro",
+      "amountClaimed": "Valor reclamado",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Descreva o sinistro",
+      "notes": "Notas",
+      "cancel": "Cancelar",
+      "submit": "Enviar sinistro"
+    }
+  },
+  "myTaxPage": {
+    "title": "Meus impostos",
+    "description": "Cálculo fiscal do ano {{financialYear}}",
+    "form16": "Formulário 16",
+    "stats": {
+      "annualIncome": "Rendimento anual",
+      "taxableIncome": "Rendimento tributável",
+      "estimatedTax": "Imposto estimado",
+      "tdsDeductedYtd": "TDS deduzido no ano"
+    },
+    "computationTitle": "Cálculo fiscal",
+    "regimes": {
+      "new": "Novo regime",
+      "old": "Regime antigo"
+    },
+    "rows": {
+      "grossAnnualIncome": "Rendimento bruto anual",
+      "standardDeduction": "Menos: dedução padrão",
+      "chapterDeductions": "Menos: deduções do capítulo VI-A",
+      "taxableIncome": "Rendimento tributável",
+      "taxOnIncome": "Imposto sobre o rendimento",
+      "cess": "Taxa de saúde e educação (4%)",
+      "totalLiability": "Responsabilidade fiscal total",
+      "monthlyTds": "TDS mensal"
+    },
+    "tracker": {
+      "title": "Acompanhamento das deduções TDS",
+      "totalTax": "Imposto total do ano fiscal",
+      "tdsDeductedYtd": "TDS deduzido no ano",
+      "remaining": "Restante",
+      "progress": "Progresso",
+      "monthlyMessage": "Será deduzido mensalmente do seu salário um TDS de <strong>{{amount}}</strong>."
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "Ano fiscal {{financialYear}} — Envie comprovativos e pedidos de investimento",
+    "actions": {
+      "quickDeclare": "Declarar tudo rapidamente",
+      "newDeclaration": "Nova declaração",
+      "cancel": "Cancelar",
+      "submitAll": "Enviar todas as declarações",
+      "submit": "Enviar declaração"
+    },
+    "stats": {
+      "totalDeclared": "Total declarado",
+      "totalApproved": "Total aprovado",
+      "pendingApproval": "Aguardando aprovação"
+    },
+    "declarations": "Declarações",
+    "empty": "Ainda não há declarações. Selecione Nova declaração para enviar o primeiro comprovativo de investimento.",
+    "proof": {
+      "submitted": "Comprovativo enviado",
+      "upload": "Carregar"
+    },
+    "quick": {
+      "title": "Declaração fiscal rápida",
+      "description": "Declare todos os investimentos de uma só vez",
+      "tip": "Dica: na Secção 80C pode deduzir até ₹1,50,000 por PPF, ELSS, LIC, etc. O NPS em 80CCD(1B) oferece uma dedução adicional de ₹50,000.",
+      "defaultDescription": "Declaração fiscal da Secção {{section}}"
+    },
+    "sections": {
+      "80C": "80C — PPF, ELSS, LIC, etc.",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — Seguro médico",
+      "80E": "80E — Juros de empréstimo educativo",
+      "80G": "80G — Donativos",
+      "80TTA": "80TTA — Juros de poupança",
+      "HRA": "HRA — Renda da habitação"
+    },
+    "validation": {
+      "sectionRequired": "Selecione uma secção",
+      "fieldRequired": "Preencha este campo",
+      "validAmount": "Introduza um valor válido",
+      "nonnegativeAmount": "O valor não pode ser negativo",
+      "fileTooLarge": "O ficheiro excede 5 MB",
+      "fileType": "Apenas são permitidos ficheiros PDF, JPG ou PNG",
+      "oneAmount": "Introduza pelo menos um valor"
+    },
+    "messages": {
+      "proofUploaded": "Comprovativo carregado",
+      "proofUploadFailed": "Não foi possível carregar o comprovativo",
+      "submitted": "Declaração enviada",
+      "submitFailed": "Não foi possível enviar a declaração",
+      "submittedCount_one": "{{count}} declaração enviada",
+      "submittedCount_other": "{{count}} declarações enviadas",
+      "submitAllFailed": "Não foi possível enviar as declarações"
+    },
+    "form": {
+      "descriptionPlaceholder": "ex.: contribuição PPF",
+      "amount": "Valor",
+      "proofDocument": "Documento comprovativo",
+      "optional": "opcional",
+      "uploadProof": "Carregar documento comprovativo",
+      "fileSelected": "{{size}} KB — selecione para alterar",
+      "dropzone": "Selecione para carregar ou arraste e largue",
+      "fileHelp": "PDF, JPG ou PNG até 5 MB"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "Meus reembolsos",
+    "description": "Envie e acompanhe pedidos de despesas",
+    "newClaim": "Novo pedido",
+    "stats": {
+      "total": "Total de pedidos",
+      "pending": "Pendentes",
+      "approvedPaid": "Aprovados / pagos"
+    },
+    "empty": {
+      "title": "Nenhum pedido de reembolso",
+      "description": "Selecione Novo pedido para enviar uma despesa"
+    },
+    "columns": {
+      "category": "Categoria",
+      "description": "Descrição",
+      "amount": "Valor",
+      "date": "Data",
+      "status": "Estado"
+    },
+    "categories": {
+      "medical": "Médico",
+      "travel": "Viagem",
+      "food": "Alimentação",
+      "equipment": "Equipamento",
+      "internet": "Internet / telefone",
+      "books": "Livros e formação",
+      "other": "Outro"
+    },
+    "status": {
+      "pending": "Pendente",
+      "approved": "Aprovado",
+      "paid": "Pago",
+      "rejected": "Rejeitado"
+    },
+    "messages": {
+      "invalidAmount": "O valor deve ser zero ou positivo",
+      "submitted": "Pedido enviado para aprovação",
+      "failed": "Não foi possível enviar o pedido"
+    },
+    "modal": {
+      "title": "Enviar pedido de despesa",
+      "category": "Categoria",
+      "description": "Descrição",
+      "descriptionPlaceholder": "ex.: táxi para reunião com cliente",
+      "amount": "Valor (₹)",
+      "expenseDate": "Data da despesa",
+      "cancel": "Cancelar",
+      "submit": "Enviar pedido"
+    }
+  },
+  "holidaysPage": {
+    "title": "Calendário de feriados",
+    "configured_one": "{{year}} — {{count}} feriado configurado",
+    "configured_other": "{{year}} — {{count}} feriados configurados",
+    "noHolidays": "Sem feriados",
+    "upcoming": "Próximos feriados",
+    "past": "Feriados anteriores",
+    "actions": {
+      "add": "Adicionar feriado",
+      "remove": "Remover feriado",
+      "cancel": "Cancelar"
+    },
+    "columns": {
+      "holiday": "Feriado",
+      "date": "Data",
+      "day": "Dia",
+      "type": "Tipo"
+    },
+    "types": {
+      "national": "Nacional",
+      "regional": "Regional",
+      "optional": "Opcional / restrito"
+    },
+    "messages": {
+      "nameRequired": "O nome do feriado é obrigatório",
+      "nameLetter": "O nome do feriado deve conter pelo menos uma letra",
+      "added": "Feriado adicionado",
+      "addFailed": "Não foi possível adicionar o feriado",
+      "removed": "Feriado removido",
+      "removeFailed": "Não foi possível remover o feriado"
+    },
+    "modal": {
+      "title": "Adicionar feriado",
+      "name": "Nome do feriado",
+      "namePlaceholder": "ex.: Diwali",
+      "nameTitle": "Deve conter pelo menos uma letra",
+      "date": "Data",
+      "type": "Tipo"
+    }
+  },
   "payrollRuns": {
     "title": "Processamentos da folha",
     "description": "Processamento mensal da folha",

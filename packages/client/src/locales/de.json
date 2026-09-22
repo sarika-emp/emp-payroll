@@ -924,6 +924,422 @@
       "continueMonitoring": "Entgeltgleichheit weiterhin vierteljährlich überwachen"
     }
   },
+  "earnedWagePage": {
+    "title": "Zugriff auf verdienten Lohn",
+    "description": "Lohn auf Abruf — Mitarbeiter können vor dem Zahltag auf verdienten Lohn zugreifen",
+    "actions": {
+      "approve": "Genehmigen",
+      "reject": "Ablehnen",
+      "settings": "Einstellungen",
+      "requestAdvance": "Vorschuss beantragen"
+    },
+    "stats": {
+      "pendingRequests": "Ausstehende Anträge",
+      "totalDisbursed": "Gesamtauszahlung",
+      "avgRequest": "Ø Antrag",
+      "totalRequests": "Anträge insgesamt"
+    },
+    "filter": {
+      "showing": "Angezeigt werden",
+      "requests": "Anträge",
+      "clear": "Filter löschen"
+    },
+    "balance": {
+      "title": "Ihr verfügbarer Betrag",
+      "details": "Bisher verdient: {{earned}} | Bereits abgehoben: {{withdrawn}} | Tag {{day}}/{{days}}",
+      "maxPercentage": "Max. {{value}} % des verdienten Lohns"
+    },
+    "status": {
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "disbursed": "Ausgezahlt",
+      "rejected": "Abgelehnt",
+      "repaid": "Zurückgezahlt",
+      "enabled": "Aktiviert",
+      "disabled": "Deaktiviert"
+    },
+    "columns": {
+      "employee": "Mitarbeiter",
+      "amount": "Betrag",
+      "fee": "Gebühr",
+      "status": "Status",
+      "requested": "Beantragt",
+      "reason": "Grund"
+    },
+    "emptyRequests": "Noch keine Vorschussanträge",
+    "messages": {
+      "showingAll": "Alle Anträge werden unten angezeigt",
+      "requestSubmitted": "Vorschussantrag eingereicht",
+      "submitFailed": "Antrag konnte nicht eingereicht werden",
+      "requestApproved": "Antrag genehmigt",
+      "approveFailed": "Genehmigung fehlgeschlagen",
+      "rejectionReason": "Ablehnungsgrund (optional):",
+      "requestRejected": "Antrag abgelehnt",
+      "rejectFailed": "Ablehnung fehlgeschlagen",
+      "settingsSaved": "Einstellungen gespeichert",
+      "settingsSaveFailed": "Einstellungen konnten nicht gespeichert werden"
+    },
+    "requestModal": {
+      "title": "Gehaltsvorschuss beantragen",
+      "available": "Verfügbar: {{amount}}",
+      "salaryDetails": "Monatsgehalt: {{salary}} | Tag {{day}}/{{days}}",
+      "unavailable": "Derzeit ist kein Vorschuss verfügbar. Prüfen Sie die Gehaltskonfiguration oder die Wartezeit.",
+      "amount": "Betrag",
+      "amountPlaceholder": "Betrag eingeben",
+      "reason": "Grund (optional)",
+      "reasonPlaceholder": "Warum benötigen Sie diesen Vorschuss?",
+      "cancel": "Abbrechen",
+      "submit": "Antrag senden"
+    },
+    "settingsModal": {
+      "title": "Einstellungen für Lohnzugriff",
+      "enable": "Zugriff auf verdienten Lohn aktivieren",
+      "maxPercentage": "Max. % des verdienten Lohns",
+      "cooldownDays": "Wartezeit in Tagen",
+      "minAmount": "Mindestbetrag",
+      "maxAmount": "Höchstbetrag (0 = kein Limit)",
+      "feePercentage": "Gebühr %",
+      "flatFee": "Pauschalgebühr",
+      "autoApproveBelow": "Automatisch genehmigen unter (0 = deaktiviert)",
+      "requiresApproval": "Genehmigung durch Führungskraft erforderlich",
+      "cancel": "Abbrechen",
+      "save": "Einstellungen speichern"
+    }
+  },
+  "insurancePage": {
+    "title": "Versicherungsverwaltung",
+    "description": "Gruppenversicherungen, Anmeldungen und Ansprüche verwalten",
+    "actions": {
+      "edit": "Bearbeiten",
+      "deactivate": "Deaktivieren",
+      "cancel": "Stornieren",
+      "settle": "Abrechnen",
+      "approve": "Genehmigen",
+      "reject": "Ablehnen",
+      "submitClaim": "Anspruch einreichen",
+      "enrollEmployee": "Mitarbeiter anmelden",
+      "newPolicy": "Neue Police"
+    },
+    "stats": {
+      "activePolicies": "Aktive Policen",
+      "activeEnrollments": "Aktive Anmeldungen",
+      "pendingClaims": "Ausstehende Ansprüche",
+      "totalApproved": "Genehmigter Gesamtbetrag"
+    },
+    "tabs": {
+      "policies": "Policen ({{count}})",
+      "enrollments": "Anmeldungen ({{count}})",
+      "claims": "Ansprüche ({{count}})"
+    },
+    "empty": {
+      "policies": "Noch keine Versicherungspolicen erstellt",
+      "enrollments": "Noch keine Anmeldungen",
+      "claims": "Noch keine Ansprüche eingereicht"
+    },
+    "columns": {
+      "policyName": "Policenname",
+      "number": "Nummer",
+      "provider": "Anbieter",
+      "type": "Typ",
+      "coverage": "Deckung",
+      "premiumPerEmployee": "Prämie/Mitarbeiter",
+      "status": "Status",
+      "employee": "Mitarbeiter",
+      "policy": "Police",
+      "sumInsured": "Versicherungssumme",
+      "premiumShare": "Prämienanteil",
+      "nominee": "Begünstigter",
+      "claimNumber": "Anspruch Nr.",
+      "claimed": "Beantragt",
+      "approved": "Genehmigt",
+      "submitted": "Eingereicht"
+    },
+    "policyTypes": {
+      "group_health": "Gruppenkrankenversicherung",
+      "group_life": "Gruppenlebensversicherung",
+      "disability": "Invalidität",
+      "accidental": "Unfall",
+      "travel": "Reise"
+    },
+    "claimTypes": {
+      "hospitalization": "Krankenhausaufenthalt",
+      "outpatient": "Ambulant",
+      "dental": "Zahn",
+      "vision": "Sehhilfe",
+      "life": "Leben",
+      "disability": "Invalidität",
+      "accidental": "Unfall",
+      "travel": "Reise",
+      "group_health": "Gruppenkrankenversicherung",
+      "group_life": "Gruppenlebensversicherung"
+    },
+    "status": {
+      "active": "Aktiv",
+      "expired": "Abgelaufen",
+      "cancelled": "Storniert",
+      "submitted": "Eingereicht",
+      "under_review": "In Prüfung",
+      "approved": "Genehmigt",
+      "rejected": "Abgelehnt",
+      "settled": "Abgerechnet",
+      "inactive": "Inaktiv",
+      "claimed": "Beansprucht"
+    },
+    "messages": {
+      "invalidEndDate": "Das Enddatum der Police darf nicht vor dem Startdatum liegen",
+      "renewalInPast": "Das Verlängerungsdatum darf nicht in der Vergangenheit liegen",
+      "invalidRenewalDate": "Das Verlängerungsdatum muss am oder nach dem Enddatum der Police liegen",
+      "invalidPolicyNumber": "Die Policennummer darf nicht mit einem Minuszeichen beginnen",
+      "policyUpdated": "Versicherungspolice aktualisiert",
+      "policyCreated": "Versicherungspolice erstellt",
+      "saveFailed": "Police konnte nicht gespeichert werden",
+      "deactivateConfirm": "Diese Versicherungspolice deaktivieren? Bestehende Anmeldungen bleiben unverändert.",
+      "policyDeactivated": "Versicherungspolice deaktiviert",
+      "deactivateFailed": "Police konnte nicht deaktiviert werden",
+      "employeeEnrolled": "Mitarbeiter zur Versicherung angemeldet",
+      "enrollFailed": "Anmeldung fehlgeschlagen",
+      "claimSubmitted": "Anspruch eingereicht",
+      "claimSubmitFailed": "Anspruch konnte nicht eingereicht werden",
+      "approvedAmountPrompt": "Genehmigter Betrag (leer lassen für den vollen Betrag):",
+      "claimApproved": "Anspruch genehmigt",
+      "actionFailed": "Aktion fehlgeschlagen",
+      "rejectionReason": "Ablehnungsgrund:",
+      "claimRejected": "Anspruch abgelehnt",
+      "claimSettled": "Anspruch abgerechnet",
+      "enrollmentCancelled": "Anmeldung storniert"
+    },
+    "policyModal": {
+      "editTitle": "Versicherungspolice bearbeiten",
+      "createTitle": "Versicherungspolice erstellen",
+      "policyName": "Policenname",
+      "policyNumber": "Policennummer",
+      "policyNumberPlaceholder": "z. B. POL-2024-001",
+      "provider": "Anbieter",
+      "type": "Typ",
+      "totalPremium": "Gesamtprämie",
+      "premiumPerEmployee": "Prämie / Mitarbeiter",
+      "coverageAmount": "Deckungsbetrag",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum",
+      "renewalDate": "Verlängerungsdatum",
+      "terms": "Bedingungen",
+      "cancel": "Abbrechen",
+      "updatePolicy": "Police aktualisieren",
+      "createPolicy": "Police erstellen"
+    },
+    "enrollModal": {
+      "title": "Mitarbeiter zur Versicherung anmelden",
+      "employee": "Mitarbeiter",
+      "policy": "Versicherungspolice",
+      "sumInsured": "Versicherungssumme",
+      "premiumShare": "Prämienanteil des Mitarbeiters",
+      "nomineeName": "Name des Begünstigten",
+      "nomineeRelationship": "Beziehung zum Begünstigten",
+      "relationshipPlaceholder": "z. B. Ehepartner, Elternteil",
+      "cancel": "Abbrechen",
+      "submit": "Anmelden"
+    },
+    "claimModal": {
+      "title": "Versicherungsanspruch einreichen",
+      "policy": "Versicherungspolice",
+      "claimType": "Anspruchsart",
+      "amountClaimed": "Beanspruchter Betrag",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "Anspruch beschreiben",
+      "notes": "Notizen",
+      "cancel": "Abbrechen",
+      "submit": "Anspruch einreichen"
+    }
+  },
+  "myTaxPage": {
+    "title": "Meine Steuern",
+    "description": "Steuerberechnung für das Geschäftsjahr {{financialYear}}",
+    "form16": "Formular 16",
+    "stats": {
+      "annualIncome": "Jahreseinkommen",
+      "taxableIncome": "Steuerpflichtiges Einkommen",
+      "estimatedTax": "Geschätzte Steuer",
+      "tdsDeductedYtd": "Bisher abgezogene TDS"
+    },
+    "computationTitle": "Steuerberechnung",
+    "regimes": {
+      "new": "Neue Regelung",
+      "old": "Alte Regelung"
+    },
+    "rows": {
+      "grossAnnualIncome": "Bruttojahreseinkommen",
+      "standardDeduction": "Abzüglich: Standardabzug",
+      "chapterDeductions": "Abzüglich: Abzüge nach Kapitel VI-A",
+      "taxableIncome": "Steuerpflichtiges Einkommen",
+      "taxOnIncome": "Einkommensteuer",
+      "cess": "Gesundheits- und Bildungsabgabe (4 %)",
+      "totalLiability": "Gesamte Steuerschuld",
+      "monthlyTds": "Monatliche TDS"
+    },
+    "tracker": {
+      "title": "TDS-Abzugsübersicht",
+      "totalTax": "Gesamtsteuer des Geschäftsjahres",
+      "tdsDeductedYtd": "Bisher abgezogene TDS",
+      "remaining": "Verbleibend",
+      "progress": "Fortschritt",
+      "monthlyMessage": "Monatlich werden <strong>{{amount}}</strong> TDS von Ihrem Gehalt abgezogen."
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "Geschäftsjahr {{financialYear}} — Investitionsnachweise und Anträge einreichen",
+    "actions": {
+      "quickDeclare": "Alles schnell erklären",
+      "newDeclaration": "Neue Erklärung",
+      "cancel": "Abbrechen",
+      "submitAll": "Alle Erklärungen einreichen",
+      "submit": "Erklärung einreichen"
+    },
+    "stats": {
+      "totalDeclared": "Insgesamt erklärt",
+      "totalApproved": "Insgesamt genehmigt",
+      "pendingApproval": "Genehmigung ausstehend"
+    },
+    "declarations": "Erklärungen",
+    "empty": "Noch keine Erklärungen. Wählen Sie Neue Erklärung, um Ihren ersten Investitionsnachweis einzureichen.",
+    "proof": {
+      "submitted": "Nachweis eingereicht",
+      "upload": "Hochladen"
+    },
+    "quick": {
+      "title": "Schnelle Steuererklärung",
+      "description": "Alle Investitionen auf einmal erklären",
+      "tip": "Tipp: Nach Abschnitt 80C können Sie bis zu ₹1,50,000 für PPF, ELSS, LIC usw. geltend machen. NPS nach 80CCD(1B) ermöglicht einen zusätzlichen Abzug von ₹50,000.",
+      "defaultDescription": "Steuererklärung nach Abschnitt {{section}}"
+    },
+    "sections": {
+      "80C": "80C — PPF, ELSS, LIC usw.",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — Krankenversicherung",
+      "80E": "80E — Zinsen für Bildungsdarlehen",
+      "80G": "80G — Spenden",
+      "80TTA": "80TTA — Sparzinsen",
+      "HRA": "HRA — Wohnungsmiete"
+    },
+    "validation": {
+      "sectionRequired": "Bitte wählen Sie einen Abschnitt",
+      "fieldRequired": "Bitte füllen Sie dieses Feld aus",
+      "validAmount": "Bitte geben Sie einen gültigen Betrag ein",
+      "nonnegativeAmount": "Der Betrag darf nicht negativ sein",
+      "fileTooLarge": "Die Datei ist größer als 5 MB",
+      "fileType": "Nur PDF-, JPG- oder PNG-Dateien sind zulässig",
+      "oneAmount": "Geben Sie mindestens einen Betrag ein"
+    },
+    "messages": {
+      "proofUploaded": "Nachweis hochgeladen",
+      "proofUploadFailed": "Nachweis konnte nicht hochgeladen werden",
+      "submitted": "Erklärung eingereicht",
+      "submitFailed": "Erklärung konnte nicht eingereicht werden",
+      "submittedCount_one": "{{count}} Erklärung eingereicht",
+      "submittedCount_other": "{{count}} Erklärungen eingereicht",
+      "submitAllFailed": "Erklärungen konnten nicht eingereicht werden"
+    },
+    "form": {
+      "descriptionPlaceholder": "z. B. PPF-Beitrag",
+      "amount": "Betrag",
+      "proofDocument": "Nachweisdokument",
+      "optional": "optional",
+      "uploadProof": "Nachweisdokument hochladen",
+      "fileSelected": "{{size}} KB — zum Ändern auswählen",
+      "dropzone": "Zum Hochladen auswählen oder hierher ziehen",
+      "fileHelp": "PDF, JPG oder PNG bis 5 MB"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "Meine Erstattungen",
+    "description": "Ausgaben einreichen und verfolgen",
+    "newClaim": "Neuer Antrag",
+    "stats": {
+      "total": "Anträge insgesamt",
+      "pending": "Ausstehend",
+      "approvedPaid": "Genehmigt / bezahlt"
+    },
+    "empty": {
+      "title": "Keine Erstattungsanträge",
+      "description": "Wählen Sie Neuer Antrag, um eine Ausgabe einzureichen"
+    },
+    "columns": {
+      "category": "Kategorie",
+      "description": "Beschreibung",
+      "amount": "Betrag",
+      "date": "Datum",
+      "status": "Status"
+    },
+    "categories": {
+      "medical": "Medizinisch",
+      "travel": "Reise",
+      "food": "Essen und Verpflegung",
+      "equipment": "Ausstattung",
+      "internet": "Internet / Telefon",
+      "books": "Bücher und Weiterbildung",
+      "other": "Sonstiges"
+    },
+    "status": {
+      "pending": "Ausstehend",
+      "approved": "Genehmigt",
+      "paid": "Bezahlt",
+      "rejected": "Abgelehnt"
+    },
+    "messages": {
+      "invalidAmount": "Der Betrag muss null oder positiv sein",
+      "submitted": "Antrag zur Genehmigung eingereicht",
+      "failed": "Antrag konnte nicht eingereicht werden"
+    },
+    "modal": {
+      "title": "Ausgabenantrag einreichen",
+      "category": "Kategorie",
+      "description": "Beschreibung",
+      "descriptionPlaceholder": "z. B. Taxi zum Kundentermin",
+      "amount": "Betrag (₹)",
+      "expenseDate": "Ausgabedatum",
+      "cancel": "Abbrechen",
+      "submit": "Antrag einreichen"
+    }
+  },
+  "holidaysPage": {
+    "title": "Feiertagskalender",
+    "configured_one": "{{year}} — {{count}} Feiertag konfiguriert",
+    "configured_other": "{{year}} — {{count}} Feiertage konfiguriert",
+    "noHolidays": "Keine Feiertage",
+    "upcoming": "Bevorstehende Feiertage",
+    "past": "Vergangene Feiertage",
+    "actions": {
+      "add": "Feiertag hinzufügen",
+      "remove": "Feiertag entfernen",
+      "cancel": "Abbrechen"
+    },
+    "columns": {
+      "holiday": "Feiertag",
+      "date": "Datum",
+      "day": "Tag",
+      "type": "Typ"
+    },
+    "types": {
+      "national": "National",
+      "regional": "Regional",
+      "optional": "Optional / eingeschränkt"
+    },
+    "messages": {
+      "nameRequired": "Der Name des Feiertags ist erforderlich",
+      "nameLetter": "Der Name des Feiertags muss mindestens einen Buchstaben enthalten",
+      "added": "Feiertag hinzugefügt",
+      "addFailed": "Feiertag konnte nicht hinzugefügt werden",
+      "removed": "Feiertag entfernt",
+      "removeFailed": "Feiertag konnte nicht entfernt werden"
+    },
+    "modal": {
+      "title": "Feiertag hinzufügen",
+      "name": "Name des Feiertags",
+      "namePlaceholder": "z. B. Diwali",
+      "nameTitle": "Muss mindestens einen Buchstaben enthalten",
+      "date": "Datum",
+      "type": "Typ"
+    }
+  },
   "payrollRuns": {
     "title": "Abrechnungsläufe",
     "description": "Monatliche Entgeltabrechnung",

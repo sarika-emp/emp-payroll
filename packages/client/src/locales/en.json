@@ -943,6 +943,422 @@
       "continueMonitoring": "Continue monitoring pay equity on a quarterly basis"
     }
   },
+  "earnedWagePage": {
+    "title": "Earned Wage Access",
+    "description": "On-demand pay — allow employees to access earned wages before payday",
+    "actions": {
+      "approve": "Approve",
+      "reject": "Reject",
+      "settings": "Settings",
+      "requestAdvance": "Request Advance"
+    },
+    "stats": {
+      "pendingRequests": "Pending Requests",
+      "totalDisbursed": "Total Disbursed",
+      "avgRequest": "Avg Request",
+      "totalRequests": "Total Requests"
+    },
+    "filter": {
+      "showing": "Showing",
+      "requests": "requests",
+      "clear": "Clear filter"
+    },
+    "balance": {
+      "title": "Your Available Balance",
+      "details": "Earned so far: {{earned}} | Already withdrawn: {{withdrawn}} | Day {{day}}/{{days}}",
+      "maxPercentage": "Max {{value}}% of earned salary"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "disbursed": "Disbursed",
+      "rejected": "Rejected",
+      "repaid": "Repaid",
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "columns": {
+      "employee": "Employee",
+      "amount": "Amount",
+      "fee": "Fee",
+      "status": "Status",
+      "requested": "Requested",
+      "reason": "Reason"
+    },
+    "emptyRequests": "No advance requests yet",
+    "messages": {
+      "showingAll": "Showing all requests below",
+      "requestSubmitted": "Advance request submitted",
+      "submitFailed": "Failed to submit request",
+      "requestApproved": "Request approved",
+      "approveFailed": "Failed to approve",
+      "rejectionReason": "Rejection reason (optional):",
+      "requestRejected": "Request rejected",
+      "rejectFailed": "Failed to reject",
+      "settingsSaved": "Settings saved",
+      "settingsSaveFailed": "Failed to save settings"
+    },
+    "requestModal": {
+      "title": "Request Salary Advance",
+      "available": "Available: {{amount}}",
+      "salaryDetails": "Monthly salary: {{salary}} | Day {{day}}/{{days}}",
+      "unavailable": "No advance available yet. Check your salary configuration or cooldown period.",
+      "amount": "Amount",
+      "amountPlaceholder": "Enter amount",
+      "reason": "Reason (optional)",
+      "reasonPlaceholder": "Why do you need this advance?",
+      "cancel": "Cancel",
+      "submit": "Submit Request"
+    },
+    "settingsModal": {
+      "title": "Earned Wage Access Settings",
+      "enable": "Enable Earned Wage Access",
+      "maxPercentage": "Max % of Earned Salary",
+      "cooldownDays": "Cooldown Days",
+      "minAmount": "Min Amount",
+      "maxAmount": "Max Amount (0 = no limit)",
+      "feePercentage": "Fee %",
+      "flatFee": "Flat Fee",
+      "autoApproveBelow": "Auto-approve Below (0 = disabled)",
+      "requiresApproval": "Requires Manager Approval",
+      "cancel": "Cancel",
+      "save": "Save Settings"
+    }
+  },
+  "insurancePage": {
+    "title": "Insurance Management",
+    "description": "Manage group insurance policies, enrollments, and claims",
+    "actions": {
+      "edit": "Edit",
+      "deactivate": "Deactivate",
+      "cancel": "Cancel",
+      "settle": "Settle",
+      "approve": "Approve",
+      "reject": "Reject",
+      "submitClaim": "Submit Claim",
+      "enrollEmployee": "Enroll Employee",
+      "newPolicy": "New Policy"
+    },
+    "stats": {
+      "activePolicies": "Active Policies",
+      "activeEnrollments": "Active Enrollments",
+      "pendingClaims": "Pending Claims",
+      "totalApproved": "Total Approved"
+    },
+    "tabs": {
+      "policies": "Policies ({{count}})",
+      "enrollments": "Enrollments ({{count}})",
+      "claims": "Claims ({{count}})"
+    },
+    "empty": {
+      "policies": "No insurance policies created yet",
+      "enrollments": "No enrollments yet",
+      "claims": "No claims submitted yet"
+    },
+    "columns": {
+      "policyName": "Policy Name",
+      "number": "Number",
+      "provider": "Provider",
+      "type": "Type",
+      "coverage": "Coverage",
+      "premiumPerEmployee": "Premium/Employee",
+      "status": "Status",
+      "employee": "Employee",
+      "policy": "Policy",
+      "sumInsured": "Sum Insured",
+      "premiumShare": "Premium Share",
+      "nominee": "Nominee",
+      "claimNumber": "Claim #",
+      "claimed": "Claimed",
+      "approved": "Approved",
+      "submitted": "Submitted"
+    },
+    "policyTypes": {
+      "group_health": "Group Health",
+      "group_life": "Group Life",
+      "disability": "Disability",
+      "accidental": "Accidental",
+      "travel": "Travel"
+    },
+    "claimTypes": {
+      "hospitalization": "Hospitalization",
+      "outpatient": "Outpatient",
+      "dental": "Dental",
+      "vision": "Vision",
+      "life": "Life",
+      "disability": "Disability",
+      "accidental": "Accidental",
+      "travel": "Travel",
+      "group_health": "Group Health",
+      "group_life": "Group Life"
+    },
+    "status": {
+      "active": "Active",
+      "expired": "Expired",
+      "cancelled": "Cancelled",
+      "submitted": "Submitted",
+      "under_review": "Under Review",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "settled": "Settled",
+      "inactive": "Inactive",
+      "claimed": "Claimed"
+    },
+    "messages": {
+      "invalidEndDate": "Policy end date cannot be before start date",
+      "renewalInPast": "Renewal date cannot be in the past",
+      "invalidRenewalDate": "Renewal date must be on or after the policy end date",
+      "invalidPolicyNumber": "Policy number cannot start with a minus sign",
+      "policyUpdated": "Insurance policy updated",
+      "policyCreated": "Insurance policy created",
+      "saveFailed": "Failed to save policy",
+      "deactivateConfirm": "Deactivate this insurance policy? Existing enrollments are unaffected.",
+      "policyDeactivated": "Insurance policy deactivated",
+      "deactivateFailed": "Failed to deactivate policy",
+      "employeeEnrolled": "Employee enrolled in insurance",
+      "enrollFailed": "Failed to enroll",
+      "claimSubmitted": "Claim submitted",
+      "claimSubmitFailed": "Failed to submit claim",
+      "approvedAmountPrompt": "Approved amount (leave blank for full amount):",
+      "claimApproved": "Claim approved",
+      "actionFailed": "Action failed",
+      "rejectionReason": "Rejection reason:",
+      "claimRejected": "Claim rejected",
+      "claimSettled": "Claim settled",
+      "enrollmentCancelled": "Enrollment cancelled"
+    },
+    "policyModal": {
+      "editTitle": "Edit Insurance Policy",
+      "createTitle": "Create Insurance Policy",
+      "policyName": "Policy Name",
+      "policyNumber": "Policy Number",
+      "policyNumberPlaceholder": "e.g. POL-2024-001",
+      "provider": "Provider",
+      "type": "Type",
+      "totalPremium": "Total Premium",
+      "premiumPerEmployee": "Premium / Employee",
+      "coverageAmount": "Coverage Amount",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "renewalDate": "Renewal Date",
+      "terms": "Terms & Conditions",
+      "cancel": "Cancel",
+      "updatePolicy": "Update Policy",
+      "createPolicy": "Create Policy"
+    },
+    "enrollModal": {
+      "title": "Enroll Employee in Insurance",
+      "employee": "Employee",
+      "policy": "Insurance Policy",
+      "sumInsured": "Sum Insured",
+      "premiumShare": "Employee Premium Share",
+      "nomineeName": "Nominee Name",
+      "nomineeRelationship": "Nominee Relationship",
+      "relationshipPlaceholder": "e.g. Spouse, Parent",
+      "cancel": "Cancel",
+      "submit": "Enroll"
+    },
+    "claimModal": {
+      "title": "Submit Insurance Claim",
+      "policy": "Insurance Policy",
+      "claimType": "Claim Type",
+      "amountClaimed": "Amount Claimed",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe the claim",
+      "notes": "Notes",
+      "cancel": "Cancel",
+      "submit": "Submit Claim"
+    }
+  },
+  "myTaxPage": {
+    "title": "My Tax",
+    "description": "FY {{financialYear}} tax computation",
+    "form16": "Form 16",
+    "stats": {
+      "annualIncome": "Annual Income",
+      "taxableIncome": "Taxable Income",
+      "estimatedTax": "Estimated Tax",
+      "tdsDeductedYtd": "TDS Deducted YTD"
+    },
+    "computationTitle": "Tax Computation",
+    "regimes": {
+      "new": "New Regime",
+      "old": "Old Regime"
+    },
+    "rows": {
+      "grossAnnualIncome": "Gross Annual Income",
+      "standardDeduction": "Less: Standard Deduction",
+      "chapterDeductions": "Less: Chapter VI-A Deductions",
+      "taxableIncome": "Taxable Income",
+      "taxOnIncome": "Tax on Income",
+      "cess": "Health & Education Cess (4%)",
+      "totalLiability": "Total Tax Liability",
+      "monthlyTds": "Monthly TDS"
+    },
+    "tracker": {
+      "title": "TDS Deduction Tracker",
+      "totalTax": "Total Tax for FY",
+      "tdsDeductedYtd": "TDS Deducted YTD",
+      "remaining": "Remaining",
+      "progress": "Progress",
+      "monthlyMessage": "Monthly TDS of <strong>{{amount}}</strong> will be deducted from your salary each month."
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "FY {{financialYear}} — Submit investment proofs and claims",
+    "actions": {
+      "quickDeclare": "Quick Declare All",
+      "newDeclaration": "New Declaration",
+      "cancel": "Cancel",
+      "submitAll": "Submit All Declarations",
+      "submit": "Submit Declaration"
+    },
+    "stats": {
+      "totalDeclared": "Total Declared",
+      "totalApproved": "Total Approved",
+      "pendingApproval": "Pending Approval"
+    },
+    "declarations": "Declarations",
+    "empty": "No declarations yet. Select New Declaration to submit your first investment proof.",
+    "proof": {
+      "submitted": "Proof submitted",
+      "upload": "Upload"
+    },
+    "quick": {
+      "title": "Quick Tax Declaration",
+      "description": "Declare all your investments in one go",
+      "tip": "Tip: Under Section 80C you can claim up to ₹1,50,000 for PPF, ELSS, LIC, etc. NPS under 80CCD(1B) gives an additional ₹50,000 deduction.",
+      "defaultDescription": "Tax declaration under Section {{section}}"
+    },
+    "sections": {
+      "80C": "80C — PPF, ELSS, LIC, etc.",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — Medical Insurance",
+      "80E": "80E — Education Loan Interest",
+      "80G": "80G — Donations",
+      "80TTA": "80TTA — Savings Interest",
+      "HRA": "HRA — House Rent"
+    },
+    "validation": {
+      "sectionRequired": "Please select a section",
+      "fieldRequired": "Please fill this field",
+      "validAmount": "Please enter a valid amount",
+      "nonnegativeAmount": "Amount cannot be negative",
+      "fileTooLarge": "File is larger than 5MB",
+      "fileType": "Only PDF, JPG or PNG files are allowed",
+      "oneAmount": "Enter at least one amount"
+    },
+    "messages": {
+      "proofUploaded": "Proof uploaded",
+      "proofUploadFailed": "Failed to upload proof",
+      "submitted": "Declaration submitted",
+      "submitFailed": "Failed to submit declaration",
+      "submittedCount_one": "{{count}} declaration submitted",
+      "submittedCount_other": "{{count}} declarations submitted",
+      "submitAllFailed": "Failed to submit declarations"
+    },
+    "form": {
+      "descriptionPlaceholder": "e.g. PPF Contribution",
+      "amount": "Amount",
+      "proofDocument": "Proof Document",
+      "optional": "optional",
+      "uploadProof": "Upload proof document",
+      "fileSelected": "{{size}} KB — select to change",
+      "dropzone": "Select to upload or drag and drop",
+      "fileHelp": "PDF, JPG or PNG up to 5MB"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "My Reimbursements",
+    "description": "Submit and track expense claims",
+    "newClaim": "New Claim",
+    "stats": {
+      "total": "Total Claims",
+      "pending": "Pending",
+      "approvedPaid": "Approved / Paid"
+    },
+    "empty": {
+      "title": "No reimbursement claims",
+      "description": "Select New Claim to submit an expense"
+    },
+    "columns": {
+      "category": "Category",
+      "description": "Description",
+      "amount": "Amount",
+      "date": "Date",
+      "status": "Status"
+    },
+    "categories": {
+      "medical": "Medical",
+      "travel": "Travel",
+      "food": "Food & Meals",
+      "equipment": "Equipment",
+      "internet": "Internet / Phone",
+      "books": "Books & Learning",
+      "other": "Other"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "paid": "Paid",
+      "rejected": "Rejected"
+    },
+    "messages": {
+      "invalidAmount": "Amount must be zero or a positive number",
+      "submitted": "Claim submitted for approval",
+      "failed": "Failed to submit claim"
+    },
+    "modal": {
+      "title": "Submit Expense Claim",
+      "category": "Category",
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Client meeting taxi",
+      "amount": "Amount (₹)",
+      "expenseDate": "Expense Date",
+      "cancel": "Cancel",
+      "submit": "Submit Claim"
+    }
+  },
+  "holidaysPage": {
+    "title": "Holiday Calendar",
+    "configured_one": "{{year}} — {{count}} holiday configured",
+    "configured_other": "{{year}} — {{count}} holidays configured",
+    "noHolidays": "No holidays",
+    "upcoming": "Upcoming Holidays",
+    "past": "Past Holidays",
+    "actions": {
+      "add": "Add Holiday",
+      "remove": "Remove holiday",
+      "cancel": "Cancel"
+    },
+    "columns": {
+      "holiday": "Holiday",
+      "date": "Date",
+      "day": "Day",
+      "type": "Type"
+    },
+    "types": {
+      "national": "National",
+      "regional": "Regional",
+      "optional": "Optional / Restricted"
+    },
+    "messages": {
+      "nameRequired": "Holiday name is required",
+      "nameLetter": "Holiday name must contain at least one letter",
+      "added": "Holiday added",
+      "addFailed": "Failed to add holiday",
+      "removed": "Holiday removed",
+      "removeFailed": "Failed to remove holiday"
+    },
+    "modal": {
+      "title": "Add Holiday",
+      "name": "Holiday Name",
+      "namePlaceholder": "e.g. Diwali",
+      "nameTitle": "Must contain at least one letter",
+      "date": "Date",
+      "type": "Type"
+    }
+  },
   "payrollRuns": {
     "title": "Payroll Runs",
     "description": "Monthly payroll processing",

@@ -925,6 +925,422 @@
       "continueMonitoring": "Continuer à surveiller l’équité salariale chaque trimestre"
     }
   },
+  "earnedWagePage": {
+    "title": "Accès au salaire acquis",
+    "description": "Salaire à la demande — permettez aux employés d’accéder au salaire acquis avant la paie",
+    "actions": {
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "settings": "Paramètres",
+      "requestAdvance": "Demander une avance"
+    },
+    "stats": {
+      "pendingRequests": "Demandes en attente",
+      "totalDisbursed": "Total versé",
+      "avgRequest": "Demande moyenne",
+      "totalRequests": "Total des demandes"
+    },
+    "filter": {
+      "showing": "Affichage des demandes",
+      "requests": "",
+      "clear": "Effacer le filtre"
+    },
+    "balance": {
+      "title": "Votre solde disponible",
+      "details": "Acquis à ce jour : {{earned}} | Déjà retiré : {{withdrawn}} | Jour {{day}}/{{days}}",
+      "maxPercentage": "Maximum {{value}} % du salaire acquis"
+    },
+    "status": {
+      "pending": "En attente",
+      "approved": "Approuvée",
+      "disbursed": "Versée",
+      "rejected": "Rejetée",
+      "repaid": "Remboursée",
+      "enabled": "Activé",
+      "disabled": "Désactivé"
+    },
+    "columns": {
+      "employee": "Employé",
+      "amount": "Montant",
+      "fee": "Frais",
+      "status": "Statut",
+      "requested": "Demandée le",
+      "reason": "Motif"
+    },
+    "emptyRequests": "Aucune demande d’avance",
+    "messages": {
+      "showingAll": "Toutes les demandes sont affichées ci-dessous",
+      "requestSubmitted": "Demande d’avance envoyée",
+      "submitFailed": "Impossible d’envoyer la demande",
+      "requestApproved": "Demande approuvée",
+      "approveFailed": "Impossible d’approuver",
+      "rejectionReason": "Motif du rejet (facultatif) :",
+      "requestRejected": "Demande rejetée",
+      "rejectFailed": "Impossible de rejeter",
+      "settingsSaved": "Paramètres enregistrés",
+      "settingsSaveFailed": "Impossible d’enregistrer les paramètres"
+    },
+    "requestModal": {
+      "title": "Demander une avance sur salaire",
+      "available": "Disponible : {{amount}}",
+      "salaryDetails": "Salaire mensuel : {{salary}} | Jour {{day}}/{{days}}",
+      "unavailable": "Aucune avance n’est disponible pour le moment. Vérifiez la configuration du salaire ou le délai d’attente.",
+      "amount": "Montant",
+      "amountPlaceholder": "Saisissez le montant",
+      "reason": "Motif (facultatif)",
+      "reasonPlaceholder": "Pourquoi avez-vous besoin de cette avance ?",
+      "cancel": "Annuler",
+      "submit": "Envoyer la demande"
+    },
+    "settingsModal": {
+      "title": "Paramètres d’accès au salaire acquis",
+      "enable": "Activer l’accès au salaire acquis",
+      "maxPercentage": "% maximum du salaire acquis",
+      "cooldownDays": "Jours d’attente",
+      "minAmount": "Montant minimum",
+      "maxAmount": "Montant maximum (0 = sans limite)",
+      "feePercentage": "Frais %",
+      "flatFee": "Frais fixes",
+      "autoApproveBelow": "Approbation automatique sous (0 = désactivée)",
+      "requiresApproval": "Approbation du responsable requise",
+      "cancel": "Annuler",
+      "save": "Enregistrer les paramètres"
+    }
+  },
+  "insurancePage": {
+    "title": "Gestion des assurances",
+    "description": "Gérez les polices d’assurance collective, les adhésions et les sinistres",
+    "actions": {
+      "edit": "Modifier",
+      "deactivate": "Désactiver",
+      "cancel": "Annuler",
+      "settle": "Régler",
+      "approve": "Approuver",
+      "reject": "Rejeter",
+      "submitClaim": "Déclarer un sinistre",
+      "enrollEmployee": "Inscrire un employé",
+      "newPolicy": "Nouvelle police"
+    },
+    "stats": {
+      "activePolicies": "Polices actives",
+      "activeEnrollments": "Adhésions actives",
+      "pendingClaims": "Sinistres en attente",
+      "totalApproved": "Total approuvé"
+    },
+    "tabs": {
+      "policies": "Polices ({{count}})",
+      "enrollments": "Adhésions ({{count}})",
+      "claims": "Sinistres ({{count}})"
+    },
+    "empty": {
+      "policies": "Aucune police d’assurance créée",
+      "enrollments": "Aucune adhésion",
+      "claims": "Aucun sinistre déclaré"
+    },
+    "columns": {
+      "policyName": "Nom de la police",
+      "number": "Numéro",
+      "provider": "Assureur",
+      "type": "Type",
+      "coverage": "Couverture",
+      "premiumPerEmployee": "Prime/employé",
+      "status": "Statut",
+      "employee": "Employé",
+      "policy": "Police",
+      "sumInsured": "Capital assuré",
+      "premiumShare": "Part de prime",
+      "nominee": "Bénéficiaire",
+      "claimNumber": "Sinistre n°",
+      "claimed": "Réclamé",
+      "approved": "Approuvé",
+      "submitted": "Déclaré"
+    },
+    "policyTypes": {
+      "group_health": "Santé collective",
+      "group_life": "Vie collective",
+      "disability": "Invalidité",
+      "accidental": "Accident",
+      "travel": "Voyage"
+    },
+    "claimTypes": {
+      "hospitalization": "Hospitalisation",
+      "outpatient": "Soins ambulatoires",
+      "dental": "Dentaire",
+      "vision": "Optique",
+      "life": "Vie",
+      "disability": "Invalidité",
+      "accidental": "Accident",
+      "travel": "Voyage",
+      "group_health": "Santé collective",
+      "group_life": "Vie collective"
+    },
+    "status": {
+      "active": "Active",
+      "expired": "Expirée",
+      "cancelled": "Annulée",
+      "submitted": "Déclarée",
+      "under_review": "En cours d’examen",
+      "approved": "Approuvée",
+      "rejected": "Rejetée",
+      "settled": "Réglée",
+      "inactive": "Inactive",
+      "claimed": "Réclamée"
+    },
+    "messages": {
+      "invalidEndDate": "La date de fin de la police ne peut pas précéder la date de début",
+      "renewalInPast": "La date de renouvellement ne peut pas être dans le passé",
+      "invalidRenewalDate": "La date de renouvellement doit être égale ou postérieure à la date de fin de la police",
+      "invalidPolicyNumber": "Le numéro de police ne peut pas commencer par un signe moins",
+      "policyUpdated": "Police d’assurance mise à jour",
+      "policyCreated": "Police d’assurance créée",
+      "saveFailed": "Impossible d’enregistrer la police",
+      "deactivateConfirm": "Désactiver cette police d’assurance ? Les adhésions existantes ne seront pas affectées.",
+      "policyDeactivated": "Police d’assurance désactivée",
+      "deactivateFailed": "Impossible de désactiver la police",
+      "employeeEnrolled": "Employé inscrit à l’assurance",
+      "enrollFailed": "Échec de l’inscription",
+      "claimSubmitted": "Sinistre déclaré",
+      "claimSubmitFailed": "Impossible de déclarer le sinistre",
+      "approvedAmountPrompt": "Montant approuvé (laisser vide pour le montant total) :",
+      "claimApproved": "Sinistre approuvé",
+      "actionFailed": "Échec de l’action",
+      "rejectionReason": "Motif du rejet :",
+      "claimRejected": "Sinistre rejeté",
+      "claimSettled": "Sinistre réglé",
+      "enrollmentCancelled": "Adhésion annulée"
+    },
+    "policyModal": {
+      "editTitle": "Modifier la police d’assurance",
+      "createTitle": "Créer une police d’assurance",
+      "policyName": "Nom de la police",
+      "policyNumber": "Numéro de police",
+      "policyNumberPlaceholder": "p. ex., POL-2024-001",
+      "provider": "Assureur",
+      "type": "Type",
+      "totalPremium": "Prime totale",
+      "premiumPerEmployee": "Prime / employé",
+      "coverageAmount": "Montant de la couverture",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "renewalDate": "Date de renouvellement",
+      "terms": "Conditions générales",
+      "cancel": "Annuler",
+      "updatePolicy": "Mettre à jour la police",
+      "createPolicy": "Créer la police"
+    },
+    "enrollModal": {
+      "title": "Inscrire un employé à l’assurance",
+      "employee": "Employé",
+      "policy": "Police d’assurance",
+      "sumInsured": "Capital assuré",
+      "premiumShare": "Part de prime de l’employé",
+      "nomineeName": "Nom du bénéficiaire",
+      "nomineeRelationship": "Lien avec le bénéficiaire",
+      "relationshipPlaceholder": "p. ex., conjoint, parent",
+      "cancel": "Annuler",
+      "submit": "Inscrire"
+    },
+    "claimModal": {
+      "title": "Déclarer un sinistre",
+      "policy": "Police d’assurance",
+      "claimType": "Type de sinistre",
+      "amountClaimed": "Montant réclamé",
+      "description": "Description",
+      "descriptionPlaceholder": "Décrivez le sinistre",
+      "notes": "Notes",
+      "cancel": "Annuler",
+      "submit": "Déclarer le sinistre"
+    }
+  },
+  "myTaxPage": {
+    "title": "Mes impôts",
+    "description": "Calcul fiscal de l’exercice {{financialYear}}",
+    "form16": "Formulaire 16",
+    "stats": {
+      "annualIncome": "Revenu annuel",
+      "taxableIncome": "Revenu imposable",
+      "estimatedTax": "Impôt estimé",
+      "tdsDeductedYtd": "TDS déduit depuis le début de l’année"
+    },
+    "computationTitle": "Calcul fiscal",
+    "regimes": {
+      "new": "Nouveau régime",
+      "old": "Ancien régime"
+    },
+    "rows": {
+      "grossAnnualIncome": "Revenu annuel brut",
+      "standardDeduction": "Moins : déduction forfaitaire",
+      "chapterDeductions": "Moins : déductions du chapitre VI-A",
+      "taxableIncome": "Revenu imposable",
+      "taxOnIncome": "Impôt sur le revenu",
+      "cess": "Contribution santé et éducation (4 %)",
+      "totalLiability": "Dette fiscale totale",
+      "monthlyTds": "TDS mensuel"
+    },
+    "tracker": {
+      "title": "Suivi des retenues TDS",
+      "totalTax": "Impôt total de l’exercice",
+      "tdsDeductedYtd": "TDS déduit depuis le début de l’année",
+      "remaining": "Restant",
+      "progress": "Progression",
+      "monthlyMessage": "Un TDS mensuel de <strong>{{amount}}</strong> sera déduit de votre salaire."
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "Exercice {{financialYear}} — Soumettez vos justificatifs et demandes d’investissement",
+    "actions": {
+      "quickDeclare": "Tout déclarer rapidement",
+      "newDeclaration": "Nouvelle déclaration",
+      "cancel": "Annuler",
+      "submitAll": "Soumettre toutes les déclarations",
+      "submit": "Soumettre la déclaration"
+    },
+    "stats": {
+      "totalDeclared": "Total déclaré",
+      "totalApproved": "Total approuvé",
+      "pendingApproval": "En attente d’approbation"
+    },
+    "declarations": "Déclarations",
+    "empty": "Aucune déclaration pour le moment. Sélectionnez Nouvelle déclaration pour soumettre votre premier justificatif d’investissement.",
+    "proof": {
+      "submitted": "Justificatif soumis",
+      "upload": "Téléverser"
+    },
+    "quick": {
+      "title": "Déclaration fiscale rapide",
+      "description": "Déclarez tous vos investissements en une seule fois",
+      "tip": "Conseil : la Section 80C permet de déduire jusqu’à ₹1,50,000 pour PPF, ELSS, LIC, etc. Le NPS sous 80CCD(1B) offre une déduction supplémentaire de ₹50,000.",
+      "defaultDescription": "Déclaration fiscale au titre de la Section {{section}}"
+    },
+    "sections": {
+      "80C": "80C — PPF, ELSS, LIC, etc.",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — Assurance médicale",
+      "80E": "80E — Intérêts de prêt étudiant",
+      "80G": "80G — Dons",
+      "80TTA": "80TTA — Intérêts d’épargne",
+      "HRA": "HRA — Loyer du logement"
+    },
+    "validation": {
+      "sectionRequired": "Sélectionnez une section",
+      "fieldRequired": "Renseignez ce champ",
+      "validAmount": "Saisissez un montant valide",
+      "nonnegativeAmount": "Le montant ne peut pas être négatif",
+      "fileTooLarge": "Le fichier dépasse 5 Mo",
+      "fileType": "Seuls les fichiers PDF, JPG ou PNG sont autorisés",
+      "oneAmount": "Saisissez au moins un montant"
+    },
+    "messages": {
+      "proofUploaded": "Justificatif téléversé",
+      "proofUploadFailed": "Impossible de téléverser le justificatif",
+      "submitted": "Déclaration soumise",
+      "submitFailed": "Impossible de soumettre la déclaration",
+      "submittedCount_one": "{{count}} déclaration soumise",
+      "submittedCount_other": "{{count}} déclarations soumises",
+      "submitAllFailed": "Impossible de soumettre les déclarations"
+    },
+    "form": {
+      "descriptionPlaceholder": "p. ex. cotisation PPF",
+      "amount": "Montant",
+      "proofDocument": "Document justificatif",
+      "optional": "facultatif",
+      "uploadProof": "Téléverser un justificatif",
+      "fileSelected": "{{size}} Ko — sélectionnez pour modifier",
+      "dropzone": "Sélectionnez un fichier ou déposez-le ici",
+      "fileHelp": "PDF, JPG ou PNG jusqu’à 5 Mo"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "Mes remboursements",
+    "description": "Soumettez et suivez vos notes de frais",
+    "newClaim": "Nouvelle demande",
+    "stats": {
+      "total": "Total des demandes",
+      "pending": "En attente",
+      "approvedPaid": "Approuvées / payées"
+    },
+    "empty": {
+      "title": "Aucune demande de remboursement",
+      "description": "Sélectionnez Nouvelle demande pour soumettre une dépense"
+    },
+    "columns": {
+      "category": "Catégorie",
+      "description": "Description",
+      "amount": "Montant",
+      "date": "Date",
+      "status": "Statut"
+    },
+    "categories": {
+      "medical": "Médical",
+      "travel": "Déplacement",
+      "food": "Repas",
+      "equipment": "Équipement",
+      "internet": "Internet / téléphone",
+      "books": "Livres et formation",
+      "other": "Autre"
+    },
+    "status": {
+      "pending": "En attente",
+      "approved": "Approuvée",
+      "paid": "Payée",
+      "rejected": "Rejetée"
+    },
+    "messages": {
+      "invalidAmount": "Le montant doit être nul ou positif",
+      "submitted": "Demande soumise pour approbation",
+      "failed": "Impossible de soumettre la demande"
+    },
+    "modal": {
+      "title": "Soumettre une note de frais",
+      "category": "Catégorie",
+      "description": "Description",
+      "descriptionPlaceholder": "p. ex. taxi pour un rendez-vous client",
+      "amount": "Montant (₹)",
+      "expenseDate": "Date de la dépense",
+      "cancel": "Annuler",
+      "submit": "Soumettre la demande"
+    }
+  },
+  "holidaysPage": {
+    "title": "Calendrier des jours fériés",
+    "configured_one": "{{year}} — {{count}} jour férié configuré",
+    "configured_other": "{{year}} — {{count}} jours fériés configurés",
+    "noHolidays": "Aucun jour férié",
+    "upcoming": "Jours fériés à venir",
+    "past": "Jours fériés passés",
+    "actions": {
+      "add": "Ajouter un jour férié",
+      "remove": "Supprimer le jour férié",
+      "cancel": "Annuler"
+    },
+    "columns": {
+      "holiday": "Jour férié",
+      "date": "Date",
+      "day": "Jour",
+      "type": "Type"
+    },
+    "types": {
+      "national": "National",
+      "regional": "Régional",
+      "optional": "Facultatif / restreint"
+    },
+    "messages": {
+      "nameRequired": "Le nom du jour férié est obligatoire",
+      "nameLetter": "Le nom du jour férié doit contenir au moins une lettre",
+      "added": "Jour férié ajouté",
+      "addFailed": "Impossible d’ajouter le jour férié",
+      "removed": "Jour férié supprimé",
+      "removeFailed": "Impossible de supprimer le jour férié"
+    },
+    "modal": {
+      "title": "Ajouter un jour férié",
+      "name": "Nom du jour férié",
+      "namePlaceholder": "p. ex. Diwali",
+      "nameTitle": "Doit contenir au moins une lettre",
+      "date": "Date",
+      "type": "Type"
+    }
+  },
   "payrollRuns": {
     "title": "Cycles de paie",
     "description": "Traitement mensuel de la paie",

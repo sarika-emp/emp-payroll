@@ -909,6 +909,422 @@
       "continueMonitoring": "استمر في مراقبة المساواة في الأجور كل ثلاثة أشهر"
     }
   },
+  "earnedWagePage": {
+    "title": "الوصول إلى الأجر المكتسب",
+    "description": "الدفع عند الطلب — إتاحة الأجر المكتسب للموظفين قبل يوم الدفع",
+    "actions": {
+      "approve": "موافقة",
+      "reject": "رفض",
+      "settings": "الإعدادات",
+      "requestAdvance": "طلب سلفة"
+    },
+    "stats": {
+      "pendingRequests": "الطلبات المعلقة",
+      "totalDisbursed": "إجمالي المصروف",
+      "avgRequest": "متوسط الطلب",
+      "totalRequests": "إجمالي الطلبات"
+    },
+    "filter": {
+      "showing": "عرض طلبات",
+      "requests": "",
+      "clear": "مسح عامل التصفية"
+    },
+    "balance": {
+      "title": "رصيدك المتاح",
+      "details": "المكتسب حتى الآن: {{earned}} | المسحوب مسبقاً: {{withdrawn}} | اليوم {{day}}/{{days}}",
+      "maxPercentage": "الحد الأقصى {{value}}% من الأجر المكتسب"
+    },
+    "status": {
+      "pending": "معلقة",
+      "approved": "موافق عليها",
+      "disbursed": "مصروفة",
+      "rejected": "مرفوضة",
+      "repaid": "مسددة",
+      "enabled": "مفعّل",
+      "disabled": "معطّل"
+    },
+    "columns": {
+      "employee": "الموظف",
+      "amount": "المبلغ",
+      "fee": "الرسوم",
+      "status": "الحالة",
+      "requested": "تاريخ الطلب",
+      "reason": "السبب"
+    },
+    "emptyRequests": "لا توجد طلبات سلفة بعد",
+    "messages": {
+      "showingAll": "يتم عرض جميع الطلبات أدناه",
+      "requestSubmitted": "تم إرسال طلب السلفة",
+      "submitFailed": "تعذر إرسال الطلب",
+      "requestApproved": "تمت الموافقة على الطلب",
+      "approveFailed": "تعذرت الموافقة",
+      "rejectionReason": "سبب الرفض (اختياري):",
+      "requestRejected": "تم رفض الطلب",
+      "rejectFailed": "تعذر الرفض",
+      "settingsSaved": "تم حفظ الإعدادات",
+      "settingsSaveFailed": "تعذر حفظ الإعدادات"
+    },
+    "requestModal": {
+      "title": "طلب سلفة على الراتب",
+      "available": "المتاح: {{amount}}",
+      "salaryDetails": "الراتب الشهري: {{salary}} | اليوم {{day}}/{{days}}",
+      "unavailable": "لا توجد سلفة متاحة حالياً. تحقق من إعداد الراتب أو فترة الانتظار.",
+      "amount": "المبلغ",
+      "amountPlaceholder": "أدخل المبلغ",
+      "reason": "السبب (اختياري)",
+      "reasonPlaceholder": "لماذا تحتاج إلى هذه السلفة؟",
+      "cancel": "إلغاء",
+      "submit": "إرسال الطلب"
+    },
+    "settingsModal": {
+      "title": "إعدادات الوصول إلى الأجر المكتسب",
+      "enable": "تفعيل الوصول إلى الأجر المكتسب",
+      "maxPercentage": "الحد الأقصى كنسبة من الأجر المكتسب",
+      "cooldownDays": "أيام الانتظار",
+      "minAmount": "الحد الأدنى للمبلغ",
+      "maxAmount": "الحد الأقصى للمبلغ (0 = بلا حد)",
+      "feePercentage": "نسبة الرسوم",
+      "flatFee": "رسوم ثابتة",
+      "autoApproveBelow": "موافقة تلقائية لأقل من (0 = معطّل)",
+      "requiresApproval": "يتطلب موافقة المدير",
+      "cancel": "إلغاء",
+      "save": "حفظ الإعدادات"
+    }
+  },
+  "insurancePage": {
+    "title": "إدارة التأمين",
+    "description": "إدارة وثائق التأمين الجماعي والتسجيلات والمطالبات",
+    "actions": {
+      "edit": "تعديل",
+      "deactivate": "إلغاء التفعيل",
+      "cancel": "إلغاء",
+      "settle": "تسوية",
+      "approve": "موافقة",
+      "reject": "رفض",
+      "submitClaim": "تقديم مطالبة",
+      "enrollEmployee": "تسجيل موظف",
+      "newPolicy": "وثيقة جديدة"
+    },
+    "stats": {
+      "activePolicies": "الوثائق النشطة",
+      "activeEnrollments": "التسجيلات النشطة",
+      "pendingClaims": "المطالبات المعلقة",
+      "totalApproved": "إجمالي المعتمد"
+    },
+    "tabs": {
+      "policies": "الوثائق ({{count}})",
+      "enrollments": "التسجيلات ({{count}})",
+      "claims": "المطالبات ({{count}})"
+    },
+    "empty": {
+      "policies": "لم يتم إنشاء وثائق تأمين بعد",
+      "enrollments": "لا توجد تسجيلات بعد",
+      "claims": "لم يتم تقديم مطالبات بعد"
+    },
+    "columns": {
+      "policyName": "اسم الوثيقة",
+      "number": "الرقم",
+      "provider": "شركة التأمين",
+      "type": "النوع",
+      "coverage": "التغطية",
+      "premiumPerEmployee": "القسط/الموظف",
+      "status": "الحالة",
+      "employee": "الموظف",
+      "policy": "الوثيقة",
+      "sumInsured": "مبلغ التأمين",
+      "premiumShare": "حصة القسط",
+      "nominee": "المستفيد",
+      "claimNumber": "رقم المطالبة",
+      "claimed": "المبلغ المطالب به",
+      "approved": "المعتمد",
+      "submitted": "تاريخ التقديم"
+    },
+    "policyTypes": {
+      "group_health": "صحي جماعي",
+      "group_life": "حياة جماعي",
+      "disability": "عجز",
+      "accidental": "حوادث",
+      "travel": "سفر"
+    },
+    "claimTypes": {
+      "hospitalization": "دخول المستشفى",
+      "outpatient": "عيادات خارجية",
+      "dental": "أسنان",
+      "vision": "بصر",
+      "life": "حياة",
+      "disability": "عجز",
+      "accidental": "حوادث",
+      "travel": "سفر",
+      "group_health": "صحي جماعي",
+      "group_life": "حياة جماعي"
+    },
+    "status": {
+      "active": "نشطة",
+      "expired": "منتهية",
+      "cancelled": "ملغاة",
+      "submitted": "مقدمة",
+      "under_review": "قيد المراجعة",
+      "approved": "معتمدة",
+      "rejected": "مرفوضة",
+      "settled": "مسواة",
+      "inactive": "غير نشطة",
+      "claimed": "تمت المطالبة"
+    },
+    "messages": {
+      "invalidEndDate": "لا يمكن أن يكون تاريخ انتهاء الوثيقة قبل تاريخ البدء",
+      "renewalInPast": "لا يمكن أن يكون تاريخ التجديد في الماضي",
+      "invalidRenewalDate": "يجب أن يكون تاريخ التجديد في تاريخ انتهاء الوثيقة أو بعده",
+      "invalidPolicyNumber": "لا يمكن أن يبدأ رقم الوثيقة بعلامة ناقص",
+      "policyUpdated": "تم تحديث وثيقة التأمين",
+      "policyCreated": "تم إنشاء وثيقة التأمين",
+      "saveFailed": "تعذر حفظ الوثيقة",
+      "deactivateConfirm": "هل تريد إلغاء تفعيل وثيقة التأمين هذه؟ لن تتأثر التسجيلات الحالية.",
+      "policyDeactivated": "تم إلغاء تفعيل وثيقة التأمين",
+      "deactivateFailed": "تعذر إلغاء تفعيل الوثيقة",
+      "employeeEnrolled": "تم تسجيل الموظف في التأمين",
+      "enrollFailed": "تعذر إكمال التسجيل",
+      "claimSubmitted": "تم تقديم المطالبة",
+      "claimSubmitFailed": "تعذر تقديم المطالبة",
+      "approvedAmountPrompt": "المبلغ المعتمد (اتركه فارغاً للمبلغ الكامل):",
+      "claimApproved": "تمت الموافقة على المطالبة",
+      "actionFailed": "فشلت العملية",
+      "rejectionReason": "سبب الرفض:",
+      "claimRejected": "تم رفض المطالبة",
+      "claimSettled": "تمت تسوية المطالبة",
+      "enrollmentCancelled": "تم إلغاء التسجيل"
+    },
+    "policyModal": {
+      "editTitle": "تعديل وثيقة التأمين",
+      "createTitle": "إنشاء وثيقة تأمين",
+      "policyName": "اسم الوثيقة",
+      "policyNumber": "رقم الوثيقة",
+      "policyNumberPlaceholder": "مثال POL-2024-001",
+      "provider": "شركة التأمين",
+      "type": "النوع",
+      "totalPremium": "إجمالي القسط",
+      "premiumPerEmployee": "القسط / الموظف",
+      "coverageAmount": "مبلغ التغطية",
+      "startDate": "تاريخ البدء",
+      "endDate": "تاريخ الانتهاء",
+      "renewalDate": "تاريخ التجديد",
+      "terms": "الشروط والأحكام",
+      "cancel": "إلغاء",
+      "updatePolicy": "تحديث الوثيقة",
+      "createPolicy": "إنشاء الوثيقة"
+    },
+    "enrollModal": {
+      "title": "تسجيل موظف في التأمين",
+      "employee": "الموظف",
+      "policy": "وثيقة التأمين",
+      "sumInsured": "مبلغ التأمين",
+      "premiumShare": "حصة الموظف من القسط",
+      "nomineeName": "اسم المستفيد",
+      "nomineeRelationship": "صلة المستفيد",
+      "relationshipPlaceholder": "مثال: الزوج/الزوجة، أحد الوالدين",
+      "cancel": "إلغاء",
+      "submit": "تسجيل"
+    },
+    "claimModal": {
+      "title": "تقديم مطالبة تأمين",
+      "policy": "وثيقة التأمين",
+      "claimType": "نوع المطالبة",
+      "amountClaimed": "المبلغ المطالب به",
+      "description": "الوصف",
+      "descriptionPlaceholder": "صِف المطالبة",
+      "notes": "ملاحظات",
+      "cancel": "إلغاء",
+      "submit": "تقديم المطالبة"
+    }
+  },
+  "myTaxPage": {
+    "title": "ضرائبي",
+    "description": "حساب الضريبة للسنة المالية {{financialYear}}",
+    "form16": "النموذج 16",
+    "stats": {
+      "annualIncome": "الدخل السنوي",
+      "taxableIncome": "الدخل الخاضع للضريبة",
+      "estimatedTax": "الضريبة المقدرة",
+      "tdsDeductedYtd": "TDS المخصوم منذ بداية السنة"
+    },
+    "computationTitle": "حساب الضريبة",
+    "regimes": {
+      "new": "النظام الجديد",
+      "old": "النظام القديم"
+    },
+    "rows": {
+      "grossAnnualIncome": "إجمالي الدخل السنوي",
+      "standardDeduction": "ناقص: الخصم القياسي",
+      "chapterDeductions": "ناقص: خصومات الفصل VI-A",
+      "taxableIncome": "الدخل الخاضع للضريبة",
+      "taxOnIncome": "ضريبة الدخل",
+      "cess": "رسم الصحة والتعليم (4%)",
+      "totalLiability": "إجمالي الالتزام الضريبي",
+      "monthlyTds": "TDS الشهري"
+    },
+    "tracker": {
+      "title": "متابعة خصومات TDS",
+      "totalTax": "إجمالي ضريبة السنة المالية",
+      "tdsDeductedYtd": "TDS المخصوم منذ بداية السنة",
+      "remaining": "المتبقي",
+      "progress": "التقدم",
+      "monthlyMessage": "سيُخصم TDS شهري بقيمة <strong>{{amount}}</strong> من راتبك."
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "السنة المالية {{financialYear}} — إرسال إثباتات ومطالبات الاستثمار",
+    "actions": {
+      "quickDeclare": "إقرار سريع للكل",
+      "newDeclaration": "إقرار جديد",
+      "cancel": "إلغاء",
+      "submitAll": "إرسال جميع الإقرارات",
+      "submit": "إرسال الإقرار"
+    },
+    "stats": {
+      "totalDeclared": "إجمالي المبالغ المعلنة",
+      "totalApproved": "إجمالي المبالغ المعتمدة",
+      "pendingApproval": "بانتظار الموافقة"
+    },
+    "declarations": "الإقرارات",
+    "empty": "لا توجد إقرارات بعد. اختر إقرار جديد لإرسال أول إثبات استثمار.",
+    "proof": {
+      "submitted": "تم إرسال الإثبات",
+      "upload": "رفع"
+    },
+    "quick": {
+      "title": "إقرار ضريبي سريع",
+      "description": "الإقرار عن جميع استثماراتك دفعة واحدة",
+      "tip": "نصيحة: يتيح القسم 80C المطالبة بما يصل إلى ₹1,50,000 مقابل PPF وELSS وLIC وغيرها. ويمنح NPS ضمن 80CCD(1B) خصماً إضافياً قدره ₹50,000.",
+      "defaultDescription": "إقرار ضريبي بموجب القسم {{section}}"
+    },
+    "sections": {
+      "80C": "80C — PPF وELSS وLIC وغيرها",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — التأمين الطبي",
+      "80E": "80E — فوائد قرض التعليم",
+      "80G": "80G — التبرعات",
+      "80TTA": "80TTA — فوائد المدخرات",
+      "HRA": "HRA — إيجار السكن"
+    },
+    "validation": {
+      "sectionRequired": "يرجى اختيار قسم",
+      "fieldRequired": "يرجى تعبئة هذا الحقل",
+      "validAmount": "يرجى إدخال مبلغ صالح",
+      "nonnegativeAmount": "لا يمكن أن يكون المبلغ سالباً",
+      "fileTooLarge": "حجم الملف أكبر من 5 ميغابايت",
+      "fileType": "يُسمح فقط بملفات PDF أو JPG أو PNG",
+      "oneAmount": "أدخل مبلغاً واحداً على الأقل"
+    },
+    "messages": {
+      "proofUploaded": "تم رفع الإثبات",
+      "proofUploadFailed": "تعذر رفع الإثبات",
+      "submitted": "تم إرسال الإقرار",
+      "submitFailed": "تعذر إرسال الإقرار",
+      "submittedCount_one": "تم إرسال إقرار واحد",
+      "submittedCount_other": "تم إرسال {{count}} إقرارات",
+      "submitAllFailed": "تعذر إرسال الإقرارات"
+    },
+    "form": {
+      "descriptionPlaceholder": "مثال: مساهمة PPF",
+      "amount": "المبلغ",
+      "proofDocument": "مستند الإثبات",
+      "optional": "اختياري",
+      "uploadProof": "رفع مستند الإثبات",
+      "fileSelected": "{{size}} كيلوبايت — اختر للتغيير",
+      "dropzone": "اختر ملفاً للرفع أو اسحبه وأفلته",
+      "fileHelp": "PDF أو JPG أو PNG حتى 5 ميغابايت"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "مستحقات المصروفات الخاصة بي",
+    "description": "إرسال مطالبات المصروفات ومتابعتها",
+    "newClaim": "مطالبة جديدة",
+    "stats": {
+      "total": "إجمالي المطالبات",
+      "pending": "قيد الانتظار",
+      "approvedPaid": "مقبولة / مدفوعة"
+    },
+    "empty": {
+      "title": "لا توجد مطالبات مصروفات",
+      "description": "اختر مطالبة جديدة لإرسال مصروف"
+    },
+    "columns": {
+      "category": "الفئة",
+      "description": "الوصف",
+      "amount": "المبلغ",
+      "date": "التاريخ",
+      "status": "الحالة"
+    },
+    "categories": {
+      "medical": "طبي",
+      "travel": "سفر",
+      "food": "طعام ووجبات",
+      "equipment": "معدات",
+      "internet": "إنترنت / هاتف",
+      "books": "كتب وتعلّم",
+      "other": "أخرى"
+    },
+    "status": {
+      "pending": "قيد الانتظار",
+      "approved": "مقبولة",
+      "paid": "مدفوعة",
+      "rejected": "مرفوضة"
+    },
+    "messages": {
+      "invalidAmount": "يجب أن يكون المبلغ صفراً أو رقماً موجباً",
+      "submitted": "تم إرسال المطالبة للموافقة",
+      "failed": "تعذر إرسال المطالبة"
+    },
+    "modal": {
+      "title": "إرسال مطالبة مصروفات",
+      "category": "الفئة",
+      "description": "الوصف",
+      "descriptionPlaceholder": "مثال: سيارة أجرة لاجتماع عميل",
+      "amount": "المبلغ (₹)",
+      "expenseDate": "تاريخ المصروف",
+      "cancel": "إلغاء",
+      "submit": "إرسال المطالبة"
+    }
+  },
+  "holidaysPage": {
+    "title": "تقويم العطلات",
+    "configured_one": "{{year}} — تم إعداد عطلة واحدة",
+    "configured_other": "{{year}} — تم إعداد {{count}} عطلات",
+    "noHolidays": "لا توجد عطلات",
+    "upcoming": "العطلات القادمة",
+    "past": "العطلات السابقة",
+    "actions": {
+      "add": "إضافة عطلة",
+      "remove": "إزالة العطلة",
+      "cancel": "إلغاء"
+    },
+    "columns": {
+      "holiday": "العطلة",
+      "date": "التاريخ",
+      "day": "اليوم",
+      "type": "النوع"
+    },
+    "types": {
+      "national": "وطنية",
+      "regional": "إقليمية",
+      "optional": "اختيارية / مقيّدة"
+    },
+    "messages": {
+      "nameRequired": "اسم العطلة مطلوب",
+      "nameLetter": "يجب أن يحتوي اسم العطلة على حرف واحد على الأقل",
+      "added": "تمت إضافة العطلة",
+      "addFailed": "تعذرت إضافة العطلة",
+      "removed": "تمت إزالة العطلة",
+      "removeFailed": "تعذرت إزالة العطلة"
+    },
+    "modal": {
+      "title": "إضافة عطلة",
+      "name": "اسم العطلة",
+      "namePlaceholder": "مثال: ديوالي",
+      "nameTitle": "يجب أن يحتوي على حرف واحد على الأقل",
+      "date": "التاريخ",
+      "type": "النوع"
+    }
+  },
   "payrollRuns": {
     "title": "دورات الرواتب",
     "description": "معالجة الرواتب الشهرية",

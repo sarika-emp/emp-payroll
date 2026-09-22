@@ -935,6 +935,422 @@
       "continueMonitoring": "Continúa supervisando la equidad salarial trimestralmente"
     }
   },
+  "earnedWagePage": {
+    "title": "Acceso al salario devengado",
+    "description": "Pago bajo demanda: permite que los empleados accedan al salario devengado antes del día de pago",
+    "actions": {
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "settings": "Configuración",
+      "requestAdvance": "Solicitar anticipo"
+    },
+    "stats": {
+      "pendingRequests": "Solicitudes pendientes",
+      "totalDisbursed": "Total desembolsado",
+      "avgRequest": "Solicitud promedio",
+      "totalRequests": "Solicitudes totales"
+    },
+    "filter": {
+      "showing": "Mostrando solicitudes",
+      "requests": "",
+      "clear": "Borrar filtro"
+    },
+    "balance": {
+      "title": "Saldo disponible",
+      "details": "Devengado hasta ahora: {{earned}} | Ya retirado: {{withdrawn}} | Día {{day}}/{{days}}",
+      "maxPercentage": "Máximo del {{value}}% del salario devengado"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "approved": "Aprobada",
+      "disbursed": "Desembolsada",
+      "rejected": "Rechazada",
+      "repaid": "Reembolsada",
+      "enabled": "Activado",
+      "disabled": "Desactivado"
+    },
+    "columns": {
+      "employee": "Empleado",
+      "amount": "Importe",
+      "fee": "Comisión",
+      "status": "Estado",
+      "requested": "Solicitado",
+      "reason": "Motivo"
+    },
+    "emptyRequests": "Aún no hay solicitudes de anticipo",
+    "messages": {
+      "showingAll": "Se muestran todas las solicitudes a continuación",
+      "requestSubmitted": "Solicitud de anticipo enviada",
+      "submitFailed": "No se pudo enviar la solicitud",
+      "requestApproved": "Solicitud aprobada",
+      "approveFailed": "No se pudo aprobar",
+      "rejectionReason": "Motivo del rechazo (opcional):",
+      "requestRejected": "Solicitud rechazada",
+      "rejectFailed": "No se pudo rechazar",
+      "settingsSaved": "Configuración guardada",
+      "settingsSaveFailed": "No se pudo guardar la configuración"
+    },
+    "requestModal": {
+      "title": "Solicitar anticipo salarial",
+      "available": "Disponible: {{amount}}",
+      "salaryDetails": "Salario mensual: {{salary}} | Día {{day}}/{{days}}",
+      "unavailable": "Aún no hay anticipos disponibles. Comprueba la configuración salarial o el período de espera.",
+      "amount": "Importe",
+      "amountPlaceholder": "Introduce el importe",
+      "reason": "Motivo (opcional)",
+      "reasonPlaceholder": "¿Por qué necesitas este anticipo?",
+      "cancel": "Cancelar",
+      "submit": "Enviar solicitud"
+    },
+    "settingsModal": {
+      "title": "Configuración del acceso al salario devengado",
+      "enable": "Activar el acceso al salario devengado",
+      "maxPercentage": "% máximo del salario devengado",
+      "cooldownDays": "Días de espera",
+      "minAmount": "Importe mínimo",
+      "maxAmount": "Importe máximo (0 = sin límite)",
+      "feePercentage": "% de comisión",
+      "flatFee": "Comisión fija",
+      "autoApproveBelow": "Aprobar automáticamente por debajo de (0 = desactivado)",
+      "requiresApproval": "Requiere aprobación del responsable",
+      "cancel": "Cancelar",
+      "save": "Guardar configuración"
+    }
+  },
+  "insurancePage": {
+    "title": "Gestión de seguros",
+    "description": "Gestiona pólizas de seguro colectivo, inscripciones y reclamaciones",
+    "actions": {
+      "edit": "Editar",
+      "deactivate": "Desactivar",
+      "cancel": "Cancelar",
+      "settle": "Liquidar",
+      "approve": "Aprobar",
+      "reject": "Rechazar",
+      "submitClaim": "Enviar reclamación",
+      "enrollEmployee": "Inscribir empleado",
+      "newPolicy": "Nueva póliza"
+    },
+    "stats": {
+      "activePolicies": "Pólizas activas",
+      "activeEnrollments": "Inscripciones activas",
+      "pendingClaims": "Reclamaciones pendientes",
+      "totalApproved": "Total aprobado"
+    },
+    "tabs": {
+      "policies": "Pólizas ({{count}})",
+      "enrollments": "Inscripciones ({{count}})",
+      "claims": "Reclamaciones ({{count}})"
+    },
+    "empty": {
+      "policies": "Aún no se han creado pólizas de seguro",
+      "enrollments": "Aún no hay inscripciones",
+      "claims": "Aún no se han enviado reclamaciones"
+    },
+    "columns": {
+      "policyName": "Nombre de la póliza",
+      "number": "Número",
+      "provider": "Proveedor",
+      "type": "Tipo",
+      "coverage": "Cobertura",
+      "premiumPerEmployee": "Prima por empleado",
+      "status": "Estado",
+      "employee": "Empleado",
+      "policy": "Póliza",
+      "sumInsured": "Suma asegurada",
+      "premiumShare": "Parte de la prima",
+      "nominee": "Beneficiario",
+      "claimNumber": "N.º de reclamación",
+      "claimed": "Reclamado",
+      "approved": "Aprobado",
+      "submitted": "Enviado"
+    },
+    "policyTypes": {
+      "group_health": "Salud colectiva",
+      "group_life": "Vida colectiva",
+      "disability": "Discapacidad",
+      "accidental": "Accidentes",
+      "travel": "Viaje"
+    },
+    "claimTypes": {
+      "hospitalization": "Hospitalización",
+      "outpatient": "Ambulatorio",
+      "dental": "Dental",
+      "vision": "Visión",
+      "life": "Vida",
+      "disability": "Discapacidad",
+      "accidental": "Accidentes",
+      "travel": "Viaje",
+      "group_health": "Salud colectiva",
+      "group_life": "Vida colectiva"
+    },
+    "status": {
+      "active": "Activa",
+      "expired": "Vencida",
+      "cancelled": "Cancelada",
+      "submitted": "Enviada",
+      "under_review": "En revisión",
+      "approved": "Aprobada",
+      "rejected": "Rechazada",
+      "settled": "Liquidada",
+      "inactive": "Inactiva",
+      "claimed": "Reclamada"
+    },
+    "messages": {
+      "invalidEndDate": "La fecha de fin de la póliza no puede ser anterior a la fecha de inicio",
+      "renewalInPast": "La fecha de renovación no puede estar en el pasado",
+      "invalidRenewalDate": "La fecha de renovación debe ser igual o posterior a la fecha de fin de la póliza",
+      "invalidPolicyNumber": "El número de póliza no puede comenzar con un signo menos",
+      "policyUpdated": "Póliza de seguro actualizada",
+      "policyCreated": "Póliza de seguro creada",
+      "saveFailed": "No se pudo guardar la póliza",
+      "deactivateConfirm": "¿Desactivar esta póliza de seguro? Las inscripciones existentes no se verán afectadas.",
+      "policyDeactivated": "Póliza de seguro desactivada",
+      "deactivateFailed": "No se pudo desactivar la póliza",
+      "employeeEnrolled": "Empleado inscrito en el seguro",
+      "enrollFailed": "No se pudo realizar la inscripción",
+      "claimSubmitted": "Reclamación enviada",
+      "claimSubmitFailed": "No se pudo enviar la reclamación",
+      "approvedAmountPrompt": "Importe aprobado (dejar en blanco para aprobar el importe total):",
+      "claimApproved": "Reclamación aprobada",
+      "actionFailed": "La acción no se pudo completar",
+      "rejectionReason": "Motivo del rechazo:",
+      "claimRejected": "Reclamación rechazada",
+      "claimSettled": "Reclamación liquidada",
+      "enrollmentCancelled": "Inscripción cancelada"
+    },
+    "policyModal": {
+      "editTitle": "Editar póliza de seguro",
+      "createTitle": "Crear póliza de seguro",
+      "policyName": "Nombre de la póliza",
+      "policyNumber": "Número de póliza",
+      "policyNumberPlaceholder": "p. ej., POL-2024-001",
+      "provider": "Proveedor",
+      "type": "Tipo",
+      "totalPremium": "Prima total",
+      "premiumPerEmployee": "Prima por empleado",
+      "coverageAmount": "Importe de cobertura",
+      "startDate": "Fecha de inicio",
+      "endDate": "Fecha de fin",
+      "renewalDate": "Fecha de renovación",
+      "terms": "Términos y condiciones",
+      "cancel": "Cancelar",
+      "updatePolicy": "Actualizar póliza",
+      "createPolicy": "Crear póliza"
+    },
+    "enrollModal": {
+      "title": "Inscribir empleado en el seguro",
+      "employee": "Empleado",
+      "policy": "Póliza de seguro",
+      "sumInsured": "Suma asegurada",
+      "premiumShare": "Parte de la prima del empleado",
+      "nomineeName": "Nombre del beneficiario",
+      "nomineeRelationship": "Relación con el beneficiario",
+      "relationshipPlaceholder": "p. ej., cónyuge, progenitor",
+      "cancel": "Cancelar",
+      "submit": "Inscribir"
+    },
+    "claimModal": {
+      "title": "Enviar reclamación de seguro",
+      "policy": "Póliza de seguro",
+      "claimType": "Tipo de reclamación",
+      "amountClaimed": "Importe reclamado",
+      "description": "Descripción",
+      "descriptionPlaceholder": "Describe la reclamación",
+      "notes": "Notas",
+      "cancel": "Cancelar",
+      "submit": "Enviar reclamación"
+    }
+  },
+  "myTaxPage": {
+    "title": "Mis impuestos",
+    "description": "Cálculo fiscal del ejercicio {{financialYear}}",
+    "form16": "Formulario 16",
+    "stats": {
+      "annualIncome": "Ingresos anuales",
+      "taxableIncome": "Base imponible",
+      "estimatedTax": "Impuesto estimado",
+      "tdsDeductedYtd": "TDS deducido en el año"
+    },
+    "computationTitle": "Cálculo fiscal",
+    "regimes": {
+      "new": "Nuevo régimen",
+      "old": "Antiguo régimen"
+    },
+    "rows": {
+      "grossAnnualIncome": "Ingresos brutos anuales",
+      "standardDeduction": "Menos: deducción estándar",
+      "chapterDeductions": "Menos: deducciones del capítulo VI-A",
+      "taxableIncome": "Base imponible",
+      "taxOnIncome": "Impuesto sobre la renta",
+      "cess": "Tasa de salud y educación (4 %)",
+      "totalLiability": "Deuda tributaria total",
+      "monthlyTds": "TDS mensual"
+    },
+    "tracker": {
+      "title": "Seguimiento de deducciones TDS",
+      "totalTax": "Impuesto total del ejercicio",
+      "tdsDeductedYtd": "TDS deducido en el año",
+      "remaining": "Pendiente",
+      "progress": "Progreso",
+      "monthlyMessage": "Cada mes se deducirá un TDS de <strong>{{amount}}</strong> de tu salario."
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "Ejercicio {{financialYear}} — Envía justificantes y solicitudes de inversión",
+    "actions": {
+      "quickDeclare": "Declarar todo rápidamente",
+      "newDeclaration": "Nueva declaración",
+      "cancel": "Cancelar",
+      "submitAll": "Enviar todas las declaraciones",
+      "submit": "Enviar declaración"
+    },
+    "stats": {
+      "totalDeclared": "Total declarado",
+      "totalApproved": "Total aprobado",
+      "pendingApproval": "Pendiente de aprobación"
+    },
+    "declarations": "Declaraciones",
+    "empty": "Aún no hay declaraciones. Selecciona Nueva declaración para enviar tu primer justificante de inversión.",
+    "proof": {
+      "submitted": "Justificante enviado",
+      "upload": "Subir"
+    },
+    "quick": {
+      "title": "Declaración fiscal rápida",
+      "description": "Declara todas tus inversiones de una vez",
+      "tip": "Consejo: en la Sección 80C puedes solicitar hasta ₹1,50,000 por PPF, ELSS, LIC, etc. El NPS de 80CCD(1B) permite una deducción adicional de ₹50,000.",
+      "defaultDescription": "Declaración fiscal de la Sección {{section}}"
+    },
+    "sections": {
+      "80C": "80C — PPF, ELSS, LIC, etc.",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — Seguro médico",
+      "80E": "80E — Intereses de préstamo educativo",
+      "80G": "80G — Donaciones",
+      "80TTA": "80TTA — Intereses de ahorros",
+      "HRA": "HRA — Alquiler de vivienda"
+    },
+    "validation": {
+      "sectionRequired": "Selecciona una sección",
+      "fieldRequired": "Completa este campo",
+      "validAmount": "Introduce un importe válido",
+      "nonnegativeAmount": "El importe no puede ser negativo",
+      "fileTooLarge": "El archivo supera los 5 MB",
+      "fileType": "Solo se permiten archivos PDF, JPG o PNG",
+      "oneAmount": "Introduce al menos un importe"
+    },
+    "messages": {
+      "proofUploaded": "Justificante subido",
+      "proofUploadFailed": "No se pudo subir el justificante",
+      "submitted": "Declaración enviada",
+      "submitFailed": "No se pudo enviar la declaración",
+      "submittedCount_one": "{{count}} declaración enviada",
+      "submittedCount_other": "{{count}} declaraciones enviadas",
+      "submitAllFailed": "No se pudieron enviar las declaraciones"
+    },
+    "form": {
+      "descriptionPlaceholder": "p. ej., aportación al PPF",
+      "amount": "Importe",
+      "proofDocument": "Documento justificativo",
+      "optional": "opcional",
+      "uploadProof": "Subir documento justificativo",
+      "fileSelected": "{{size}} KB — selecciona para cambiar",
+      "dropzone": "Selecciona un archivo o arrástralo aquí",
+      "fileHelp": "PDF, JPG o PNG de hasta 5 MB"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "Mis reembolsos",
+    "description": "Envía y consulta tus solicitudes de gastos",
+    "newClaim": "Nueva solicitud",
+    "stats": {
+      "total": "Solicitudes totales",
+      "pending": "Pendientes",
+      "approvedPaid": "Aprobadas / pagadas"
+    },
+    "empty": {
+      "title": "No hay solicitudes de reembolso",
+      "description": "Selecciona Nueva solicitud para enviar un gasto"
+    },
+    "columns": {
+      "category": "Categoría",
+      "description": "Descripción",
+      "amount": "Importe",
+      "date": "Fecha",
+      "status": "Estado"
+    },
+    "categories": {
+      "medical": "Médicos",
+      "travel": "Viajes",
+      "food": "Comida y dietas",
+      "equipment": "Equipamiento",
+      "internet": "Internet / teléfono",
+      "books": "Libros y formación",
+      "other": "Otros"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "approved": "Aprobada",
+      "paid": "Pagada",
+      "rejected": "Rechazada"
+    },
+    "messages": {
+      "invalidAmount": "El importe debe ser cero o un número positivo",
+      "submitted": "Solicitud enviada para aprobación",
+      "failed": "No se pudo enviar la solicitud"
+    },
+    "modal": {
+      "title": "Enviar solicitud de gastos",
+      "category": "Categoría",
+      "description": "Descripción",
+      "descriptionPlaceholder": "p. ej., taxi para reunión con cliente",
+      "amount": "Importe (₹)",
+      "expenseDate": "Fecha del gasto",
+      "cancel": "Cancelar",
+      "submit": "Enviar solicitud"
+    }
+  },
+  "holidaysPage": {
+    "title": "Calendario de festivos",
+    "configured_one": "{{year}} — {{count}} festivo configurado",
+    "configured_other": "{{year}} — {{count}} festivos configurados",
+    "noHolidays": "Sin festivos",
+    "upcoming": "Próximos festivos",
+    "past": "Festivos anteriores",
+    "actions": {
+      "add": "Añadir festivo",
+      "remove": "Eliminar festivo",
+      "cancel": "Cancelar"
+    },
+    "columns": {
+      "holiday": "Festivo",
+      "date": "Fecha",
+      "day": "Día",
+      "type": "Tipo"
+    },
+    "types": {
+      "national": "Nacional",
+      "regional": "Regional",
+      "optional": "Opcional / restringido"
+    },
+    "messages": {
+      "nameRequired": "El nombre del festivo es obligatorio",
+      "nameLetter": "El nombre del festivo debe contener al menos una letra",
+      "added": "Festivo añadido",
+      "addFailed": "No se pudo añadir el festivo",
+      "removed": "Festivo eliminado",
+      "removeFailed": "No se pudo eliminar el festivo"
+    },
+    "modal": {
+      "title": "Añadir festivo",
+      "name": "Nombre del festivo",
+      "namePlaceholder": "p. ej., Diwali",
+      "nameTitle": "Debe contener al menos una letra",
+      "date": "Fecha",
+      "type": "Tipo"
+    }
+  },
   "payrollRuns": {
     "title": "Procesos de nómina",
     "description": "Procesamiento mensual de nómina",

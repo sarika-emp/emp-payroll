@@ -917,6 +917,422 @@
       "continueMonitoring": "四半期ごとの賃金公平性の監視を継続してください"
     }
   },
+  "earnedWagePage": {
+    "title": "既得賃金アクセス",
+    "description": "オンデマンド給与 — 給料日前に既得賃金へアクセスできます",
+    "actions": {
+      "approve": "承認",
+      "reject": "却下",
+      "settings": "設定",
+      "requestAdvance": "前払いを申請"
+    },
+    "stats": {
+      "pendingRequests": "保留中の申請",
+      "totalDisbursed": "支給総額",
+      "avgRequest": "平均申請額",
+      "totalRequests": "申請総数"
+    },
+    "filter": {
+      "showing": "表示中：",
+      "requests": "の申請",
+      "clear": "フィルターを解除"
+    },
+    "balance": {
+      "title": "利用可能残高",
+      "details": "現在までの既得額：{{earned}} | 引出済み：{{withdrawn}} | {{day}}/{{days}}日目",
+      "maxPercentage": "既得給与の最大{{value}}%"
+    },
+    "status": {
+      "pending": "保留中",
+      "approved": "承認済み",
+      "disbursed": "支給済み",
+      "rejected": "却下済み",
+      "repaid": "返済済み",
+      "enabled": "有効",
+      "disabled": "無効"
+    },
+    "columns": {
+      "employee": "従業員",
+      "amount": "金額",
+      "fee": "手数料",
+      "status": "ステータス",
+      "requested": "申請日",
+      "reason": "理由"
+    },
+    "emptyRequests": "前払い申請はまだありません",
+    "messages": {
+      "showingAll": "すべての申請を下に表示しています",
+      "requestSubmitted": "前払い申請を送信しました",
+      "submitFailed": "申請を送信できませんでした",
+      "requestApproved": "申請を承認しました",
+      "approveFailed": "承認できませんでした",
+      "rejectionReason": "却下理由（任意）：",
+      "requestRejected": "申請を却下しました",
+      "rejectFailed": "却下できませんでした",
+      "settingsSaved": "設定を保存しました",
+      "settingsSaveFailed": "設定を保存できませんでした"
+    },
+    "requestModal": {
+      "title": "給与前払いを申請",
+      "available": "利用可能：{{amount}}",
+      "salaryDetails": "月給：{{salary}} | {{day}}/{{days}}日目",
+      "unavailable": "現在利用可能な前払いはありません。給与設定または待機期間を確認してください。",
+      "amount": "金額",
+      "amountPlaceholder": "金額を入力",
+      "reason": "理由（任意）",
+      "reasonPlaceholder": "前払いが必要な理由を入力してください",
+      "cancel": "キャンセル",
+      "submit": "申請を送信"
+    },
+    "settingsModal": {
+      "title": "既得賃金アクセス設定",
+      "enable": "既得賃金アクセスを有効にする",
+      "maxPercentage": "既得給与の最大割合（%）",
+      "cooldownDays": "待機日数",
+      "minAmount": "最低金額",
+      "maxAmount": "最高金額（0 = 上限なし）",
+      "feePercentage": "手数料（%）",
+      "flatFee": "固定手数料",
+      "autoApproveBelow": "この金額未満を自動承認（0 = 無効）",
+      "requiresApproval": "上司の承認が必要",
+      "cancel": "キャンセル",
+      "save": "設定を保存"
+    }
+  },
+  "insurancePage": {
+    "title": "保険管理",
+    "description": "団体保険、加入、請求を管理します",
+    "actions": {
+      "edit": "編集",
+      "deactivate": "無効化",
+      "cancel": "キャンセル",
+      "settle": "精算",
+      "approve": "承認",
+      "reject": "却下",
+      "submitClaim": "請求を申請",
+      "enrollEmployee": "従業員を加入",
+      "newPolicy": "新しい保険"
+    },
+    "stats": {
+      "activePolicies": "有効な保険",
+      "activeEnrollments": "有効な加入",
+      "pendingClaims": "保留中の請求",
+      "totalApproved": "承認総額"
+    },
+    "tabs": {
+      "policies": "保険 ({{count}})",
+      "enrollments": "加入 ({{count}})",
+      "claims": "請求 ({{count}})"
+    },
+    "empty": {
+      "policies": "保険はまだ作成されていません",
+      "enrollments": "加入データはまだありません",
+      "claims": "請求はまだ申請されていません"
+    },
+    "columns": {
+      "policyName": "保険名",
+      "number": "番号",
+      "provider": "保険会社",
+      "type": "種類",
+      "coverage": "補償額",
+      "premiumPerEmployee": "従業員あたり保険料",
+      "status": "ステータス",
+      "employee": "従業員",
+      "policy": "保険",
+      "sumInsured": "保険金額",
+      "premiumShare": "保険料負担",
+      "nominee": "受取人",
+      "claimNumber": "請求番号",
+      "claimed": "請求額",
+      "approved": "承認額",
+      "submitted": "申請日"
+    },
+    "policyTypes": {
+      "group_health": "団体医療",
+      "group_life": "団体生命",
+      "disability": "障害",
+      "accidental": "傷害",
+      "travel": "旅行"
+    },
+    "claimTypes": {
+      "hospitalization": "入院",
+      "outpatient": "外来",
+      "dental": "歯科",
+      "vision": "視力",
+      "life": "生命",
+      "disability": "障害",
+      "accidental": "傷害",
+      "travel": "旅行",
+      "group_health": "団体医療",
+      "group_life": "団体生命"
+    },
+    "status": {
+      "active": "有効",
+      "expired": "期限切れ",
+      "cancelled": "キャンセル済み",
+      "submitted": "申請済み",
+      "under_review": "審査中",
+      "approved": "承認済み",
+      "rejected": "却下済み",
+      "settled": "精算済み",
+      "inactive": "無効",
+      "claimed": "請求済み"
+    },
+    "messages": {
+      "invalidEndDate": "保険の終了日を開始日より前に設定できません",
+      "renewalInPast": "更新日を過去の日付にはできません",
+      "invalidRenewalDate": "更新日は保険終了日以降に設定してください",
+      "invalidPolicyNumber": "保険番号をマイナス記号で始めることはできません",
+      "policyUpdated": "保険を更新しました",
+      "policyCreated": "保険を作成しました",
+      "saveFailed": "保険を保存できませんでした",
+      "deactivateConfirm": "この保険を無効にしますか？既存の加入には影響しません。",
+      "policyDeactivated": "保険を無効にしました",
+      "deactivateFailed": "保険を無効にできませんでした",
+      "employeeEnrolled": "従業員を保険に加入させました",
+      "enrollFailed": "加入処理に失敗しました",
+      "claimSubmitted": "請求を申請しました",
+      "claimSubmitFailed": "請求を申請できませんでした",
+      "approvedAmountPrompt": "承認額（全額の場合は空欄）：",
+      "claimApproved": "請求を承認しました",
+      "actionFailed": "操作に失敗しました",
+      "rejectionReason": "却下理由：",
+      "claimRejected": "請求を却下しました",
+      "claimSettled": "請求を精算しました",
+      "enrollmentCancelled": "加入をキャンセルしました"
+    },
+    "policyModal": {
+      "editTitle": "保険を編集",
+      "createTitle": "保険を作成",
+      "policyName": "保険名",
+      "policyNumber": "保険番号",
+      "policyNumberPlaceholder": "例：POL-2024-001",
+      "provider": "保険会社",
+      "type": "種類",
+      "totalPremium": "保険料総額",
+      "premiumPerEmployee": "従業員あたり保険料",
+      "coverageAmount": "補償額",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "renewalDate": "更新日",
+      "terms": "規約",
+      "cancel": "キャンセル",
+      "updatePolicy": "保険を更新",
+      "createPolicy": "保険を作成"
+    },
+    "enrollModal": {
+      "title": "従業員を保険に加入",
+      "employee": "従業員",
+      "policy": "保険",
+      "sumInsured": "保険金額",
+      "premiumShare": "従業員の保険料負担",
+      "nomineeName": "受取人名",
+      "nomineeRelationship": "受取人との関係",
+      "relationshipPlaceholder": "例：配偶者、親",
+      "cancel": "キャンセル",
+      "submit": "加入"
+    },
+    "claimModal": {
+      "title": "保険請求を申請",
+      "policy": "保険",
+      "claimType": "請求種別",
+      "amountClaimed": "請求額",
+      "description": "説明",
+      "descriptionPlaceholder": "請求内容を説明してください",
+      "notes": "メモ",
+      "cancel": "キャンセル",
+      "submit": "請求を申請"
+    }
+  },
+  "myTaxPage": {
+    "title": "税金",
+    "description": "年度 {{financialYear}} の税額計算",
+    "form16": "フォーム16",
+    "stats": {
+      "annualIncome": "年間所得",
+      "taxableIncome": "課税所得",
+      "estimatedTax": "推定税額",
+      "tdsDeductedYtd": "年初来TDS控除額"
+    },
+    "computationTitle": "税額計算",
+    "regimes": {
+      "new": "新税制",
+      "old": "旧税制"
+    },
+    "rows": {
+      "grossAnnualIncome": "年間総所得",
+      "standardDeduction": "控除：標準控除",
+      "chapterDeductions": "控除：第VI-A章控除",
+      "taxableIncome": "課税所得",
+      "taxOnIncome": "所得税",
+      "cess": "健康・教育目的税（4%）",
+      "totalLiability": "総納税額",
+      "monthlyTds": "月次TDS"
+    },
+    "tracker": {
+      "title": "TDS控除状況",
+      "totalTax": "年度の総税額",
+      "tdsDeductedYtd": "年初来TDS控除額",
+      "remaining": "残額",
+      "progress": "進捗",
+      "monthlyMessage": "毎月、給与から<strong>{{amount}}</strong>のTDSが控除されます。"
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "年度 {{financialYear}} — 投資証明と申告を提出",
+    "actions": {
+      "quickDeclare": "一括クイック申告",
+      "newDeclaration": "新規申告",
+      "cancel": "キャンセル",
+      "submitAll": "すべての申告を提出",
+      "submit": "申告を提出"
+    },
+    "stats": {
+      "totalDeclared": "申告総額",
+      "totalApproved": "承認総額",
+      "pendingApproval": "承認待ち"
+    },
+    "declarations": "申告",
+    "empty": "申告はまだありません。最初の投資証明を提出するには「新規申告」を選択してください。",
+    "proof": {
+      "submitted": "証明書提出済み",
+      "upload": "アップロード"
+    },
+    "quick": {
+      "title": "税務クイック申告",
+      "description": "すべての投資をまとめて申告",
+      "tip": "ヒント：第80C条ではPPF、ELSS、LICなどについて最大₹1,50,000を申告できます。80CCD(1B)のNPSではさらに₹50,000の控除を受けられます。",
+      "defaultDescription": "第{{section}}条に基づく税務申告"
+    },
+    "sections": {
+      "80C": "80C — PPF、ELSS、LICなど",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — 医療保険",
+      "80E": "80E — 教育ローン利息",
+      "80G": "80G — 寄付",
+      "80TTA": "80TTA — 預金利息",
+      "HRA": "HRA — 住宅家賃"
+    },
+    "validation": {
+      "sectionRequired": "項目を選択してください",
+      "fieldRequired": "この項目を入力してください",
+      "validAmount": "有効な金額を入力してください",
+      "nonnegativeAmount": "金額を負数にはできません",
+      "fileTooLarge": "ファイルサイズが5MBを超えています",
+      "fileType": "PDF、JPG、PNGファイルのみ使用できます",
+      "oneAmount": "少なくとも1つの金額を入力してください"
+    },
+    "messages": {
+      "proofUploaded": "証明書をアップロードしました",
+      "proofUploadFailed": "証明書をアップロードできませんでした",
+      "submitted": "申告を提出しました",
+      "submitFailed": "申告を提出できませんでした",
+      "submittedCount_one": "{{count}}件の申告を提出しました",
+      "submittedCount_other": "{{count}}件の申告を提出しました",
+      "submitAllFailed": "申告を提出できませんでした"
+    },
+    "form": {
+      "descriptionPlaceholder": "例：PPF拠出",
+      "amount": "金額",
+      "proofDocument": "証明書類",
+      "optional": "任意",
+      "uploadProof": "証明書類をアップロード",
+      "fileSelected": "{{size}} KB — 変更するには選択",
+      "dropzone": "選択してアップロード、またはドラッグ＆ドロップ",
+      "fileHelp": "PDF、JPG、PNG（最大5MB）"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "経費精算",
+    "description": "経費申請の提出と状況確認",
+    "newClaim": "新規申請",
+    "stats": {
+      "total": "申請総数",
+      "pending": "保留中",
+      "approvedPaid": "承認済み / 支払済み"
+    },
+    "empty": {
+      "title": "経費申請はありません",
+      "description": "経費を申請するには「新規申請」を選択してください"
+    },
+    "columns": {
+      "category": "カテゴリー",
+      "description": "説明",
+      "amount": "金額",
+      "date": "日付",
+      "status": "ステータス"
+    },
+    "categories": {
+      "medical": "医療",
+      "travel": "出張・交通",
+      "food": "食事",
+      "equipment": "備品",
+      "internet": "インターネット / 電話",
+      "books": "書籍・研修",
+      "other": "その他"
+    },
+    "status": {
+      "pending": "保留中",
+      "approved": "承認済み",
+      "paid": "支払済み",
+      "rejected": "却下"
+    },
+    "messages": {
+      "invalidAmount": "金額は0以上で入力してください",
+      "submitted": "申請を承認待ちとして提出しました",
+      "failed": "申請を提出できませんでした"
+    },
+    "modal": {
+      "title": "経費申請を提出",
+      "category": "カテゴリー",
+      "description": "説明",
+      "descriptionPlaceholder": "例：顧客訪問のタクシー代",
+      "amount": "金額 (₹)",
+      "expenseDate": "利用日",
+      "cancel": "キャンセル",
+      "submit": "申請を提出"
+    }
+  },
+  "holidaysPage": {
+    "title": "休日カレンダー",
+    "configured_one": "{{year}}年 — {{count}}件の休日を設定済み",
+    "configured_other": "{{year}}年 — {{count}}件の休日を設定済み",
+    "noHolidays": "休日なし",
+    "upcoming": "今後の休日",
+    "past": "過去の休日",
+    "actions": {
+      "add": "休日を追加",
+      "remove": "休日を削除",
+      "cancel": "キャンセル"
+    },
+    "columns": {
+      "holiday": "休日",
+      "date": "日付",
+      "day": "曜日",
+      "type": "種類"
+    },
+    "types": {
+      "national": "国民の祝日",
+      "regional": "地域の休日",
+      "optional": "任意 / 制限付き"
+    },
+    "messages": {
+      "nameRequired": "休日名は必須です",
+      "nameLetter": "休日名には少なくとも1文字を含めてください",
+      "added": "休日を追加しました",
+      "addFailed": "休日を追加できませんでした",
+      "removed": "休日を削除しました",
+      "removeFailed": "休日を削除できませんでした"
+    },
+    "modal": {
+      "title": "休日を追加",
+      "name": "休日名",
+      "namePlaceholder": "例：ディワリ",
+      "nameTitle": "少なくとも1文字を含めてください",
+      "date": "日付",
+      "type": "種類"
+    }
+  },
   "payrollRuns": {
     "title": "給与処理",
     "description": "月次給与処理",

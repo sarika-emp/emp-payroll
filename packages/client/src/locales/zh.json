@@ -904,6 +904,422 @@
       "continueMonitoring": "继续按季度监测薪酬公平性"
     }
   },
+  "earnedWagePage": {
+    "title": "已赚工资提取",
+    "description": "按需发薪 — 允许员工在发薪日前提取已赚工资",
+    "actions": {
+      "approve": "批准",
+      "reject": "拒绝",
+      "settings": "设置",
+      "requestAdvance": "申请预支"
+    },
+    "stats": {
+      "pendingRequests": "待处理申请",
+      "totalDisbursed": "累计发放",
+      "avgRequest": "平均申请额",
+      "totalRequests": "申请总数"
+    },
+    "filter": {
+      "showing": "正在显示",
+      "requests": "申请",
+      "clear": "清除筛选"
+    },
+    "balance": {
+      "title": "可用余额",
+      "details": "目前已赚：{{earned}} | 已提取：{{withdrawn}} | 第 {{day}}/{{days}} 天",
+      "maxPercentage": "最多可提取已赚工资的{{value}}%"
+    },
+    "status": {
+      "pending": "待处理",
+      "approved": "已批准",
+      "disbursed": "已发放",
+      "rejected": "已拒绝",
+      "repaid": "已偿还",
+      "enabled": "已启用",
+      "disabled": "已禁用"
+    },
+    "columns": {
+      "employee": "员工",
+      "amount": "金额",
+      "fee": "费用",
+      "status": "状态",
+      "requested": "申请日期",
+      "reason": "原因"
+    },
+    "emptyRequests": "尚无预支申请",
+    "messages": {
+      "showingAll": "下方显示所有申请",
+      "requestSubmitted": "预支申请已提交",
+      "submitFailed": "无法提交申请",
+      "requestApproved": "申请已批准",
+      "approveFailed": "无法批准",
+      "rejectionReason": "拒绝原因（可选）：",
+      "requestRejected": "申请已拒绝",
+      "rejectFailed": "无法拒绝",
+      "settingsSaved": "设置已保存",
+      "settingsSaveFailed": "无法保存设置"
+    },
+    "requestModal": {
+      "title": "申请工资预支",
+      "available": "可用：{{amount}}",
+      "salaryDetails": "月薪：{{salary}} | 第 {{day}}/{{days}} 天",
+      "unavailable": "目前没有可用的预支额度。请检查薪资配置或等待期。",
+      "amount": "金额",
+      "amountPlaceholder": "输入金额",
+      "reason": "原因（可选）",
+      "reasonPlaceholder": "您为什么需要这笔预支？",
+      "cancel": "取消",
+      "submit": "提交申请"
+    },
+    "settingsModal": {
+      "title": "已赚工资提取设置",
+      "enable": "启用已赚工资提取",
+      "maxPercentage": "已赚工资最高百分比",
+      "cooldownDays": "等待天数",
+      "minAmount": "最低金额",
+      "maxAmount": "最高金额（0 = 无上限）",
+      "feePercentage": "费用百分比",
+      "flatFee": "固定费用",
+      "autoApproveBelow": "低于此金额自动批准（0 = 禁用）",
+      "requiresApproval": "需要经理批准",
+      "cancel": "取消",
+      "save": "保存设置"
+    }
+  },
+  "insurancePage": {
+    "title": "保险管理",
+    "description": "管理团体保险、参保和理赔",
+    "actions": {
+      "edit": "编辑",
+      "deactivate": "停用",
+      "cancel": "取消",
+      "settle": "结算",
+      "approve": "批准",
+      "reject": "拒绝",
+      "submitClaim": "提交理赔",
+      "enrollEmployee": "为员工参保",
+      "newPolicy": "新建保单"
+    },
+    "stats": {
+      "activePolicies": "有效保单",
+      "activeEnrollments": "有效参保",
+      "pendingClaims": "待处理理赔",
+      "totalApproved": "批准总额"
+    },
+    "tabs": {
+      "policies": "保单 ({{count}})",
+      "enrollments": "参保 ({{count}})",
+      "claims": "理赔 ({{count}})"
+    },
+    "empty": {
+      "policies": "尚未创建保险保单",
+      "enrollments": "尚无参保记录",
+      "claims": "尚未提交理赔"
+    },
+    "columns": {
+      "policyName": "保单名称",
+      "number": "编号",
+      "provider": "保险公司",
+      "type": "类型",
+      "coverage": "保额",
+      "premiumPerEmployee": "每位员工保费",
+      "status": "状态",
+      "employee": "员工",
+      "policy": "保单",
+      "sumInsured": "保险金额",
+      "premiumShare": "保费分摊",
+      "nominee": "受益人",
+      "claimNumber": "理赔编号",
+      "claimed": "申请金额",
+      "approved": "批准金额",
+      "submitted": "提交日期"
+    },
+    "policyTypes": {
+      "group_health": "团体医疗",
+      "group_life": "团体人寿",
+      "disability": "伤残",
+      "accidental": "意外",
+      "travel": "旅行"
+    },
+    "claimTypes": {
+      "hospitalization": "住院",
+      "outpatient": "门诊",
+      "dental": "牙科",
+      "vision": "视力",
+      "life": "人寿",
+      "disability": "伤残",
+      "accidental": "意外",
+      "travel": "旅行",
+      "group_health": "团体医疗",
+      "group_life": "团体人寿"
+    },
+    "status": {
+      "active": "有效",
+      "expired": "已过期",
+      "cancelled": "已取消",
+      "submitted": "已提交",
+      "under_review": "审核中",
+      "approved": "已批准",
+      "rejected": "已拒绝",
+      "settled": "已结算",
+      "inactive": "无效",
+      "claimed": "已理赔"
+    },
+    "messages": {
+      "invalidEndDate": "保单结束日期不能早于开始日期",
+      "renewalInPast": "续保日期不能是过去的日期",
+      "invalidRenewalDate": "续保日期必须等于或晚于保单结束日期",
+      "invalidPolicyNumber": "保单编号不能以负号开头",
+      "policyUpdated": "保险保单已更新",
+      "policyCreated": "保险保单已创建",
+      "saveFailed": "无法保存保单",
+      "deactivateConfirm": "是否停用此保险保单？现有参保记录不会受到影响。",
+      "policyDeactivated": "保险保单已停用",
+      "deactivateFailed": "无法停用保单",
+      "employeeEnrolled": "员工已参保",
+      "enrollFailed": "参保失败",
+      "claimSubmitted": "理赔已提交",
+      "claimSubmitFailed": "无法提交理赔",
+      "approvedAmountPrompt": "批准金额（留空表示全额）：",
+      "claimApproved": "理赔已批准",
+      "actionFailed": "操作失败",
+      "rejectionReason": "拒绝原因：",
+      "claimRejected": "理赔已拒绝",
+      "claimSettled": "理赔已结算",
+      "enrollmentCancelled": "参保已取消"
+    },
+    "policyModal": {
+      "editTitle": "编辑保险保单",
+      "createTitle": "创建保险保单",
+      "policyName": "保单名称",
+      "policyNumber": "保单编号",
+      "policyNumberPlaceholder": "例如 POL-2024-001",
+      "provider": "保险公司",
+      "type": "类型",
+      "totalPremium": "保费总额",
+      "premiumPerEmployee": "每位员工保费",
+      "coverageAmount": "保险金额",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "renewalDate": "续保日期",
+      "terms": "条款和条件",
+      "cancel": "取消",
+      "updatePolicy": "更新保单",
+      "createPolicy": "创建保单"
+    },
+    "enrollModal": {
+      "title": "为员工办理参保",
+      "employee": "员工",
+      "policy": "保险保单",
+      "sumInsured": "保险金额",
+      "premiumShare": "员工保费分摊",
+      "nomineeName": "受益人姓名",
+      "nomineeRelationship": "与受益人的关系",
+      "relationshipPlaceholder": "例如：配偶、父母",
+      "cancel": "取消",
+      "submit": "参保"
+    },
+    "claimModal": {
+      "title": "提交保险理赔",
+      "policy": "保险保单",
+      "claimType": "理赔类型",
+      "amountClaimed": "申请金额",
+      "description": "说明",
+      "descriptionPlaceholder": "描述理赔情况",
+      "notes": "备注",
+      "cancel": "取消",
+      "submit": "提交理赔"
+    }
+  },
+  "myTaxPage": {
+    "title": "我的税务",
+    "description": "财年 {{financialYear}} 税额计算",
+    "form16": "表格16",
+    "stats": {
+      "annualIncome": "年度收入",
+      "taxableIncome": "应税收入",
+      "estimatedTax": "预计税额",
+      "tdsDeductedYtd": "本年至今已扣TDS"
+    },
+    "computationTitle": "税额计算",
+    "regimes": {
+      "new": "新税制",
+      "old": "旧税制"
+    },
+    "rows": {
+      "grossAnnualIncome": "年度总收入",
+      "standardDeduction": "减：标准扣除",
+      "chapterDeductions": "减：第VI-A章扣除",
+      "taxableIncome": "应税收入",
+      "taxOnIncome": "所得税",
+      "cess": "健康和教育附加税（4%）",
+      "totalLiability": "应纳税总额",
+      "monthlyTds": "每月TDS"
+    },
+    "tracker": {
+      "title": "TDS扣除跟踪",
+      "totalTax": "本财年税额总计",
+      "tdsDeductedYtd": "本年至今已扣TDS",
+      "remaining": "剩余",
+      "progress": "进度",
+      "monthlyMessage": "每月将从您的工资中扣除<strong>{{amount}}</strong>的TDS。"
+    }
+  },
+  "myDeclarationsPage": {
+    "description": "财年 {{financialYear}} — 提交投资证明和申报",
+    "actions": {
+      "quickDeclare": "快速申报全部",
+      "newDeclaration": "新建申报",
+      "cancel": "取消",
+      "submitAll": "提交所有申报",
+      "submit": "提交申报"
+    },
+    "stats": {
+      "totalDeclared": "申报总额",
+      "totalApproved": "批准总额",
+      "pendingApproval": "待审批"
+    },
+    "declarations": "申报",
+    "empty": "暂无申报。请选择“新建申报”提交第一份投资证明。",
+    "proof": {
+      "submitted": "证明已提交",
+      "upload": "上传"
+    },
+    "quick": {
+      "title": "快速税务申报",
+      "description": "一次申报所有投资",
+      "tip": "提示：根据第80C条，PPF、ELSS、LIC等最多可申报₹1,50,000。80CCD(1B)下的NPS另可享受₹50,000扣除额。",
+      "defaultDescription": "第{{section}}条税务申报"
+    },
+    "sections": {
+      "80C": "80C — PPF、ELSS、LIC等",
+      "80CCD_1B": "80CCD(1B) — NPS",
+      "80D": "80D — 医疗保险",
+      "80E": "80E — 教育贷款利息",
+      "80G": "80G — 捐赠",
+      "80TTA": "80TTA — 储蓄利息",
+      "HRA": "HRA — 房屋租金"
+    },
+    "validation": {
+      "sectionRequired": "请选择一个条款",
+      "fieldRequired": "请填写此字段",
+      "validAmount": "请输入有效金额",
+      "nonnegativeAmount": "金额不能为负数",
+      "fileTooLarge": "文件大于5MB",
+      "fileType": "仅允许PDF、JPG或PNG文件",
+      "oneAmount": "请至少输入一个金额"
+    },
+    "messages": {
+      "proofUploaded": "证明已上传",
+      "proofUploadFailed": "证明上传失败",
+      "submitted": "申报已提交",
+      "submitFailed": "申报提交失败",
+      "submittedCount_one": "已提交 {{count}} 项申报",
+      "submittedCount_other": "已提交 {{count}} 项申报",
+      "submitAllFailed": "申报提交失败"
+    },
+    "form": {
+      "descriptionPlaceholder": "例如：PPF缴款",
+      "amount": "金额",
+      "proofDocument": "证明文件",
+      "optional": "可选",
+      "uploadProof": "上传证明文件",
+      "fileSelected": "{{size}} KB — 选择以更改",
+      "dropzone": "选择上传或拖放文件",
+      "fileHelp": "PDF、JPG或PNG，最大5MB"
+    }
+  },
+  "myReimbursementsPage": {
+    "title": "我的报销",
+    "description": "提交并跟踪费用报销申请",
+    "newClaim": "新建申请",
+    "stats": {
+      "total": "申请总数",
+      "pending": "待处理",
+      "approvedPaid": "已批准 / 已支付"
+    },
+    "empty": {
+      "title": "暂无报销申请",
+      "description": "选择“新建申请”以提交费用"
+    },
+    "columns": {
+      "category": "类别",
+      "description": "说明",
+      "amount": "金额",
+      "date": "日期",
+      "status": "状态"
+    },
+    "categories": {
+      "medical": "医疗",
+      "travel": "差旅",
+      "food": "餐饮",
+      "equipment": "设备",
+      "internet": "网络 / 电话",
+      "books": "书籍与培训",
+      "other": "其他"
+    },
+    "status": {
+      "pending": "待处理",
+      "approved": "已批准",
+      "paid": "已支付",
+      "rejected": "已拒绝"
+    },
+    "messages": {
+      "invalidAmount": "金额必须为零或正数",
+      "submitted": "申请已提交审批",
+      "failed": "提交申请失败"
+    },
+    "modal": {
+      "title": "提交费用申请",
+      "category": "类别",
+      "description": "说明",
+      "descriptionPlaceholder": "例如：客户会议出租车费",
+      "amount": "金额 (₹)",
+      "expenseDate": "费用日期",
+      "cancel": "取消",
+      "submit": "提交申请"
+    }
+  },
+  "holidaysPage": {
+    "title": "节假日日历",
+    "configured_one": "{{year}}年 — 已配置 {{count}} 个节假日",
+    "configured_other": "{{year}}年 — 已配置 {{count}} 个节假日",
+    "noHolidays": "无节假日",
+    "upcoming": "即将到来的节假日",
+    "past": "过去的节假日",
+    "actions": {
+      "add": "添加节假日",
+      "remove": "删除节假日",
+      "cancel": "取消"
+    },
+    "columns": {
+      "holiday": "节假日",
+      "date": "日期",
+      "day": "星期",
+      "type": "类型"
+    },
+    "types": {
+      "national": "全国性",
+      "regional": "地区性",
+      "optional": "可选 / 限制性"
+    },
+    "messages": {
+      "nameRequired": "节假日名称为必填项",
+      "nameLetter": "节假日名称必须至少包含一个文字",
+      "added": "已添加节假日",
+      "addFailed": "添加节假日失败",
+      "removed": "已删除节假日",
+      "removeFailed": "删除节假日失败"
+    },
+    "modal": {
+      "title": "添加节假日",
+      "name": "节假日名称",
+      "namePlaceholder": "例如：排灯节",
+      "nameTitle": "必须至少包含一个文字",
+      "date": "日期",
+      "type": "类型"
+    }
+  },
   "payrollRuns": {
     "title": "薪资批次",
     "description": "月度薪资处理",
