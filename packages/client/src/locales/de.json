@@ -1151,6 +1151,82 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "glAccountingPage": {
+    "title": "Hauptbuch / Buchhaltung",
+    "description": "Lohnbestandteile Hauptbuchkonten zuordnen und Journalbuchungen erstellen",
+    "actions": {
+      "generateJournal": "Journal erstellen",
+      "addMapping": "Zuordnung hinzufügen",
+      "deleteMapping": "Zuordnung löschen",
+      "cancel": "Abbrechen",
+      "saveMapping": "Zuordnung speichern",
+      "generate": "Erstellen"
+    },
+    "stats": {
+      "mappings": "Hauptbuchzuordnungen",
+      "journals": "Journalbuchungen",
+      "exported": "Exportiert"
+    },
+    "tabs": {
+      "mappings": "Hauptbuchzuordnungen",
+      "journals": "Journalbuchungen",
+      "exported": "Exportiert"
+    },
+    "mappingTable": {
+      "payComponent": "Entgeltbestandteil",
+      "accountCode": "Sachkontocode",
+      "accountName": "Sachkontoname",
+      "description": "Beschreibung"
+    },
+    "journalTable": {
+      "date": "Datum",
+      "payrollRun": "Abrechnungslauf",
+      "totalDebit": "Soll gesamt",
+      "totalCredit": "Haben gesamt",
+      "status": "Status",
+      "export": "Export"
+    },
+    "statuses": {
+      "draft": "Entwurf",
+      "posted": "Gebucht",
+      "exported": "Exportiert"
+    },
+    "empty": {
+      "mappings": "Keine Hauptbuchzuordnungen konfiguriert",
+      "journals": "Keine Journalbuchungen erstellt",
+      "exported": "Noch keine Journalbuchungen exportiert"
+    },
+    "mappingModal": {
+      "title": "Hauptbuchzuordnung hinzufügen",
+      "payComponentCode": "Code des Entgeltbestandteils",
+      "payComponentPlaceholder": "z. B. BASIC, HRA, EPF, TDS",
+      "accountCode": "Sachkontocode",
+      "accountCodePlaceholder": "z. B. 4001",
+      "accountName": "Sachkontoname",
+      "accountNamePlaceholder": "z. B. Gehaltsaufwand",
+      "description": "Beschreibung"
+    },
+    "journalModal": {
+      "title": "Journalbuchung erstellen",
+      "payrollRun": "Abrechnungslauf",
+      "selectRun": "Abrechnungslauf auswählen...",
+      "help": "Dadurch werden Journalbuchungen aus dem ausgewählten Abrechnungslauf anhand Ihrer konfigurierten Hauptbuchzuordnungen erstellt."
+    },
+    "validation": {
+      "accountCode": "Der Sachkontocode muss eine positive Zahl ohne Minuszeichen, Buchstaben oder Leerzeichen sein"
+    },
+    "messages": {
+      "mappingCreated": "Hauptbuchzuordnung erstellt",
+      "journalGenerated": "Journalbuchung erstellt",
+      "mappingDeleted": "Zuordnung gelöscht",
+      "failed": "Aktion fehlgeschlagen"
+    },
+    "exports": {
+      "tallyTitle": "Nach Tally exportieren",
+      "quickbooksTitle": "Nach QuickBooks exportieren",
+      "zohoTitle": "Nach Zoho exportieren"
+    }
+  },
   "globalEmployeesPage": {
     "title": "Globale Mitarbeiter",
     "description": "EOR-, Auftragnehmer- und direkt angestellte Mitarbeiter weltweit verwalten",

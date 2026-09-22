@@ -1144,6 +1144,82 @@
       "submit": "請求を申請"
     }
   },
+  "glAccountingPage": {
+    "title": "総勘定元帳 / 会計",
+    "description": "給与項目を総勘定元帳の勘定科目に紐付け、仕訳を作成します",
+    "actions": {
+      "generateJournal": "仕訳を作成",
+      "addMapping": "マッピングを追加",
+      "deleteMapping": "マッピングを削除",
+      "cancel": "キャンセル",
+      "saveMapping": "マッピングを保存",
+      "generate": "作成"
+    },
+    "stats": {
+      "mappings": "総勘定元帳マッピング",
+      "journals": "仕訳",
+      "exported": "エクスポート済み"
+    },
+    "tabs": {
+      "mappings": "総勘定元帳マッピング",
+      "journals": "仕訳",
+      "exported": "エクスポート済み"
+    },
+    "mappingTable": {
+      "payComponent": "給与項目",
+      "accountCode": "勘定科目コード",
+      "accountName": "勘定科目名",
+      "description": "説明"
+    },
+    "journalTable": {
+      "date": "日付",
+      "payrollRun": "給与計算",
+      "totalDebit": "借方合計",
+      "totalCredit": "貸方合計",
+      "status": "ステータス",
+      "export": "エクスポート"
+    },
+    "statuses": {
+      "draft": "下書き",
+      "posted": "転記済み",
+      "exported": "エクスポート済み"
+    },
+    "empty": {
+      "mappings": "総勘定元帳マッピングが設定されていません",
+      "journals": "仕訳はまだ作成されていません",
+      "exported": "エクスポートされた仕訳はまだありません"
+    },
+    "mappingModal": {
+      "title": "総勘定元帳マッピングを追加",
+      "payComponentCode": "給与項目コード",
+      "payComponentPlaceholder": "例：BASIC, HRA, EPF, TDS",
+      "accountCode": "勘定科目コード",
+      "accountCodePlaceholder": "例：4001",
+      "accountName": "勘定科目名",
+      "accountNamePlaceholder": "例：給与費用",
+      "description": "説明"
+    },
+    "journalModal": {
+      "title": "仕訳を作成",
+      "payrollRun": "給与計算",
+      "selectRun": "給与計算を選択...",
+      "help": "設定済みの総勘定元帳マッピングを使用して、選択した給与計算から仕訳を作成します。"
+    },
+    "validation": {
+      "accountCode": "勘定科目コードは、負号、文字、空白を含まない正の数にしてください"
+    },
+    "messages": {
+      "mappingCreated": "総勘定元帳マッピングを作成しました",
+      "journalGenerated": "仕訳を作成しました",
+      "mappingDeleted": "マッピングを削除しました",
+      "failed": "操作に失敗しました"
+    },
+    "exports": {
+      "tallyTitle": "Tallyへエクスポート",
+      "quickbooksTitle": "QuickBooksへエクスポート",
+      "zohoTitle": "Zohoへエクスポート"
+    }
+  },
   "globalEmployeesPage": {
     "title": "グローバル従業員",
     "description": "世界中のEOR従業員、業務委託者、直接雇用者を管理します",

@@ -1170,6 +1170,82 @@
       "submit": "Submit Claim"
     }
   },
+  "glAccountingPage": {
+    "title": "GL / Accounting",
+    "description": "Map payroll components to GL accounts and generate journal entries",
+    "actions": {
+      "generateJournal": "Generate Journal",
+      "addMapping": "Add Mapping",
+      "deleteMapping": "Delete mapping",
+      "cancel": "Cancel",
+      "saveMapping": "Save Mapping",
+      "generate": "Generate"
+    },
+    "stats": {
+      "mappings": "GL Mappings",
+      "journals": "Journal Entries",
+      "exported": "Exported"
+    },
+    "tabs": {
+      "mappings": "GL Mappings",
+      "journals": "Journal Entries",
+      "exported": "Exported"
+    },
+    "mappingTable": {
+      "payComponent": "Pay Component",
+      "accountCode": "GL Account Code",
+      "accountName": "GL Account Name",
+      "description": "Description"
+    },
+    "journalTable": {
+      "date": "Date",
+      "payrollRun": "Payroll Run",
+      "totalDebit": "Total Debit",
+      "totalCredit": "Total Credit",
+      "status": "Status",
+      "export": "Export"
+    },
+    "statuses": {
+      "draft": "Draft",
+      "posted": "Posted",
+      "exported": "Exported"
+    },
+    "empty": {
+      "mappings": "No GL mappings configured",
+      "journals": "No journal entries generated",
+      "exported": "No journals have been exported yet"
+    },
+    "mappingModal": {
+      "title": "Add GL Mapping",
+      "payComponentCode": "Pay Component Code",
+      "payComponentPlaceholder": "e.g., BASIC, HRA, EPF, TDS",
+      "accountCode": "GL Account Code",
+      "accountCodePlaceholder": "e.g., 4001",
+      "accountName": "GL Account Name",
+      "accountNamePlaceholder": "e.g., Salary Expense",
+      "description": "Description"
+    },
+    "journalModal": {
+      "title": "Generate Journal Entry",
+      "payrollRun": "Payroll Run",
+      "selectRun": "Select a payroll run...",
+      "help": "This will generate journal entries from the selected payroll run using your configured GL mappings."
+    },
+    "validation": {
+      "accountCode": "GL Account Code must be a positive number (no negative signs, letters, or spaces)"
+    },
+    "messages": {
+      "mappingCreated": "GL mapping created",
+      "journalGenerated": "Journal entry generated",
+      "mappingDeleted": "Mapping deleted",
+      "failed": "Action failed"
+    },
+    "exports": {
+      "tallyTitle": "Export to Tally",
+      "quickbooksTitle": "Export to QuickBooks",
+      "zohoTitle": "Export to Zoho"
+    }
+  },
   "globalEmployeesPage": {
     "title": "Global Employees",
     "description": "Manage EOR, contractor, and direct-hire employees worldwide",

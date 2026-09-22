@@ -1152,6 +1152,82 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "glAccountingPage": {
+    "title": "Grand livre / Comptabilité",
+    "description": "Associez les composants de paie aux comptes du grand livre et générez les écritures",
+    "actions": {
+      "generateJournal": "Générer une écriture",
+      "addMapping": "Ajouter une correspondance",
+      "deleteMapping": "Supprimer la correspondance",
+      "cancel": "Annuler",
+      "saveMapping": "Enregistrer la correspondance",
+      "generate": "Générer"
+    },
+    "stats": {
+      "mappings": "Correspondances comptables",
+      "journals": "Écritures comptables",
+      "exported": "Exportées"
+    },
+    "tabs": {
+      "mappings": "Correspondances comptables",
+      "journals": "Écritures comptables",
+      "exported": "Exportées"
+    },
+    "mappingTable": {
+      "payComponent": "Composant de paie",
+      "accountCode": "Code de compte",
+      "accountName": "Nom du compte",
+      "description": "Description"
+    },
+    "journalTable": {
+      "date": "Date",
+      "payrollRun": "Cycle de paie",
+      "totalDebit": "Total débit",
+      "totalCredit": "Total crédit",
+      "status": "Statut",
+      "export": "Exporter"
+    },
+    "statuses": {
+      "draft": "Brouillon",
+      "posted": "Comptabilisée",
+      "exported": "Exportée"
+    },
+    "empty": {
+      "mappings": "Aucune correspondance comptable configurée",
+      "journals": "Aucune écriture comptable générée",
+      "exported": "Aucune écriture n’a encore été exportée"
+    },
+    "mappingModal": {
+      "title": "Ajouter une correspondance comptable",
+      "payComponentCode": "Code du composant de paie",
+      "payComponentPlaceholder": "p. ex. BASIC, HRA, EPF, TDS",
+      "accountCode": "Code de compte",
+      "accountCodePlaceholder": "p. ex. 4001",
+      "accountName": "Nom du compte",
+      "accountNamePlaceholder": "p. ex. Charges salariales",
+      "description": "Description"
+    },
+    "journalModal": {
+      "title": "Générer une écriture comptable",
+      "payrollRun": "Cycle de paie",
+      "selectRun": "Sélectionnez un cycle de paie...",
+      "help": "Des écritures seront générées à partir du cycle de paie sélectionné à l’aide de vos correspondances comptables configurées."
+    },
+    "validation": {
+      "accountCode": "Le code de compte doit être un nombre positif, sans signe négatif, lettre ni espace"
+    },
+    "messages": {
+      "mappingCreated": "Correspondance comptable créée",
+      "journalGenerated": "Écriture comptable générée",
+      "mappingDeleted": "Correspondance supprimée",
+      "failed": "Échec de l’action"
+    },
+    "exports": {
+      "tallyTitle": "Exporter vers Tally",
+      "quickbooksTitle": "Exporter vers QuickBooks",
+      "zohoTitle": "Exporter vers Zoho"
+    }
+  },
   "globalEmployeesPage": {
     "title": "Salariés internationaux",
     "description": "Gérez les salariés EOR, prestataires et embauches directes dans le monde entier",

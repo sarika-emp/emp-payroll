@@ -1131,6 +1131,82 @@
       "submit": "提交理赔"
     }
   },
+  "glAccountingPage": {
+    "title": "总账 / 会计",
+    "description": "将薪资组成映射到总账科目并生成日记账分录",
+    "actions": {
+      "generateJournal": "生成日记账",
+      "addMapping": "添加映射",
+      "deleteMapping": "删除映射",
+      "cancel": "取消",
+      "saveMapping": "保存映射",
+      "generate": "生成"
+    },
+    "stats": {
+      "mappings": "总账映射",
+      "journals": "日记账分录",
+      "exported": "已导出"
+    },
+    "tabs": {
+      "mappings": "总账映射",
+      "journals": "日记账分录",
+      "exported": "已导出"
+    },
+    "mappingTable": {
+      "payComponent": "薪资组成",
+      "accountCode": "总账科目代码",
+      "accountName": "总账科目名称",
+      "description": "说明"
+    },
+    "journalTable": {
+      "date": "日期",
+      "payrollRun": "薪资运行",
+      "totalDebit": "借方合计",
+      "totalCredit": "贷方合计",
+      "status": "状态",
+      "export": "导出"
+    },
+    "statuses": {
+      "draft": "草稿",
+      "posted": "已过账",
+      "exported": "已导出"
+    },
+    "empty": {
+      "mappings": "尚未配置总账映射",
+      "journals": "尚未生成日记账分录",
+      "exported": "尚未导出任何日记账"
+    },
+    "mappingModal": {
+      "title": "添加总账映射",
+      "payComponentCode": "薪资组成代码",
+      "payComponentPlaceholder": "例如：BASIC、HRA、EPF、TDS",
+      "accountCode": "总账科目代码",
+      "accountCodePlaceholder": "例如：4001",
+      "accountName": "总账科目名称",
+      "accountNamePlaceholder": "例如：工资费用",
+      "description": "说明"
+    },
+    "journalModal": {
+      "title": "生成日记账分录",
+      "payrollRun": "薪资运行",
+      "selectRun": "选择薪资运行...",
+      "help": "系统将使用已配置的总账映射，从所选薪资运行生成日记账分录。"
+    },
+    "validation": {
+      "accountCode": "总账科目代码必须为正数，不能包含负号、字母或空格"
+    },
+    "messages": {
+      "mappingCreated": "总账映射已创建",
+      "journalGenerated": "日记账分录已生成",
+      "mappingDeleted": "映射已删除",
+      "failed": "操作失败"
+    },
+    "exports": {
+      "tallyTitle": "导出到Tally",
+      "quickbooksTitle": "导出到QuickBooks",
+      "zohoTitle": "导出到Zoho"
+    }
+  },
   "globalEmployeesPage": {
     "title": "全球员工",
     "description": "管理全球EOR员工、承包商和直接雇用员工",

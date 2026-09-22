@@ -1136,6 +1136,82 @@
       "submit": "تقديم المطالبة"
     }
   },
+  "glAccountingPage": {
+    "title": "دفتر الأستاذ / المحاسبة",
+    "description": "ربط مكونات الرواتب بحسابات دفتر الأستاذ وإنشاء قيود اليومية",
+    "actions": {
+      "generateJournal": "إنشاء قيد",
+      "addMapping": "إضافة ربط",
+      "deleteMapping": "حذف الربط",
+      "cancel": "إلغاء",
+      "saveMapping": "حفظ الربط",
+      "generate": "إنشاء"
+    },
+    "stats": {
+      "mappings": "عمليات ربط دفتر الأستاذ",
+      "journals": "قيود اليومية",
+      "exported": "مُصدّرة"
+    },
+    "tabs": {
+      "mappings": "عمليات ربط دفتر الأستاذ",
+      "journals": "قيود اليومية",
+      "exported": "مُصدّرة"
+    },
+    "mappingTable": {
+      "payComponent": "مكون الراتب",
+      "accountCode": "رمز الحساب",
+      "accountName": "اسم الحساب",
+      "description": "الوصف"
+    },
+    "journalTable": {
+      "date": "التاريخ",
+      "payrollRun": "تشغيل الرواتب",
+      "totalDebit": "إجمالي المدين",
+      "totalCredit": "إجمالي الدائن",
+      "status": "الحالة",
+      "export": "تصدير"
+    },
+    "statuses": {
+      "draft": "مسودة",
+      "posted": "مُرحّل",
+      "exported": "مُصدّر"
+    },
+    "empty": {
+      "mappings": "لا توجد عمليات ربط لدفتر الأستاذ",
+      "journals": "لم يتم إنشاء قيود يومية",
+      "exported": "لم يتم تصدير أي قيود حتى الآن"
+    },
+    "mappingModal": {
+      "title": "إضافة ربط لدفتر الأستاذ",
+      "payComponentCode": "رمز مكون الراتب",
+      "payComponentPlaceholder": "مثال: BASIC, HRA, EPF, TDS",
+      "accountCode": "رمز الحساب",
+      "accountCodePlaceholder": "مثال: 4001",
+      "accountName": "اسم الحساب",
+      "accountNamePlaceholder": "مثال: مصروف الرواتب",
+      "description": "الوصف"
+    },
+    "journalModal": {
+      "title": "إنشاء قيد يومية",
+      "payrollRun": "تشغيل الرواتب",
+      "selectRun": "اختر تشغيل الرواتب...",
+      "help": "سيؤدي ذلك إلى إنشاء قيود يومية من تشغيل الرواتب المحدد باستخدام عمليات الربط المهيأة."
+    },
+    "validation": {
+      "accountCode": "يجب أن يكون رمز الحساب رقمًا موجبًا من دون إشارات سالبة أو أحرف أو مسافات"
+    },
+    "messages": {
+      "mappingCreated": "تم إنشاء ربط دفتر الأستاذ",
+      "journalGenerated": "تم إنشاء قيد اليومية",
+      "mappingDeleted": "تم حذف الربط",
+      "failed": "فشلت العملية"
+    },
+    "exports": {
+      "tallyTitle": "تصدير إلى Tally",
+      "quickbooksTitle": "تصدير إلى QuickBooks",
+      "zohoTitle": "تصدير إلى Zoho"
+    }
+  },
   "globalEmployeesPage": {
     "title": "الموظفون العالميون",
     "description": "إدارة موظفي EOR والمتعاقدين والتعيينات المباشرة حول العالم",

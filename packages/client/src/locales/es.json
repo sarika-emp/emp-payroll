@@ -1162,6 +1162,82 @@
       "submit": "Enviar reclamación"
     }
   },
+  "glAccountingPage": {
+    "title": "Libro mayor / Contabilidad",
+    "description": "Asigna componentes de nómina a cuentas contables y genera asientos",
+    "actions": {
+      "generateJournal": "Generar asiento",
+      "addMapping": "Añadir asignación",
+      "deleteMapping": "Eliminar asignación",
+      "cancel": "Cancelar",
+      "saveMapping": "Guardar asignación",
+      "generate": "Generar"
+    },
+    "stats": {
+      "mappings": "Asignaciones contables",
+      "journals": "Asientos contables",
+      "exported": "Exportados"
+    },
+    "tabs": {
+      "mappings": "Asignaciones contables",
+      "journals": "Asientos contables",
+      "exported": "Exportados"
+    },
+    "mappingTable": {
+      "payComponent": "Componente salarial",
+      "accountCode": "Código de cuenta",
+      "accountName": "Nombre de cuenta",
+      "description": "Descripción"
+    },
+    "journalTable": {
+      "date": "Fecha",
+      "payrollRun": "Proceso de nómina",
+      "totalDebit": "Debe total",
+      "totalCredit": "Haber total",
+      "status": "Estado",
+      "export": "Exportar"
+    },
+    "statuses": {
+      "draft": "Borrador",
+      "posted": "Contabilizado",
+      "exported": "Exportado"
+    },
+    "empty": {
+      "mappings": "No hay asignaciones contables configuradas",
+      "journals": "No se han generado asientos contables",
+      "exported": "Aún no se ha exportado ningún asiento"
+    },
+    "mappingModal": {
+      "title": "Añadir asignación contable",
+      "payComponentCode": "Código del componente salarial",
+      "payComponentPlaceholder": "p. ej., BASIC, HRA, EPF, TDS",
+      "accountCode": "Código de cuenta",
+      "accountCodePlaceholder": "p. ej., 4001",
+      "accountName": "Nombre de cuenta",
+      "accountNamePlaceholder": "p. ej., Gasto salarial",
+      "description": "Descripción"
+    },
+    "journalModal": {
+      "title": "Generar asiento contable",
+      "payrollRun": "Proceso de nómina",
+      "selectRun": "Selecciona un proceso de nómina...",
+      "help": "Se generarán asientos a partir del proceso de nómina seleccionado usando las asignaciones contables configuradas."
+    },
+    "validation": {
+      "accountCode": "El código de cuenta debe ser un número positivo, sin signos negativos, letras ni espacios"
+    },
+    "messages": {
+      "mappingCreated": "Asignación contable creada",
+      "journalGenerated": "Asiento contable generado",
+      "mappingDeleted": "Asignación eliminada",
+      "failed": "La acción ha fallado"
+    },
+    "exports": {
+      "tallyTitle": "Exportar a Tally",
+      "quickbooksTitle": "Exportar a QuickBooks",
+      "zohoTitle": "Exportar a Zoho"
+    }
+  },
   "globalEmployeesPage": {
     "title": "Empleados globales",
     "description": "Gestiona empleados EOR, contratistas y contrataciones directas en todo el mundo",

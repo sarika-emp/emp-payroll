@@ -1151,6 +1151,82 @@
       "submit": "Enviar sinistro"
     }
   },
+  "glAccountingPage": {
+    "title": "Razão geral / Contabilidade",
+    "description": "Associe componentes salariais a contas do razão e gere lançamentos contabilísticos",
+    "actions": {
+      "generateJournal": "Gerar lançamento",
+      "addMapping": "Adicionar associação",
+      "deleteMapping": "Eliminar associação",
+      "cancel": "Cancelar",
+      "saveMapping": "Guardar associação",
+      "generate": "Gerar"
+    },
+    "stats": {
+      "mappings": "Associações contabilísticas",
+      "journals": "Lançamentos contabilísticos",
+      "exported": "Exportados"
+    },
+    "tabs": {
+      "mappings": "Associações contabilísticas",
+      "journals": "Lançamentos contabilísticos",
+      "exported": "Exportados"
+    },
+    "mappingTable": {
+      "payComponent": "Componente salarial",
+      "accountCode": "Código da conta",
+      "accountName": "Nome da conta",
+      "description": "Descrição"
+    },
+    "journalTable": {
+      "date": "Data",
+      "payrollRun": "Processamento salarial",
+      "totalDebit": "Débito total",
+      "totalCredit": "Crédito total",
+      "status": "Estado",
+      "export": "Exportar"
+    },
+    "statuses": {
+      "draft": "Rascunho",
+      "posted": "Contabilizado",
+      "exported": "Exportado"
+    },
+    "empty": {
+      "mappings": "Não existem associações contabilísticas configuradas",
+      "journals": "Não foram gerados lançamentos contabilísticos",
+      "exported": "Ainda não foram exportados lançamentos"
+    },
+    "mappingModal": {
+      "title": "Adicionar associação contabilística",
+      "payComponentCode": "Código do componente salarial",
+      "payComponentPlaceholder": "por ex., BASIC, HRA, EPF, TDS",
+      "accountCode": "Código da conta",
+      "accountCodePlaceholder": "por ex., 4001",
+      "accountName": "Nome da conta",
+      "accountNamePlaceholder": "por ex., Despesa salarial",
+      "description": "Descrição"
+    },
+    "journalModal": {
+      "title": "Gerar lançamento contabilístico",
+      "payrollRun": "Processamento salarial",
+      "selectRun": "Selecione um processamento salarial...",
+      "help": "Serão gerados lançamentos a partir do processamento salarial selecionado com as associações contabilísticas configuradas."
+    },
+    "validation": {
+      "accountCode": "O código da conta deve ser um número positivo, sem sinais negativos, letras ou espaços"
+    },
+    "messages": {
+      "mappingCreated": "Associação contabilística criada",
+      "journalGenerated": "Lançamento contabilístico gerado",
+      "mappingDeleted": "Associação eliminada",
+      "failed": "A ação falhou"
+    },
+    "exports": {
+      "tallyTitle": "Exportar para Tally",
+      "quickbooksTitle": "Exportar para QuickBooks",
+      "zohoTitle": "Exportar para Zoho"
+    }
+  },
   "globalEmployeesPage": {
     "title": "Trabalhadores globais",
     "description": "Gerir trabalhadores EOR, prestadores e contratações diretas em todo o mundo",

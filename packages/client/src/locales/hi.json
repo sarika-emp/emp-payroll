@@ -1136,6 +1136,82 @@
       "submit": "दावा जमा करें"
     }
   },
+  "glAccountingPage": {
+    "title": "सामान्य बही / लेखांकन",
+    "description": "पेरोल घटकों को सामान्य बही खातों से मैप करें और जर्नल प्रविष्टियाँ बनाएँ",
+    "actions": {
+      "generateJournal": "जर्नल बनाएँ",
+      "addMapping": "मैपिंग जोड़ें",
+      "deleteMapping": "मैपिंग हटाएँ",
+      "cancel": "रद्द करें",
+      "saveMapping": "मैपिंग सहेजें",
+      "generate": "बनाएँ"
+    },
+    "stats": {
+      "mappings": "सामान्य बही मैपिंग",
+      "journals": "जर्नल प्रविष्टियाँ",
+      "exported": "निर्यातित"
+    },
+    "tabs": {
+      "mappings": "सामान्य बही मैपिंग",
+      "journals": "जर्नल प्रविष्टियाँ",
+      "exported": "निर्यातित"
+    },
+    "mappingTable": {
+      "payComponent": "वेतन घटक",
+      "accountCode": "खाता कोड",
+      "accountName": "खाता नाम",
+      "description": "विवरण"
+    },
+    "journalTable": {
+      "date": "तिथि",
+      "payrollRun": "पेरोल रन",
+      "totalDebit": "कुल डेबिट",
+      "totalCredit": "कुल क्रेडिट",
+      "status": "स्थिति",
+      "export": "निर्यात"
+    },
+    "statuses": {
+      "draft": "प्रारूप",
+      "posted": "पोस्ट किया गया",
+      "exported": "निर्यातित"
+    },
+    "empty": {
+      "mappings": "कोई सामान्य बही मैपिंग कॉन्फ़िगर नहीं है",
+      "journals": "कोई जर्नल प्रविष्टि नहीं बनाई गई",
+      "exported": "अभी कोई जर्नल निर्यात नहीं किया गया"
+    },
+    "mappingModal": {
+      "title": "सामान्य बही मैपिंग जोड़ें",
+      "payComponentCode": "वेतन घटक कोड",
+      "payComponentPlaceholder": "जैसे BASIC, HRA, EPF, TDS",
+      "accountCode": "खाता कोड",
+      "accountCodePlaceholder": "जैसे 4001",
+      "accountName": "खाता नाम",
+      "accountNamePlaceholder": "जैसे वेतन व्यय",
+      "description": "विवरण"
+    },
+    "journalModal": {
+      "title": "जर्नल प्रविष्टि बनाएँ",
+      "payrollRun": "पेरोल रन",
+      "selectRun": "पेरोल रन चुनें...",
+      "help": "यह आपके कॉन्फ़िगर किए गए सामान्य बही मैपिंग का उपयोग करके चुने गए पेरोल रन से जर्नल प्रविष्टियाँ बनाएगा।"
+    },
+    "validation": {
+      "accountCode": "खाता कोड एक धनात्मक संख्या होना चाहिए, जिसमें ऋण चिह्न, अक्षर या रिक्त स्थान न हों"
+    },
+    "messages": {
+      "mappingCreated": "सामान्य बही मैपिंग बनाई गई",
+      "journalGenerated": "जर्नल प्रविष्टि बनाई गई",
+      "mappingDeleted": "मैपिंग हटाई गई",
+      "failed": "कार्रवाई विफल रही"
+    },
+    "exports": {
+      "tallyTitle": "Tally में निर्यात करें",
+      "quickbooksTitle": "QuickBooks में निर्यात करें",
+      "zohoTitle": "Zoho में निर्यात करें"
+    }
+  },
   "globalEmployeesPage": {
     "title": "वैश्विक कर्मचारी",
     "description": "दुनिया भर के EOR, ठेकेदार और सीधे नियुक्त कर्मचारियों का प्रबंधन करें",
