@@ -1162,6 +1162,42 @@
       "submit": "Enviar reclamación"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "Nómina global",
+    "description": "Gestiona tu plantilla mundial en distintos países, divisas y requisitos de cumplimiento",
+    "stats": {
+      "activeEmployees": "Empleados activos",
+      "countries": "Países",
+      "eorWorkers": "Trabajadores EOR",
+      "contractors": "Contratistas",
+      "complianceScore": "Puntuación de cumplimiento",
+      "pendingInvoices": "Facturas pendientes",
+      "onboarding": "Incorporación"
+    },
+    "compliance": {
+      "good": "Buena",
+      "needsAttention": "Requiere atención"
+    },
+    "employeesByCountry": {
+      "title": "Empleados por país",
+      "empty": "Aún no hay empleados. Añade tu primer empleado global."
+    },
+    "costByCurrency": {
+      "title": "Coste mensual por divisa",
+      "empty": "Aún no hay costes de nómina activos."
+    },
+    "costAnalysis": {
+      "title": "Análisis de costes por país",
+      "columns": {
+        "country": "País",
+        "employees": "Empleados",
+        "averageSalary": "Salario medio",
+        "totalGross": "Bruto total",
+        "employerCost": "Coste del empleador",
+        "netPay": "Pago neto"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "Procesos de nómina global",
     "description": "Procesa la nómina mensual por país, revísala, apruébala y márcala como pagada",

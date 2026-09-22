@@ -1151,6 +1151,42 @@
       "submit": "Enviar sinistro"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "Processamento salarial global",
+    "description": "Faça a gestão da sua força de trabalho mundial em vários países, moedas e requisitos de conformidade",
+    "stats": {
+      "activeEmployees": "Trabalhadores ativos",
+      "countries": "Países",
+      "eorWorkers": "Trabalhadores EOR",
+      "contractors": "Prestadores de serviços",
+      "complianceScore": "Índice de conformidade",
+      "pendingInvoices": "Faturas pendentes",
+      "onboarding": "Integração"
+    },
+    "compliance": {
+      "good": "Bom",
+      "needsAttention": "Requer atenção"
+    },
+    "employeesByCountry": {
+      "title": "Trabalhadores por país",
+      "empty": "Ainda não existem trabalhadores. Adicione o primeiro trabalhador global."
+    },
+    "costByCurrency": {
+      "title": "Custo mensal por moeda",
+      "empty": "Ainda não existem custos de processamento salarial ativos."
+    },
+    "costAnalysis": {
+      "title": "Análise de custos por país",
+      "columns": {
+        "country": "País",
+        "employees": "Trabalhadores",
+        "averageSalary": "Salário médio",
+        "totalGross": "Bruto total",
+        "employerCost": "Custo do empregador",
+        "netPay": "Salário líquido"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "Processamentos salariais globais",
     "description": "Processe mensalmente os salários por país, reveja, aprove e marque como pago",

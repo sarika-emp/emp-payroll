@@ -1136,6 +1136,42 @@
       "submit": "تقديم المطالبة"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "الرواتب العالمية",
+    "description": "إدارة القوى العاملة العالمية عبر البلدان والعملات ومتطلبات الامتثال",
+    "stats": {
+      "activeEmployees": "الموظفون النشطون",
+      "countries": "البلدان",
+      "eorWorkers": "موظفو EOR",
+      "contractors": "المتعاقدون",
+      "complianceScore": "درجة الامتثال",
+      "pendingInvoices": "الفواتير المعلقة",
+      "onboarding": "التهيئة"
+    },
+    "compliance": {
+      "good": "جيد",
+      "needsAttention": "يحتاج إلى اهتمام"
+    },
+    "employeesByCountry": {
+      "title": "الموظفون حسب البلد",
+      "empty": "لا يوجد موظفون حتى الآن. أضف أول موظف عالمي."
+    },
+    "costByCurrency": {
+      "title": "التكلفة الشهرية حسب العملة",
+      "empty": "لا توجد تكاليف رواتب نشطة حتى الآن."
+    },
+    "costAnalysis": {
+      "title": "تحليل التكلفة حسب البلد",
+      "columns": {
+        "country": "البلد",
+        "employees": "الموظفون",
+        "averageSalary": "متوسط الراتب",
+        "totalGross": "إجمالي الراتب",
+        "employerCost": "تكلفة صاحب العمل",
+        "netPay": "صافي الراتب"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "عمليات الرواتب العالمية",
     "description": "تشغيل الرواتب شهريًا لكل بلد ومراجعتها واعتمادها ووضع علامة مدفوع عليها",

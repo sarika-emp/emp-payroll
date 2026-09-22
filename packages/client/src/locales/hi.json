@@ -1136,6 +1136,42 @@
       "submit": "दावा जमा करें"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "वैश्विक पेरोल",
+    "description": "देशों, मुद्राओं और अनुपालन आवश्यकताओं में अपने वैश्विक कार्यबल का प्रबंधन करें",
+    "stats": {
+      "activeEmployees": "सक्रिय कर्मचारी",
+      "countries": "देश",
+      "eorWorkers": "EOR कर्मचारी",
+      "contractors": "ठेकेदार",
+      "complianceScore": "अनुपालन स्कोर",
+      "pendingInvoices": "लंबित चालान",
+      "onboarding": "ऑनबोर्डिंग"
+    },
+    "compliance": {
+      "good": "अच्छा",
+      "needsAttention": "ध्यान आवश्यक"
+    },
+    "employeesByCountry": {
+      "title": "देश के अनुसार कर्मचारी",
+      "empty": "अभी कोई कर्मचारी नहीं है। अपना पहला वैश्विक कर्मचारी जोड़ें।"
+    },
+    "costByCurrency": {
+      "title": "मुद्रा के अनुसार मासिक लागत",
+      "empty": "अभी कोई सक्रिय पेरोल लागत नहीं है।"
+    },
+    "costAnalysis": {
+      "title": "देश के अनुसार लागत विश्लेषण",
+      "columns": {
+        "country": "देश",
+        "employees": "कर्मचारी",
+        "averageSalary": "औसत वेतन",
+        "totalGross": "कुल सकल",
+        "employerCost": "नियोक्ता लागत",
+        "netPay": "शुद्ध वेतन"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "वैश्विक पेरोल रन",
     "description": "हर देश के लिए मासिक पेरोल चलाएं, समीक्षा और अनुमोदन करें तथा भुगतान किया हुआ चिह्नित करें",

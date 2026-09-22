@@ -1131,6 +1131,42 @@
       "submit": "提交理赔"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "全球薪资",
+    "description": "跨国家/地区、货币和合规要求管理您的全球员工",
+    "stats": {
+      "activeEmployees": "有效员工",
+      "countries": "国家/地区",
+      "eorWorkers": "EOR员工",
+      "contractors": "承包商",
+      "complianceScore": "合规评分",
+      "pendingInvoices": "待处理发票",
+      "onboarding": "入职中"
+    },
+    "compliance": {
+      "good": "良好",
+      "needsAttention": "需要关注"
+    },
+    "employeesByCountry": {
+      "title": "按国家/地区统计员工",
+      "empty": "暂无员工。请添加首位全球员工。"
+    },
+    "costByCurrency": {
+      "title": "按货币统计月度成本",
+      "empty": "暂无有效薪资成本。"
+    },
+    "costAnalysis": {
+      "title": "按国家/地区进行成本分析",
+      "columns": {
+        "country": "国家/地区",
+        "employees": "员工",
+        "averageSalary": "平均工资",
+        "totalGross": "税前总额",
+        "employerCost": "雇主成本",
+        "netPay": "实发工资"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "全球薪资运行",
     "description": "按国家和月份运行薪资，进行审核、批准并标记为已支付",

@@ -1170,6 +1170,42 @@
       "submit": "Submit Claim"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "Global Payroll",
+    "description": "Manage your worldwide workforce across countries, currencies, and compliance requirements",
+    "stats": {
+      "activeEmployees": "Active Employees",
+      "countries": "Countries",
+      "eorWorkers": "EOR Workers",
+      "contractors": "Contractors",
+      "complianceScore": "Compliance Score",
+      "pendingInvoices": "Pending Invoices",
+      "onboarding": "Onboarding"
+    },
+    "compliance": {
+      "good": "Good",
+      "needsAttention": "Needs attention"
+    },
+    "employeesByCountry": {
+      "title": "Employees by Country",
+      "empty": "No employees yet. Add your first global employee."
+    },
+    "costByCurrency": {
+      "title": "Monthly Cost by Currency",
+      "empty": "No active payroll costs yet."
+    },
+    "costAnalysis": {
+      "title": "Cost Analysis by Country",
+      "columns": {
+        "country": "Country",
+        "employees": "Employees",
+        "averageSalary": "Avg Salary",
+        "totalGross": "Total Gross",
+        "employerCost": "Employer Cost",
+        "netPay": "Net Pay"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "Global Payroll Runs",
     "description": "Run payroll per country per month, review, approve, and mark paid",

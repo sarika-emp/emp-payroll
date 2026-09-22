@@ -1151,6 +1151,42 @@
       "submit": "Anspruch einreichen"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "Globale Gehaltsabrechnung",
+    "description": "Verwalten Sie Ihre weltweite Belegschaft über Länder, Währungen und Compliance-Anforderungen hinweg",
+    "stats": {
+      "activeEmployees": "Aktive Mitarbeiter",
+      "countries": "Länder",
+      "eorWorkers": "EOR-Mitarbeiter",
+      "contractors": "Auftragnehmer",
+      "complianceScore": "Compliance-Bewertung",
+      "pendingInvoices": "Ausstehende Rechnungen",
+      "onboarding": "Onboarding"
+    },
+    "compliance": {
+      "good": "Gut",
+      "needsAttention": "Handlungsbedarf"
+    },
+    "employeesByCountry": {
+      "title": "Mitarbeiter nach Land",
+      "empty": "Noch keine Mitarbeiter vorhanden. Fügen Sie Ihren ersten globalen Mitarbeiter hinzu."
+    },
+    "costByCurrency": {
+      "title": "Monatliche Kosten nach Währung",
+      "empty": "Noch keine aktiven Abrechnungskosten vorhanden."
+    },
+    "costAnalysis": {
+      "title": "Kostenanalyse nach Land",
+      "columns": {
+        "country": "Land",
+        "employees": "Mitarbeiter",
+        "averageSalary": "Durchschn. Gehalt",
+        "totalGross": "Gesamtbrutto",
+        "employerCost": "Arbeitgeberkosten",
+        "netPay": "Nettogehalt"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "Globale Abrechnungsläufe",
     "description": "Gehaltsabrechnung monatlich pro Land durchführen, prüfen, genehmigen und als bezahlt markieren",

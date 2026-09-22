@@ -1152,6 +1152,42 @@
       "submit": "Déclarer le sinistre"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "Paie internationale",
+    "description": "Gérez vos effectifs mondiaux dans différents pays, devises et cadres de conformité",
+    "stats": {
+      "activeEmployees": "Salariés actifs",
+      "countries": "Pays",
+      "eorWorkers": "Salariés EOR",
+      "contractors": "Prestataires",
+      "complianceScore": "Score de conformité",
+      "pendingInvoices": "Factures en attente",
+      "onboarding": "Intégration"
+    },
+    "compliance": {
+      "good": "Bon",
+      "needsAttention": "Attention requise"
+    },
+    "employeesByCountry": {
+      "title": "Salariés par pays",
+      "empty": "Aucun salarié pour le moment. Ajoutez votre premier salarié international."
+    },
+    "costByCurrency": {
+      "title": "Coût mensuel par devise",
+      "empty": "Aucun coût de paie actif pour le moment."
+    },
+    "costAnalysis": {
+      "title": "Analyse des coûts par pays",
+      "columns": {
+        "country": "Pays",
+        "employees": "Salariés",
+        "averageSalary": "Salaire moyen",
+        "totalGross": "Brut total",
+        "employerCost": "Coût employeur",
+        "netPay": "Salaire net"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "Cycles de paie internationaux",
     "description": "Exécutez la paie mensuelle par pays, vérifiez-la, approuvez-la et marquez-la comme payée",

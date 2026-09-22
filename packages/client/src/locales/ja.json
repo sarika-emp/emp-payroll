@@ -1144,6 +1144,42 @@
       "submit": "請求を申請"
     }
   },
+  "globalPayrollDashboard": {
+    "title": "グローバル給与",
+    "description": "国、通貨、コンプライアンス要件をまたいでグローバル人材を管理します",
+    "stats": {
+      "activeEmployees": "有効な従業員",
+      "countries": "国",
+      "eorWorkers": "EOR従業員",
+      "contractors": "業務委託者",
+      "complianceScore": "コンプライアンススコア",
+      "pendingInvoices": "保留中の請求書",
+      "onboarding": "オンボーディング"
+    },
+    "compliance": {
+      "good": "良好",
+      "needsAttention": "要対応"
+    },
+    "employeesByCountry": {
+      "title": "国別従業員数",
+      "empty": "従業員はまだいません。最初のグローバル従業員を追加してください。"
+    },
+    "costByCurrency": {
+      "title": "通貨別月間コスト",
+      "empty": "有効な給与コストはまだありません。"
+    },
+    "costAnalysis": {
+      "title": "国別コスト分析",
+      "columns": {
+        "country": "国",
+        "employees": "従業員",
+        "averageSalary": "平均給与",
+        "totalGross": "総支給額",
+        "employerCost": "雇用主負担額",
+        "netPay": "手取り額"
+      }
+    }
+  },
   "globalPayrollRuns": {
     "title": "グローバル給与計算",
     "description": "国ごとに毎月の給与計算を実行し、確認、承認、支払済み処理を行います",
